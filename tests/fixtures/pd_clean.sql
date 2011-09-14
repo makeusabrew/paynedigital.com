@@ -33,7 +33,7 @@ CREATE TABLE `posts` (
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41'),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','0000-00-00 00:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41');
+INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41'),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','0000-00-00 00:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41'),(3,1,'Another Test Post','another-test-post','<p>This test post doesn\'t do much either - it\'s only here to test that posts appear in the correct order.</p>','2011-09-14 18:13:47','PUBLISHED','2011-09-14 18:13:47','2011-09-14 18:13:47');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-14 17:35:49
+-- Dump completed on 2011-09-14 18:14:17

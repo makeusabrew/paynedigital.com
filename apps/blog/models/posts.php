@@ -42,9 +42,22 @@ class Posts extends Table {
         ),
     );
 
-    public function findRecentPublished($x = 10) {
+    /**
+     * because so much of these functions are front-end specific, a status of PUBLISH
+     * is implicitly assumed unless specifically EXCLUDED in the method name
+     */
+    public function findRecent($x = 10) {
         return $this->findAll(array(
             "status" => "PUBLISHED",
         ), null, $x);
+    }
+
+    public function findByMonthAndUrl($month, $url) {
+        $month = str_replace("/", "-", $month);
+        return $this->find("`published` LIKE ? AND `url` = ? AND `status` = ?", array(
+            "{$month}%",
+            $url,
+            "PUBLISHED",
+        ));
     }
 }
