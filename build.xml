@@ -23,7 +23,7 @@
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --exclude-group selenium" />
     </target>
 
-    <target name="test" description="All Tests" depends="cleanup">
+    <target name="fulltest" description="All Tests" depends="cleanup">
         <echo msg="Running Full Test Suite" />
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit" />
     </target>
