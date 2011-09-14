@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{setting value="site.title"}{if isset($title)}: - {$title}{/if}</title>
+    <title>{block name='title'}{setting value="site.title"}{/block}</title>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.2.0.min.css" />
     <link rel="stylesheet" href="/css/main.css" />
 </head>
