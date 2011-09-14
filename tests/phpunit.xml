@@ -1,0 +1,14 @@
+<phpunit colors="true" bootstrap="bootstrap.php">
+	<testsuite name="Full Web Tests">
+        <directory>../tests</directory>
+        <directory>../jaoss/tests</directory>
+	</testsuite>
+    <filter>
+        <blacklist>
+            <directory suffix=".php">../tests</directory>
+            <directory suffix=".php">../jaoss/library/Smarty</directory>
+            <directory suffix=".php">../jaoss/tests</directory>
+        </blacklist>
+    </filter>
+</phpunit>
+

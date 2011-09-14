@@ -1,0 +1,3 @@
+log/*.log
+tmp/templates_c/*.tpl.php
+*.swp

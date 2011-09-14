@@ -1,0 +1,4 @@
+# this will only ever kick in if the preferred VirtualHost set up hasn't been followed
+# and the codebase is just being accessed directly in a subfolder. It's here as backup.
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]

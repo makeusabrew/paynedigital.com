@@ -1,0 +1,7 @@
+php_flag magic_quotes_gpc Off
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php [L]
+# uncomment the below to route all requests via xhprof
+# be sure to comment out the rewrite rule above too!
+# RewriteRule .* xhprof.php [L]
