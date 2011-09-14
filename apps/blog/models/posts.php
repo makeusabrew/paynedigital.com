@@ -4,6 +4,14 @@ class Post extends Object {
     public function getUrl() {
         return date("Y/m")."/".$this->url;
     }
+
+    public function getAuthorDisplayName() {
+        $user = Table::factory('Users')->read($this->user_id);
+        if ($user) {
+            return $user->getDisplayName();
+        }
+        return "Unknown User";
+    }
 }
 
 class Posts extends Table {
