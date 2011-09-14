@@ -1,10 +1,13 @@
 <?php
 
 class Post extends Object {
-    //
+    public function getUrl() {
+        return date("Y/m")."/".$this->url;
+    }
 }
 
 class Posts extends Table {
+    protected $order_by = '`created` DESC';
     protected $meta = array(
         'columns' => array(
             'user_id' => array(
@@ -38,4 +41,10 @@ class Posts extends Table {
             ),
         ),
     );
+
+    public function findRecentPublished($x = 10) {
+        return $this->findAll(array(
+            "status" => "PUBLISHED",
+        ), null, $x);
+    }
 }
