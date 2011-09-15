@@ -51,13 +51,34 @@ class BlogTest extends SeleniumTestController {
         $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][2]/h2/a[text()='This Is A Test Post']");
     }
 
-    // @todo could move this to a headless browser test?
-    public function testHomepageDoesNotShowDraftPosts() {
-        $this->assertTextNotPresent("This post hasn't been published");
+    public function testPostLinksFromHomepageAreCorrect() {
+        $this->open("/");
+        $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][1]/h2/a[@href='/2011/09/another-test-post']");
     }
 
-    // @todo could move this to a headless browser test?
-    public function testHomepageDoesNotShowDeletedPosts() {
-        $this->assertTextNotPresent("This Post Has Been Deleted");
+    public function testStandalonePostPageTitle() {
+        $this->open("/2011/09/another-test-post");
+        $this->assertTitle("Payne Digital Ltd - Another Test Post");
+    }
+
+    public function testNavigationLinksArePresentAndHaveCorrectTitles() {
+        $this->open("/");
+        // don't click home, just make sure it's there
+        $this->assertElementPresent("//ul[@class='nav']/li/a[@href='/' and text()='Home']");
+
+        // click the others to make sure their page titles are correct
+        $this->click("//ul[@class='nav']/li/a[@href='/about' and text()='About']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - About");
+        $this->open("/");
+        $this->click("//ul[@class='nav']/li/a[@href='/services' and text()='Services']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - Services");
+        /*
+        $this->open("/");
+        $this->click("//ul[@class='nav']/li/a[@href='/contact' AND text()='Say Hello']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - Say Hello");
+        */
     }
 }
