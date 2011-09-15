@@ -50,4 +50,14 @@ class BlogTest extends SeleniumTestController {
         $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][1]/h2/a[text()='Another Test Post']");
         $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][2]/h2/a[text()='This Is A Test Post']");
     }
+
+    // @todo could move this to a headless browser test?
+    public function testHomepageDoesNotShowDraftPosts() {
+        $this->assertTextNotPresent("This post hasn't been published");
+    }
+
+    // @todo could move this to a headless browser test?
+    public function testHomepageDoesNotShowDeletedPosts() {
+        $this->assertTextNotPresent("This Post Has Been Deleted");
+    }
 }
