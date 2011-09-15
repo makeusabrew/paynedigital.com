@@ -3,7 +3,9 @@
  * @group selenium
  */
 
-class SiteTest extends SeleniumTestController {
+class BlogTest extends SeleniumTestController {
+    protected static $fixture_file = "pd_clean";
+
     public static $browsers = array(
         array(
             "name" => "Firefox",
@@ -42,13 +44,10 @@ class SiteTest extends SeleniumTestController {
         $this->setBrowserUrl(Settings::getValue("site.base_href"));
     }
 
-    public function testHomepageTitle() {
+    public function testHomepageShowsRecentPostsInCorrectOrder() {
         $this->open("/");
-        $this->assertTitle('Payne Digital Ltd');
-    }
-
-    public function testHomepageContents() {
-        $this->open("/");
-        $this->assertTextPresent('Web Application & Mobile Development');
+        // not massively keen on such tight DOM bounding, but let's see how it goes...
+        $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][1]/h2/a[text()='Another Test Post']");
+        $this->assertElementPresent("//body/div[@class='container']/div[@class='post'][2]/h2/a[text()='This Is A Test Post']");
     }
 }
