@@ -1,6 +1,8 @@
-{extends file="base.tpl"}
-{block name="body"}
-    <h1>{setting value="site.title"}</h1>
-
-    <p>Hello world!</p>
+{extends file='default/views/base.tpl'}
+{block name='body'}
+    {foreach from=$posts item="post" name="posts"}
+        <div class='post'>
+            {include file='blog/views/partials/post.tpl'}
+        </div>
+    {/foreach}
 {/block}

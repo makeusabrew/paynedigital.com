@@ -1,10 +1,5 @@
 <?php
 class BlogController extends Controller {
-    public function index() {
-        $posts = Table::factory('Posts')->findRecent(4);
-        $this->assign('posts', $posts);
-    }
-
     public function view_post() {
         $post = Table::factory('Posts')->findByMonthAndUrl(
             $this->getMatch('month'),

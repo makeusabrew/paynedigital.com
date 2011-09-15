@@ -44,7 +44,7 @@ class SiteTest extends SeleniumTestController {
      */
     public function testHomepageTitle() {
         $this->open("/");
-        $this->assertTitle('Jaoss Web Template');
+        $this->assertTitle('Payne Digital Ltd');
     }
 
     /**
@@ -52,6 +52,6 @@ class SiteTest extends SeleniumTestController {
      */
     public function testHomepageContents() {
         $this->open("/");
-        $this->assertTextPresent('Hello world!');
+        $this->assertTextPresent('Web Application & Mobile Development');
     }
 }

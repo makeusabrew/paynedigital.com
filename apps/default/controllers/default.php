@@ -1,5 +1,10 @@
 <?php
 class DefaultController extends Controller {
+    public function index() {
+        $posts = Table::factory('Posts')->findRecent(4);
+        $this->assign('posts', $posts);
+    }
+
     public function view_static() {
         try {
             return $this->renderStatic($this->getMatch('path'));
