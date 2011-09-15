@@ -47,13 +47,14 @@
 {/if}
 
 <div class="clearfix{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
-    <label for="{$field}">{$title}{if $error}<span id="{$field}_error" class="error">{if !isset($supress_messages)}{$error}{/if}{/if}</span></label>
+    <label for="{$field}">{$title}</label>
     <div class="input">
         {if $type == "textarea"}
             <textarea {if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}">{if isset($value)}{$value|htmlentities8}{/if}</textarea>
         {else}
             <input{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}" />
         {/if}
+        {if $error}<span id="{$field}_error" class="help-inline">{if !isset($supress_messages)}{$error}{/if}{/if}</span>
     </div>
 </div>
 

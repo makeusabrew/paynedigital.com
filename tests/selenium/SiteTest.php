@@ -51,4 +51,23 @@ class SiteTest extends SeleniumTestController {
         $this->open("/");
         $this->assertTextPresent('Web Application & Mobile Development');
     }
+
+    public function testNavigationLinksArePresentAndHaveCorrectTitles() {
+        $this->open("/");
+        // don't click home, just make sure it's there
+        $this->assertElementPresent("//ul[@class='nav']/li/a[@href='/' and text()='Home']");
+
+        // click the others to make sure their page titles are correct
+        $this->click("//ul[@class='nav']/li/a[@href='/about' and text()='About']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - About");
+        $this->open("/");
+        $this->click("//ul[@class='nav']/li/a[@href='/services' and text()='Services']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - Services");
+        $this->open("/");
+        $this->click("//ul[@class='nav']/li/a[@href='/contact' and text()='Say Hello']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - Say Hello");
+    }
 }

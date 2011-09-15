@@ -14,29 +14,6 @@ class BlogTest extends SeleniumTestController {
             "port" => 4444,
             "timeout" => 30000,
         ),
-        /*
-        array(
-            "name" => "IE7",
-            "browser" => "*iexplore",
-            "host" => "ie7.vm.winxp",
-            "port" => 4444,
-            "timeout" => 30000,
-        ),
-        array(
-            "name" => "Safari",
-            "browser" => "*safari",
-            "host" => "127.0.0.1",
-            "port" => 4444,
-            "timeout" => 30000,
-        ),
-        array(
-            "name" => "Chrome",
-            "browser" => "*googlechrome",
-            "host" => "chrome.vm.linux",
-            "port" => 4444,
-            "timeout" => 30000,
-        ),
-        */
     );
 
     public function setUp() {
@@ -59,26 +36,5 @@ class BlogTest extends SeleniumTestController {
     public function testStandalonePostPageTitle() {
         $this->open("/2011/09/another-test-post");
         $this->assertTitle("Payne Digital Ltd - Another Test Post");
-    }
-
-    public function testNavigationLinksArePresentAndHaveCorrectTitles() {
-        $this->open("/");
-        // don't click home, just make sure it's there
-        $this->assertElementPresent("//ul[@class='nav']/li/a[@href='/' and text()='Home']");
-
-        // click the others to make sure their page titles are correct
-        $this->click("//ul[@class='nav']/li/a[@href='/about' and text()='About']");
-        $this->waitForPageToLoad(5000);
-        $this->assertTitle("Payne Digital Ltd - About");
-        $this->open("/");
-        $this->click("//ul[@class='nav']/li/a[@href='/services' and text()='Services']");
-        $this->waitForPageToLoad(5000);
-        $this->assertTitle("Payne Digital Ltd - Services");
-        /*
-        $this->open("/");
-        $this->click("//ul[@class='nav']/li/a[@href='/contact' AND text()='Say Hello']");
-        $this->waitForPageToLoad(5000);
-        $this->assertTitle("Payne Digital Ltd - Say Hello");
-        */
     }
 }
