@@ -19,6 +19,24 @@ class Post extends Object {
             'approved' => true,
         ));
     }
+
+    public function getTags() {
+        $tags = explode("|", $this->tags);
+        if ($tags === false || count($tags) === 0) {
+            return array();
+        }
+        if (current($tags) == "") {
+            array_shift($tags);
+        }
+        if (end($tags) == "") {
+            array_pop($tags);
+        }
+        return $tags;
+    }
+
+    public function getTagsAsString() {
+        return implode(", ", $this->getTags());
+    }
 }
 
 class Posts extends Table {
@@ -78,4 +96,17 @@ class Posts extends Table {
             "PUBLISHED",
         ));
     }
+    /* needed later
+    public function findAllActiveForTag($tag, $user_id = null) {
+        $sql = "`tags` LIKE ? AND `active` = ?";
+        $params = array("%|".$tag."|%", true);
+
+        if ($user_id !== null) {
+            $sql .= " AND `user_id` = ?";
+            $params[] = $user_id;
+        }
+
+        return $this->findAll($sql, $params);
+    }
+    */
 }
