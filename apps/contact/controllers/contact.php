@@ -10,6 +10,20 @@ class ContactController extends Controller {
             if ($contact->setValues($this->request->getPost())) {
                 // all good. add, and stuff
                 $contact->save();
+
+                $address = Settings::getValue("contact.address");
+                $subject = "Enquiry via paynedigital.com";
+                $from = $contact->name." <".$contact->email.">";
+                $email = Email::factory();
+                $email->setFrom($from);
+                $email->setTo($address);
+                $email->setSubject($subject);
+                $email->setBodyFromTemplate("emails/contact", array(
+                    "query" => $contact->content,
+                    "name" => $contact->name,
+                ));
+                $email->send();
+
                 if (!$this->request->isAjax()) {
                     $this->setFlash("contact_thanks");
                     return $this->redirectAction("thanks");
