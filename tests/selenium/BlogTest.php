@@ -37,4 +37,13 @@ class BlogTest extends SeleniumTestController {
         $this->open("/2011/09/another-test-post");
         $this->assertTitle("Payne Digital Ltd - Another Test Post");
     }
+
+    public function testCommentFormWithValidData() {
+        $this->open("/2011/09/another-test-post");
+        $this->type("id=name", "Test User");
+        $this->type("id=email", "test@example.com");
+        $this->type("id=content", "This is a test comment generated at ".date("Y-m-d H:i:s"));
+        $this->click("//form/div/input[@type='submit']");
+        $this->waitForTextPresent("Thanks! Your comment has been submitted and will be reviewed shortly.");
+    }
 }
