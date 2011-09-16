@@ -54,6 +54,9 @@ class Posts extends Table {
                     'DELETED',
                 ),
             ),
+            'tags' => array(
+                'type' => 'text',
+            ),
         ),
     );
 

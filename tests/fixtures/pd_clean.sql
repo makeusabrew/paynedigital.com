@@ -35,7 +35,7 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `approved` (`approved`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47');
+INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:47:54','2011-09-16 13:47:54');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `contacts` (
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (1,'Test Person','test@example.com','This is a test message','2011-09-16 11:17:36','2011-09-16 11:17:36'),(2,'Test Person','test@example.com','This is a test message','2011-09-16 12:56:47','2011-09-16 12:56:47');
+INSERT INTO `contacts` VALUES (1,'Test Person','test@example.com','This is a test message','2011-09-16 11:17:36','2011-09-16 11:17:36'),(2,'Test Person','test@example.com','This is a test message','2011-09-16 12:56:47','2011-09-16 12:56:47'),(3,'Test Person','test@example.com','This is a test message','2011-09-16 13:47:55','2011-09-16 13:47:55');
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,11 +93,13 @@ CREATE TABLE `posts` (
   `status` enum('DRAFT','PUBLISHED','DELETED') COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
+  `tags` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `url` (`url`),
   KEY `user_id` (`user_id`),
   KEY `published` (`published`),
-  KEY `status` (`status`)
+  KEY `status` (`status`),
+  KEY `tags` (`tags`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -107,7 +109,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41'),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','0000-00-00 00:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41'),(3,2,'Another Test Post','another-test-post','<p>This test post doesn\'t do much either - it\'s only here to test that posts appear in the correct order.</p>','2011-09-14 18:13:47','PUBLISHED','2011-09-14 18:13:47','2011-09-14 18:13:47'),(4,1,'This Post Has Been Deleted','this-post-has-been-deleted','<p>Oh well. Nevermind.</p>','2011-09-15 14:43:11','DELETED','2011-09-15 14:43:11','2011-09-15 14:43:11');
+INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41',''),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','0000-00-00 00:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41',''),(3,2,'Another Test Post','another-test-post','<p>This test post doesn\'t do much either - it\'s only here to test that posts appear in the correct order.</p>','2011-09-14 18:13:47','PUBLISHED','2011-09-14 18:13:47','2011-09-14 18:13:47',''),(4,1,'This Post Has Been Deleted','this-post-has-been-deleted','<p>Oh well. Nevermind.</p>','2011-09-15 14:43:11','DELETED','2011-09-15 14:43:11','2011-09-15 14:43:11','');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-16 13:15:19
+-- Dump completed on 2011-09-16 13:49:22
