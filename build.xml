@@ -55,7 +55,7 @@
         --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
     </target>
 
-    <target name="dist" depends="fullbuild">
+    <target name="dist">
         <echo msg="creating temporary files" />
         <delete dir="/tmp/${env.BUILD_TAG}" />
         <copy todir="/tmp/${env.BUILD_TAG}" overwrite="true" includeemptydirs="true">
