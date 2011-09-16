@@ -2,7 +2,7 @@
 
 class Post extends Object {
     public function getUrl() {
-        return date("Y/m")."/".$this->url;
+        return date("Y/m", strtotime($this->published))."/".$this->url;
     }
 
     public function getAuthorDisplayName() {
