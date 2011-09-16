@@ -33,6 +33,11 @@
             <p>Your body content goes here.</p>
         {/block}
     </div>
+    <div id='footer'>
+        <div class='well'>
+            &copy; 2011 Payne Digital Ltd
+        </div>
+    </div>
 
     {*
       ordinarily body will probably be wrapped with surrounding markup, so it

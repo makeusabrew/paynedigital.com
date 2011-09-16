@@ -58,7 +58,7 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->reset();
         // @todo fix the dispatch stuff? - it chokes on anchor tags. poss not required
         $this->request->dispatch("/2011/09/another-test-post/comment/thanks");
-        $this->assertBodyHasContents("Thanks! Your comment has been submitted and will be reviewed shortly.");
+        $this->assertBodyHasContents("<strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.");
     }
 
     public function testCommentFormWithNoData() {

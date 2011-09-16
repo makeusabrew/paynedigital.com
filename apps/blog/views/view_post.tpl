@@ -6,8 +6,8 @@
         <h3>Comments</h3>
         <div class='existing'>
             {if isset($comment_submitted)}
-                <div class='submitted'>
-                    Thanks! Your comment has been submitted and will be reviewed shortly.
+                <div class='alert-message success'>
+                    <p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p>
                 </div>
             {/if}
             {foreach from=$comments item="comment" name="loop"}
@@ -78,10 +78,11 @@
                     $(self).parent().parent(".row").remove();
                     $("#comments p.no-comments").remove();
                     $("#comments .existing").prepend(
-                        "<div class='submitted'> "+
-                            "Thanks! Your comment has been submitted and will be reviewed shortly. "+
+                        "<div class='alert-message success' style='display:none;'> "+
+                            "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
                         "</div>"
                     );
+                    $("#comments .existing .alert-message").fadeIn('slow');
                 }, "json");
             });
         });
