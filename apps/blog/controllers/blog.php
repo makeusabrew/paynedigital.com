@@ -42,7 +42,6 @@ class BlogController extends Controller {
         if ($comment->setValues($data)) {
             $comment->save();
 
-            /*
             $address = Settings::getValue("contact.address");
             $subject = "New comment submission (paynedigital.com)";
             $from = $comment->name." <".$comment->email.">";
@@ -51,11 +50,10 @@ class BlogController extends Controller {
             $email->setTo($address);
             $email->setSubject($subject);
             $email->setBodyFromTemplate("emails/comment", array(
-                "post"    => $post,
+                "post"    => $this->post,
                 "comment" => $comment,
             ));
             $email->send();
-            */
 
             if (!$this->request->isAjax()) {
                 $this->setFlash("comment_thanks");
