@@ -4,7 +4,7 @@
         <time>{$post->published|date_format:"d/m/y H:i"}</time> by <b>{$post->user->getDisplayName()}</b>,
         tagged with:
         {foreach from=$post->getTags() item="tag" name="tag_loop"}
-            <a href="/tag/{$tag|lower}"{if isset($search_tag) && $search_tag == $tag} class='search-tag'{/if}>{$tag|htmlentities8}</a>{if !$smarty.foreach.tag_loop.last}, {/if}
+            <a href="/tag/{$tag|lower}"{if isset($search_tag) && $search_tag == $tag|lower} class='search-tag'{/if}>{$tag|htmlentities8}</a>{if !$smarty.foreach.tag_loop.last}, {/if}
         {/foreach}
     </div>
     <div class='content'>
