@@ -8,6 +8,20 @@ class ContactControllerTest extends PHPUnitTestController {
         ));
     }
 
+    public function testContactFormWithValidData() {
+        $this->request->setMethod("POST")->setParams(array(
+            "name" => "Test Person",
+            "email" => "test@example.com",
+            "content" => "This is a test message",
+        ))->dispatch("/contact");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/contact/thanks");
+        $this->request->reset();
+        $this->request->dispatch("/contact/thanks");
+        $this->assertBodyHasContents("Thanks!");
+    }
+
     public function testContactFormWithNoData() {
         $this->request->setMethod("POST")->setParams(array(
             "name" => "",

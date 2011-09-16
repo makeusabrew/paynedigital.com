@@ -38,7 +38,8 @@
     {*
       ordinarily body will probably be wrapped with surrounding markup, so it
       makes sense to have a separate block to put script tags in
-     *}
+    *}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     {block name="script"}{/block}
 
     {* default tracking is GA *}

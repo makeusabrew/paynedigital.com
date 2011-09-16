@@ -2,14 +2,18 @@
 
 class ContactController extends Controller {
     public function index() {
-        $this->assign("columns", Table::factory('Contacts')->getColumns());
+        if (!$this->request->isAjax()) {
+            $this->assign("columns", Table::factory('Contacts')->getColumns());
+        }
         if ($this->request->isPost()) {
             $contact = Table::factory('Contacts')->newObject();
             if ($contact->setValues($this->request->getPost())) {
                 // all good. add, and stuff
                 $contact->save();
-                $this->setFlash("contact_thanks");
-                return $this->redirectAction("thanks");
+                if (!$this->request->isAjax()) {
+                    $this->setFlash("contact_thanks");
+                    return $this->redirectAction("thanks");
+                }
             } else {
                 $this->setErrors($contact->getErrors());
             }

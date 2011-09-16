@@ -19,7 +19,7 @@
 {/if}
 {if !isset($required)}
     {if isset($coldata.required)}
-        {assign var="required" value=$coldata.required}
+        {assign var="required" value=false}
     {else}
         {assign var="required" value=false}
     {/if}
@@ -61,7 +61,7 @@
         {else}
             <input{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
         {/if}
-        {if $error}<span id="{$field}_error" class="help-inline">{if !isset($supress_messages)}{$error}{/if}{/if}</span>
+        <span id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
     </div>
 </div>
 
