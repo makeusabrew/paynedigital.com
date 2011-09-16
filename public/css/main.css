@@ -65,3 +65,11 @@ a mark {
 .post .content {
     margin:1em 0;
 }
+
+a {
+    color:#AB0027;
+}
+
+a:hover {
+    color:#7D001D;
+}
