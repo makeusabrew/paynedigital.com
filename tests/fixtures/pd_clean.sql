@@ -35,7 +35,7 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `approved` (`approved`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:47:54','2011-09-16 13:47:54'),(4,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:54:04','2011-09-16 13:54:04');
+INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:47:54','2011-09-16 13:47:54'),(4,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:54:04','2011-09-16 13:54:04'),(5,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 14:17:01','2011-09-16 14:17:01'),(6,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 14:17:17','2011-09-16 14:17:17');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `contacts` (
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (1,'Test Person','test@example.com','This is a test message','2011-09-16 11:17:36','2011-09-16 11:17:36'),(2,'Test Person','test@example.com','This is a test message','2011-09-16 12:56:47','2011-09-16 12:56:47'),(3,'Test Person','test@example.com','This is a test message','2011-09-16 13:47:55','2011-09-16 13:47:55'),(4,'Test Person','test@example.com','This is a test message','2011-09-16 13:54:04','2011-09-16 13:54:04');
+INSERT INTO `contacts` VALUES (1,'Test Person','test@example.com','This is a test message','2011-09-16 11:17:36','2011-09-16 11:17:36'),(2,'Test Person','test@example.com','This is a test message','2011-09-16 12:56:47','2011-09-16 12:56:47'),(3,'Test Person','test@example.com','This is a test message','2011-09-16 13:47:55','2011-09-16 13:47:55'),(4,'Test Person','test@example.com','This is a test message','2011-09-16 13:54:04','2011-09-16 13:54:04'),(5,'Test Person','test@example.com','This is a test message','2011-09-16 14:17:02','2011-09-16 14:17:02'),(6,'Test Person','test@example.com','This is a test message','2011-09-16 14:17:19','2011-09-16 14:17:19');
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +125,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `forename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `surname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `twitter_username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -137,7 +138,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@example.com','Test','User','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','Another','Tester','2011-09-14 19:12:38','2011-09-14 19:12:38');
+INSERT INTO `users` VALUES (1,'test@example.com','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -150,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-16 13:56:10
+-- Dump completed on 2011-09-16 14:29:08

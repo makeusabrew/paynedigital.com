@@ -18,6 +18,9 @@ class Users extends Table {
             'surname' => array(
                 'type' => 'text',
             ),
+            'twitter_username' => array(
+                'type' => 'text',
+            ),
         ),
     );
 }

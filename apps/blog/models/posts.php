@@ -45,7 +45,7 @@ class Posts extends Table {
         'columns' => array(
             'user_id' => array(
                 'type' => 'foreign_key',
-                'model' => 'Users', // @todo verify!
+                'table' => 'Users',
             ),
             'title' => array(
                 'type' => 'text',
