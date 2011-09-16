@@ -12,6 +12,13 @@ class Post extends Object {
         }
         return "Unknown User";
     }
+
+    public function getApprovedComments() {
+        return Table::factory('Comments')->findAll(array(
+            'post_id' => $this->getId(),
+            'approved' => true,
+        ));
+    }
 }
 
 class Posts extends Table {

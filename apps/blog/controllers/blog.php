@@ -9,5 +9,9 @@ class BlogController extends Controller {
             throw new CoreException('No matching blog post found', CoreException::PATH_REJECTED);
         }
         $this->assign('post', $post);
+        $this->assign('comments', $post->getApprovedComments());
+
+        // get the fields for comments
+        $this->assign('columns', Table::factory('Comments')->getColumns());
     }
 }

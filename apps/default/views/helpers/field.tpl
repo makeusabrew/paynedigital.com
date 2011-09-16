@@ -19,7 +19,7 @@
 {/if}
 {if !isset($required)}
     {if isset($coldata.required)}
-        {assign var="required" value=false}
+        {assign var="required" value=$coldata.required}
     {else}
         {assign var="required" value=false}
     {/if}
@@ -57,9 +57,9 @@
     <label for="{$field}">{$title}</label>
     <div class="input">
         {if $type == "textarea"}
-            <textarea {if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
+            <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
         {else}
-            <input{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
+            <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
         {/if}
         <span id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
     </div>
