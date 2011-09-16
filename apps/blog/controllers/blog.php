@@ -73,4 +73,10 @@ class BlogController extends Controller {
         $this->assign('comment_submitted', true);
         return $this->render("view_post");
     }
+
+    public function search_tags() {
+        $posts = Table::factory('Posts')->findAllForTag($this->getMatch('tag'));
+        $this->assign('search_tag', $this->getMatch('tag'));
+        $this->assign('posts', $posts);
+    }
 }

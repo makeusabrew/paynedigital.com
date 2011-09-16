@@ -96,17 +96,11 @@ class Posts extends Table {
             "PUBLISHED",
         ));
     }
-    /* needed later
-    public function findAllActiveForTag($tag, $user_id = null) {
-        $sql = "`tags` LIKE ? AND `active` = ?";
-        $params = array("%|".$tag."|%", true);
 
-        if ($user_id !== null) {
-            $sql .= " AND `user_id` = ?";
-            $params[] = $user_id;
-        }
+    public function findAllForTag($tag) {
+        $sql = "`tags` LIKE ? AND `status` = ?";
+        $params = array("%|".$tag."|%", "PUBLISHED");
 
         return $this->findAll($sql, $params);
     }
-    */
 }

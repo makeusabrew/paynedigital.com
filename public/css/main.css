@@ -17,7 +17,7 @@ body {
     background: linear-gradient(top, #d2ff52 0%,#91e842 100%); /* W3C */
 }
 
-.post {
+#posts .post {
     margin-bottom:1em;
     border-bottom:1px solid #ddd;
 }
@@ -32,4 +32,10 @@ body {
     padding: 1em;
     background: #efe;
     border: 1px solid #dfd;
+}
+
+a.search-tag {
+    background:#eef;
+    border:1px solid #ddf;
+    padding: 0.1em 0.25em;
 }

@@ -81,4 +81,34 @@ class BlogControllerTest extends PHPUnitTestController {
 
         $this->assertBodyHasContents("Email Address is not a valid email address");
     }
+
+    public function testTagSearch() {
+        $this->request->dispatch("/tag/test");
+
+        $this->assertBodyHasContents("Another Test Post");
+        $this->assertBodyHasContents("This Is A Test Post");
+
+        $this->assertBodyDoesNotHaveContents("This post hasn't been published");
+        $this->assertBodyDoesNotHaveContents("This Post Has Been Deleted");
+
+        $this->request->reset();
+
+        $this->request->dispatch("/tag/php");
+
+        $this->assertBodyHasContents("Another Test Post");
+
+        $this->assertBodyDoesNotHaveContents("This Is A Test Post");
+        $this->assertBodyDoesNotHaveContents("This post hasn't been published");
+        $this->assertBodyDoesNotHaveContents("This Post Has Been Deleted");
+
+        $this->request->reset();
+
+        $this->request->dispatch("/tag/music");
+
+        $this->assertBodyHasContents("This Is A Test Post");
+
+        $this->assertBodyDoesNotHaveContents("Another Test Post");
+        $this->assertBodyDoesNotHaveContents("This post hasn't been published");
+        $this->assertBodyDoesNotHaveContents("This Post Has Been Deleted");
+    }
 }
