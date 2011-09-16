@@ -42,10 +42,11 @@ body {
     border: 1px solid #dfd;
 }
 
-a.search-tag {
+a mark {
     background:#eef;
     border:1px solid #ddf;
     padding: 0.1em 0.25em;
+    color:inherit;
 }
 
 .post .content {
