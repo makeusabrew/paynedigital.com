@@ -1,7 +1,7 @@
 <div class='post'>
     <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     <div class='info'>
-        <time>{$post->published|date_format:"d/m/y H:i"}</time> by <b>{$post->user->getDisplayName()}</b>,
+        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <b>{$post->user->getDisplayName()}</b>,
         tagged with:
         {foreach from=$post->getTags() item="tag" name="tag_loop"}
             <a href="/tag/{$tag|lower}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$smarty.foreach.tag_loop.last}, {/if}
