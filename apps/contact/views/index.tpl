@@ -7,9 +7,9 @@
     <div class="row">
         <div class="span8 columns">
             <form action="/contact" method="post">
-                {include file="default/views/helpers/field.tpl" field="name" title="Your Name"}
-                {include file="default/views/helpers/field.tpl" field="email" type="email" title="Email Address"}
-                {include file="default/views/helpers/field.tpl" field="content" title="Message" type="textarea"}
+                {include file="default/views/helpers/field.tpl" field="name"}
+                {include file="default/views/helpers/field.tpl" field="email"}
+                {include file="default/views/helpers/field.tpl" field="content"}
                 <div class="actions">
                     <input type="submit" value="Send" class="btn primary" />
                 </div>

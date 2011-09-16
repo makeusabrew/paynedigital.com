@@ -2,7 +2,7 @@
 
 class ContactController extends Controller {
     public function index() {
-        //$this->assign("columns", Table::factory('Contacts')->getColumns());
+        $this->assign("columns", Table::factory('Contacts')->getColumns());
         if ($this->request->isPost()) {
             $contact = Table::factory('Contacts')->newObject();
             if ($contact->setValues($this->request->getPost())) {

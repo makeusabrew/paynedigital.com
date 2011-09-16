@@ -31,4 +31,19 @@ class ContactTest extends SeleniumTestController {
         $this->assertTitle("Payne Digital Ltd - Thanks!");
         $this->assertTextPresent("Thanks!");
     }
+
+    /**
+     * hmm, selenium doesn't seem to pick up HTML5 messages
+     * as a poor substitute, I'm moving this to a headless browser test
+     * so we can at least check the fallback errors
+     */
+    /*
+    public function testContactFormWithNoData() {
+        $this->open("/contact");
+        $this->type("id=name", "");
+        $this->click("//form/div/input[@type='submit']");
+        // html5 messages
+        $this->waitForTextPresent("Please fill in this field.");
+    }
+    */
 }
