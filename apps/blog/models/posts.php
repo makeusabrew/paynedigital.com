@@ -103,4 +103,11 @@ class Posts extends Table {
 
         return $this->findAll($sql, $params);
     }
+
+    public function findAllForTagOrTitle($q, $user_id = null) {
+        $sql = "(`tags` LIKE ? OR `title` LIKE ?) AND `status` = ?";
+        $params = array("%|".$q."|%", "%".$q."%", "PUBLISHED");
+
+        return $this->findAll($sql, $params);
+    }
 }
