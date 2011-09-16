@@ -9,8 +9,7 @@
 <body>
     <div id='header'>
         <div class='container'>
-            <h1>Payne Digital Ltd</h1>
-            <p>Web Application &amp; Mobile Development</p>
+            <h1>Web Application &amp; Mobile Development</h1>
         </div>
     </div>
     <div class='topbar'>

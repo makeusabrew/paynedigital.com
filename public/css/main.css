@@ -21,3 +21,15 @@ body {
     margin-bottom:1em;
     border-bottom:1px solid #ddd;
 }
+
+
+#comments .comment {
+    padding:1em 0;
+    border-bottom:1px solid #ddd;
+}
+
+#comments .submitted {
+    padding: 1em;
+    background: #efe;
+    border: 1px solid #dfd;
+}
