@@ -9,4 +9,3 @@
         {/foreach}
     </div>
 {/block}
-

@@ -25,9 +25,13 @@ body {
     margin-bottom:0;
 }
 
-#posts .post {
+.post {
     margin-bottom:1em;
+}
+
+#posts .post {
     border-bottom:1px solid #ddd;
+    padding-bottom:1em;
 }
 
 
@@ -40,6 +44,15 @@ body {
     padding: 1em;
     background: #efe;
     border: 1px solid #dfd;
+}
+
+#comments .commenter {
+    display:block;
+    font-weight:bold;
+}
+
+#comments .comment time {
+    font-size:0.8em;
 }
 
 a mark {

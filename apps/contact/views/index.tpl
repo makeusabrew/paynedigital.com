@@ -4,22 +4,19 @@
     <div class='page-header'>
         <h2>Say Hello</h2>
     </div>
-    <div class="row">
-        <div class="span8 columns">
-            <form action="/contact" method="post">
-                {include file="default/views/helpers/field.tpl" field="name"}
-                {include file="default/views/helpers/field.tpl" field="email"}
-                {include file="default/views/helpers/field.tpl" field="content"}
-                <div class="actions">
-                    <input type="submit" value="Send" class="btn primary" />
-                </div>
-            </form>
-        </div>
-        <div class="span8 columns">
-            <p>We'd love to hear from you! No, seriously... feel free to get in touch about
-            anything at all. If you're not sure why you'd want to then why not check out
-            the <a href="/services">services we offer</a>?</p>
-        </div>
+
+    <div id='content-wrapper'>
+        <p>We'd love to hear from you! No, seriously... feel free to get in touch about
+        anything at all. If you're not sure why you'd want to then why not check out
+        the <a href="/services">services we offer</a>?</p>
+        <form action="/contact" method="post">
+            {include file="default/views/helpers/field.tpl" field="name"}
+            {include file="default/views/helpers/field.tpl" field="email"}
+            {include file="default/views/helpers/field.tpl" field="content"}
+            <div class="actions">
+                <input type="submit" value="Send" class="btn primary" />
+            </div>
+        </form>
     </div>
 {/block}
 {block name='script'}
@@ -45,10 +42,12 @@
                         return;
                     }
                     // all good then!
-                    $(".page-header h2").html("Thanks!");
-                    $(".row").replaceWith(
-                        "<p>We appreciate you getting in touch and will get back to you shortly.</p>"
+                    $("#content-wrapper").html(
+                        "<div class='alert-message success' style='display:none;'> "+
+                            "<p><strong>Thanks!</strong>We appreciate you getting in touch and will get back to you shortly.</p> "+
+                        "</div>"
                     );
+                    $("#content-wrapper .alert-message").fadeIn('slow');
                 }, "json");
             });
         });

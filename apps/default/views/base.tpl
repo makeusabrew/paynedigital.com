@@ -29,9 +29,24 @@
         </div>
     </div>
     <div class='container'>
-        {block name="body"}
-            <p>Your body content goes here.</p>
-        {/block}
+        <div class='row'>
+            <div class='span11 columns'>
+                {block name="body"}
+                    <p>Your body content goes here.</p>
+                {/block}
+            </div>
+            <div class='span5 columns'>
+                {block name="secondary"}
+                    <p>
+                        <b>Hello!</b> Payne Digital make all sorts of things - from websites,
+                        web apps, mobile apps &amp; games all the way through to more experimental
+                        demos using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+                    </p>
+                    <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+                    probably <a href="/services">offer you</a> more than you think.</p>
+                {/block}
+            </div>
+        </div>
     </div>
     <div id='footer'>
         <div class='well'>
