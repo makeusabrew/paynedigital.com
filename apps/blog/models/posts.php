@@ -85,7 +85,7 @@ class Posts extends Table {
     public function findRecent($x = 10) {
         return $this->findAll(array(
             "status" => "PUBLISHED",
-        ), null, $x);
+        ), null, null, $x);
     }
 
     public function findByMonthAndUrl($month, $url) {
