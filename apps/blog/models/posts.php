@@ -83,14 +83,15 @@ class Posts extends Table {
      * is implicitly assumed unless specifically EXCLUDED in the method name
      */
     public function findRecent($x = 10) {
-        return $this->findAll(array(
-            "status" => "PUBLISHED",
-        ), null, null, $x);
+        $date = Utils::getDate("Y-m-d H:i:s");
+        return $this->findAll("`status` = ? AND `published` <= ?", array("PUBLISHED", $date), null, $x);
     }
 
     public function findByMonthAndUrl($month, $url) {
         $month = str_replace("/", "-", $month);
-        return $this->find("`published` LIKE ? AND `url` = ? AND `status` = ?", array(
+        $date = Utils::getDate("Y-m-d H:i:s");
+        return $this->find("`published` <= ? AND `published` LIKE ? AND `url` = ? AND `status` = ?", array(
+            $date,
             "{$month}%",
             $url,
             "PUBLISHED",
@@ -98,15 +99,17 @@ class Posts extends Table {
     }
 
     public function findAllForTag($tag) {
-        $sql = "`tags` LIKE ? AND `status` = ?";
-        $params = array("%|".$tag."|%", "PUBLISHED");
+        $date = Utils::getDate("Y-m-d H:i:s");
+        $sql = "`tags` LIKE ? AND `status` = ? AND `published` <= ?";
+        $params = array("%|".$tag."|%", "PUBLISHED", $date);
 
         return $this->findAll($sql, $params);
     }
 
     public function findAllForTagOrTitle($q, $user_id = null) {
-        $sql = "(`tags` LIKE ? OR `title` LIKE ?) AND `status` = ?";
-        $params = array("%|".$q."|%", "%".$q."%", "PUBLISHED");
+        $date = Utils::getDate("Y-m-d H:i:s");
+        $sql = "(`tags` LIKE ? OR `title` LIKE ?) AND `status` = ? AND `published` <= ?";
+        $params = array("%|".$q."|%", "%".$q."%", "PUBLISHED", $date);
 
         return $this->findAll($sql, $params);
     }
