@@ -54,38 +54,19 @@
     </div>
 {/block}
 {block name='script'}
+    <script src="/js/forms.js"></script>
     <script>
         $(function() {
-            $("form[method='post']").submit(function(e) {
-                var self = this;
-                e.preventDefault();
-
-                $(self).find("input[type='submit']").attr("disabled", "");
-                // clear out any error states we had before
-                $(self).find(".clearfix.error").removeClass("error");
-                $(self).find("span.help-block").html("");
-                $.post($(self).attr("action"), $(self).serialize(), function(response) {
-                    $(self).find("input[type='submit']").removeAttr("disabled");
-                    if (response._errors != null) {
-                        // deal with em
-                        for (var i in response._errors) {
-                            $(self).find("span#"+i+"_error").html(
-                                response._errors[i]
-                            ).parents("div.clearfix").addClass("error");
-                        }
-                        return;
-                    }
-                    // all good then!
-                    $("#comments .page-header").remove();
-                    $(self).parent().parent(".row").remove();
-                    $("#comments p.no-comments").remove();
-                    $("#comments .existing").prepend(
-                        "<div class='alert-message success' style='display:none;'> "+
-                            "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
-                        "</div>"
-                    );
-                    $("#comments .existing .alert-message").fadeIn('slow');
-                }, "json");
+            Forms.handle("form[method='post']", function(form) {
+                $("#comments .page-header").remove();
+                $(form).parent().parent(".row").remove();
+                $("#comments p.no-comments").remove();
+                $("#comments .existing").prepend(
+                    "<div class='alert-message success' style='display:none;'> "+
+                        "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
+                    "</div>"
+                );
+                $("#comments .existing .alert-message").fadeIn('slow');
             });
         });
     </script>
