@@ -24,13 +24,13 @@ class BlogTest extends SeleniumTestController {
     public function testHomepageShowsRecentPostsInCorrectOrder() {
         $this->open("/");
         // not massively keen on such tight DOM bounding, but let's see how it goes...
-        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][1]/h2/a[text()='Another Test Post']");
-        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][2]/h2/a[text()='This Is A Test Post']");
+        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][1]//h2/a[text()='Another Test Post']");
+        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][2]//h2/a[text()='This Is A Test Post']");
     }
 
     public function testPostLinksFromHomepageAreCorrect() {
         $this->open("/");
-        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][1]/h2/a[@href='/2011/09/another-test-post']");
+        $this->assertElementPresent("//div[@id='posts']/div[@class='post'][1]//h2/a[@href='/2011/09/another-test-post']");
     }
 
     public function testStandalonePostPageTitle() {
