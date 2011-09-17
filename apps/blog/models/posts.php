@@ -20,6 +20,13 @@ class Post extends Object {
         ));
     }
 
+    public function getApprovedCommentsCount() {
+        return Table::factory('Comments')->countAll(array(
+            'post_id' => $this->getId(),
+            'approved' => true,
+        ));
+    }
+
     public function getTags() {
         $tags = explode("|", $this->tags);
         if ($tags === false || count($tags) === 0) {

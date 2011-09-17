@@ -1,13 +1,15 @@
 {extends file='base.tpl'}
 {block name="title"}{$smarty.block.parent} - Services{/block}
 {block name='body'}
-    <h2>Services</h2>
-
+    <div class='page-header'>
+        <h2>Services</h2>
+    </div>
     <p>So what exactly do we have to offer you? Well, quite a lot really. Take a look:</p> 
     <ul> 
         <li>Website Development</li> 
         <li>Web Application Development</li> 
         <li>API Development</li> 
+        <li>iOS Application &amp; Game Development</li>
         <li>Expert Linux, Apache, MySQL and PHP consultancy (the so called &#8216;LAMP&#8217; stack)
             <ul> 
                 <li>Full UNIX server set up and maintenance including cloud server configuration</li> 
@@ -23,4 +25,7 @@
     <p>If you&#8217;re interested in hearing any more, then please feel free to
     <a href="/contact" title="Say Hello">get in touch</a>!</p> 
 {/block}
-
+{block name='secondary'}
+    <p>You might be interested in checking out some of our experiments on <a href="https://github.com/makeusabrew">GitHub</a>.
+    You'll even find <a href="https://github.com/makeusabrew/paynedigital.com">this website</a> on there!</p>
+{/block}

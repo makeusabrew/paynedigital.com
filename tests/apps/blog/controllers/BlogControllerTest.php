@@ -111,4 +111,9 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");
         $this->assertBodyDoesNotHaveContents("This Post Has Been Deleted");
     }
+
+    public function testCommentsStringShownCorrectly() {
+        $this->request->dispatch("/2011/09/another-test-post");
+        $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
+    }
 }

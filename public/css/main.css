@@ -29,11 +29,20 @@ body {
     margin-bottom:1em;
 }
 
+.post .author {
+    font-weight:bold;
+}
+
 #posts .post {
     border-bottom:1px solid #ddd;
     padding-bottom:1em;
 }
 
+#posts .post .page-header {
+    /* don't want the effects of this on the main listings */
+    margin-bottom:0;
+    border-bottom:none;
+}
 
 #comments .comment {
     padding:1em 0;

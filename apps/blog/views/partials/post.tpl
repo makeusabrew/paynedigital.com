@@ -1,11 +1,15 @@
 <div class='post'>
-    <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+    <div class='page-header'>
+        <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+    </div>
     <div class='info'>
-        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <b>{$post->user->getDisplayName()}</b>,
+        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <a href="http://twitter/{$post->user->twitter_username}" class="author">{$post->user->getDisplayName()}</a>,
         tagged with:
         {foreach from=$post->getTags() item="tag" name="tag_loop"}
-            <a href="/tag/{$tag|lower}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$smarty.foreach.tag_loop.last}, {/if}
+            <a href="/tag/{$tag|lower}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$smarty.foreach.tag_loop.last}, {else}.{/if}
         {/foreach}
+        {assign var='comment_count' value=$post->getApprovedCommentsCount()}
+        <a href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>.
     </div>
     <div class='content'>
         {$post->content}
