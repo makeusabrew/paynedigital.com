@@ -33,6 +33,10 @@ body {
     font-weight:bold;
 }
 
+.post h2 {
+    margin-bottom:0.5em;
+}
+
 #posts .post {
     border-bottom:1px solid #ddd;
     padding-bottom:1em;
