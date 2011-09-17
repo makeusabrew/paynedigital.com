@@ -79,4 +79,10 @@ class BlogController extends Controller {
         $this->assign('search_tag', $this->getMatch('tag'));
         $this->assign('posts', $posts);
     }
+
+    public function view_month() {
+        $posts = Table::factory('Posts')->findAllForMonth($this->getMatch('month'));
+        $this->assign('posts', $posts);
+        $this->assign('month', str_replace("/", "-", $this->getMatch('month'))."-01");
+    }
 }

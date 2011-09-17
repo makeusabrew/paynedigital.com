@@ -120,4 +120,33 @@ class Posts extends Table {
 
         return $this->findAll($sql, $params);
     }
+    
+    public function findMonthsWithPublishedPosts() {
+        $date = Utils::getDate("Y-m-d H:i:s");
+        $sql = "SELECT DISTINCT(DATE(p.published)) FROM `posts` p
+        WHERE `p`.`status` = ? AND `p`.`published` <= ?
+        ORDER BY `p`.`created` DESC";
+
+        $params = array("PUBLISHED", $date);
+
+		$dbh = Db::getInstance();
+		$sth = $dbh->prepare($sql);
+        $sth->execute($params);
+        $items = $sth->fetchAll();
+        $final = array();
+        foreach ($items as $item) {
+            $final[] = $item[0];
+        }
+        return $final;
+    }
+    
+    public function findAllForMonth($month) {
+        $month = str_replace("/", "-", $month);
+        $date = Utils::getDate("Y-m-d H:i:s");
+        return $this->findAll("`published` <= ? AND `published` LIKE ? AND `status` = ?", array(
+            $date,
+            "{$month}%",
+            "PUBLISHED",
+        ));
+    }
 }
