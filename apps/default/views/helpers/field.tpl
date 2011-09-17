@@ -54,7 +54,7 @@
 {/if}
 
 <div class="clearfix{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
-    <label for="{$field}">{$title}</label>
+    <label for="{$field}">{$title}{if $required} <span class='required'>*</span>{/if}</label>
     <div class="input">
         {if $type == "textarea"}
             <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
