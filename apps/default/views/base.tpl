@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{block name='title'}{setting value="site.title"}{/block}</title>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.2.0.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-1.2.0.min.css" />
     <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
@@ -58,7 +58,7 @@
       ordinarily body will probably be wrapped with surrounding markup, so it
       makes sense to have a separate block to put script tags in
     *}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     {block name="script"}{/block}
 
     {* default tracking is GA *}

@@ -44,7 +44,7 @@
                     // all good then!
                     $("#content-wrapper").html(
                         "<div class='alert-message success' style='display:none;'> "+
-                            "<p><strong>Thanks!</strong>We appreciate you getting in touch and will get back to you shortly.</p> "+
+                            "<p><strong>Thanks!</strong> We appreciate you getting in touch and will get back to you shortly.</p> "+
                         "</div>"
                     );
                     $("#content-wrapper .alert-message").fadeIn('slow');
