@@ -122,4 +122,9 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/2011/09/another-test-post");
         $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
     }
+
+    public function testAuthorTwitterUrlsAreCorrect() {
+        $this->request->dispatch("/2011/09/another-test-post");
+        $this->assertBodyHasContents("<a href=\"http://twitter.com/anotherUser\"");
+    }
 }
