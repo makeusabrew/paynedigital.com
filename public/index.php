@@ -14,10 +14,6 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 });
 
-//@todo this is temporary - some logging happens before we set
-//from config. need to hunt that down
-date_default_timezone_set("Europe/London");
-
 include("library/Smarty/libs/Smarty.class.php");
 include("library/core_exception.php");
 include("library/email.php");
@@ -49,7 +45,9 @@ try {
     include("library/boot.php");
     include("library/load_apps.php");
 
-    date_default_timezone_set(Settings::getValue("site", "timezone"));
+    if (($timezone = Settings::getValue("site", "timezone", false)) !== false) {
+        date_default_timezone_set($timezone);
+    }
 
     $request = JaossRequest::getInstance();
     $request->dispatch();
