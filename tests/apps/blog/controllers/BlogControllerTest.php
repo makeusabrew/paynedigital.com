@@ -112,6 +112,12 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyDoesNotHaveContents("This Post Has Been Deleted");
     }
 
+    public function testTagSearchWithSpaces() {
+        $this->request->dispatch("/tag/server administration");
+
+        $this->assertBodyHasContents("Testing Tags");
+    }
+
     public function testCommentsStringShownCorrectly() {
         $this->request->dispatch("/2011/09/another-test-post");
         $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");

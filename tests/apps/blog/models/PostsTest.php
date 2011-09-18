@@ -8,13 +8,13 @@ class PostsTableTest extends PHPUnitTestController {
         parent::setUp();
 
         Utils::reset();
-        Utils::setCurrentDate("2011-09-15 00:00:00");
+        Utils::setCurrentDate("2011-09-19 00:00:00");
 
         $this->table = Table::factory("Posts");
     }
 
     public function testFindRecentIgnoresNonPublishedAndFuturePublishedPosts() {
-        $this->assertEquals(2, count($this->table->findRecent()));
+        $this->assertEquals(4, count($this->table->findRecent()));
     }
 
     public function testFindByUrlIgnoresFuturePosts() {
@@ -22,11 +22,11 @@ class PostsTableTest extends PHPUnitTestController {
     }
 
     public function testFindByTagIgnoresFuturePosts() {
-        $this->assertEquals(2, count($this->table->findAllForTag('test')));
+        $this->assertEquals(3, count($this->table->findAllForTag('test')));
     }
     
     public function testFindByTagOrTitleFuturePosts() {
-        $this->assertEquals(2, count($this->table->findAllForTag('test')));
+        $this->assertEquals(3, count($this->table->findAllForTag('test')));
     }
 
     public function testFindByUrlRetrievesPostAsSoonAsPublished() {
@@ -34,5 +34,12 @@ class PostsTableTest extends PHPUnitTestController {
         $this->assertFalse($this->table->findByMonthAndUrl("2021-01", "this-post-will-be-published-in-future"));
         Utils::setCurrentDate("2021-01-01 00:00:00");
         $this->assertTrue(($this->table->findByMonthAndUrl("2021-01", "this-post-will-be-published-in-future") instanceof Post));
+    }
+
+    public function testFindMonthsWithPublishedPostsDoesNotReturnDuplicates() {
+        $this->assertEquals(array(
+            "2011-09-01",
+            "2011-07-01",
+        ), $this->table->findMonthsWithPublishedPosts());
     }
 }
