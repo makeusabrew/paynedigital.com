@@ -16,4 +16,9 @@ class DefaultController extends Controller {
             throw new CoreException("Path Rejected", CoreException::PATH_REJECTED);
         }
     }
+
+    public function handleError($e, $code) {
+        $this->assign("code", $code);
+        return $this->render("error");
+    }
 }
