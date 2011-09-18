@@ -3,7 +3,7 @@
 class ContactControllerTest extends PHPUnitTestController {
     public function setUp() {
         parent::setUp();
-        $this->request->setParams(array(
+        $this->request->setProperties(array(
             "base_href" => Settings::getValue("site.base_href")
         ));
     }

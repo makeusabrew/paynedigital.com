@@ -6,6 +6,8 @@
     <div id='posts'>
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
+        {foreachelse}
+            <p>Sorry - no posts match this tag.</p>
         {/foreach}
     </div>
 {/block}

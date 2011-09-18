@@ -3,7 +3,7 @@
 class BlogControllerTest extends PHPUnitTestController {
     public function setUp() {
         parent::setUp();
-        $this->request->setParams(array(
+        $this->request->setProperties(array(
             "base_href" => Settings::getValue("site.base_href")
         ));
     }
@@ -116,6 +116,12 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/tag/server administration");
 
         $this->assertBodyHasContents("Testing Tags");
+    }
+
+    public function testTagSearchWithNoResults() {
+        $this->request->dispatch("/tag/no match found here");
+
+        $this->assertBodyHasContents("Sorry - no posts match this tag.");
     }
 
     public function testCommentsStringShownCorrectly() {
