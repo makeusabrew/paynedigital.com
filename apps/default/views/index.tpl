@@ -1,4 +1,5 @@
 {extends file='default/views/base.tpl'}
+{block name='title'}{$smarty.block.parent} - Web Application &amp; Mobile Development{/block}
 {block name='body'}
     <div id='posts'>
         {foreach from=$posts item="post" name="posts"}

@@ -65,6 +65,7 @@
         <delete includeemptydirs="true" verbose="false" failonerror="true">
             <fileset dir="/tmp/${env.BUILD_TAG}">
                 <include name="tmp/templates_c/*.tpl.php" />
+                <include name="log/*.log" />
                 <include name=".git**" />
                 <include name="test**" />
                 <include name="*.xml" />
