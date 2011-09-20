@@ -50,6 +50,15 @@ class User extends Object {
     public static function hashPassword($value) {
         return sha1(self::PASSWORD_HASH."-".$value);
     }
+
+    /**
+     * NB this INCLUDES posts which have been deleted or not yet published
+     */
+    public function getAllPosts() {
+        return Table::factory('Posts')->findAll(array(
+            "user_id" => $this->getId()
+        ));
+    }
 }
 
 class Users extends Table {

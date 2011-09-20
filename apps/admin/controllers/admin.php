@@ -35,5 +35,6 @@ class AdminController extends Controller {
     }
 
     public function index() {
+        $this->assign('posts', $this->adminUser->getAllPosts());
     }
 }
