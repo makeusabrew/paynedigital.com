@@ -1,3 +1,4 @@
 log/*.log
 tmp/templates_c/*.tpl.php
 *.swp
+*.DS_Store
