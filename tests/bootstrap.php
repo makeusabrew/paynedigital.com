@@ -31,6 +31,7 @@ include("library/cookie_jar.php");
 include("library/session.php");
 include("library/utils.php");
 include("library/image.php");
+include("library/cache.php");
 
 $mode = getenv("PROJECT_MODE") !== false ? getenv("PROJECT_MODE") : "test";
 Settings::setMode($mode);
