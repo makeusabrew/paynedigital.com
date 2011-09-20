@@ -37,4 +37,28 @@ class AdminController extends Controller {
     public function index() {
         $this->assign('posts', $this->adminUser->getAllPosts());
     }
+
+    public function edit_post() {
+        $post = Table::factory('Posts')->read($this->getMatch('id'));
+        if ($post == false || $this->adminUser->owns($post) == false) {
+            return $this->redirectAction("index", "You cannot edit this post");
+        }
+        $this->assign('object', $post);
+        $this->assign('columns', $post->getColumns());
+        if ($this->request->isPost()) {
+            $data = array(
+                "title" => $this->request->getVar('title'),
+                "url" => $this->request->getVar('url'),
+                "status" => $this->request->getVar('status'),
+                "published" => $this->request->getVar('published'),
+                "content" => $this->request->getVar('content'),
+                "tags" => $this->request->getVar('tags'),
+            );
+            if ($post->setValues($data)) {
+                $post->save();
+                return $this->redirectAction("index", "Post updated");
+            }
+            $this->setErrors($post->getErrors());
+        }
+    }
 }

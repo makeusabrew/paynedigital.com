@@ -25,8 +25,14 @@
     {/if}
 {/if}
 {* simplify if necessary *}
-{if $type == "date"}
+{if $type == "date" || $type == "datetime"}
     {assign var="type" value="text"}
+{/if}
+{* extra processing *}
+{if $type == "select"}
+    {if !isset($seloptions)}
+        {assign var="seloptions" value=$coldata.options}
+    {/if}
 {/if}
 {* field title please *}
 {if !isset($title)}
@@ -58,6 +64,14 @@
     <div class="input">
         {if $type == "textarea"}
             <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
+        {elseif $type == "select" && isset($seloptions)}
+            <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
+                {foreach from=$seloptions item="selopt" key="selkey"}
+                    <option value="{$selkey}"{if isset($value) && $value == $selkey} selected=""{/if}>{$selopt}</option>
+                {/foreach}
+                {assign var="selopt" value=null}
+                {assign var="selkey" value=null}
+            </select>
         {else}
             <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
         {/if}
@@ -73,3 +87,4 @@
 {assign var="force_value" value=null}
 {assign var="disabled" value=null}
 {assign var="required" value=null}
+{assign var="seloptions" value=null}

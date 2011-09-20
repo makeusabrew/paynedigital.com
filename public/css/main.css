@@ -86,3 +86,8 @@ a {
 a:hover {
     color:#7D001D;
 }
+
+.editcontent textarea {
+    width:800px;
+    height:400px;
+}

@@ -74,9 +74,9 @@ class Posts extends Table {
             'status' => array(
                 'type' => 'select',
                 'options' => array(
-                    'DRAFT',
-                    'PUBLISHED',
-                    'DELETED',
+                    'DRAFT'     => 'Draft',
+                    'PUBLISHED' => 'Published',
+                    'DELETED'   => 'Deleted',
                 ),
             ),
             'tags' => array(

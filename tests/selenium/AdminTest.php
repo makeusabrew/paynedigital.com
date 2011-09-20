@@ -43,4 +43,17 @@ class AdminTest extends SeleniumTestController {
         // make sure we can't see others' posts
         $this->assertTextNotPresent("Another Test Post");
     }
+
+    // @todo need more accurate selectors to verify edited content
+    public function testAdminEditProcess() {
+        $this->doValidLogin();
+        $this->open("/admin/posts/edit/1");
+        $this->type("id=title", "Test Post (Edited)");
+        $this->select("id=status", "Draft");
+        $this->type("id=published", "2011-09-01 12:34:56");
+        $this->submit("//form");
+        $this->waitForPageToLoad(10000);
+        $this->assertTextPresent("Test Post (Edited");
+        $this->assertTextPresent("2011-09-01 12:34:56");
+    }
 }
