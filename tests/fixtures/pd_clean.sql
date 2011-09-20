@@ -123,6 +123,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `forename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `surname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `twitter_username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -138,7 +139,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@example.com','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
+INSERT INTO `users` VALUES (1,'test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','ca5bde083f06fe7bacdc5714d2ade85a4045850e','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -151,4 +152,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-18 13:09:40
+-- Dump completed on 2011-09-20 14:44:01
