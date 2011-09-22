@@ -43,4 +43,10 @@ class ContactControllerTest extends PHPUnitTestController {
 
         $this->assertBodyHasContents("Email Address is not a valid email address");
     }
+
+    public function testContactThanksPageWithoutCompletingContactForm() {
+        $this->request->dispatch("/contact/thanks");
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/");
+    }
 }

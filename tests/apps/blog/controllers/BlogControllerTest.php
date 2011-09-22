@@ -82,6 +82,18 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Email Address is not a valid email address");
     }
 
+    public function testCommentFormWithGetRequest() {
+        $this->request->dispatch("/2011/09/another-test-post/comment");
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/");
+    }
+
+    public function testCommentThanksPageWithoutCompletingCommentForm() {
+        $this->request->dispatch("/2011/09/another-test-post/comment/thanks");
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/");
+    }
+
     public function testTagSearch() {
         $this->request->dispatch("/tag/test");
 
@@ -138,5 +150,18 @@ class BlogControllerTest extends PHPUnitTestController {
     public function testAuthorTwitterUrlsAreCorrect() {
         $this->request->dispatch("/2011/09/another-test-post");
         $this->assertBodyHasContents("<a href=\"http://twitter.com/anotherUser\"");
+    }
+
+    public function testViewMonthWithMatchingPosts() {
+        $this->request->dispatch("/2011/07");
+        $this->assertBodyHasContents("Posts from July 2011");
+        $this->assertBodyHasContents("Just A Test");
+
+        $this->assertBodyDoesNotHaveContents("Another Test Post");
+    }
+
+    public function testViewMonthWithNoPosts() {
+        $this->request->dispatch("/2011/01");
+        $this->assertBodyHasContents("Sorry - there are no posts for this month.");
     }
 }
