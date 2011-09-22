@@ -124,6 +124,12 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Sorry - no posts match this tag.");
     }
 
+    public function testTagSearchWithDots() {
+        $this->request->dispatch("/tag/node.js");
+
+        $this->assertBodyHasContents("Testing Tags");
+    }
+
     public function testCommentsStringShownCorrectly() {
         $this->request->dispatch("/2011/09/another-test-post");
         $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
