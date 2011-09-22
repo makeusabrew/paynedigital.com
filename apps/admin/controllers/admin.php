@@ -54,11 +54,35 @@ class AdminController extends Controller {
                 "content" => $this->request->getVar('content'),
                 "tags" => $this->request->getVar('tags'),
             );
-            if ($post->setValues($data)) {
+            if ($post->updateValues($data)) {
                 $post->save();
                 return $this->redirectAction("index", "Post updated");
             }
             $this->setErrors($post->getErrors());
         }
+    }
+
+    public function add_post() {
+        $this->assign('columns', Table::factory('Posts')->getColumns());
+        // for now we can safely just piggy back off the edit post
+        // this might need to change in future
+        if ($this->request->isPost()) {
+            $data = array(
+                "title" => $this->request->getVar('title'),
+                "url" => $this->request->getVar('url'),
+                "status" => $this->request->getVar('status'),
+                "published" => $this->request->getVar('published'),
+                "content" => $this->request->getVar('content'),
+                "tags" => $this->request->getVar('tags'),
+                "user_id" => $this->adminUser->getId()
+            );
+            $post = Table::factory('Posts')->newObject();
+            if ($post->setValues($data)) {
+                $post->save();
+                return $this->redirectAction("index", "Post created");
+            }
+            $this->setErrors($post->getErrors());
+        }
+        return $this->render("edit_post");
     }
 }
