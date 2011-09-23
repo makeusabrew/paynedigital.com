@@ -17,13 +17,13 @@
             <div class='container'>
                 <h3><a href='/'>Payne Digital</a></h3>
                 <ul class='nav'>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/contact">Say Hello</a></li>
+                    <li{if $current_url == "/"} class="active"{/if}><a href="/">Home</a></li>
+                    <li{if $current_url == "/about"} class="active"{/if}><a href="/about">About</a></li>
+                    <li{if $current_url == "/services"} class="active"{/if}><a href="/services">Services</a></li>
+                    <li{if $current_url == "/contact"} class="active"{/if}><a href="/contact">Say Hello</a></li>
                 </ul>
                 <form action="/search" method="get">
-                    <input type="text" placeholder="Search" name="q" />
+                    <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
                 </form>
             </div>
         </div>
@@ -38,7 +38,8 @@
             <div class='span5 columns'>
                 {block name="secondary"}
                     <p>
-                        <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>,
+                        <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+                        (like this one),
                         web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
                         <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
                     </p>
@@ -51,6 +52,9 @@
     <div id='footer'>
         <div class='well'>
             &copy; 2011 Payne Digital Ltd
+            <span class='feedback'>
+                Spotted something not quite right? Please <a href="https://github.com/makeusabrew/paynedigital.com/issues">report an issue</a> or <a href="/contact">let us know</a>.
+            </span>
         </div>
     </div>
 

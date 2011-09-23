@@ -19,6 +19,13 @@
         </form>
     </div>
 {/block}
+{block name='secondary'}
+    {$smarty.block.parent}
+    <p>You might get just as quick a response <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
+
+    <a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-show-count="false">Follow @makeusabrew</a>
+    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+{/block}
 {block name='script'}
     <script src="/js/forms.js"></script>
     <script>

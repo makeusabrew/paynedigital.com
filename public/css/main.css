@@ -95,3 +95,11 @@ a:hover {
 .topbar form {
     float:right;
 }
+
+.feedback {
+    float:right;
+}
+
+.page-header iframe {
+    float:right;
+}

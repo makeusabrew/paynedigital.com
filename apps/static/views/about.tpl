@@ -14,10 +14,13 @@
     to full Web Application development and Mobile Application development.</p> 
 
     <p>You&#8217;ll probably notice the use of the royal &#8216;we&#8217; around the rest of
-    the site. That&#8217;s not me being pretentious (this page wouldn&#8217;t exist if it was
+    the site. That&#8217;s not me being pretentious (this page wouldn&#8217;t exist if it was)
     &#8211; it&#8217;s just easier that way. Honest.</p> 
 {/block}
 {block name='secondary'}
     <p>You can find out more about me by following the link to my <a href="http://uk.linkedin.com/pub/nick-payne/4/1a1/214">LinkedIn</a>
     profile, or by <a href="http://twitter.com/makeusabrew">following me on twitter</a>.</p>
+
+    <a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-show-count="false">Follow @makeusabrew</a>
+    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 {/block}
