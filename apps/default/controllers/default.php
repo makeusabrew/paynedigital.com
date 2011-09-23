@@ -8,15 +8,6 @@ class DefaultController extends Controller {
         $this->assign('archive', $archive);
     }
 
-    public function view_static() {
-        try {
-            return $this->renderStatic($this->getMatch('path'));
-        } catch (CoreException $e) {
-            // no static, oh well. Reject the path
-            throw new CoreException("Path Rejected", CoreException::PATH_REJECTED);
-        }
-    }
-
     public function handleError($e, $code) {
         $this->assign("code", $code);
         return $this->render("error");

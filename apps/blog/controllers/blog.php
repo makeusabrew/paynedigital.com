@@ -20,6 +20,13 @@ class BlogController extends Controller {
         }
     }
 
+    public function index() {
+        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
+        $this->assign('archive', $archive);
+
+        $this->assign('tags', Table::factory('Posts')->findAllTags());
+    }
+
     public function view_post() {
         // init will do
     }

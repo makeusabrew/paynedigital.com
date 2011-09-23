@@ -10,9 +10,5 @@
 {block name='secondary'}
     {$smarty.block.parent}
     <h3>Post Archive</h3>
-    <ul>
-        {foreach from=$archive item="month"}
-            <li><a href="{$month|date_format:"Y/m"}">{$month|date_format:"F Y"}</a></li>
-        {/foreach}
-    </ul>
+    {include file='blog/views/partials/archive.tpl'}
 {/block}

@@ -28,7 +28,11 @@ class Post extends Object {
     }
 
     public function getTags() {
-        $tags = explode("|", $this->tags);
+        return self::convertTagsToArray($this->tags);
+    }
+
+    public static function convertTagsToArray($tags) {
+        $tags = explode("|", $tags);
         if ($tags === false || count($tags) === 0) {
             return array();
         }
@@ -138,6 +142,30 @@ class Posts extends Table {
             $final[] = $item[0];
         }
         return $final;
+    }
+
+    // @todo while tags are stored in their current format,
+    // this function is always going to be a bit too PHP heavy...
+    public function findAllTags() {
+        $date = Utils::getDate("Y-m-d H:i:s");
+        $sql = "SELECT `tags` FROM `posts` p
+        WHERE `p`.`status` = ? AND `p`.`published` <= ?";
+
+        $params = array("PUBLISHED", $date);
+
+		$dbh = Db::getInstance();
+		$sth = $dbh->prepare($sql);
+        $sth->execute($params);
+        $items = $sth->fetchAll(PDO::FETCH_NUM);
+        $final = array();
+        foreach ($items as $item) {
+            $tags = Post::convertTagsToArray($item[0]);
+            $final = array_merge($final, $tags);
+        }
+        $tags = array_unique($final);
+
+        natcasesort($tags);
+        return $tags;
     }
     
     public function findAllForMonth($month) {

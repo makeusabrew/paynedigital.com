@@ -21,6 +21,7 @@
                     <li{if $current_url == "/about"} class="active"{/if}><a href="/about">About</a></li>
                     <li{if $current_url == "/services"} class="active"{/if}><a href="/services">Services</a></li>
                     <li{if $current_url == "/contact"} class="active"{/if}><a href="/contact">Say Hello</a></li>
+                    <li{if $current_url == "/articles"} class="active"{/if}><a href="/articles">Articles</a></li>
                 </ul>
                 <form action="/search" method="get">
                     <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />

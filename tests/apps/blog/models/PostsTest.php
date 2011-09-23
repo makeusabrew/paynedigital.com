@@ -42,4 +42,18 @@ class PostsTableTest extends PHPUnitTestController {
             "2011-07-01",
         ), $this->table->findMonthsWithPublishedPosts());
     }
+
+    public function testFindAllTagsReturnsNaturallySortedArray() {
+        $this->assertEquals(array(
+            "apache",
+            "music",
+            "node.js",
+            "php",
+            "Server Administration",
+            "test",
+            "web",
+            // I don't like array_values() here, but we really don't care about the keys, just that the
+            // values are actually in "order"
+        ), array_values($this->table->findAllTags()));
+    }
 }

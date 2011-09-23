@@ -8,14 +8,6 @@ class BlogControllerTest extends PHPUnitTestController {
         ));
     }
 
-    public function testIndexAction() {
-        $this->request->dispatch("/");
-        $this->assertResponseCode(200);
-        $this->assertController("Default");
-        $this->assertApp("default");
-        $this->assertAction("index");
-    }
-
     public function testHomepageDoesNotShowDraftPosts() {
         $this->request->dispatch("/");
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");
@@ -163,5 +155,12 @@ class BlogControllerTest extends PHPUnitTestController {
     public function testViewMonthWithNoPosts() {
         $this->request->dispatch("/2011/01");
         $this->assertBodyHasContents("Sorry - there are no posts for this month.");
+    }
+
+    public function testIndexShowsMonthArchive() {
+        $this->request->dispatch("/articles");
+
+        $this->assertBodyHasContents("September 2011");
+        $this->assertBodyHasContents("July 2011");
     }
 }
