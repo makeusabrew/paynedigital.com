@@ -26,4 +26,10 @@ class SearchControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Testing Tags");
         $this->assertBodyHasContents("Just A Test");
     }
+
+    public function testSearchWithNoQuery() {
+        $this->request->dispatch("/search");
+
+        $this->assertBodyHasContents("Sorry - you must enter a query.");
+    }
 }

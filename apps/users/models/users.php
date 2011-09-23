@@ -14,6 +14,7 @@ class User extends Object {
     public function addToSession() {
         $s = Session::getInstance();
         $s->user_id = $this->getId();
+        $this->setAuthed(true);
     }
     
     /**

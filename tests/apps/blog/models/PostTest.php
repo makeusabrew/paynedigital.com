@@ -22,6 +22,10 @@ class PostObjectTest extends PHPUnitTestController {
         ), Table::factory('Posts')->read(1)->getTags());
     }
 
+    public function testGetTagsWithEmptyFieldValue() {
+        $this->assertEquals(array(), Table::factory('Posts')->read(7)->getTags());
+    }
+
     public function testGetTagsAsString() {
         $this->assertEquals(
             "web, apache, music, test",

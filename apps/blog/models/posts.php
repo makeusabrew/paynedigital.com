@@ -5,14 +5,6 @@ class Post extends Object {
         return date("Y/m", strtotime($this->published))."/".$this->url;
     }
 
-    public function getAuthorDisplayName() {
-        $user = Table::factory('Users')->read($this->user_id);
-        if ($user) {
-            return $user->getDisplayName();
-        }
-        return "Unknown User";
-    }
-
     public function getApprovedComments() {
         return Table::factory('Comments')->findAll(array(
             'post_id' => $this->getId(),

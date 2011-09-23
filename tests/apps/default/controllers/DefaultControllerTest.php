@@ -15,4 +15,40 @@ class DefaultControllerTest extends PHPUnitTestController {
         $this->assertApp("default");
         $this->assertAction("index");
     }
+
+    /**
+     * @dataProvider basicActionsDP
+     */
+    public function testBasicActions($url, $action, $controller="Default", $app="default", $responseCode=200, $isRedirect = false, $redirectUrl = null) {
+
+        $this->request->dispatch($url);
+        $this->assertResponseCode($responseCode);
+        $this->assertController($controller);
+        $this->assertApp($app);
+        $this->assertAction($action);
+        $this->assertRedirect($isRedirect);
+        if ($redirectUrl !== null) {
+            $this->assertRedirectUrl($redirectUrl);
+        }
+    }
+
+    public function basicActionsDP() {
+        return array(
+            array("/", "index"),
+            array("/contact", "index", "Contact", "contact"),
+            array("/contact/thanks", "thanks", "Contact", "contact", 303, true, "/"),
+            array("/articles", "index", "Blog", "blog"),
+            array("/2011/01", "view_month", "Blog", "blog"),
+            array("/2011/09/another-test-post", "view_post", "Blog", "blog"),
+            array("/2011/09/another-test-post/comment", "add_comment", "Blog", "blog", 303, true, "/"),
+            array("/2011/09/another-test-post/comment/thanks", "comment_thanks", "Blog", "blog", 303, true, "/"),
+            array("/tag/foo", "search_tags", "Blog", "blog"),
+            array("/search", "index", "Search", "search"),
+            /**
+             * static pages (no logic, just tpls)
+             */
+            array("/about", "view_static", "Static", "static"),
+            array("/services", "view_static", "Static", "static"),
+        );
+    }
 }
