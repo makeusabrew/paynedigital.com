@@ -21,10 +21,10 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/services">Services</a></li>
                     <li><a href="/contact">Say Hello</a></li>
-                    <form action="/search" method="get">
-                        <input type="text" placeholder="Search" name="q" />
-                    </form>
                 </ul>
+                <form action="/search" method="get">
+                    <input type="text" placeholder="Search" name="q" />
+                </form>
             </div>
         </div>
     </div>

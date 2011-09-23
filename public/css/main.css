@@ -91,3 +91,7 @@ a:hover {
     width:800px;
     height:400px;
 }
+
+.topbar form {
+    float:right;
+}
