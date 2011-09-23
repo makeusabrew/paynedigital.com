@@ -49,7 +49,7 @@ class SiteTest extends SeleniumTestController {
 
     public function testHomepageContents() {
         $this->open("/");
-        $this->assertTextPresent('Web Application & Mobile Development');
+        $this->assertTextPresent('Web, Mobile, Apps & Games. Whatever you need, we can build it.');
     }
 
     public function testNavigationLinksArePresentAndHaveCorrectTitles() {

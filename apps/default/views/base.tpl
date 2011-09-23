@@ -9,7 +9,7 @@
 <body>
     <div id='header'>
         <div class='container'>
-            <h1>Web Application &amp; Mobile Development</h1>
+            <h1>Web, Mobile, Apps &amp; Games. Whatever you need, we can build it.</h1>
         </div>
     </div>
     <div class='topbar'>

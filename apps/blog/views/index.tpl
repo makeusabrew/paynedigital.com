@@ -25,3 +25,7 @@
         {/foreach}
     </p>
 {/block}
+{block name='secondary'}
+    <p><b>Did you know?</b> We're currently building an in-house <a href="http://www.apple.com/uk/ios/ios5/">iOS 5</a>
+    game which will work across both the Apple iPhone and iPad. Look out for it around Christmas 2011!</p>
+{/block}
