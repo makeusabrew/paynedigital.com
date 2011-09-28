@@ -42,6 +42,9 @@ include("library/cache.php");
 $mode = getenv("PROJECT_MODE") !== false ? getenv("PROJECT_MODE") : "live";
 
 try {
+    // make sure a request object is available as soon as possible
+    $request = JaossRequest::getInstance();
+
     Settings::setMode($mode);
     include("library/boot.php");
     include("library/load_apps.php");
@@ -50,7 +53,6 @@ try {
         date_default_timezone_set($timezone);
     }
 
-    $request = JaossRequest::getInstance();
     $request->dispatch();
     $response = $request->getResponse();
 
@@ -58,6 +60,7 @@ try {
     echo $response->getBody();
 } catch (Exception $e) {
     $handler = new ErrorHandler();
+    $handler->setRequest($request);
     $handler->handleError($e);
     $response = $handler->getResponse();
 
