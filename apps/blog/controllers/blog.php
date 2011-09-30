@@ -3,7 +3,13 @@ class BlogController extends Controller {
     protected $post = null;
 
     public function init() {
-        if ($this->getMatch('month') && $this->getMatch('url')) {
+        if (($post_id = $this->getFlash("preview_post_id")) !== null) {
+            Log::debug("Got preview post ID [".$post_id."]");
+            $post = Table::factory('Posts')->read($post_id);
+            if ($post == false) {
+                throw new CoreException('No matching blog post found to preview', CoreException::PATH_REJECTED);
+            }
+        } else if ($this->getMatch('month') && $this->getMatch('url')) {
             $post = Table::factory('Posts')->findByMonthAndUrl(
                 $this->getMatch('month'),
                 $this->getMatch('url')
@@ -11,6 +17,9 @@ class BlogController extends Controller {
             if ($post == false) {
                 throw new CoreException('No matching blog post found', CoreException::PATH_REJECTED);
             }
+        }
+
+        if (isset($post) && is_object($post)) {
             $this->post = $post;
             $this->assign('post', $this->post);
             $this->assign('comments', $post->getApprovedComments());
@@ -91,5 +100,23 @@ class BlogController extends Controller {
         $posts = Table::factory('Posts')->findAllForMonth($this->getMatch('month'));
         $this->assign('posts', $posts);
         $this->assign('month', str_replace("/", "-", $this->getMatch('month'))."-01");
+    }
+
+    public function burn_after_reading() {
+        $preview = Table::factory('Previews')->findRedeemableByIdentifier($this->getMatch('identifier'));
+        if ($preview == false) {
+            throw new CoreException('No valid preview found', CoreException::PATH_REJECTED);
+        }
+        $post = Table::factory('Posts')->read($preview->post_id);
+        if ($post == false) {
+            Log::warn("no post found for preview ID [".$preview->getId()."]");
+            throw new CoreException('No matching blog post found', CoreException::PATH_REJECTED);
+        }
+        Log::debug("Redeeming preview ID [".$preview->getId()."] quanity [".$preview->quantity."] post ID [".$post->getId()."]");
+        $preview->redeem();
+        $preview->save();
+
+        $this->setFlash("preview_post_id", $post->getId());
+        return $this->redirect("/".$post->getUrl());
     }
 }

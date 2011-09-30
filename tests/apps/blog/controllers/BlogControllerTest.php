@@ -20,7 +20,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testDraftUrlReturnsErrorResponse() {
         try {
-            $this->request->dispatch("/2011/09/not-published-yet");
+            $this->request->dispatch("/2010/01/not-published-yet");
         } catch (CoreException $e) {
             $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
             return;
@@ -162,5 +162,35 @@ class BlogControllerTest extends PHPUnitTestController {
 
         $this->assertBodyHasContents("September 2011");
         $this->assertBodyHasContents("July 2011");
+    }
+
+    public function testBurnAfterReadingUrlReturnsErrorResponseWithNotFoundIdentifier() {
+        try {
+            $this->request->dispatch("/burn-after-reading/ABC123");
+        } catch (CoreException $e) {
+            $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
+            return;
+        }
+        $this->fail("Expected exception not raised");
+    }
+
+    public function testBurnAfterReadingUrlReturnsErrorResponseWithRedeemedIdentifier() {
+        try {
+            $this->request->dispatch("/burn-after-reading/BxF45sZf");
+        } catch (CoreException $e) {
+            $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
+            return;
+        }
+        $this->fail("Expected exception not raised");
+    }
+
+    public function testBurnAfterReadingRedirectsWithValidIdentifier() {
+        $this->request->dispatch("/burn-after-reading/AbDx041F");
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/2010/01/not-published-yet");
+
+        $this->request->reset();
+        $this->request->dispatch("/2010/01/not-published-yet");
+        $this->assertBodyHasContents("This post hasn't been published");
     }
 }

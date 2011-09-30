@@ -109,8 +109,40 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41','|web|apache|music|test|'),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','0000-00-00 00:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41','|apache|test|'),(3,2,'Another Test Post','another-test-post','<p>This test post doesn\'t do much either - it\'s only here to test that posts appear in the correct order.</p>','2011-09-14 18:13:47','PUBLISHED','2011-09-14 18:13:47','2011-09-14 18:13:47','|test|php|apache|'),(4,1,'This Post Has Been Deleted','this-post-has-been-deleted','<p>Oh well. Nevermind.</p>','2011-09-15 14:43:11','DELETED','2011-09-15 14:43:11','2011-09-15 14:43:11','|test|'),(5,1,'This post will be published in the future','this-post-will-be-published-in-future','<p>This is a test post to check that posts marked with a status of \'published\' don\'t appear until their published date.</p>','2021-01-01 00:00:00','PUBLISHED','2011-09-17 11:40:16','2011-09-17 11:40:16','|test|published|'),(6,2,'Testing Tags','testing-tags','<p>This post just tests tags with spaces.</p>','2011-09-11 12:32:08','PUBLISHED','2011-09-11 12:32:08','2011-09-11 12:32:08','|test|Server Administration|node.js|'),(7,2,'Just A Test','just-a-test','<p>This is just a test post. It has no tags.</p>','2011-07-01 00:00:00','PUBLISHED','2011-07-01 00:00:00','2011-07-01 00:00:00','');
+INSERT INTO `posts` VALUES (1,1,'This Is A Test Post','this-is-a-test-post','<p>This is simply a test post.</p>\r\n<p>It doesn\'t do <strong>much</strong> <em>at</em> <small>all</small>.','2011-09-14 17:34:41','PUBLISHED','2011-09-14 17:34:41','2011-09-14 17:34:41','|web|apache|music|test|'),(2,1,'This post hasn\'t been published','not-published-yet','<p>This post hasn\'t been published yet.</p>','2010-01-01 12:00:00','DRAFT','2011-09-14 17:34:41','2011-09-14 17:34:41','|apache|test|'),(3,2,'Another Test Post','another-test-post','<p>This test post doesn\'t do much either - it\'s only here to test that posts appear in the correct order.</p>','2011-09-14 18:13:47','PUBLISHED','2011-09-14 18:13:47','2011-09-14 18:13:47','|test|php|apache|'),(4,1,'This Post Has Been Deleted','this-post-has-been-deleted','<p>Oh well. Nevermind.</p>','2011-09-15 14:43:11','DELETED','2011-09-15 14:43:11','2011-09-15 14:43:11','|test|'),(5,1,'This post will be published in the future','this-post-will-be-published-in-future','<p>This is a test post to check that posts marked with a status of \'published\' don\'t appear until their published date.</p>','2021-01-01 00:00:00','PUBLISHED','2011-09-17 11:40:16','2011-09-17 11:40:16','|test|published|'),(6,2,'Testing Tags','testing-tags','<p>This post just tests tags with spaces.</p>','2011-09-11 12:32:08','PUBLISHED','2011-09-11 12:32:08','2011-09-11 12:32:08','|test|Server Administration|node.js|'),(7,2,'Just A Test','just-a-test','<p>This is just a test post. It has no tags.</p>','2011-07-01 00:00:00','PUBLISHED','2011-07-01 00:00:00','2011-07-01 00:00:00','');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `previews`
+--
+
+DROP TABLE IF EXISTS `previews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `previews` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `post_id` int(10) unsigned NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `identifier` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifier` (`identifier`),
+  KEY `user_id` (`user_id`),
+  KEY `post_id` (`post_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `previews`
+--
+
+LOCK TABLES `previews` WRITE;
+/*!40000 ALTER TABLE `previews` DISABLE KEYS */;
+INSERT INTO `previews` VALUES (3,'2011-09-30 12:00:00','2011-09-30 12:13:00',1,2,0,'BxF45sZf'),(2,'2011-09-30 13:28:31','2011-09-30 13:28:31',1,2,1,'AbDx041F');
+/*!40000 ALTER TABLE `previews` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -154,4 +186,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-22 15:31:50
+-- Dump completed on 2011-09-30 13:30:21

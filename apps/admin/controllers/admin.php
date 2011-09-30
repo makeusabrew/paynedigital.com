@@ -85,4 +85,22 @@ class AdminController extends Controller {
         }
         return $this->render("edit_post");
     }
+
+    public function generate_burn_link() {
+        $post = Table::factory('Posts')->read($this->getMatch('id'));
+        if ($post == false || $this->adminUser->owns($post) == false) {
+            return $this->redirectAction("index", "You cannot edit this post");
+        }
+        $preview = Table::factory('Previews')->newObject();
+        $data = array(
+            "post_id"  => $post->getId(),
+            "user_id"  => $this->adminUser->getId(),
+            "quantity" => 1,
+        );
+        if ($preview->setValues($data)) {
+            $preview->setUniqueIdentifier();
+            $preview->save();
+            $this->assign("preview", $preview);
+        }
+    }
 }

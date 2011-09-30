@@ -79,4 +79,16 @@ class AdminTest extends SeleniumTestController {
         $this->assertTextPresent("A New Post");
         $this->assertTextPresent("Here is some test content.");
     }
+
+    public function testBurnAfterReadingGenerationWithDraftPost() {
+        $this->doValidLogin();
+        $this->open("/admin/posts/edit/2");
+        $this->assertTextPresent("Generate Burn Link");
+        $this->click("//form//div//a");
+        $this->waitForPageToLoad(50000);
+        $this->click("id=burn-link");
+        $this->waitForPageToLoad(50000);
+        $this->assertTextPresent("This post hasn't been published");
+    }
+
 }

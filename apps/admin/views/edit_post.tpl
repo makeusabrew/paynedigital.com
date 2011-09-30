@@ -9,6 +9,9 @@
         {include file='default/views/helpers/field.tpl' field='tags'}
         <div class="actions">
             <input type="submit" value="Save" class="btn primary" />
+            {if isset($object)}
+                <a href="{$current_url}/generate-burn-link" class="btn">Generate Burn Link</a>
+            {/if}
         </div>
     </form>
 {/block}
