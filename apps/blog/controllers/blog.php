@@ -9,6 +9,10 @@ class BlogController extends Controller {
             if ($post == false) {
                 throw new CoreException('No matching blog post found to preview', CoreException::PATH_REJECTED);
             }
+
+            // we need to explicitly opt out of caching as this should be a one-time only link
+            Log::info("Disabling cache for one-time blog post viewing");
+            $this->request->disableCache();
         } else if ($this->getMatch('month') && $this->getMatch('url')) {
             $post = Table::factory('Posts')->findByMonthAndUrl(
                 $this->getMatch('month'),
