@@ -1,13 +1,6 @@
 <?php
 
 class BlogControllerTest extends PHPUnitTestController {
-    public function setUp() {
-        parent::setUp();
-        $this->request->setProperties(array(
-            "base_href" => Settings::getValue("site.base_href")
-        ));
-    }
-
     public function testHomepageDoesNotShowDraftPosts() {
         $this->request->dispatch("/");
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");

@@ -6,13 +6,17 @@ class AdminController extends Controller {
         $this->adminUser = Table::factory('Users')->loadFromSession();
         $this->assign('adminUser', $this->adminUser);
         switch ($this->path->getAction()) {
-            case "index":
+            case "login":
+                if ($this->adminUser->isAuthed() == true) {
+                    $this->redirectAction("index");
+                    throw new CoreException("Already Authed");
+                }
+                break;
+            default:
                 if ($this->adminUser->isAuthed() == false) {
                     $this->redirectAction("login");
                     throw new CoreException("Not Authed");
                 }
-                break;
-            default:
                 break;
         }
     }
