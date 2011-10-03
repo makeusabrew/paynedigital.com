@@ -104,7 +104,8 @@ class AdminController extends Controller {
         if ($preview->setValues($data)) {
             $preview->setUniqueIdentifier();
             $preview->save();
-            $this->assign("preview", $preview);
+            $identifier = Settings::getValue("site.base_href")."/burn-after-reading/".$preview->identifier;
+            $this->assign("identifier", $identifier);
         }
     }
 }

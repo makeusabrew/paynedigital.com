@@ -1,4 +1,4 @@
-php_flag magic_quotes_gpc Off
+DirectorySlash Off
 RewriteEngine On
 # catch live URLs ending with a slash
 RewriteRule ^(.+)/$ http://paynedigital.com/$1 [R=301,L]

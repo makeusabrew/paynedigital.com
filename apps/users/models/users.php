@@ -52,6 +52,11 @@ class User extends Object {
         return sha1(self::PASSWORD_HASH."-".$value);
     }
 
+    public function toArray() {
+        // remove sensitive stuff
+        return array_diff_key(parent::toArray(), array("id" => true, "password" => true));
+    }
+
     /**
      * NB this INCLUDES posts which have been deleted or not yet published
      */

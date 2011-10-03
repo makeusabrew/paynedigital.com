@@ -1,0 +1,8 @@
+body {
+    margin-top:40px;
+}
+
+.editcontent textarea {
+    width:800px;
+    height:400px;
+}
