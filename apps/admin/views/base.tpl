@@ -13,6 +13,7 @@
                 <h3><a href='/admin'>Administration</a></h3>
                 <ul class='nav'>
                     <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/logout">Logout</a></li>
                 </ul>
             </div>
         </div>

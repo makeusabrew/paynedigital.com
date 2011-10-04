@@ -38,6 +38,11 @@ class AdminController extends Controller {
         }
     }
 
+    public function logout() {
+        $this->adminUser->logout();
+        return $this->redirectAction("login");
+    }
+
     public function index() {
         $this->assign('posts', $this->adminUser->getAllPosts());
     }
@@ -93,7 +98,7 @@ class AdminController extends Controller {
     public function generate_burn_link() {
         $post = Table::factory('Posts')->read($this->getMatch('id'));
         if ($post == false || $this->adminUser->owns($post) == false) {
-            return $this->redirectAction("index", "You cannot edit this post");
+            return $this->redirectAction("index", "You cannot perform this action");
         }
         $preview = Table::factory('Previews')->newObject();
         $data = array(
