@@ -4,9 +4,21 @@ PathManager::setAppCacheTtl(60);
 PathManager::loadPaths(
     array("/(?P<month>\d{4}/\d{2})", "view_month"),
     array("/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)", "view_post"),
-    array("/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment", "add_comment", "Blog", "blog", false),
-    array("/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment/thanks", "comment_thanks", "Blog", "blog", false),
     array("/tag/(?P<tag>[a-z\s\.]+)", "search_tags"),
     array("/articles", "index"),
-    array("/burn-after-reading/(?P<identifier>[A-z0-9]+)", "burn_after_reading")
+    array(
+        "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment",
+        "action"   => "add_comment",
+        "cacheTtl" => false,
+    ),
+    array(
+        "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment/thanks",
+        "action"   => "comment_thanks",
+        "cacheTtl" => false,
+    ),
+    array(
+        "pattern"  => "/burn-after-reading/(?P<identifier>[A-z0-9]+)",
+        "action"   => "burn_after_reading",
+        "cacheTtl" => false,
+    )
 );
