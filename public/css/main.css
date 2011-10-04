@@ -95,3 +95,13 @@ a:hover {
 .page-header iframe {
     float:right;
 }
+
+span.git-red {
+    color:#ff0000;
+}
+span.git-green {
+    color:#00ff00;
+}
+span.git-blue {
+    color:#0000ff;
+}

@@ -8,7 +8,7 @@
         {include file='default/views/helpers/field.tpl' field='content' fclass="editcontent"}
         {include file='default/views/helpers/field.tpl' field='tags'}
         <div class="actions">
-            <input type="submit" value="Save" class="btn primary" />
+            <input type="submit" id="save-button" value="Save" class="btn primary" />
             {if isset($object)}
                 <div id="burn-modal" class="modal hide fade">
                     <div class="modal-header">
@@ -41,6 +41,17 @@
                         "show" : true
                     });
                 });
+            });
+        });
+    </script>
+    <script src="/js/forms.js"></script>
+    <script>
+        $(function() {
+            Forms.handle("form[method='post']", function(form) {
+                $("#save-button").removeClass("primary").addClass("success").val("Saved!");
+                setTimeout(function() {
+                    $("#save-button").removeClass("success").addClass("primary").val("Save");
+                }, 3000);
             });
         });
     </script>
