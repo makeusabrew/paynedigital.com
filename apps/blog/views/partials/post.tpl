@@ -3,7 +3,7 @@
         <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     </div>
     <div class='info'>
-        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <a title="Follow {$post->user->forename} on twitter" href="http://twitter.com/{$post->user->twitter_username}" class="author">{$post->user->getDisplayName()}</a>,
+        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>,
         {if count($post->getTags())}
             tagged with:
             {foreach from=$post->getTags() item="tag" name="tag_loop"}
