@@ -49,7 +49,7 @@ class BlogTest extends SeleniumTestController {
 
     public function testApprovedCommentsAreVisibleInCorrectOrder() {
         $this->open("/2011/09/another-test-post");
-        $this->assertElementPresent("//body//div[@id='comments']/div/div[@class='comment'][1]//time[text()='16th September 2011 at 12:56']");
-        $this->assertElementPresent("//body//div[@id='comments']/div/div[@class='comment'][2]//time[text()='15th September 2011 at 09:33']");
+        $this->assertElementPresent("//body//div[@id='comments']/div/div[@class='comment'][1]//time[text()='15th September 2011 at 09:33']");
+        $this->assertElementPresent("//body//div[@id='comments']/div/div[@class='comment'][2]//time[text()='16th September 2011 at 12:56']");
     }
 }

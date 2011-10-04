@@ -5,11 +5,6 @@
     <div id="comments">
         <h3>Comments</h3>
         <div class='existing'>
-            {if isset($comment_submitted)}
-                <div class='alert-message success'>
-                    <p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p>
-                </div>
-            {/if}
             {foreach from=$comments item="comment" name="loop"}
                 <div class='comment'>
                     <div class='row'>
@@ -27,6 +22,11 @@
                     <p class='no-comments'>There are currently no comments - feel free to add one!</p>
                 {/if}
             {/foreach}
+            {if isset($comment_submitted)}
+                <div class='alert-message success'>
+                    <p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p>
+                </div>
+            {/if}
         </div>
         {if !isset($comment_submitted)}
             <div id='add-comment'>
@@ -61,7 +61,7 @@
                 $("#comments .page-header").remove();
                 $(form).parent().parent(".row").remove();
                 $("#comments p.no-comments").remove();
-                $("#comments .existing").prepend(
+                $("#comments .existing").append(
                     "<div class='alert-message success' style='display:none;'> "+
                         "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
                     "</div>"

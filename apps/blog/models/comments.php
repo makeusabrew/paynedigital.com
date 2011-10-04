@@ -4,7 +4,7 @@ class Comment extends Object {
 }
 
 class Comments extends Table {
-    protected $order_by = '`created` DESC';
+    protected $order_by = '`created` ASC';
     protected $meta = array(
         'columns' => array(
             'post_id' => array(
