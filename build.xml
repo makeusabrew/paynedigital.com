@@ -37,7 +37,6 @@
     <target name="build" description="Build (excluding selenium tests)" depends="cleanup,sloc">
         <echo msg="Running Tests &amp; Generating Reports" />
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
-        --coverage-html ${reports.dir}/coverage
         --coverage-clover ${reports.dir}/phpunit.coverage.xml
         --exclude-group selenium" />
     </target>
@@ -52,7 +51,6 @@
             </then>
         </if>
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
-        --coverage-html ${reports.dir}/coverage
         --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
     </target>
 
