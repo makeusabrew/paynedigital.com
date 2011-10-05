@@ -6,7 +6,15 @@ if (!defined("JAOSS_ROOT")) {
 set_include_path(get_include_path() . PATH_SEPARATOR . PROJECT_ROOT);
 set_include_path(get_include_path() . PATH_SEPARATOR . JAOSS_ROOT);
 ini_set("display_errors", 1);
-error_reporting(E_ALL ^ E_STRICT);
+error_reporting(-1);
+
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    if (error_reporting() == 0) {
+        //Log::info("Surpressed error (".$errno.") caught in handler: [".$errstr."] in [".$errfile."] line [".$errline."]");
+        return;
+    }
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+});
 
 include("library/Smarty/libs/Smarty.class.php");
 include("library/core_exception.php");
