@@ -1,15 +1,21 @@
 <?php
 
 class AdminControllerTest extends PHPUnitTestController {
-    protected function doValidLogin($reset = true) {
+    protected static $fixture_file = "pd_clean";
+
+    protected function doLogin($username, $password, $reset = true) {
         $this->request->setMethod("POST")->setParams(array(
-            "email"    => "test@example.com",
-            "password" => "t3stp4ss",
+            "email"    => $username,
+            "password" => $password,
         ))->dispatch("/admin/login");
 
         if ($reset === true) {
             $this->request->reset();
         }
+    }
+
+    protected function doValidLogin($reset = true) {
+        $this->doLogin("test@example.com", "t3stp4ss", $reset);
     }
 
     public function testAddPostActionRedirectsToLoginWhenNotAuthed() {
@@ -91,5 +97,27 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/admin");
         $this->assertRedirect(true);
         $this->assertRedirectUrl("/admin/login");
+    }
+
+    public function testCommentsCountIsVisibleFromAdminIndexPage() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->dispatch("/admin");
+
+        // this is extremely tenuous. A selenium test would be better...
+        $this->assertBodyHasContentsInOrder("Comments");
+        $this->assertBodyHasContentsInOrder("2 (1)");
+        $this->assertBodyHasContentsInOrder("0 (1)");
+        $this->assertBodyHasContentsInOrder("0 (0)");
+    }
+
+    public function testCommentsLinkShowsAllComments() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->dispatch("/admin/posts/3/comments");
+
+        $this->assertBodyHasContentsInOrder("Test Person 2");
+        $this->assertBodyHasContentsInOrder("Test User 1");
+        $this->assertBodyHasContentsInOrder("Another Tester");
     }
 }

@@ -4,6 +4,8 @@
  */
 
 class AdminTest extends SeleniumTestController {
+    protected static $fixture_file = "pd_clean";
+
     public static $browsers = array(
         array(
             "name" => "Firefox",
@@ -89,6 +91,19 @@ class AdminTest extends SeleniumTestController {
         $this->click("id=burn-link");
         $this->waitForPageToLoad(50000);
         $this->assertTextPresent("This post hasn't been published");
+    }
+
+    public function testCommentApprovalProcess() {
+        $this->doValidLogin();
+        $this->open("/admin/posts/1/comments");
+        $this->select("id=approved", "Yes");
+        $this->submit("//form");
+        $this->waitForPageToLoad(10000);
+        $this->open("/2011/09/this-is-a-test-post");
+
+        $this->assertTextPresent("1 comment");
+        $this->assertTextPresent("Mr Test");
+        $this->assertTextPresent("This is a comment");
     }
 
 }

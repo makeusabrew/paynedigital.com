@@ -13,6 +13,16 @@ class PostObjectTest extends PHPUnitTestController {
         $this->assertEquals(2, Table::factory('Posts')->read(3)->getApprovedCommentsCount());
     }
 
+    public function testGetComments() {
+        $this->assertEquals(1, count(Table::factory('Posts')->read(1)->getComments()));
+        $this->assertEquals(3, count(Table::factory('Posts')->read(3)->getComments()));
+    }
+
+    public function testGetUnapprovedCommentsCount() {
+        $this->assertEquals(1, Table::factory('Posts')->read(1)->getUnapprovedCommentsCount());
+        $this->assertEquals(1, Table::factory('Posts')->read(3)->getUnapprovedCommentsCount());
+    }
+
     public function testGetTags() {
         $this->assertEquals(array(
             "web",

@@ -89,6 +89,11 @@
                 {assign var="selopt" value=null}
                 {assign var="selkey" value=null}
             </select>
+        {elseif $type == 'bool'}
+            <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
+                <option value="1"{if isset($value) && $value == true} selected=""{/if}>Yes</option>
+                <option value="0"{if isset($value) && $value == false} selected=""{/if}>No</option>
+            </select>
         {else}
             <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
         {/if}

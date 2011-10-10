@@ -35,7 +35,7 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `approved` (`approved`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:47:54','2011-09-16 13:47:54'),(4,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 13:54:04','2011-09-16 13:54:04'),(5,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 14:17:01','2011-09-16 14:17:01'),(6,3,'127.0.0.2','Test Person','test@example.com','This is a test message',0,'2011-09-16 14:17:17','2011-09-16 14:17:17');
+INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'192.168.2.18','Another Tester','test5@example.com','This is another comment which has not been approve',0,'2011-10-10 12:02:46','2011-10-10 12:02:46'),(4,1,'127.0.0.2','Mr Test','test3@example.com','This is a comment - it has not been approved.',0,'2011-10-10 12:02:46','2011-10-10 12:02:46'),(5,6,'67.166.8.3','A User','a.user@example.com','This comment has not been approved.',0,'2011-10-10 12:18:02','2011-10-10 12:18:02');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','ca5bde083f06fe7bacdc5714d2ade85a4045850e','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
+INSERT INTO `users` VALUES (1,'test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -186,4 +186,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-30 13:30:21
+-- Dump completed on 2011-10-10 12:18:04

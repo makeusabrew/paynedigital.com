@@ -1,6 +1,7 @@
 <?php
 class AdminController extends Controller {
     protected $adminUser = null;
+    protected $post = null;
 
     public function init() {
         $this->adminUser = Table::factory('Users')->loadFromSession();
@@ -18,6 +19,14 @@ class AdminController extends Controller {
                     throw new CoreException("Not Authed");
                 }
                 break;
+        }
+        if ($this->getMatch('id') !== null) {
+            $post = Table::factory('Posts')->read($this->getMatch('id'));
+            if ($post == false || $this->adminUser->owns($post) == false) {
+                $this->redirectAction("index", "You cannot perform this action");
+                throw new CoreException("You cannot perform this action");
+            }
+            $this->post = $post;
         }
     }
 
@@ -48,12 +57,8 @@ class AdminController extends Controller {
     }
 
     public function edit_post() {
-        $post = Table::factory('Posts')->read($this->getMatch('id'));
-        if ($post == false || $this->adminUser->owns($post) == false) {
-            return $this->redirectAction("index", "You cannot edit this post");
-        }
-        $this->assign('object', $post);
-        $this->assign('columns', $post->getColumns());
+        $this->assign('object', $this->post);
+        $this->assign('columns', $this->post->getColumns());
         if ($this->request->isPost()) {
             $data = array(
                 "title" => $this->request->getVar('title'),
@@ -63,11 +68,11 @@ class AdminController extends Controller {
                 "content" => $this->request->getVar('content'),
                 "tags" => $this->request->getVar('tags'),
             );
-            if ($post->updateValues($data)) {
-                $post->save();
+            if ($this->post->updateValues($data)) {
+                $this->post->save();
                 return $this->redirectAction("index", "Post updated");
             }
-            $this->setErrors($post->getErrors());
+            $this->setErrors($this->post->getErrors());
         }
     }
 
@@ -96,13 +101,9 @@ class AdminController extends Controller {
     }
 
     public function generate_burn_link() {
-        $post = Table::factory('Posts')->read($this->getMatch('id'));
-        if ($post == false || $this->adminUser->owns($post) == false) {
-            return $this->redirectAction("index", "You cannot perform this action");
-        }
         $preview = Table::factory('Previews')->newObject();
         $data = array(
-            "post_id"  => $post->getId(),
+            "post_id"  => $this->post->getId(),
             "user_id"  => $this->adminUser->getId(),
             "quantity" => 1,
         );
@@ -112,5 +113,23 @@ class AdminController extends Controller {
             $identifier = Settings::getValue("site.base_href")."/burn-after-reading/".$preview->identifier;
             $this->assign("identifier", $identifier);
         }
+    }
+
+    public function view_comments() {
+        $this->assign('comments', $this->post->getComments());
+        $this->assign('columns', Table::factory('Comments')->getColumns());
+    }
+
+    public function edit_comment() {
+        $comment = Table::factory('Comments')->read($this->getMatch('comment_id'));
+        if ($comment == false || $comment->post_id != $this->post->getId()) {
+            return $this->redirectAction("index", "You cannot perform this action");
+        }
+
+        if ($comment->updateValues($this->request->getPost())) {
+            $comment->save();
+            return $this->redirectAction("index", "Comment Updated");
+        }
+        $this->setErrors($comment->getErrors());
     }
 }

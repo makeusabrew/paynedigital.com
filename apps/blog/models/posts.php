@@ -19,6 +19,19 @@ class Post extends Object {
         ));
     }
 
+    public function getComments() {
+        return Table::factory('Comments')->findAll(array(
+            'post_id' => $this->getId(),
+        ));
+    }
+
+    public function getUnapprovedCommentsCount() {
+        return Table::factory('Comments')->countAll(array(
+            'post_id' => $this->getId(),
+            'approved' => false,
+        ));
+    }
+
     public function getTags() {
         return self::convertTagsToArray($this->tags);
     }

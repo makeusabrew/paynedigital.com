@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="/admin/css/main.css" />
 </head>
 <body>
+    {if isset($messages) && count($messages)}
+        <div class='container'>
+            {foreach from=$messages item="message"}
+                {* other twitter styles are: error, warning, success *}
+                <div class="alert-message info">
+                    <a class="close" href="#">&times;</a>
+                    <p>{$message}</p>
+                </div>
+            {/foreach}
+        </div>
+    {/if}
     <div class='topbar'>
         <div class='topbar-inner'>
             <div class='container'>
