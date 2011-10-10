@@ -9,6 +9,7 @@
         {include file='default/views/helpers/field.tpl' field='tags'}
         <div class="actions">
             <input type="submit" id="save-button" value="Save" class="btn primary" />
+            <a href="/admin" class="btn danger">Go Back</a>
             {if isset($object)}
                 <div id="burn-modal" class="modal hide fade">
                     <div class="modal-header">

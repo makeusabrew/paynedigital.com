@@ -21,15 +21,19 @@
     <div class='topbar'>
         <div class='topbar-inner'>
             <div class='container'>
-                <h3><a href='/admin'>Administration</a></h3>
+                <h3><a href='/admin'>Payne Digital - Admin</a></h3>
                 <ul class='nav'>
                     <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/posts/add">New Post</a></li>
                     <li><a href="/admin/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class='container'>
+        <div class='page-header'>
+            <h1>Administration Area</h1>
+        </div>
         {block name='body'}
         {/block}
     </div>
