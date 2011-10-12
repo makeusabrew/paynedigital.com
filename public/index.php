@@ -5,8 +5,6 @@ if (!defined("JAOSS_ROOT")) {
 }
 set_include_path(get_include_path() . PATH_SEPARATOR . PROJECT_ROOT);
 set_include_path(get_include_path() . PATH_SEPARATOR . JAOSS_ROOT);
-ini_set("display_errors", 1);
-ini_set("html_errors", "On");
 error_reporting(-1);
 
 // convert errors into exceptions
