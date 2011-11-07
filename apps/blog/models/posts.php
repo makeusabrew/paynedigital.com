@@ -138,8 +138,8 @@ class Posts extends Table {
 
         $params = array("PUBLISHED", $date);
 
-		$dbh = Db::getInstance();
-		$sth = $dbh->prepare($sql);
+	$dbh = Db::getInstance();
+	$sth = $dbh->prepare($sql);
         $sth->execute($params);
         $items = $sth->fetchAll(PDO::FETCH_NUM);
         $final = array();
@@ -158,8 +158,8 @@ class Posts extends Table {
 
         $params = array("PUBLISHED", $date);
 
-		$dbh = Db::getInstance();
-		$sth = $dbh->prepare($sql);
+	$dbh = Db::getInstance();
+	$sth = $dbh->prepare($sql);
         $sth->execute($params);
         $items = $sth->fetchAll(PDO::FETCH_NUM);
         $final = array();
