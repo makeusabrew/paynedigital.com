@@ -109,3 +109,7 @@ span.git-blue {
 #comments .alert-message {
     margin-top:1em;
 }
+
+.post .gist {
+    padding:0.8em 0;
+}
