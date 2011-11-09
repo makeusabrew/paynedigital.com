@@ -10,4 +10,8 @@ class ShortlinksController extends Controller {
             "url"        => "bootbox-js-alert-confirm-dialogs-for-twitter-bootstrap",
         ));
     }
+
+    public function trello_redirect() {
+        return $this->redirect(Settings::getValue("trello.url"));
+    }
 }
