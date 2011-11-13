@@ -186,4 +186,14 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/2010/01/not-published-yet");
         $this->assertBodyHasContents("This post hasn't been published");
     }
+
+    public function testHeadBlockAddsContentWhenProvided() {
+        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->assertBodyHasContents("<link rel=\"stylesheet\" type=\"text/css\" href=\"/foo/bar.css\" />", Table::factory('Posts')->read(3)->head_block);
+    }
+
+    public function testScriptBlockAddsContentWhenProvided() {
+        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->assertBodyHasContents("<script type=\"text/javascript\" src=\"/foo/bar.js\"></script>", Table::factory('Posts')->read(3)->script_block);
+    }
 }

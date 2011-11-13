@@ -1,5 +1,11 @@
 {extends file='default/views/base.tpl'}
 {block name="title"}{$smarty.block.parent} - {$post->title}{/block}
+{if $post->head_block != ''}
+    {block name="head"}
+        {$smarty.block.parent}
+        {$post->head_block}
+    {/block}
+{/if}
 {block name='body'}
     {include file='partials/post.tpl'}
     <div id="comments">
@@ -54,6 +60,7 @@
     </div>
 {/block}
 {block name='script'}
+    {$smarty.block.parent}
     <script src="/js/forms.js"></script>
     <script>
         $(function() {
@@ -70,4 +77,7 @@
             });
         });
     </script>
+    {if $post->script_block != ''}
+        {$post->script_block}
+    {/if}
 {/block}

@@ -42,4 +42,14 @@ class PostObjectTest extends PHPUnitTestController {
             Table::factory('Posts')->read(1)->getTagsAsString()
         );
     }
+
+    public function testGetHeadBlock() {
+        $this->assertEquals("<link rel=\"stylesheet\" type=\"text/css\" href=\"/foo/bar.css\" />", Table::factory('Posts')->read(1)->head_block);
+        $this->assertEquals("", Table::factory('Posts')->read(3)->head_block);
+    }
+
+    public function testGetScriptBlock() {
+        $this->assertEquals("<script type=\"text/javascript\" src=\"/foo/bar.js\"></script>", Table::factory('Posts')->read(1)->script_block);
+        $this->assertEquals("", Table::factory('Posts')->read(3)->head_block);
+    }
 }

@@ -91,6 +91,16 @@ class Posts extends Table {
             'tags' => array(
                 'type' => 'text',
             ),
+            'head_block' => array(
+                'type' => 'textarea',
+                'required' => false,
+                'title' => 'Head Block',
+            ),
+            'script_block' => array(
+                'type' => 'textarea',
+                'required' => false,
+                'title' => 'Script Block',
+            ),
         ),
     );
 
