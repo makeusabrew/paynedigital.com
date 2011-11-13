@@ -114,6 +114,10 @@ span.git-blue {
     margin-top:1em;
 }
 
+#comments .comment:nth-child(even) {
+    background:#f7f7f7;
+}
+
 .post .gist {
     padding:0.8em 0;
 }
