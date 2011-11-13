@@ -120,4 +120,13 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("Test User 1");
         $this->assertBodyHasContentsInOrder("Another Tester");
     }
+
+    public function testHeadBlockTextareaIsVisibleFromEditPostPage() {
+        $this->doValidLogin();
+
+        $this->request->dispatch("/admin/posts/add");
+
+        $this->assertBodyHasContents("Head Block");
+        $this->assertBodyHasContents("Script Block");
+    }
 }

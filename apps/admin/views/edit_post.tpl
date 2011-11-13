@@ -7,6 +7,8 @@
         {include file='default/views/helpers/field.tpl' field='published'}
         {include file='default/views/helpers/field.tpl' field='content' fclass="editcontent"}
         {include file='default/views/helpers/field.tpl' field='tags'}
+        {include file='default/views/helpers/field.tpl' field='head_block'}
+        {include file='default/views/helpers/field.tpl' field='script_block'}
         <div class="actions">
             <input type="submit" id="save-button" value="Save" class="btn primary" />
             <a href="/admin" class="btn danger">Go Back</a>
