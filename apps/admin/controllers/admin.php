@@ -67,6 +67,8 @@ class AdminController extends Controller {
                 "published" => $this->request->getVar('published'),
                 "content" => $this->request->getVar('content'),
                 "tags" => $this->request->getVar('tags'),
+                "head_block" => $this->request->getVar('head_block'),
+                "script_block" => $this->request->getVar('script_block'),
             );
             if ($this->post->updateValues($data)) {
                 $this->post->save();
@@ -89,6 +91,8 @@ class AdminController extends Controller {
                 "content" => $this->request->getVar('content'),
                 "tags" => $this->request->getVar('tags'),
                 "user_id" => $this->adminUser->getId()
+                "head_block" => $this->request->getVar('head_block'),
+                "script_block" => $this->request->getVar('script_block'),
             );
             $post = Table::factory('Posts')->newObject();
             if ($post->setValues($data)) {
