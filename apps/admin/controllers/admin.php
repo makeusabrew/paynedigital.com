@@ -90,7 +90,7 @@ class AdminController extends Controller {
                 "published" => $this->request->getVar('published'),
                 "content" => $this->request->getVar('content'),
                 "tags" => $this->request->getVar('tags'),
-                "user_id" => $this->adminUser->getId()
+                "user_id" => $this->adminUser->getId(),
                 "head_block" => $this->request->getVar('head_block'),
                 "script_block" => $this->request->getVar('script_block'),
             );
