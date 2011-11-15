@@ -1,5 +1,5 @@
 <?php
 
 PathManager::loadPaths(
-    array("/feed", "index")
+    array("/feed\.(xml|rss)", "index")
 );

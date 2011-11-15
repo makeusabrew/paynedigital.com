@@ -44,6 +44,8 @@ class DefaultControllerTest extends PHPUnitTestController {
             array("/2011/09/another-test-post/comment/thanks", "comment_thanks", "Blog", "blog", 303, true, "/"),
             array("/tag/foo", "search_tags", "Blog", "blog"),
             array("/search", "index", "Search", "search"),
+            array("/feed.xml", "index", "Feed", "feed"),
+            array("/feed.rss", "index", "Feed", "feed"),
             /**
              * static pages (no logic, just tpls)
              */
