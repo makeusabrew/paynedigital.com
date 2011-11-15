@@ -7,6 +7,7 @@
     {foreach from=$articles item="article"}
         <item>
             <title>{$article->title}</title>
+            <link>{$base_href}{$article->getUrl()}</link>
         </item> 
     {/foreach}
 </channel>
