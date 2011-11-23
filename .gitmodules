@@ -1,3 +1,6 @@
 [submodule "jaoss"]
 	path = jaoss
 	url = git://github.com/makeusabrew/jaoss.git
+[submodule "public/nodeflakes-client"]
+	path = public/nodeflakes-client
+	url = git@github.com:makeusabrew/nodeflakes-client.git
