@@ -121,3 +121,10 @@ span.git-blue {
 .post .gist {
     padding:0.8em 0;
 }
+
+.options {
+    border:1px solid #ccc;
+    border-width:1px 0;
+    padding:10px 10px 6px;
+    margin:20px 0;
+}
