@@ -128,3 +128,7 @@ span.git-blue {
     padding:10px 10px 6px;
     margin:20px 0;
 }
+
+div.small p {
+    font-size:11px;
+}
