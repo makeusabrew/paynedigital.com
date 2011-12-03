@@ -148,6 +148,34 @@ INSERT INTO `previews` VALUES (3,'2011-09-30 12:00:00','2011-09-30 12:13:00',1,2
 UNLOCK TABLES;
 
 --
+-- Table structure for table `shortlinks`
+--
+
+DROP TABLE IF EXISTS `shortlinks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shortlinks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `redirect_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `url` (`url`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shortlinks`
+--
+
+LOCK TABLES `shortlinks` WRITE;
+/*!40000 ALTER TABLE `shortlinks` DISABLE KEYS */;
+INSERT INTO `shortlinks` VALUES (1,'/bootbox','/2011/11/bootbox-js-alert-confirm-dialogs-for-twitter-bootstrap','2011-12-03 18:01:43','2011-12-03 18:01:43'),(2,'/trello','https://trello.com/board/paynedigital-com/4eba7ed4538fd4a54b302e23','2011-12-03 18:01:43','2011-12-03 18:01:43'),(3,'/nodeflakes','/2011/12/nodeflakes','2011-12-03 18:02:03','2011-12-03 18:02:03');
+/*!40000 ALTER TABLE `shortlinks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -188,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-11-13 11:11:13
+-- Dump completed on 2011-12-03 18:05:33

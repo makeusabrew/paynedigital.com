@@ -10,6 +10,7 @@ class ShortlinksControllerTest extends PHPUnitTestController {
         $this->assertResponseCode(303);
         $this->assertController("Shortlinks");
         $this->assertApp("shortlinks");
+        $this->assertAction("do_redirect");
         $this->assertRedirect(true);
         $this->assertRedirectUrl($redirectUrl);
     }

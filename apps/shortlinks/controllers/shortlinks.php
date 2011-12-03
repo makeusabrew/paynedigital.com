@@ -1,27 +1,11 @@
 <?php
 
 class ShortlinksController extends Controller {
-    public function bootbox_redirect() {
-        return $this->redirect(array(
-            "app"        => "blog",
-            "controller" => "Blog",
-            "action"     => "view_post",
-            "month"      => "2011/11",
-            "url"        => "bootbox-js-alert-confirm-dialogs-for-twitter-bootstrap",
-        ));
-    }
-
-    public function nodeflakes_redirect() {
-        return $this->redirect(array(
-            "app"        => "blog",
-            "controller" => "Blog",
-            "action"     => "view_post",
-            "month"      => "2011/12",
-            "url"        => "nodeflakes",
-        ));
-    }
-
-    public function trello_redirect() {
-        return $this->redirect(Settings::getValue("trello.url"));
+    public function do_redirect() {
+        $link = Table::factory('Shortlinks')->findByUrl($this->getMatch('url'));
+        if ($link == null) {
+            throw new CoreException('Redirect URL not found', CoreException::PATH_REJECTED);
+        }
+        return $this->redirect($link->redirect_url);
     }
 }
