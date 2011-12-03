@@ -1,8 +1,12 @@
 <phpunit colors="true" bootstrap="bootstrap.php">
-	<testsuite name="Full Web Tests">
-        <directory>./**/*</directory>
-        <directory>../jaoss/**/*</directory>
-	</testsuite>
+    <testsuites>
+        <testsuite name="Project Tests">
+            <directory>.</directory>
+        </testsuite>
+        <testsuite name="Library Tests">
+            <directory>../jaoss/tests</directory>
+        </testsuite>
+    </testsuites>
     <filter>
         <blacklist>
             <directory suffix=".php">../tests</directory>
