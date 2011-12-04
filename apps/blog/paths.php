@@ -21,5 +21,10 @@ PathManager::loadPaths(
         "pattern"  => "/burn-after-reading/(?P<identifier>[A-z0-9]+)",
         "action"   => "burn_after_reading",
         "cacheTtl" => false,
+    ),
+    array(
+        "pattern"  => "/comment-unsubscribe/(?P<hash>[A-z0-9]+)",
+        "action"   => "comment_unsubscribe",
+        "cacheTtl" => false,
     )
 );

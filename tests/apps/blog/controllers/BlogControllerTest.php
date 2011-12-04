@@ -1,6 +1,8 @@
 <?php
 
 class BlogControllerTest extends PHPUnitTestController {
+    protected static $fixture_file = "pd_clean";
+
     public function testHomepageDoesNotShowDraftPosts() {
         $this->request->dispatch("/");
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");
@@ -199,5 +201,26 @@ class BlogControllerTest extends PHPUnitTestController {
     public function testScriptBlockAddsContentWhenProvided() {
         $this->request->dispatch("/2011/09/this-is-a-test-post");
         $this->assertBodyHasContents("<script type=\"text/javascript\" src=\"/foo/bar.js\"></script>", Table::factory('Posts')->read(3)->script_block);
+    }
+
+    public function testCommentUnsubscribe() {
+        $this->request->dispatch("/comment-unsubscribe/a80cf660b49c20ec5ee5e79988c25549a13e50aa");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/2011/09/another-test-post");
+
+        $this->request->reset();
+        $this->request->dispatch("/2011/09/another-test-post");
+        $this->assertBodyHasContents("You have been unsubscribed from new comment notifications on this article");
+    }
+
+    public function testCommentUnsubscribeWithInvalidHash() {
+        try {
+            $this->request->dispatch("/comment-unsubscribe/1234abcd");
+        } catch (CoreException $e) {
+            $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
+            return;
+        }
+        $this->fail("Expected exception not raised");
     }
 }

@@ -33,6 +33,17 @@
     </div>
     <div class='container'>
         <div class='row'>
+            {if isset($messages) && count($messages)}
+                <div class='container'>
+                    {foreach from=$messages item="message"}
+                        {* other twitter styles are: error, warning, success *}
+                        <div class="alert-message info">
+                            <a class="close" href="#">&times;</a>
+                            <p>{$message}</p>
+                        </div>
+                    {/foreach}
+                </div>
+            {/if}
             <div class='span11 columns'>
                 {block name="body"}
                     <p>Your body content goes here.</p>

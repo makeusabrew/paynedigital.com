@@ -6,7 +6,7 @@ class Comment extends Object {
                 $this->approved_at == "0000-00-00 00:00:00");
     }
 
-    protected function getNotifications() {
+    public function getNotifications() {
         return json_decode($this->notifications, true);
     }
 
@@ -19,6 +19,10 @@ class Comment extends Object {
         $notifications = $this->getNotifications();
         return (isset($notifications['email_on_new']) && $notifications['email_on_new']);
     }
+
+    public function getUnsubscribeHash() {
+        return sha1($this->id.$this->post_id.$this->ip.$this->email);
+    }
 }
 
 class Comments extends Table {
@@ -27,7 +31,7 @@ class Comments extends Table {
         'columns' => array(
             'post_id' => array(
                 'type' => 'foreign_key',
-                'model' => 'Posts',
+                'table' => 'Posts',
                 'required' => true,
             ),
             'ip' => array(
@@ -65,4 +69,12 @@ class Comments extends Table {
             ),
         ),
     );
+
+    public function findOthersForPost($post_id, $comment_id) {
+        return $this->findAll("`post_id` = ? AND `id` <> ?", array($post_id, $comment_id));
+    }
+
+    public function findByHash($hash) {
+        return $this->find("SHA1(CONCAT(`id`, `post_id`, `ip`, `email`)) = ?", array($hash));
+    }
 }

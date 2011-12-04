@@ -120,4 +120,24 @@ class BlogController extends Controller {
         $this->setFlash("preview_post_id", $post->getId());
         return $this->redirect("/".$post->getUrl());
     }
+
+    public function comment_unsubscribe() {
+        $comment = Table::factory('Comments')->findByHash($this->getMatch('hash'));
+        if ($comment == false) {
+            throw new CoreException('No matching comment found', CoreException::PATH_REJECTED);
+        }
+
+        $notifications = $comment->getNotifications();
+        unset($notifications['email_on_new']);
+
+        $comment->updateValues(array(
+            'notifications' => $notifications,
+        ), true);
+
+        $comment->save();
+        return $this->redirect(
+            "/".$comment->post->getUrl(),
+            "You have been unsubscribed from new comment notifications on this article"
+        );
+    }
 }

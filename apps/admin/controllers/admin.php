@@ -151,6 +151,32 @@ class AdminController extends Controller {
                         "comment" => $comment,
                     ));
                     $email->send();
+
+                }
+
+                $comments = Table::factory('Comments')->findOthersForPost($this->post->getId(), $comment->getId());
+                $sentEmails = array();
+                foreach ($comments as $otherComment) {
+                    if ($otherComment->emailOnNew()) {
+                        $to = $otherComment->name." <".$otherComment->email.">";
+                        if (isset($sentEmails[$to])) {
+                            Log::warn("New comment notification email already sent to [".$to."]");
+                            continue;
+                        }
+                        $from = Settings::getValue("contact.from_address");
+                        $subject = "A new comment has been added";
+                        $email = Email::factory();
+                        $email->setFrom($from);
+                        $email->setTo($to);
+                        $email->setSubject($subject);
+                        $email->setBodyFromTemplate("blog/views/emails/new-comment", array(
+                            "post"    => $this->post,
+                            "comment" => $otherComment,
+                            "unsubscribe_hash" => $otherComment->getUnsubscribeHash(),
+                        ));
+                        $email->send();
+                        $sentEmails[$to] = true;
+                    }
                 }
             }
             $comment->save();

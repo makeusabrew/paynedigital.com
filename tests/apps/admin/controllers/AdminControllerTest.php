@@ -140,7 +140,7 @@ class AdminControllerTest extends PHPUnitTestController {
         ))->dispatch("/admin/posts/3/comments/edit/3");
 
         $emails = TestEmailHandler::getSentEmails();
-        $this->assertEquals(1, count($emails));
+        $this->assertEquals(3, count($emails)); // 1 to comment author, 2 to others subscribed
         $this->assertEquals('Your comment has been approved', $emails[0]['subject']);
         $this->assertEquals('Another Tester <test5@example.com>', $emails[0]['to']);
         $this->assertEquals('noreply@paynedigital.com', $emails[0]['from']);
@@ -157,5 +157,25 @@ class AdminControllerTest extends PHPUnitTestController {
 
         $emails = TestEmailHandler::getSentEmails();
         $this->assertEquals(0, count($emails));
+    }
+
+    public function testEmailsSentToUsersWithAppropriatePreferenceWhenCommentApproved() {
+        self::loadFixture();
+
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        TestEmailHandler::resetSentEmails();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "approved" => "1",
+        ))->dispatch("/admin/posts/3/comments/edit/3");
+
+        $emails = TestEmailHandler::getSentEmails();
+        $this->assertEquals(3, count($emails));
+        $this->assertEquals('A new comment has been added', $emails[1]['subject']);
+        $this->assertEquals('Test Person 2 <test@example.com>', $emails[1]['to']);
+
+        $this->assertEquals('A new comment has been added', $emails[2]['subject']);
+        $this->assertEquals('Test User 1 <test@example.com>', $emails[2]['to']);
     }
 }
