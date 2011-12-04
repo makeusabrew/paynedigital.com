@@ -19,6 +19,10 @@
         </delete>
     </target>
 
+    <target name="reset" description="Reset Test State" depends="cleanup">
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} ./jcli fixture update-db --no-colour" />
+    </target>
+
     <target name="test" description="Non Selenium Tests" depends="cleanup">
         <echo msg="Running Test Suite" />
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --exclude-group selenium" />
