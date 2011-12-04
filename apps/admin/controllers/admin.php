@@ -155,7 +155,12 @@ class AdminController extends Controller {
                 }
 
                 $comments = Table::factory('Comments')->findOthersForPost($this->post->getId(), $comment->getId());
-                $sentEmails = array();
+
+                // ensure sent emails always contains the one we just sent, in case the same user has added another
+                // email
+                $sentEmails = array(
+                    $to => true,
+                );
                 foreach ($comments as $otherComment) {
                     if ($otherComment->emailOnNew()) {
                         $to = $otherComment->name." <".$otherComment->email.">";
