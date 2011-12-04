@@ -45,19 +45,16 @@ class BlogController extends Controller {
     }
 
     public function add_comment() {
-        if (!$this->request->isPost()) {
-            return $this->redirect("/");
-        }
-
         $comment = Table::factory('Comments')->newObject();
         $name = ($this->request->getVar("name") != "") ? $this->request->getVar("name") : "Anonymous";
         $data = array(
-            "post_id" => $this->post->getId(),
-            "name"  => $name,
-            "email" => $this->request->getVar("email"),
-            "content" => $this->request->getVar("content"),
-            "approved" => false,
-            "ip" => $this->request->getIp(),
+            "post_id"       => $this->post->getId(),
+            "name"          => $name,
+            "email"         => $this->request->getVar("email"),
+            "content"       => $this->request->getVar("content"),
+            "approved"      => false,
+            "ip"            => $this->request->getIp(),
+            "notifications" => $this->request->getVar("notifications")
         );
         if ($comment->setValues($data)) {
             $comment->save();

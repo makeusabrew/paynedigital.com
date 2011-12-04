@@ -1,7 +1,5 @@
-{if isset($columns.$field)}
+{if !isset($coldata) && isset($columns.$field)}
     {assign var="coldata" value=$columns.$field}
-{else}
-    {assign var="coldata" value=null}
 {/if}
 {* any errors? *}
 {if isset($_errors) && isset($_errors.$field)}
@@ -30,8 +28,8 @@
     {assign var="type" value="text"}
 {/if}
 {* extra processing *}
-{if $type == "select"}
-    {if !isset($seloptions)}
+{if $type == "select" || $type == "checkbox"}
+    {if !isset($seloptions) && isset($coldata.options)}
         {assign var="seloptions" value=$coldata.options}
     {/if}
 {/if}
@@ -89,6 +87,25 @@
                 {assign var="selopt" value=null}
                 {assign var="selkey" value=null}
             </select>
+        {elseif $type == "checkbox" && isset($seloptions)}
+            <ul class='inputs-list'>
+                {foreach from=$seloptions item="selopt" key="selkey"}
+                    <li>
+                        <label for="{$field}_{$selkey}">
+                            <input type="checkbox"
+                            {if isset($disabled)} disabled=""{/if}
+                            id="{$field}_{$selkey}"
+                            name="{$field}[{$selkey}]"
+                            class="checkbox{if $error} error{/if}"
+                            {if isset($value) && is_array($value) && isset($value[$selkey])} checked=""{/if}
+                            />
+                            <span>{$selopt}</span>
+                        </label>
+                    </li>
+                {/foreach}
+            </ul>
+            {assign var="selopt" value=null}
+            {assign var="selkey" value=null}
         {elseif $type == 'bool'}
             <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
                 <option value="1"{if isset($value) && $value == true} selected=""{/if}>Yes</option>
@@ -101,6 +118,7 @@
     </div>
 </div>
 
+{assign var="coldata" value=null}
 {assign var="type" value=null}
 {assign var="confirm" value=null}
 {assign var="title" value=null}

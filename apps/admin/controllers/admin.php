@@ -130,7 +130,29 @@ class AdminController extends Controller {
             return $this->redirectAction("index", "You cannot perform this action");
         }
 
-        if ($comment->updateValues($this->request->getPost())) {
+        $notApprovedBefore = $comment->hasNeverBeenApproved();
+
+        if ($comment->updateValues($this->request->getPost(), true)) {
+            if ($notApprovedBefore &&
+                $comment->approved) {
+                // new approval
+                $comment->approved_at = Utils::getDate("Y-m-d H:i:s");
+                if ($comment->emailOnApproval()) {
+                    // bosh!
+                    $from = Settings::getValue("contact.from_address");
+                    $subject = "Your comment has been approved";
+                    $to = $comment->name." <".$comment->email.">";
+                    $email = Email::factory();
+                    $email->setFrom($from);
+                    $email->setTo($to);
+                    $email->setSubject($subject);
+                    $email->setBodyFromTemplate("emails/comment-approved", array(
+                        "post"    => $this->post,
+                        "comment" => $comment,
+                    ));
+                    $email->send();
+                }
+            }
             $comment->save();
             return $this->redirectAction("index", "Comment Updated");
         }

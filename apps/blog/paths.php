@@ -10,6 +10,7 @@ PathManager::loadPaths(
         "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment",
         "action"   => "add_comment",
         "cacheTtl" => false,
+        "method"   => "POST",
     ),
     array(
         "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment/thanks",

@@ -45,14 +45,18 @@
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false}
                             {include file='default/views/helpers/field.tpl' field='email'}
                             {include file='default/views/helpers/field.tpl' field='content'}
+                            {include file='default/views/helpers/field.tpl' field='notifications'}
                             <div class="actions">
                                 <input type="submit" value="Send" class="btn primary" />
                             </div>
                         </form>
                     </div>
                     <div class='span3 columns'>
-                        <p>We don't publish your email address and won't send you any spam.</p>
-                        <p>Note that we do capture your IP address for auditing purposes.</p>
+                        <div class='small'>
+                            <p>We don't publish your email address and won't send you any spam.</p>
+                            <p>Note that we do capture your IP address for auditing purposes and your comment
+                            may be moderated before it appears.</p>
+                        </div>
                     </div>
                 </div>
             </div>

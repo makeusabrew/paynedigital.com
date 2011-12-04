@@ -40,7 +40,6 @@ class DefaultControllerTest extends PHPUnitTestController {
             array("/articles", "index", "Blog", "blog"),
             array("/2011/01", "view_month", "Blog", "blog"),
             array("/2011/09/another-test-post", "view_post", "Blog", "blog"),
-            array("/2011/09/another-test-post/comment", "add_comment", "Blog", "blog", 303, true, "/"),
             array("/2011/09/another-test-post/comment/thanks", "comment_thanks", "Blog", "blog", 303, true, "/"),
             array("/tag/foo", "search_tags", "Blog", "blog"),
             array("/search", "index", "Search", "search"),

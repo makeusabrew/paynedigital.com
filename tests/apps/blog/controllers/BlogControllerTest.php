@@ -68,9 +68,13 @@ class BlogControllerTest extends PHPUnitTestController {
     }
 
     public function testCommentFormWithGetRequest() {
-        $this->request->dispatch("/2011/09/another-test-post/comment");
-        $this->assertRedirect(true);
-        $this->assertRedirectUrl("/");
+        try {
+            $this->request->dispatch("/2011/09/another-test-post/comment");
+        } catch (CoreException $e) {
+            $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
+            return;
+        }
+        $this->fail("Expected exception not raised");
     }
 
     public function testCommentThanksPageWithoutCompletingCommentForm() {

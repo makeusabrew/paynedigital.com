@@ -30,8 +30,10 @@ CREATE TABLE `comments` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `approved` tinyint(4) NOT NULL,
+  `approved_at` datetime NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
+  `notifications` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `approved` (`approved`)
@@ -44,7 +46,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45'),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47'),(3,3,'192.168.2.18','Another Tester','test5@example.com','This is another comment which has not been approve',0,'2011-10-10 12:02:46','2011-10-10 12:02:46'),(4,1,'127.0.0.2','Mr Test','test3@example.com','This is a comment - it has not been approved.',0,'2011-10-10 12:02:46','2011-10-10 12:02:46'),(5,6,'67.166.8.3','A User','a.user@example.com','This comment has not been approved.',0,'2011-10-10 12:18:02','2011-10-10 12:18:02');
+INSERT INTO `comments` VALUES (1,3,'192.168.2.18','Test User 1','test@example.com','This is a test comment, Quisque vestibulum mauris ut odio sodales convallis. In molestie orci ut felis eleifend vel pretium diam feugiat. Aenean magna turpis, tempor et volutpat eget, scelerisque vel magna. Pellentesque in dolor nisi, sed viverra felis.',1,'2011-09-16 12:56:45','2011-09-16 12:56:45','2011-09-16 12:56:45',''),(2,3,'127.0.0.2','Test Person 2','test@example.com','This is a test message Donec tincidunt, mauris at dictum vestibulum, urna nulla pharetra turpis, a vulputate risus sapien id tortor. In augue felis, blandit non vestibulum vel, dignissim id nibh. Nunc gravida, purus eu vehicula hendrerit, libero massa dapibus velit, a egestas odio mi at tortor.',1,'2011-09-15 09:33:47','2011-09-15 09:33:47','2011-09-15 09:33:47',''),(3,3,'192.168.2.18','Another Tester','test5@example.com','This is another comment which has not been approved',0,'0000-00-00 00:00:00','2011-10-10 12:02:46','2011-10-10 12:02:46','{\"email_on_approval\":\"on\",\"email_on_new\":\"on\"}'),(4,1,'127.0.0.2','Mr Test','test3@example.com','This is a comment - it has not been approved.',0,'0000-00-00 00:00:00','2011-10-10 12:02:46','2011-10-10 12:02:46','{\"email_on_new\":\"on\"}'),(5,6,'67.166.8.3','A User','a.user@example.com','This comment has not been approved.',0,'2011-10-11 11:22:44','2011-10-10 12:18:02','2011-10-10 12:18:02','');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-12-03 18:05:33
+-- Dump completed on 2011-12-04 11:29:35

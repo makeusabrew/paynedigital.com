@@ -132,3 +132,7 @@ span.git-blue {
 div.small p {
     font-size:11px;
 }
+
+.tiny label {
+    font-size:11px;
+}

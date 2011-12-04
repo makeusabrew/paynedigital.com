@@ -129,4 +129,33 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Head Block");
         $this->assertBodyHasContents("Script Block");
     }
+
+    public function testEmailIsSentWhenCommentApprovedWithAppropriateNotificationPreference() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        TestEmailHandler::resetSentEmails();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "approved" => "1",
+        ))->dispatch("/admin/posts/3/comments/edit/3");
+
+        $emails = TestEmailHandler::getSentEmails();
+        $this->assertEquals(1, count($emails));
+        $this->assertEquals('Your comment has been approved', $emails[0]['subject']);
+        $this->assertEquals('Another Tester <test5@example.com>', $emails[0]['to']);
+        $this->assertEquals('noreply@paynedigital.com', $emails[0]['from']);
+    }
+
+    public function testEmailNotIsSentWhenCommentApprovedWithAppropriateNotificationPreference() {
+        $this->doValidLogin();
+
+        TestEmailHandler::resetSentEmails();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "approved" => "1",
+        ))->dispatch("/admin/posts/1/comments/edit/4");
+
+        $emails = TestEmailHandler::getSentEmails();
+        $this->assertEquals(0, count($emails));
+    }
 }
