@@ -136,6 +136,8 @@ class AdminController extends Controller {
             if ($notApprovedBefore &&
                 $comment->approved) {
                 // new approval
+                $sentEmails = array();
+
                 $comment->approved_at = Utils::getDate("Y-m-d H:i:s");
                 if ($comment->emailOnApproval()) {
                     // bosh!
@@ -152,15 +154,13 @@ class AdminController extends Controller {
                     ));
                     $email->send();
 
+                    // ensure sent emails always contains the one we just sent, in case the same user has added another
+                    // email
+                    $sentEmails[$to] = true;
                 }
 
                 $comments = Table::factory('Comments')->findOthersForPost($this->post->getId(), $comment->getId());
 
-                // ensure sent emails always contains the one we just sent, in case the same user has added another
-                // email
-                $sentEmails = array(
-                    $to => true,
-                );
                 foreach ($comments as $otherComment) {
                     if ($otherComment->emailOnNew()) {
                         $to = $otherComment->name." <".$otherComment->email.">";

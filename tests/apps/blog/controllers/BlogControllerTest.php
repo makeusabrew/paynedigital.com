@@ -207,9 +207,10 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/comment-unsubscribe/a80cf660b49c20ec5ee5e79988c25549a13e50aa");
 
         $this->assertRedirect(true);
-        $this->assertRedirectUrl("/2011/09/another-test-post");
+        $this->assertRedirectUrl("/2011/09/another-test-post?ok");
 
         $this->request->reset();
+        $this->request->setParams(array("ok" => true));
         $this->request->dispatch("/2011/09/another-test-post");
         $this->assertBodyHasContents("You have been unsubscribed from new comment notifications on this article");
     }
@@ -223,6 +224,4 @@ class BlogControllerTest extends PHPUnitTestController {
         }
         $this->fail("Expected exception not raised");
     }
-
-    // @TODO! Add test to ensure user doesn't get a "new comment" if *they* just submitted a new one!!
 }

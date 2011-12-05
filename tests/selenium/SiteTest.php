@@ -155,14 +155,107 @@ class SiteTest extends SeleniumTestController {
         $this->assertEquals("Comment 1 <comment1@example.com>", $emails[0]['to']);
         $this->assertEquals("A new comment has been added", $emails[1]['subject']);
         $this->assertEquals("Comment 2 <comment2@example.com>", $emails[1]['to']);
+        /*
+        http://paynedigital.test/
+        */
         // unsubscribe one commenter from new emails
+        $this->open("/comment-unsubscribe/ea5d531002d7a36b638a63792f5b0c472f0a42b6");
         // check flash message present
+        $this->assertTextPresent("You have been unsubscribed from new comment notifications on this article");
         // add a new comment, check nothing
+        $this->open("/2011/07/just-a-test");
+        $this->type("id=name", "Comment 4");
+        $this->type("id=email", "comment4@example.com");
+        $this->type("id=content", "comment 4");
+        $this->submit("//div[@id='comments']//form");
+        $this->waitForTextPresent("Thanks! Your comment has been submitted and will be reviewed shortly.");
         // approve comment
+        DbEmailHandler::resetSentEmails();
+        $this->open("/admin/posts/7/comments");
+        $this->select("//div[@class='container']/form[4]//select[@name='approved']", "Yes");
+        $this->submit("//div[@class='container']/form[4]");
+        $this->waitForPageToLoad(5000);
+        $this->assertTextPresent("Comment Updated");
+        $emails = DbEmailHandler::getSentEmails();
         // assert one test email sent RE new comment
+        $this->assertEquals(1, count($emails));
+        $this->assertEquals("A new comment has been added",     $emails[0]['subject']);
+        $this->assertEquals("Comment 2 <comment2@example.com>", $emails[0]['to']);
+
         // unsubscribe last commenter from new emails
+        $this->open("/comment-unsubscribe/59831af7eb6e6f8d26b941d98958c100f4129f58");
+        $this->assertTextPresent("You have been unsubscribed from new comment notifications on this article");
+
         // add a new comment, check nothing
+        $this->open("/2011/07/just-a-test");
+        $this->type("id=name", "Comment 5");
+        $this->type("id=email", "comment5@example.com");
+        $this->type("id=content", "comment 5");
+        $this->submit("//div[@id='comments']//form");
+        $this->waitForTextPresent("Thanks! Your comment has been submitted and will be reviewed shortly.");
         // approve comment
+        DbEmailHandler::resetSentEmails();
+        $this->open("/admin/posts/7/comments");
+        $this->select("//div[@class='container']/form[5]//select[@name='approved']", "Yes");
+        $this->submit("//div[@class='container']/form[5]");
+        $this->waitForPageToLoad(5000);
+        $this->assertTextPresent("Comment Updated");
+        $emails = DbEmailHandler::getSentEmails();
         // assert no emails sent
+        $this->assertEquals(0, count($emails));
+    }
+
+    // @TODO! Add test to ensure user doesn't get a "new comment" if *they* just submitted a new one!!
+    public function testNewCommentEmailNotSentToNewCommentAuthor() {
+        $this->open("/2011/07/just-a-test");
+        $this->type("id=name", "Comment 1");
+        $this->type("id=email", "comment1@example.com");
+        $this->type("id=content", "comment 1");
+        $this->check("id=notifications_email_on_approval");
+        $this->check("id=notifications_email_on_new");
+        $this->submit("//div[@id='comments']//form");
+        $this->waitForTextPresent("Thanks! Your comment has been submitted and will be reviewed shortly.");
+
+        $this->open("/admin/login");
+        $this->assertTextPresent("Login");
+        $this->type("id=email", "another.test@example.com");
+        $this->type("id=password", "t3stp4ss");
+        $this->submit("//form");
+        $this->waitForPageToLoad(5000);
+
+        DbEmailHandler::resetSentEmails();
+        $this->open("/admin/posts/7/comments");
+        $this->select("//div[@class='container']/form[1]//select[@name='approved']", "Yes");
+        $this->submit("//div[@class='container']/form[1]");
+        $this->waitForPageToLoad(5000);
+        $this->assertTextPresent("Comment Updated");
+        $emails = DbEmailHandler::getSentEmails();
+
+        $this->assertEquals(1, count($emails));
+        $this->assertEquals("Your comment has been approved", $emails[0]['subject']);
+        $this->assertEquals("Comment 1 <comment1@example.com>", $emails[0]['to']);
+
+        // ensure we aren't sent a "new comment!" email
+        $this->open("/2011/07/just-a-test");
+        $this->type("id=name", "Comment 1");
+        $this->type("id=email", "comment1@example.com");
+        $this->type("id=content", "comment 1");
+        $this->check("id=notifications_email_on_approval");
+        $this->check("id=notifications_email_on_new");
+        $this->submit("//div[@id='comments']//form");
+        $this->waitForTextPresent("Thanks! Your comment has been submitted and will be reviewed shortly.");
+        // approve comment
+        DbEmailHandler::resetSentEmails();
+        $this->open("/admin/posts/7/comments");
+        $this->select("//div[@class='container']/form[2]//select[@name='approved']", "Yes");
+        $this->submit("//div[@class='container']/form[2]");
+        $this->waitForPageToLoad(5000);
+        $this->assertTextPresent("Comment Updated");
+        $emails = DbEmailHandler::getSentEmails();
+
+        // assert  test email sent (approved)
+        $this->assertEquals(1, count($emails));
+        $this->assertEquals("Your comment has been approved", $emails[0]['subject']);
+        $this->assertEquals("Comment 1 <comment1@example.com>", $emails[0]['to']);
     }
 }

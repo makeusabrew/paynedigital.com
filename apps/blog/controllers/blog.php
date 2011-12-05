@@ -136,7 +136,7 @@ class BlogController extends Controller {
 
         $comment->save();
         return $this->redirect(
-            "/".$comment->post->getUrl(),
+            "/".$comment->post->getUrl()."?ok",
             "You have been unsubscribed from new comment notifications on this article"
         );
     }
