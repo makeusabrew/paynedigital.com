@@ -24,6 +24,15 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertRedirectUrl("/admin/login");
     }
 
+    public function testInvalidLoginShowsErrorOnLoginPage() {
+        $this->request->setMethod("POST")->setParams(array(
+            "email" => "invalid@user.com",
+            "password" => "invalid",
+        ))->dispatch("/admin/login");
+
+        $this->assertBodyHasContents("Invalid login details");
+    }
+
     public function testLoginActionRedirectsToAdminOverviewWithValidDetails() {
         $this->doValidLogin(false);
         
@@ -62,11 +71,54 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Save");
     }
 
+    public function testEditActionShowsRelevantErrorsWithInvalidData() {
+        $this->doValidLogin();
+        $this->request->setMethod("POST")
+            ->setParams(array())
+            ->dispatch("/admin/posts/edit/1");
+
+        $this->assertBodyHasContents("title is required");
+        $this->assertBodyHasContents("url is required");
+        $this->assertBodyHasContents("published is required");
+        $this->assertBodyHasContents("content is required");
+    }
+
     public function testAddActionShowsCorrectContent() {
         $this->doValidLogin();
 
         $this->request->dispatch("/admin/posts/add");
         $this->assertBodyHasContents("Save");
+    }
+
+    public function testAddActionShowsRelevantErrorsWithInvalidData() {
+        $this->doValidLogin();
+        $this->request->setMethod("POST")
+            ->setParams(array())
+            ->dispatch("/admin/posts/add");
+
+        $this->assertBodyHasContents("title is required");
+        $this->assertBodyHasContents("url is required");
+        $this->assertBodyHasContents("published is required");
+        $this->assertBodyHasContents("content is required");
+    }
+
+    public function testAddActionRedirectsAfterSuccessfulRequest() {
+        $this->doValidLogin();
+        $this->request->setMethod("POST")
+            ->setParams(array(
+                'title' => 'My Test Post',
+                'url' => 'my-test-post',
+                'published' => '01/01/11 11:00',
+                'content' => 'This is a test post',
+            ))
+            ->dispatch("/admin/posts/add");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("Post created");
     }
 
     public function testGenerateBurnLinkActionRedirectsUserWhoDoesNotOwnPost() {
