@@ -35,7 +35,7 @@ body {
 }
 
 #posts .post {
-    border-bottom:1px solid #ddd;
+    /*border-bottom:1px solid #ddd;*/
     padding-bottom:1em;
 }
 
