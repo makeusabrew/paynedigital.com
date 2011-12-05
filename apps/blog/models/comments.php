@@ -58,7 +58,7 @@ class Comments extends Table {
                 'type' => 'checkbox',
                 "options" => array(
                     "email_on_approval" => "Email me when my comment is approved",
-                    "email_on_new"      => "Email me when new comments are posted",
+                    //"email_on_new"      => "Email me when new comments are posted",
                 ),
             ),
             'approved' => array(
