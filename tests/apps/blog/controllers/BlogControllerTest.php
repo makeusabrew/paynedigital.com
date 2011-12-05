@@ -223,4 +223,6 @@ class BlogControllerTest extends PHPUnitTestController {
         }
         $this->fail("Expected exception not raised");
     }
+
+    // @TODO! Add test to ensure user doesn't get a "new comment" if *they* just submitted a new one!!
 }
