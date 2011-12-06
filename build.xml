@@ -4,6 +4,7 @@
     <property name="project.dir" value="." />
     <property name="tests.dir" value="tests" />
     <property name="reports.dir" value="reports" />
+    <property name="coverage.dir" value="coverage" />
     <property name="mode" value="test" override="true" />
 
     <target name="cleanup" description="Empty Temporary Dirs">
@@ -15,6 +16,9 @@
             <fileset dir="${tests.dir}/${reports.dir}">
                 <include name="*.xml" />
                 <include name="*.sc" />
+            </fileset>
+            <fileset dir="${tests.dir}/${reports.dir}/${coverage.dir}">
+                <include name="*.*" />
             </fileset>
         </delete>
     </target>
@@ -42,6 +46,7 @@
         <echo msg="Running Tests &amp; Generating Reports" />
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
         --coverage-clover ${reports.dir}/phpunit.coverage.xml
+        --coverage-html ${reports.dir}/${coverage.dir}
         --exclude-group selenium" />
     </target>
 
@@ -51,10 +56,11 @@
             <isset property="chmodTmpDirs" />
             <then>
                 <echo msg="Making folders writable" />
-                <exec passthru="false" command="chmod -R 0777 tmp/ tests/emails/ log/" />
+                <exec passthru="false" command="chmod -R 0777 tmp/ log/" />
             </then>
         </if>
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
+        --coverage-html ${reports.dir}/{$coverage.dir}
         --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
     </target>
 
