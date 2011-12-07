@@ -235,7 +235,8 @@ class AdminControllerTest extends PHPUnitTestController {
     public function testNotificationEmailsRespectSiteBaseHrefSetting() {
         self::loadFixture();
 
-        $settings = Settings::getSettings();
+        $originalSettings = Settings::getSettings();
+        $settings = $originalSettings;
         $settings['site']['base_href'] = 'http://fake.domain/';
         Settings::setFromArray($settings);
 
@@ -254,5 +255,7 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertTrue((strpos($emails[1]['body'], "http://fake.domain/comment-unsubscribe/") !== false));
         $this->assertTrue((strpos($emails[2]['body'], "http://fake.domain/2011/09/another-test-post") !== false));
         $this->assertTrue((strpos($emails[2]['body'], "http://fake.domain/comment-unsubscribe/") !== false));
+
+        Settings::setFromArray($originalSettings);
     }
 }
