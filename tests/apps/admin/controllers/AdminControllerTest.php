@@ -196,6 +196,7 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertEquals('Your comment has been approved', $emails[0]['subject']);
         $this->assertEquals('Another Tester <test5@example.com>', $emails[0]['to']);
         $this->assertEquals('noreply@paynedigital.com', $emails[0]['from']);
+        $this->assertTrue((strpos($emails[0]['body'], "http://paynedigital.test/2011/09/another-test-post") !== false));
     }
 
     public function testEmailNotIsSentWhenCommentApprovedWithAppropriateNotificationPreference() {
@@ -229,5 +230,29 @@ class AdminControllerTest extends PHPUnitTestController {
 
         $this->assertEquals('A new comment has been added', $emails[2]['subject']);
         $this->assertEquals('Test User 1 <test@example.com>', $emails[2]['to']);
+    }
+
+    public function testNotificationEmailsRespectSiteBaseHrefSetting() {
+        self::loadFixture();
+
+        $settings = Settings::getSettings();
+        $settings['site']['base_href'] = 'http://fake.domain/';
+        Settings::setFromArray($settings);
+
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        TestEmailHandler::resetSentEmails();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "approved" => "1",
+        ))->dispatch("/admin/posts/3/comments/edit/3");
+
+        $emails = TestEmailHandler::getSentEmails();
+
+        $this->assertTrue((strpos($emails[0]['body'], "http://fake.domain/2011/09/another-test-post") !== false));
+        $this->assertTrue((strpos($emails[1]['body'], "http://fake.domain/2011/09/another-test-post") !== false));
+        $this->assertTrue((strpos($emails[1]['body'], "http://fake.domain/comment-unsubscribe/") !== false));
+        $this->assertTrue((strpos($emails[2]['body'], "http://fake.domain/2011/09/another-test-post") !== false));
+        $this->assertTrue((strpos($emails[2]['body'], "http://fake.domain/comment-unsubscribe/") !== false));
     }
 }

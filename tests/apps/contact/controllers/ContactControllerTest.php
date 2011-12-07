@@ -1,13 +1,6 @@
 <?php
 
 class ContactControllerTest extends PHPUnitTestController {
-    public function setUp() {
-        parent::setUp();
-        $this->request->setProperties(array(
-            "base_href" => Settings::getValue("site.base_href")
-        ));
-    }
-
     public function testContactFormWithValidData() {
         $this->request->setMethod("POST")->setParams(array(
             "name" => "Test Person",

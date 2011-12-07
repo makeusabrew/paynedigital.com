@@ -114,7 +114,7 @@ class AdminController extends Controller {
         if ($preview->setValues($data)) {
             $preview->setUniqueIdentifier();
             $preview->save();
-            $identifier = Settings::getValue("site.base_href")."/burn-after-reading/".$preview->identifier;
+            $identifier = Settings::getValue("site.base_href")."burn-after-reading/".$preview->identifier;
             $this->assign("identifier", $identifier);
         }
     }
@@ -149,6 +149,7 @@ class AdminController extends Controller {
                     $email->setTo($to);
                     $email->setSubject($subject);
                     $email->setBodyFromTemplate("emails/comment-approved", array(
+                        "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
                         "post"    => $this->post,
                         "comment" => $comment,
                     ));
@@ -175,6 +176,7 @@ class AdminController extends Controller {
                         $email->setTo($to);
                         $email->setSubject($subject);
                         $email->setBodyFromTemplate("blog/views/emails/new-comment", array(
+                            "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
                             "post"    => $this->post,
                             "comment" => $otherComment,
                             "unsubscribe_hash" => $otherComment->getUnsubscribeHash(),
