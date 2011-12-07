@@ -196,7 +196,6 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertEquals('Your comment has been approved', $emails[0]['subject']);
         $this->assertEquals('Another Tester <test5@example.com>', $emails[0]['to']);
         $this->assertEquals('noreply@paynedigital.com', $emails[0]['from']);
-        $this->assertTrue((strpos($emails[0]['body'], "http://paynedigital.test/2011/09/another-test-post") !== false));
     }
 
     public function testEmailNotIsSentWhenCommentApprovedWithAppropriateNotificationPreference() {
