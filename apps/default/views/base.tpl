@@ -5,6 +5,7 @@
     <title>{block name='title'}{setting value="site.title"}{/block}</title>
     <link rel="stylesheet" href="/css/bootstrap-1.4.0.min.css" />
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
     {block name="head"}{/block}
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
