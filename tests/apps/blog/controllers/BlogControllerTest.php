@@ -224,4 +224,9 @@ class BlogControllerTest extends PHPUnitTestController {
         }
         $this->fail("Expected exception not raised");
     }
+
+    public function testArticlesListingPageHasRssIntroBlurb() {
+        $this->request->dispatch("/articles");
+        $this->assertBodyHasContents("We have an <a href=\"/feed.xml\">RSS feed</a> of the ten latest articles");
+    }
 }

@@ -26,6 +26,6 @@
     </p>
 {/block}
 {block name='secondary'}
-    <p><b>Did you know?</b> We're currently building an in-house <a href="http://www.apple.com/uk/ios/ios5/">iOS 5</a>
-    game which will work across both the Apple iPhone and iPad. Look out for it around Christmas 2011!</p>
+    <p><b>Did you know?</b> We have an <a href="/feed.xml">RSS feed</a> of the ten latest articles published
+    on the site so you can keep up-to-date via the comfort of your favourite RSS reader.</p>
 {/block}
