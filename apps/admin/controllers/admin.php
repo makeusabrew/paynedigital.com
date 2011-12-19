@@ -213,10 +213,28 @@ class AdminController extends Controller {
     }
 
     public function edit_related_post() {
-        //
+        $related = Table::factory('RelatedPosts')->read($this->getMatch('related_post_id'));
+        if ($related == false || $related->post_id != $this->post->getId()) {
+            return $this->redirectAction("index", "You cannot perform this action");
+        }
+        $data = array(
+            'sort_order' => $this->request->getVar('sort_order'),
+            'related_post_id' => $this->request->getVar('related_post_id'),
+        );
+
+        if ($related->updateValues($data, true)) {
+            $related->save();
+            return $this->redirectAction("index", "Relation Updated");
+        }
+        $this->setErrors($related->getErrors());
     }
 
     public function delete_related_post() {
-        //
+        $related = Table::factory('RelatedPosts')->read($this->getMatch('related_post_id'));
+        if ($related == false || $related->post_id != $this->post->getId()) {
+            return $this->redirectAction("index", "You cannot perform this action");
+        }
+        $related->delete();
+        return $this->redirectAction("index", "Relation Deleted");
     }
 }

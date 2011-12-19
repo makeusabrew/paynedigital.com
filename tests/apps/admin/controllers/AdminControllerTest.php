@@ -284,10 +284,43 @@ class AdminControllerTest extends PHPUnitTestController {
 
         $this->request->setMethod("POST")->setParams(array(
             "sort_order" => 0,
-            "related_post_id" => 6,
+            "related_post_id" => 6, // this is pretty much irrelevant for this test
         ))->dispatch("/admin/posts/1/related/add");
 
         $this->assertRedirect(true);
         $this->assertRedirectUrl("/admin");
+
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("Relation Created");
+    }
+
+    public function testEditRelatedArticleRedirectsOnSuccessfulUpdate() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->setMethod("POST")->setParams(array(
+            "sort_order" => 0,
+            "related_post_id" => 6, // this is pretty much irrelevant for this test
+        ))->dispatch("/admin/posts/7/related/edit/1");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("Relation Updated");
+    }
+
+    public function testDeleteRelatedArticleRedirectsOnSuccessfulDeletion() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->dispatch("/admin/posts/7/related/delete/1");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("Relation Deleted");
     }
 }
