@@ -52,6 +52,12 @@ class Post extends Object {
         return Table::factory('Posts')->findAllUnpublishedAndRelatedForPost($this->getId());
     }
 
+    public function getRelatedPosts() {
+        return Table::factory('RelatedPosts')->findAll(array(
+            "post_id" => $this->getId(),
+        ));
+    }
+
     public function getTags() {
         return self::convertTagsToArray($this->tags);
     }
@@ -222,19 +228,22 @@ class Posts extends Table {
     }
 
     public function findAllRelatedForPost($post_id, $published) {
+        $params = array($post_id);
 
         $sql = "SELECT title,published FROM `posts` p
             INNER JOIN (`related_posts` rp) ON (rp.related_post_id=p.id) 
             WHERE rp.post_id = ?";
 
-        if ($published === true) {
-            $sql .= " AND `published` <= ? AND `status` = ?";
-        } else {
-            $sql .= " AND (`published` > ? OR `status` <> ?)";
+        if ($published !== null) {
+            if ($published === true) {
+                $sql .= " AND `published` <= ? AND `status` = ?";
+            } else {
+                $sql .= " AND (`published` > ? OR `status` <> ?)";
+            }
+            $params[] = Utils::getDate("Y-m-d H:i:s");
+            $params[] = "PUBLISHED";
         }
         $sql.= " ORDER BY rp.sort_order ASC";
-
-        $params = array($post_id, Utils::getDate("Y-m-d H:i:s"), "PUBLISHED");
 
         $dbh = Db::getInstance();
         $sth = $dbh->prepare($sql);

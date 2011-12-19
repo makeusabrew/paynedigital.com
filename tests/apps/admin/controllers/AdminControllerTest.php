@@ -268,4 +268,26 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("<a href=\"/admin/posts/6/related\">2 (0)</a>");
         $this->assertBodyHasContentsInOrder("<a href=\"/admin/posts/7/related\">1 (1)</a>");
     }
+
+    public function testRelatedArticleActionShowsAddRelatedArticleForm() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->dispatch("/admin/posts/3/related");
+        $this->assertBodyHasContentsInOrder("Add Related Article");
+        $this->assertBodyHasContentsInOrder("Sort Order");
+        $this->assertBodyHasContentsInOrder("Related Post");
+        $this->assertBodyHasContentsInOrder("Add");
+    }
+
+    public function testAddRelatedArticleRedirectsOnSuccessfulCreation() {
+        $this->doValidLogin();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "sort_order" => 0,
+            "related_post_id" => 6,
+        ))->dispatch("/admin/posts/1/related/add");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+    }
 }

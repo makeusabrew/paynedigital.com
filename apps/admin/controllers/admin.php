@@ -191,4 +191,32 @@ class AdminController extends Controller {
         }
         $this->setErrors($comment->getErrors());
     }
+
+    public function related_posts() {
+        $this->assign('related_posts', $this->post->getRelatedPosts());
+        $this->assign('columns', Table::factory('RelatedPosts')->getColumns());
+    }
+
+    public function add_related_post() {
+        $related = Table::factory('RelatedPosts')->newObject();
+        $data = array(
+            'post_id' => $this->post->getId(),
+            'sort_order' => $this->request->getVar('sort_order'),
+            'related_post_id' => $this->request->getVar('related_post_id'),
+        );
+
+        if ($related->setValues($data)) {
+            $related->save();
+            return $this->redirectAction("index", "Relation Created");
+        }
+        $this->setErrors($related->getErrors());
+    }
+
+    public function edit_related_post() {
+        //
+    }
+
+    public function delete_related_post() {
+        //
+    }
 }
