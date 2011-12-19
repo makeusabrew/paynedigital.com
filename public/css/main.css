@@ -136,3 +136,29 @@ div.small p {
 .tiny label {
     font-size:11px;
 }
+
+li {
+    color:inherit;
+}
+
+abbr {
+    border-bottom:1px dashed #aaa;
+}
+
+.captioned {
+    margin:3em 0;
+}
+
+.captioned p{
+    font-size:80%;
+    text-align:center;
+}
+
+img.inline-right {
+    float:right;
+    margin:0 0 0.5em 0.5em;
+}
+
+img.inline-right.border {
+    border:1px solid black;
+}
