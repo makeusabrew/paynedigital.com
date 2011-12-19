@@ -52,4 +52,16 @@ class PostObjectTest extends PHPUnitTestController {
         $this->assertEquals("<script type=\"text/javascript\" src=\"/foo/bar.js\"></script>", Table::factory('Posts')->read(1)->script_block);
         $this->assertEquals("", Table::factory('Posts')->read(3)->head_block);
     }
+
+    public function testGetPublishedRelatedPostsCount() {
+        $this->assertEquals(0, Table::factory('Posts')->read(3)->getPublishedRelatedPostsCount());
+        $this->assertEquals(2, Table::factory('Posts')->read(6)->getPublishedRelatedPostsCount());
+        $this->assertEquals(1, Table::factory('Posts')->read(7)->getPublishedRelatedPostsCount());
+    }
+
+    public function testGetUnpublishedRelatedPostsCount() {
+        $this->assertEquals(0, Table::factory('Posts')->read(3)->getUnpublishedRelatedPostsCount());
+        $this->assertEquals(0, Table::factory('Posts')->read(6)->getUnpublishedRelatedPostsCount());
+        $this->assertEquals(1, Table::factory('Posts')->read(7)->getUnpublishedRelatedPostsCount());
+    }
 }

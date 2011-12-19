@@ -257,4 +257,15 @@ class AdminControllerTest extends PHPUnitTestController {
 
         Settings::setFromArray($originalSettings);
     }
+
+    public function testRelatedArticlesCounttIsVisibleFromAdminIndexPage() {
+        $this->doLogin("another.test@example.com", "t3stp4ss");
+
+        $this->request->dispatch("/admin");
+
+        $this->assertBodyHasContentsInOrder("Related Articles");
+        $this->assertBodyHasContentsInOrder("<a href=\"/admin/posts/3/related\">0 (0)</a>");
+        $this->assertBodyHasContentsInOrder("<a href=\"/admin/posts/6/related\">2 (0)</a>");
+        $this->assertBodyHasContentsInOrder("<a href=\"/admin/posts/7/related\">1 (1)</a>");
+    }
 }

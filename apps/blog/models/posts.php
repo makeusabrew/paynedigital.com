@@ -32,6 +32,26 @@ class Post extends Object {
         ));
     }
 
+    public function getPublishedRelatedPostsCount() {
+        return count(
+            $this->getPublishedRelatedPosts()
+        );
+    }
+
+    public function getPublishedRelatedPosts() {
+        return Table::factory('Posts')->findAllPublishedAndRelatedForPost($this->getId());
+    }
+
+    public function getUnpublishedRelatedPostsCount() {
+        return count(
+            $this->getUnpublishedRelatedPosts()
+        );
+    }
+
+    public function getUnpublishedRelatedPosts() {
+        return Table::factory('Posts')->findAllUnpublishedAndRelatedForPost($this->getId());
+    }
+
     public function getTags() {
         return self::convertTagsToArray($this->tags);
     }
@@ -148,8 +168,8 @@ class Posts extends Table {
 
         $params = array("PUBLISHED", $date);
 
-	$dbh = Db::getInstance();
-	$sth = $dbh->prepare($sql);
+        $dbh = Db::getInstance();
+        $sth = $dbh->prepare($sql);
         $sth->execute($params);
         $items = $sth->fetchAll(PDO::FETCH_NUM);
         $final = array();
@@ -168,8 +188,8 @@ class Posts extends Table {
 
         $params = array("PUBLISHED", $date);
 
-	$dbh = Db::getInstance();
-	$sth = $dbh->prepare($sql);
+        $dbh = Db::getInstance();
+        $sth = $dbh->prepare($sql);
         $sth->execute($params);
         $items = $sth->fetchAll(PDO::FETCH_NUM);
         $final = array();
@@ -191,5 +211,34 @@ class Posts extends Table {
             "{$month}%",
             "PUBLISHED",
         ));
+    }
+
+    public function findAllPublishedAndRelatedForPost($post_id) {
+        return $this->findAllRelatedForPost($post_id, true);
+    }
+
+    public function findAllUnpublishedAndRelatedForPost($post_id) {
+        return $this->findAllRelatedForPost($post_id, false);
+    }
+
+    public function findAllRelatedForPost($post_id, $published) {
+
+        $sql = "SELECT title,published FROM `posts` p
+            INNER JOIN (`related_posts` rp) ON (rp.related_post_id=p.id) 
+            WHERE rp.post_id = ?";
+
+        if ($published === true) {
+            $sql .= " AND `published` <= ? AND `status` = ?";
+        } else {
+            $sql .= " AND (`published` > ? OR `status` <> ?)";
+        }
+        $sql.= " ORDER BY rp.sort_order ASC";
+
+        $params = array($post_id, Utils::getDate("Y-m-d H:i:s"), "PUBLISHED");
+
+        $dbh = Db::getInstance();
+        $sth = $dbh->prepare($sql);
+        $sth->execute($params);
+        return $sth->fetchAll();
     }
 }

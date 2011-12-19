@@ -11,6 +11,7 @@
                 <th>Status</th>
                 <th>Published</th>
                 <th>Comments</th>
+                <th>Related Articles</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                     <td>{$post->status|htmlentities8}</td>
                     <td>{$post->published|htmlentities8}</td>
                     <td><a href="/admin/posts/{$post->getId()}/comments">{$post->getApprovedCommentsCount()} ({$post->getUnapprovedCommentsCount()})</a></td>
+                    <td><a href="/admin/posts/{$post->getId()}/related">{$post->getPublishedRelatedPostsCount()} ({$post->getUnpublishedRelatedPostsCount()})</a></td>
                 </tr>
             {/foreach}
         </tbody>
