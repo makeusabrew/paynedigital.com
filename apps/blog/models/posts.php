@@ -230,7 +230,7 @@ class Posts extends Table {
     public function findAllRelatedForPost($post_id, $published) {
         $params = array($post_id);
 
-        $sql = "SELECT title,published FROM `posts` p
+        $sql = "SELECT title,published,url FROM `posts` p
             INNER JOIN (`related_posts` rp) ON (rp.related_post_id=p.id) 
             WHERE rp.post_id = ?";
 
@@ -247,6 +247,7 @@ class Posts extends Table {
 
         $dbh = Db::getInstance();
         $sth = $dbh->prepare($sql);
+        $sth->setFetchMode(PDO::FETCH_CLASS, "Post");
         $sth->execute($params);
         return $sth->fetchAll();
     }

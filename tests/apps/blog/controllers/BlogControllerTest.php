@@ -229,4 +229,23 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/articles");
         $this->assertBodyHasContents("We have an <a href=\"/feed.xml\">RSS feed</a> of the ten latest articles");
     }
+
+    public function testRelatedArticlesHeaderNotShownIfNoneSet() {
+        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->assertBodyDoesNotHaveContents("Related Articles");
+    }
+
+    public function testRelatedArticlesShownIfSet() {
+        $this->request->dispatch("/2011/09/testing-tags");
+        $this->assertBodyHasContentsInOrder("Related Articles");
+        $this->assertBodyHasContentsInOrder("Another Test Post");
+        $this->assertBodyHasContentsInOrder("This Is A Test Post");
+    }
+
+    public function testRelatedArticlesOnlyShowPublished() {
+        $this->request->dispatch("/2011/07/just-a-test");
+        $this->assertBodyHasContentsInOrder("Related Articles");
+        $this->assertBodyHasContentsInOrder("This Is A Test Post");
+        $this->assertBodyDoesNotHaveContents("This post hasn't been published");
+    }
 }

@@ -41,7 +41,7 @@ class BlogController extends Controller {
     }
 
     public function view_post() {
-        // init will do
+        $this->assign('related_posts', $this->post->getPublishedRelatedPosts());
     }
 
     public function add_comment() {
