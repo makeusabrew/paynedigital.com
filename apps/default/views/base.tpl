@@ -10,7 +10,7 @@
     {block name="head"}{/block}
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
-<body class='{block name="body_class"}default{/block}'>
+<body class='{block name="theme"}default{/block}'>
     <div id='header'>
         <div class='container'>
             <h1>Web, Mobile, Apps &amp; Games. Whatever you need, we can build it.</h1>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class='container'>
-        <div id='inner-content' class='row'>
+        <div id='inner' class='row'>
             {if isset($messages) && count($messages)}
                 <div class='container'>
                     {foreach from=$messages item="message"}
@@ -86,23 +86,45 @@
     *}
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
+    {literal}
     <script>
         $(function() {
-            $("#inner-content").bind("start.pjax", function() {
-                console.log("go pjax");
+            var body = $("body").get(0);
+            $("#inner").bind("start.pjax", function(e) {
             });
 
-            $("#inner-content").bind("end.pjax", function() {
-                console.log("stop pjax");
+            $("#inner").bind("end.pjax", function() {
+                // for balance you'd want this in start.pjax, but then
+                // if there's a delay loading the content, things look a bit weird
+                $(".topbar-inner li").removeClass("active");
+
+                var links = [];
+                $(".topbar-inner li a").each(function(i, v) {
+                    links.push($(v));
+                });
+
+                links.sort(function(a, b) {
+                    return a.attr("href").length - b.attr("href").length;
+                });
+                var i = links.length;
+                while (i--) {
+                    var href = links[i].attr("href");
+                    if (href == window.location.pathname.substr(0, href.length)) {
+                        links[i].parent().addClass("active");
+                        break;
+                    }
+                }
             });
 
-            $(".topbar-inner a").pjax("#inner-content", {
+            $(".topbar-inner a").pjax("#inner", {
                 "success": function(html) {
-                    console.log("hooray", data);
+                    body.className = $(".theme", body).html();
+                    $(".theme", body).remove();
                 }
             });
         });
     </script>
+    {/literal}
     {block name="script"}{/block}
 </body>
 </html>
@@ -122,5 +144,8 @@
         <p>We're a young company, but don't let that put you off. We're enthusiastic and can
         probably <a href="/services">offer you</a> more than you think.</p>
     {/block}
+</div>
+<div style='display:none' class='theme'>
+    {block name="theme"}default{/block}
 </div>
 {/if}
