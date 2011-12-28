@@ -92,10 +92,6 @@ a:hover {
     float:right;
 }
 
-.feedback {
-    float:right;
-}
-
 .page-header iframe {
     float:right;
 }
@@ -162,3 +158,20 @@ img.inline-right {
 img.inline-right.border {
     border:1px solid black;
 }
+
+#footer .copyright {
+    float:left;
+}
+
+#footer .well {
+    text-align:center;
+}
+
+#footer .company-info {
+    font-size:85%;
+}
+
+#footer .feedback {
+    float:right;
+}
+

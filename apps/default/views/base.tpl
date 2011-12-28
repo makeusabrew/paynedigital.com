@@ -66,9 +66,15 @@
     </div>
     <div id='footer'>
         <div class='well'>
-            &copy; 2011 Payne Digital Ltd
+            <span class='copyright'>
+                &copy; 2011 Payne Digital Ltd
+            </span>
+            <span class='company-info'>
+                Company No. 07277912. VAT No. 991909470.
+                13 Moorland Avenue, Leeds, LS20 9EQ.
+            </span>
             <span class='feedback'>
-                Spotted something not quite right? Please <a href="https://github.com/makeusabrew/paynedigital.com/issues">report an issue</a> or <a href="/contact">let us know</a>.
+                Something not quite right? <a href="https://github.com/makeusabrew/paynedigital.com/issues">Let us know!</a>
             </span>
         </div>
     </div>

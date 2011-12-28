@@ -45,4 +45,13 @@ class DefaultControllerTest extends PHPUnitTestController {
             array("/services", "view_static", "Static", "static"),
         );
     }
+
+    public function testCompanyInformationShownInFooter() {
+        $this->request->dispatch("/");
+
+        $this->assertBodyHasContentsInOrder("<div id='footer'>");
+        $this->assertBodyHasContentsInOrder("Company No. 07277912");
+        $this->assertBodyHasContentsInOrder("VAT No. 991909470");
+        $this->assertBodyHasContentsInOrder("13 Moorland Avenue, Leeds, LS20 9EQ");
+    }
 }
