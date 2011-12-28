@@ -1,3 +1,4 @@
+{if !isset($_pjax)}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
     {block name="head"}{/block}
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
-<body>
+<body class='{block name="body_class"}default{/block}'>
     <div id='header'>
         <div class='container'>
             <h1>Web, Mobile, Apps &amp; Games. Whatever you need, we can build it.</h1>
@@ -33,7 +34,7 @@
         </div>
     </div>
     <div class='container'>
-        <div class='row'>
+        <div id='inner-content' class='row'>
             {if isset($messages) && count($messages)}
                 <div class='container'>
                     {foreach from=$messages item="message"}
@@ -84,6 +85,42 @@
       makes sense to have a separate block to put script tags in
     *}
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.pjax.js"></script>
+    <script>
+        $(function() {
+            $("#inner-content").bind("start.pjax", function() {
+                console.log("go pjax");
+            });
+
+            $("#inner-content").bind("end.pjax", function() {
+                console.log("stop pjax");
+            });
+
+            $(".topbar-inner a").pjax("#inner-content", {
+                "success": function(html) {
+                    console.log("hooray", data);
+                }
+            });
+        });
+    </script>
     {block name="script"}{/block}
 </body>
 </html>
+{else}
+<title>{block name='title'}{setting value="site.title"}{/block}</title>
+<div class='span11 columns'>
+    {block name="body"}{/block}
+</div>
+<div class='span5 columns'>
+    {block name="secondary"}
+        <p>
+            <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+            (like this one),
+            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+            <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+        </p>
+        <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+        probably <a href="/services">offer you</a> more than you think.</p>
+    {/block}
+</div>
+{/if}
