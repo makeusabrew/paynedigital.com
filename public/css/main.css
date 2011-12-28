@@ -2,12 +2,20 @@ body {
     padding-top:40px;
 }
 
+/* NB topbar active nav hover is broken at the mo */
+.topbar .topbar-inner li a {
+    color:#BFBFBF;
+}
+
+
+/**
+ * basic theme transition setup stuff
+ */
 #header {
     -webkit-transition: background 2s;
 }
 
-.default #inner a,
-.blue #inner a {
+a {
     -webkit-transition: color 2s;
 }
 
@@ -27,11 +35,11 @@ body {
     background: #a90329; /* Old browsers */
 }
 
-.default #inner a {
+.default a {
     color:#AB0027;
 }
 
-.default #inner a:hover {
+.default a:hover {
     color:#7D001D;
 }
 
@@ -42,14 +50,28 @@ body {
     background: #6db3f2; /* Old browsers */
 }
 
-.blue #inner a {
+.blue a {
     color: #66C9FF;
 }
 
-.blue #inner a:hover {
+.blue a:hover {
     color:#38B9FF;
 }
 
+/**
+ * green
+ */
+.green #header {
+    background: rgb(157,213,58); ; /* Old browsers */
+}
+
+.green a {
+    color: #55A13B;
+}
+
+.green a:hover {
+    color:#3E772B;
+}
 
 #header h1 {
     color:#fff;

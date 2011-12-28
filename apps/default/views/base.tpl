@@ -107,16 +107,20 @@
                     return a.attr("href").length - b.attr("href").length;
                 });
                 var i = links.length;
+                var currentUrl = window.location.pathname;
+                if (currentUrl.search(/\/\d{4}\/\d{2}/) !== -1) {
+                    currentUrl = "/articles";
+                }
                 while (i--) {
                     var href = links[i].attr("href");
-                    if (href == window.location.pathname.substr(0, href.length)) {
+                    if (href == currentUrl.substr(0, href.length)) {
                         links[i].parent().addClass("active");
                         break;
                     }
                 }
             });
 
-            $(".topbar-inner a").pjax("#inner", {
+            $("a").pjax("#inner", {
                 "success": function(html) {
                     body.className = $(".theme", body).html();
                     $(".theme", body).remove();
