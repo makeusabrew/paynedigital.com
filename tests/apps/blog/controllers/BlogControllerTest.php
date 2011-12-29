@@ -227,7 +227,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testArticlesListingPageHasRssIntroBlurb() {
         $this->request->dispatch("/articles");
-        $this->assertBodyHasContents("We have an <a href=\"/feed.xml\">RSS feed</a> of the ten latest articles");
+        $this->assertBodyHasContents("An <a href=\"/feed.xml\">RSS feed</a> of the ten latest articles");
     }
 
     public function testRelatedArticlesHeaderNotShownIfNoneSet() {
