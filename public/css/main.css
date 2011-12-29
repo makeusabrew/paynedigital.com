@@ -217,9 +217,6 @@ img.inline-right.border {
 }
 
 #footer .company-info {
-    font-size:85%;
-}
-
-#footer .feedback {
     float:right;
+    font-size:90%;
 }

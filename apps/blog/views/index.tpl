@@ -26,6 +26,6 @@
     </p>
 {/block}
 {block name='secondary'}
-    <p><b>Did you know?</b> We have an <a href="/feed.xml">RSS feed</a> of the ten latest articles published
-    on the site so you can keep up-to-date via the comfort of your favourite RSS reader.</p>
+    <p><b>Did you know?</b> An <a href="/feed.xml">RSS feed</a> of the ten latest articles 
+    is available so you can keep up-to-date via the comfort of your favourite RSS reader.</p>
 {/block}

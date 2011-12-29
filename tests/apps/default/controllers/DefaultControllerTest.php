@@ -50,8 +50,8 @@ class DefaultControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/");
 
         $this->assertBodyHasContentsInOrder("<div id='footer'>");
+        $this->assertBodyHasContentsInOrder("13 Moorland Avenue, Leeds, LS20 9EQ");
         $this->assertBodyHasContentsInOrder("Company No. 07277912");
         $this->assertBodyHasContentsInOrder("VAT No. 991909470");
-        $this->assertBodyHasContentsInOrder("13 Moorland Avenue, Leeds, LS20 9EQ");
     }
 }
