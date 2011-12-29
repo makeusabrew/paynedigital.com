@@ -79,6 +79,18 @@ class Post extends Object {
     public function getTagsAsString() {
         return implode(", ", $this->getTags());
     }
+
+    public function formatTagLabel($str) {
+        return strtolower(str_replace(array(
+            " ",
+            ".",
+        ),
+        array(
+            "_",
+            "_",
+        ),
+        $str));
+    }
 }
 
 class Posts extends Table {
