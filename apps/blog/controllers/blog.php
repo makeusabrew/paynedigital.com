@@ -38,6 +38,7 @@ class BlogController extends Controller {
         $this->assign('archive', $archive);
 
         $this->assign('tags', Table::factory('Posts')->findAllTags());
+        $this->assign('post', Table::factory('Posts')->newObject());
     }
 
     public function view_post() {

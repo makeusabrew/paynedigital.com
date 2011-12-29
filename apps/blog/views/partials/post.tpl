@@ -1,17 +1,19 @@
 <div class='post'>
-    <div class='page-header'>
-        <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
-    </div>
+    <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     <div class='info'>
-        <time>{$post->published|date_format:"jS F Y \a\\t H:i"}</time> by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>,
         {if count($post->getTags())}
-            tagged with:
-            {foreach from=$post->getTags() item="tag" name="tag_loop"}
-                <a href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$smarty.foreach.tag_loop.last}, {else}.{/if}
-            {/foreach}
+            <div class='tags'>
+                <span class='label intro'>Tags:</span>
+                {foreach from=$post->getTags() item="tag" name="tag_loop"}
+                    <a class='label {$post->formatTagLabel($tag)}' href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>
+                {/foreach}
+            </div>
         {/if}
-        {assign var='comment_count' value=$post->getApprovedCommentsCount()}
-        <a href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>.
+        <div class='published'>
+            {assign var='comment_count' value=$post->getApprovedCommentsCount()}
+            <time>{$post->published|date_format:"l jS F Y \a\\t H:i"}</time> by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
+            <a href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>.
+        </div>
     </div>
     <div class='content'>
         {$post->content}

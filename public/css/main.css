@@ -31,18 +31,25 @@ body {
 }
 
 .post h2 {
-    margin-bottom:0.5em;
+    margin-bottom:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.post .tags {
+    text-align:right;
+    margin-top:-10px;
+    margin-bottom:0.2em;
+}
+
+.tags .intro {
+    background-color:#fff;
+    color:inherit;
+    display:none;
 }
 
 #posts .post {
     /*border-bottom:1px solid #ddd;*/
-    padding-bottom:1em;
-}
-
-#posts .post .page-header {
-    /* don't want the effects of this on the main listings */
-    margin-bottom:0;
-    border-bottom:none;
+    padding-bottom:2em;
 }
 
 #comments .comment {
@@ -170,4 +177,95 @@ img.inline-right.border {
 #footer .company-info {
     float:right;
     font-size:90%;
+}
+
+/**
+ * labels
+ */
+.label.agile {
+    background-color:#FFAF54;
+}
+
+.label.tdd {
+    background-color:#46A546;
+}
+
+.label.apache {
+    background-color:#FF54D7;
+}
+
+.label.arduino {
+    background-color:#145E01;
+}
+
+.label.github {
+    background-color:#62CFFC;
+}
+
+.label.node_js {
+    background-color:#8BC84B;
+    color:#46483E;
+}
+
+.label.twitter {
+    background-color:#437EA1;
+}
+
+.label.ci {
+    background-color:#D24939;
+}
+
+.label.git {
+    background-color:#9AB54F;
+}
+
+.label.jaoss {
+    background-color:#BFD255;
+}
+
+.label.javascript {
+    background-color:#FFEC1C;
+    color:#000
+}
+
+.label.mysql {
+    background-color:#E97B00;
+}
+
+.label.php {
+    background-color:#99C;
+    color:#009;
+}
+
+.label.zeromq {
+    background-color:red;
+}
+
+.label.websockets,
+.label.websocket {
+    background-color:#A44505;
+}
+
+.label.xbee {
+    background-color:#005ABA;
+}
+
+.label.jquery {
+    background-color:#0D5995;
+}
+
+.label.server_administration {
+    background-color:#423991;
+}
+
+.label.source_control {
+    background-color:#919600;
+}
+
+.label.versioning {
+    background-color:#E6BB00;
+}
+
+a.label:hover {
+    color:black;
 }

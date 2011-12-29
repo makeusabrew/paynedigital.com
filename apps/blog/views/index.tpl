@@ -21,7 +21,7 @@
     </div>
     <p>
         {foreach from=$tags item="tag" name="tag_loop"}
-            <a href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$smarty.foreach.tag_loop.last}, {else}.{/if}
+            <a href="/tag/{$tag|lower|escape:'url'}" class="label {$post->formatTagLabel($tag)}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a> 
         {/foreach}
     </p>
 {/block}
