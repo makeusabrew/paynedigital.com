@@ -84,9 +84,10 @@
         This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
     </p>
 
-    <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false">Follow @{$post->user->twitter_username|htmlentities8}</a>
+    <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
     <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 
+    {*
     {if isset($related_posts) && count($related_posts) > 0}
         <div class='related'>
             <h3>Related Articles</h3>
@@ -97,6 +98,7 @@
             </ul>
         </div>
     {/if}
+    *}
 {/block}
 {block name='script'}
     {$smarty.block.parent}
