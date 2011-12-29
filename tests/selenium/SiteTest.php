@@ -68,13 +68,13 @@ class SiteTest extends SeleniumTestController {
         $this->waitForPageToLoad(5000);
         $this->assertTitle("Payne Digital Ltd - Services");
         $this->open("/");
-        $this->click("//ul[@class='nav']/li/a[@href='/contact' and text()='Say Hello']");
-        $this->waitForPageToLoad(5000);
-        $this->assertTitle("Payne Digital Ltd - Say Hello");
-        $this->open("/");
         $this->click("//ul[@class='nav']/li/a[@href='/articles' and text()='Articles']");
         $this->waitForPageToLoad(5000);
         $this->assertTitle("Payne Digital Ltd - Articles");
+        $this->open("/");
+        $this->click("//ul[@class='nav']/li/a[@href='/contact' and text()='Contact']");
+        $this->waitForPageToLoad(5000);
+        $this->assertTitle("Payne Digital Ltd - Say Hello");
     }
 
     public function testCommentEmails() {
