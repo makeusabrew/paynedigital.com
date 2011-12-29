@@ -70,12 +70,14 @@
                 &copy; 2011 Payne Digital Ltd
             </span>
             <span class='company-info'>
-                Company No. 07277912. VAT No. 991909470.
                 13 Moorland Avenue, Leeds, LS20 9EQ.
+                Company No. 07277912. VAT No. 991909470.
             </span>
+            {*
             <span class='feedback'>
                 Something not quite right? <a href="https://github.com/makeusabrew/paynedigital.com/issues">Let us know!</a>
             </span>
+            *}
         </div>
     </div>
 

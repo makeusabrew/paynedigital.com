@@ -168,10 +168,6 @@ img.inline-right.border {
 }
 
 #footer .company-info {
+    float:right;
     font-size:85%;
 }
-
-#footer .feedback {
-    float:right;
-}
-
