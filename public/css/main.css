@@ -269,3 +269,9 @@ img.inline-right.border {
 a.label:hover {
     color:black;
 }
+
+a.label mark {
+    background-color:inherit;
+    border:1px dotted;
+    font-style:italic;
+}
