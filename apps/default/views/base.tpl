@@ -124,8 +124,10 @@
 
             $("a").pjax("#inner", {
                 "success": function(html) {
-                    body.className = $(".theme", body).html();
-                    $(".theme", body).remove();
+                    setTimeout(function() {
+                        body.className = $(".theme", body).html();
+                        $(".theme", body).remove();
+                    }, 4);
                 }
             });
         });

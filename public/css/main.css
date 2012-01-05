@@ -13,10 +13,12 @@ body {
  */
 #header {
     -webkit-transition: background 2s;
+    -moz-transition: background 2s;
 }
 
-a {
+a:link {
     -webkit-transition: color 2s;
+    -moz-transition: color 2s;
 }
 
 #header {
