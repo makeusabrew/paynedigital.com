@@ -110,7 +110,8 @@
                 });
                 var i = links.length;
                 var currentUrl = window.location.pathname;
-                if (currentUrl.search(/\/\d{4}\/\d{2}/) !== -1) {
+                if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
+                    currentUrl.search(/^\/tag\/[a-z\s\.]+$/) !== -1) {
                     currentUrl = "/articles";
                 }
                 while (i--) {
@@ -124,6 +125,8 @@
 
             $("a").pjax("#inner", {
                 "success": function(html) {
+                    // even though the HTML has *already* changed by this point,
+                    // set a miniscule timeout for FF
                     setTimeout(function() {
                         body.className = $(".theme", body).html();
                         $(".theme", body).remove();
