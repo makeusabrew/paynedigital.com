@@ -1,5 +1,4 @@
-{extends file='default/views/base.tpl'}
-{block name='theme'}green{/block}
+{extends file='base.tpl'}
 {block name="title"}{$smarty.block.parent} - {$post->title}{/block}
 {if $post->head_block != ''}
     {block name="head"}
