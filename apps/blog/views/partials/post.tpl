@@ -29,6 +29,7 @@
         <a href="https://twitter.com/{$post->user->twitter_username}"
         class="twitter-follow-button"
         data-show-count="false">Follow @{$post->user->twitter_username|htmlentities8}</a>
-        <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+{*<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>*}
+{*<script src="/js/defer_twitter.js"></script>*}
     </div>
 </div>

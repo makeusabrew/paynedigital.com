@@ -12,3 +12,7 @@
     <h3>Post Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}
+{block name='script'}
+    {$smarty.block.parent}
+    <script src="http://platform.twitter.com/widgets.js" rel="defer"></script>
+{/block}

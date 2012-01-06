@@ -169,4 +169,7 @@
 <div style='display:none' class='theme'>
     {block name="theme"}default{/block}
 </div>
+<div style='display:none' class='script'>
+    {block name="script"}{/block}
+</div>
 {/if}
