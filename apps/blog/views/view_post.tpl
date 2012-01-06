@@ -85,7 +85,6 @@
     </p>
 
     <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
-    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 
     {*
     {if isset($related_posts) && count($related_posts) > 0}
