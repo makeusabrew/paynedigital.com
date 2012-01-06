@@ -91,8 +91,16 @@
     {literal}
     <script>
         $(function() {
+            // always listen out for when the header has finished transitioning
+            $("#header").live("transitionend", function() {
+                // we remove this because we only actually *apply transitions* to
+                // any selectors under .transition
+                $("html").removeClass("transition");
+            });
+
             var body = $("body").get(0);
             $("#inner").bind("start.pjax", function(e) {
+                // nothing at the moment
             });
 
             $("#inner").bind("end.pjax", function() {
@@ -125,13 +133,15 @@
 
             $("a").pjax("#inner", {
                 "success": function(html) {
+                    $("html").addClass("transition");
                     // even though the HTML has *already* changed by this point,
-                    // set a miniscule timeout for FF
+                    // set a miniscule timeout for FF, otherwise link transitions fail
                     setTimeout(function() {
                         body.className = $(".theme", body).html();
                         $(".theme", body).remove();
                     }, 4);
-                }
+                },
+                "timeout": 1250 // generous timeout for now
             });
         });
     </script>

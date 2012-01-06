@@ -11,14 +11,14 @@ body {
 /**
  * basic theme transition setup stuff
  */
-#header {
-    -webkit-transition: background 2s;
-    -moz-transition: background 2s;
+.transition #header {
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
 }
 
-a:link {
-    -webkit-transition: color 2s;
-    -moz-transition: color 2s;
+.transition a {
+    -webkit-transition: color 1s;
+    -moz-transition: color 1s;
 }
 
 #header {
