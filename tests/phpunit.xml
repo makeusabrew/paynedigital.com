@@ -2,6 +2,7 @@
     <testsuites>
         <testsuite name="Project Tests">
             <directory>apps</directory>
+            <directory>selenium</directory>
         </testsuite>
         <testsuite name="Library Tests">
             <directory>../jaoss/tests</directory>
