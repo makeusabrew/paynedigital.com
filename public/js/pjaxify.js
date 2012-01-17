@@ -95,7 +95,7 @@ var pjaxify = (function() {
                     $(".theme", _body).remove();
                 }, 4);
             },
-            "timeout": 1250 // generous timeout for now
+            "timeout": _timeout
         });
     }
 
