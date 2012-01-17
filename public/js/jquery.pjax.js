@@ -109,7 +109,7 @@ $.pjax = function( options ) {
     success: function(data){
       // If we got no data or an entire web page, go directly
       // to the page and let normal error handling happen.
-      if ( !$.trim(data) || /<html/i.test(data) )
+      if ( !$.trim(data) || /<html/i.test(data) || /<\?xml/i.test(data) )
         return window.location = options.url
 
       // Make it happen.
