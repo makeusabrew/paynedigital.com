@@ -91,12 +91,17 @@
     {literal}
     <script>
         $(function() {
-            // always listen out for when the header has finished transitioning
-            $("#header").live("transitionend", function() {
+            var finishTransition = function() {
                 // we remove this because we only actually *apply transitions* to
                 // any selectors under .transition
                 $("html").removeClass("transition");
-            });
+                $("#inner a").each(function(i) {
+                    $(this).attr("href", $(this).attr("href").replace(/\?__t=\d+$/, ''));
+                });
+            }
+
+            // always listen out for when the header has finished transitioning
+            $("#header").live("transitionend webkitTransitionEnd oTransitionEnd", finishTransition);
 
             var body = $("body").get(0);
             $("#inner").bind("start.pjax", function(e) {
@@ -134,10 +139,21 @@
             $("a").pjax("#inner", {
                 "success": function(html) {
                     $("html").addClass("transition");
+
+                    // temporarily give all the links a unique timestamp. we'll blat this
+                    // as soon as the transition's finished
+                    $("#inner a").each(function(i) {
+                        var dt = new Date().getTime();
+                        $(this).attr("href", $(this).attr("href")+"?__t="+dt);
+                    });
                     // even though the HTML has *already* changed by this point,
                     // set a miniscule timeout for FF, otherwise link transitions fail
                     setTimeout(function() {
-                        body.className = $(".theme", body).html();
+                        var theme = $(".theme", body).html();
+                        if (theme == body.className) {
+                            finishTransition();
+                        }
+                        body.className = theme;
                         $(".theme", body).remove();
                     }, 4);
                 },
