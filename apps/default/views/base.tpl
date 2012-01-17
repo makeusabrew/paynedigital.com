@@ -89,81 +89,12 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
     <script src="http://platform.twitter.com/widgets.js"></script>
-    {literal}
+    <script src="/js/pjaxify.js"></script>
     <script>
         $(function() {
-            var finishTransition = function() {
-                // we remove this because we only actually *apply transitions* to
-                // any selectors under .transition
-                $("html").removeClass("transition");
-                $("#inner a").each(function(i) {
-                    $(this).attr("href", $(this).attr("href").replace(/\?__t=\d+$/, ''));
-                });
-                twttr.widgets.load();
-            }
-
-            // always listen out for when the header has finished transitioning
-            $("#header").live("transitionend webkitTransitionEnd oTransitionEnd", finishTransition);
-
-            var body = $("body").get(0);
-            $("#inner").bind("start.pjax", function(e) {
-                // nothing at the moment
-            });
-
-            $("#inner").bind("end.pjax", function() {
-                // for balance you'd want this in start.pjax, but then
-                // if there's a delay loading the content, things look a bit weird
-                $(".topbar-inner li").removeClass("active");
-
-                var links = [];
-                $(".topbar-inner li a").each(function(i, v) {
-                    links.push($(v));
-                });
-
-                links.sort(function(a, b) {
-                    return a.attr("href").length - b.attr("href").length;
-                });
-                var i = links.length;
-                var currentUrl = window.location.pathname;
-                if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
-                    currentUrl.search(/^\/tag\/[a-z\s\.]+$/) !== -1) {
-                    currentUrl = "/articles";
-                }
-                while (i--) {
-                    var href = links[i].attr("href");
-                    if (href == currentUrl.substr(0, href.length)) {
-                        links[i].parent().addClass("active");
-                        break;
-                    }
-                }
-            });
-
-            $("a").pjax("#inner", {
-                "success": function(html) {
-                    $("html").addClass("transition");
-
-                    // temporarily give all the links a unique timestamp. we'll blat this
-                    // as soon as the transition's finished
-                    $("#inner a").each(function(i) {
-                        var dt = new Date().getTime();
-                        $(this).attr("href", $(this).attr("href")+"?__t="+dt);
-                    });
-                    // even though the HTML has *already* changed by this point,
-                    // set a miniscule timeout for FF, otherwise link transitions fail
-                    setTimeout(function() {
-                        var theme = $(".theme", body).html();
-                        if (theme == body.className) {
-                            finishTransition();
-                        }
-                        body.className = theme;
-                        $(".theme", body).remove();
-                    }, 4);
-                },
-                "timeout": 1250 // generous timeout for now
-            });
+            pjaxify.init();
         });
     </script>
-    {/literal}
     {block name="script"}{/block}
 </body>
 </html>
