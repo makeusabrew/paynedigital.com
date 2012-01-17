@@ -355,6 +355,10 @@ img.inline-right.border {
     background-color:#E6BB00;
 }
 
+a.label {
+    color:white;
+}
+
 a.label:hover {
     color:black;
 }
