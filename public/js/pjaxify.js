@@ -60,7 +60,7 @@ var pjaxify = (function() {
             }
         });
 
-        $("#inner a").live("click", (function(e) {
+        $("#inner a").live("click", function(e) {
             removeTimestamp(this);
         });
 
