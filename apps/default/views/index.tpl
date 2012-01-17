@@ -14,5 +14,4 @@
 {/block}
 {block name='script'}
     {$smarty.block.parent}
-    <script src="http://platform.twitter.com/widgets.js" rel="defer"></script>
 {/block}

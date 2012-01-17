@@ -88,6 +88,7 @@
     *}
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
+    <script src="http://platform.twitter.com/widgets.js"></script>
     {literal}
     <script>
         $(function() {
@@ -98,6 +99,7 @@
                 $("#inner a").each(function(i) {
                     $(this).attr("href", $(this).attr("href").replace(/\?__t=\d+$/, ''));
                 });
+                twttr.widgets.load();
             }
 
             // always listen out for when the header has finished transitioning

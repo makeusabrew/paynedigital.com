@@ -101,7 +101,7 @@
 {/block}
 {block name='script'}
     {$smarty.block.parent}
-    <script src="http://platform.twitter.com/widgets.js" rel="defer"></script>
+    {*<script src="http://platform.twitter.com/widgets.js" rel="defer"></script>*}
     <script src="/js/forms.js"></script>
     <script>
         $(function() {
