@@ -38,7 +38,7 @@ body {
  * default (purplish)
  */
 .default #header {
-    background: #a90329; /* Old browsers */
+    background: #a90329;
 }
 
 .default a {
@@ -49,11 +49,23 @@ body {
     color:#7D001D;
 }
 
+.darkblue #header {
+    background:#1700E4;
+}
+
+.darkblue a {
+    color: #1200B0;
+}
+
+.darkblue a:hover {
+    color:#0B006A;
+}
+
 /**
  * blue
  */
 .blue #header {
-    background: #6db3f2; /* Old browsers */
+    background: #6db3f2;
 }
 
 .blue a {
