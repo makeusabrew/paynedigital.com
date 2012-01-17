@@ -1,5 +1,5 @@
 {extends file='default/views/base.tpl'}
-{block name='theme'}red{/block}
+{block name='theme'}orange{/block}
 {block name="title"}{$smarty.block.parent} - Say Hello{/block}
 {block name='body'}
     <div class='page-header'>
