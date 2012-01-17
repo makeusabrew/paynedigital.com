@@ -1,7 +1,8 @@
 <phpunit colors="true" bootstrap="bootstrap.php">
     <testsuites>
         <testsuite name="Project Tests">
-            <directory>.</directory>
+            <directory>apps</directory>
+            <directory>selenium</directory>
         </testsuite>
         <testsuite name="Library Tests">
             <directory>../jaoss/tests</directory>

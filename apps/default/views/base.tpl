@@ -68,7 +68,7 @@
     <div id='footer'>
         <div class='well'>
             <span class='copyright'>
-                &copy; 2011 Payne Digital Ltd
+                &copy; 2012 Payne Digital Ltd
             </span>
             <span class='company-info'>
                 13 Moorland Avenue, Leeds, LS20 9EQ.
