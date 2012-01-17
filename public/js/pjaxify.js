@@ -58,6 +58,34 @@ var pjaxify = (function() {
                     break;
                 }
             }
+
+            // transition baby!
+            $("html").addClass("transition");
+
+            // temporarily give all the links a unique timestamp. we'll blat this
+            // as soon as the transition's finished. Entirely for WebKit's benefit
+            // @see http://code.google.com/p/chromium/issues/detail?id=101245
+            $("#inner a").each(function(i) {
+                var dt = new Date().getTime();
+                $(this).attr("href", $(this).attr("href")+"?__t="+dt);
+            });
+
+            // even though the HTML has *already* changed by this point,
+            // set a miniscule timeout for FF, otherwise link transitions fail
+            setTimeout(function() {
+                var theme = $(".theme", _body).html();
+
+                // transition stuff won't be fired, so manually invoke any cleanup
+                if (theme == _body.className) {
+                    finishTransition();
+                }
+
+                // set the new classname (triggers the transition)
+                _body.className = theme;
+
+                // bosh! cya later theme element, you've done your job
+                $(".theme", _body).remove();
+            }, 4);
         });
 
         $("#inner a").live("click", function(e) {
@@ -66,35 +94,6 @@ var pjaxify = (function() {
 
         // wire up pjax stuff
         $("a").pjax("#inner", {
-            "success": function(html) {
-                // transition baby!
-                $("html").addClass("transition");
-
-                // temporarily give all the links a unique timestamp. we'll blat this
-                // as soon as the transition's finished. Entirely for WebKit's benefit
-                // @see http://code.google.com/p/chromium/issues/detail?id=101245
-                $("#inner a").each(function(i) {
-                    var dt = new Date().getTime();
-                    $(this).attr("href", $(this).attr("href")+"?__t="+dt);
-                });
-
-                // even though the HTML has *already* changed by this point,
-                // set a miniscule timeout for FF, otherwise link transitions fail
-                setTimeout(function() {
-                    var theme = $(".theme", _body).html();
-
-                    // transition stuff won't be fired, so manually invoke any cleanup
-                    if (theme == _body.className) {
-                        finishTransition();
-                    }
-
-                    // set the new classname (triggers the transition)
-                    _body.className = theme;
-
-                    // bosh! cya later theme element, you've done your job
-                    $(".theme", _body).remove();
-                }, 4);
-            },
             "timeout": _timeout
         });
     }
