@@ -14,21 +14,23 @@ body {
 /**
  * basic theme transition setup stuff
  */
-.transition #header {
-    -webkit-transition: background-color 1.5s;
-       -moz-transition: background-color 1.5s;
-        -ms-transition: background-color 1.5s;
-         -o-transition: background-color 1.5s;
-            transition: background-color 1.5s;
+.transition #header,
+.transition .label {
+    -webkit-transition: background-color 1.0s;
+       -moz-transition: background-color 1.0s;
+        -ms-transition: background-color 1.0s;
+         -o-transition: background-color 1.0s;
+            transition: background-color 1.0s;
 }
 
 .transition a {
-    -webkit-transition: color 1.5s;
-       -moz-transition: color 1.5s;
-        -ms-transition: color 1.5s;
-         -o-transition: color 1.5s;
-            transition: color 1.5s;
+    -webkit-transition: color 1.0s;
+       -moz-transition: color 1.0s;
+        -ms-transition: color 1.0s;
+         -o-transition: color 1.0s;
+            transition: color 1.0s;
 }
+
 
 #header {
     padding:2em;
@@ -54,6 +56,10 @@ body {
     color:#7D001D;
 }
 
+.default .label {
+    background-color: #AB0027;
+}
+
 /**
  * dark blue
  */
@@ -67,6 +73,10 @@ body {
 
 .darkblue a:hover {
     color:#0B006A;
+}
+
+.darkblue .label {
+    background-color: #1200B0;
 }
 
 /**
@@ -84,6 +94,10 @@ body {
     color:#38B9FF;
 }
 
+.blue .label {
+    background-color: #66C9FF;
+}
+
 /**
  * green
  */
@@ -97,6 +111,10 @@ body {
 
 .green a:hover {
     color:#3E772B;
+}
+
+.green .label {
+    background-color: #55A13B;
 }
 
 /**
@@ -114,6 +132,10 @@ body {
     color:#C97200;
 }
 
+.orange .label {
+    background-color: #D87B00;
+}
+
 /**
  * red
  */
@@ -127,6 +149,10 @@ body {
 
 .red a:hover {
     color:#8E1100;
+}
+
+.red .label {
+    background-color: #B61500;
 }
 
 /**
@@ -292,6 +318,7 @@ img.inline-right.border {
  * labels
  */
 
+/*
  .label.opinion {
     background-color:#00f;
 }
@@ -381,13 +408,14 @@ img.inline-right.border {
 .label.versioning {
     background-color:#E6BB00;
 }
+*/
 
 a.label {
     color:white;
 }
 
 a.label:hover {
-    color:black;
+    color:#eee;
 }
 
 a.label mark {
