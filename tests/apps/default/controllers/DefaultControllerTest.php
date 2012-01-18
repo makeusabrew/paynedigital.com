@@ -54,4 +54,12 @@ class DefaultControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("Company No. 07277912");
         $this->assertBodyHasContentsInOrder("VAT No. 991909470");
     }
+
+    public function testHomepageShowsPostArchive() {
+        $this->request->dispatch("/");
+
+        $this->assertBodyHasContentsInOrder("The Archive");
+        $this->assertBodyHasContentsInOrder("September 2011");
+        $this->assertBodyHasContentsInOrder("July 2011");
+    }
 }
