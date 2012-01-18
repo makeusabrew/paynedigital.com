@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends file='base.tpl'}
 {block name="title"}{$smarty.block.parent} - {$post->title}{/block}
 {if $post->head_block != ''}
     {block name="head"}
@@ -85,7 +85,6 @@
     </p>
 
     <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
-    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 
     {*
     {if isset($related_posts) && count($related_posts) > 0}
@@ -102,6 +101,7 @@
 {/block}
 {block name='script'}
     {$smarty.block.parent}
+    {*<script src="http://platform.twitter.com/widgets.js" rel="defer"></script>*}
     <script src="/js/forms.js"></script>
     <script>
         $(function() {

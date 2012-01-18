@@ -12,3 +12,6 @@
     <h3>The Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}
+{block name='script'}
+    {$smarty.block.parent}
+{/block}

@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends 'base.tpl'}
 {block name='body'}
     <div class='page-header'>
         <h2>Posts from {$month|date_format:"F Y"}</h2>

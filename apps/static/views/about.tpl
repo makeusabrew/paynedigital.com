@@ -1,4 +1,5 @@
 {extends file='default/views/base.tpl'}
+{block name='theme'}darkblue{/block}
 {block name="title"}{$smarty.block.parent} - About{/block}
 {block name='body'}
     <div class='page-header'>
@@ -21,6 +22,5 @@
     <p>You can find out more about me by following the link to my <a href="http://uk.linkedin.com/pub/nick-payne/4/1a1/214">LinkedIn</a>
     profile, or by <a href="http://twitter.com/makeusabrew">following me on twitter</a>.</p>
 
-    <a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-show-count="false">Follow @makeusabrew</a>
-    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+    <a href="https://twitter.com/makeusabrew" data-size="large" class="twitter-follow-button" data-show-count="false">Follow @makeusabrew</a>
 {/block}

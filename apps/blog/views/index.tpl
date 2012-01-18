@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends 'base.tpl'}
 {block name="title"}{$smarty.block.parent} - Articles{/block}
 {block name='body'}
     <div class='page-header'>

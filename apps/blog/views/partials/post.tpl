@@ -25,11 +25,11 @@
         data-text="{$post->title}"
         data-via="{$post->user->twitter_username}"
         data-count="horizontal">Tweet</a>
-        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
         <a href="https://twitter.com/{$post->user->twitter_username}"
         class="twitter-follow-button"
         data-show-count="false">Follow @{$post->user->twitter_username|htmlentities8}</a>
-        <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+{*<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>*}
+{*<script src="/js/defer_twitter.js"></script>*}
     </div>
 </div>

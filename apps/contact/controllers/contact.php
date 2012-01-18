@@ -2,7 +2,7 @@
 
 class ContactController extends Controller {
     public function index() {
-        if (!$this->request->isAjax()) {
+        if ($this->request->isGet()) {
             $this->assign("columns", Table::factory('Contacts')->getColumns());
         }
         if ($this->request->isPost()) {

@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends file='base.tpl'}
 {block name='body'}
     <div class='page-header'>
         <h2>Posts tagged with '{$search_tag}'</h2>
