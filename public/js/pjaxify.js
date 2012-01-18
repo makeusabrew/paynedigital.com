@@ -48,7 +48,7 @@ var pjaxify = (function() {
             var i = links.length;
             var currentUrl = window.location.pathname;
             if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
-                currentUrl.search(/^\/tag\/[a-z\s\.]+$/) !== -1) {
+                currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
                 currentUrl = "/articles";
             }
             while (i--) {
