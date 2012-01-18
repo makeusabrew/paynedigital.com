@@ -2,7 +2,6 @@ body {
     padding-top:40px;
 }
 
-/* NB topbar active nav hover is broken at the mo */
 .topbar .topbar-inner li a {
     color:#BFBFBF;
 }
@@ -16,17 +15,19 @@ body {
  * basic theme transition setup stuff
  */
 .transition #header {
-    -webkit-transition: background 1.5s;
-    -moz-transition: background 1.5s;
-    -o-transition-property: background-color; /* opera seems a bit picky about shorthand transitions */
-    -o-transition-duration: 1.5s;
+    -webkit-transition: background-color 1.5s;
+       -moz-transition: background-color 1.5s;
+        -ms-transition: background-color 1.5s;
+         -o-transition: background-color 1.5s;
+            transition: background-color 1.5s;
 }
 
 .transition a {
     -webkit-transition: color 1.5s;
-    -moz-transition: color 1.5s;
-    -o-transition-property: color; /* opera seems a bit picky about shorthand transitions */
-    -o-transition-duration: 1.5s;
+       -moz-transition: color 1.5s;
+        -ms-transition: color 1.5s;
+         -o-transition: color 1.5s;
+            transition: color 1.5s;
 }
 
 #header {
@@ -53,6 +54,9 @@ body {
     color:#7D001D;
 }
 
+/**
+ * dark blue
+ */
 .darkblue #header {
     background:#1700E4;
 }
