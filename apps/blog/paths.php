@@ -1,5 +1,5 @@
 <?php
-PathManager::setAppCacheTtl(60);
+PathManager::setAppCacheTtl(120);
 
 PathManager::loadPaths(
     array("/(?P<month>\d{4}/\d{2})", "view_month"),

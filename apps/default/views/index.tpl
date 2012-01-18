@@ -9,7 +9,7 @@
 {/block}
 {block name='secondary'}
     {$smarty.block.parent}
-    <h3>Post Archive</h3>
+    <h3>The Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}
 {block name='script'}
