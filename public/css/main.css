@@ -18,11 +18,15 @@ body {
 .transition #header {
     -webkit-transition: background 1.5s;
     -moz-transition: background 1.5s;
+    -o-transition-property: background-color; /* opera seems a bit picky about shorthand transitions */
+    -o-transition-duration: 1.5s;
 }
 
 .transition a {
     -webkit-transition: color 1.5s;
     -moz-transition: color 1.5s;
+    -o-transition-property: color; /* opera seems a bit picky about shorthand transitions */
+    -o-transition-duration: 1.5s;
 }
 
 #header {
@@ -80,7 +84,7 @@ body {
  * green
  */
 .green #header {
-    background: rgb(157,213,58); ; /* Old browsers */
+    background: rgb(157,213,58);
 }
 
 .green a {
