@@ -283,10 +283,16 @@ img.inline-right.border {
 /**
  * labels
  */
+
+ .label.opinion {
+    background-color:#00f;
+}
+
 .label.agile {
     background-color:#FFAF54;
 }
 
+.label.domains,
 .label.tdd {
     background-color:#46A546;
 }
@@ -359,6 +365,7 @@ img.inline-right.border {
     background-color:#423991;
 }
 
+.label.off_topic,
 .label.source_control {
     background-color:#919600;
 }
