@@ -24,6 +24,7 @@
         data-url="{$base_href}{$post->getUrl()}"
         data-text="{$post->title}"
         data-via="{$post->user->twitter_username}"
+        data-related="{$post->user->twitter_username}"
         data-count="horizontal">Tweet</a>
 
         <a href="https://twitter.com/{$post->user->twitter_username}"
