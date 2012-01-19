@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class='content'>
-        {$post->content}
+        {$post->content|gistify}
     </div>
     <div class='options'>
         <a href="http://twitter.com/share"
