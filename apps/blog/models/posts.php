@@ -94,7 +94,7 @@ class Post extends Object {
 }
 
 class Posts extends Table {
-    protected $order_by = '`created` DESC';
+    protected $order_by = '`published` DESC';
     protected $meta = array(
         'columns' => array(
             'user_id' => array(
