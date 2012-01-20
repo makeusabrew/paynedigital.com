@@ -45,6 +45,8 @@ include("library/cache.php");
 
 $mode = getenv("PROJECT_MODE") !== false ? getenv("PROJECT_MODE") : "live";
 
+session_cache_limiter(false);
+
 try {
     // make sure a request object is available as soon as possible
     $request = JaossRequest::getInstance();
@@ -60,16 +62,19 @@ try {
     $request->dispatch();
     $response = $request->getResponse();
 
-    $response->sendHeaders();
-    echo $response->getBody();
+    $response->setIfNoneMatch(
+        $request->getHeader('If-None-Match')
+    );
+
+    $response->send();
+
 } catch (Exception $e) {
     $handler = new ErrorHandler();
     $handler->setRequest($request);
     $handler->handleError($e);
     $response = $handler->getResponse();
 
-    $response->sendHeaders();
-    echo $response->getBody();
+    $response->send();
 } catch (Exception $e) {
     exit($e->getMessage());
 }
