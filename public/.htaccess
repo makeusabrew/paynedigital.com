@@ -3,7 +3,8 @@ RewriteEngine On
 # catch live URLs ending with a slash
 RewriteRule ^(.+)/$ http://paynedigital.com/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule .* index.php [L]
+#RewriteRule .* index.php [L]
+RewriteRule .* profile.php [L]
 # uncomment the below to route all requests via xhprof
 # be sure to comment out the rewrite rule above too!
 # RewriteRule .* xhprof.php [L]
