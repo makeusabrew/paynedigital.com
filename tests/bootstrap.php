@@ -40,11 +40,7 @@ include("library/session.php");
 include("library/utils.php");
 include("library/image.php");
 include("library/cache.php");
-
-/**
- * custom PD stuff (@todo: autoloader!!)
- */
-include("apps/stats/statsd.php");
+include("library/statsd.php");
 
 $mode = getenv("PROJECT_MODE") !== false ? getenv("PROJECT_MODE") : "test";
 Settings::setMode($mode);
