@@ -62,10 +62,6 @@ class StatsD {
      * Squirt the metrics over UDP
      **/
     public static function send($data, $sampleRate=1) {
-        if (Settings::getValue("statsd", "enabled", false) == false) {
-            return;
-        }
-
         // sampling
         $sampledData = array();
 
@@ -77,6 +73,17 @@ class StatsD {
             }
         } else {
             $sampledData = $data;
+        }
+
+        foreach ($sampledData as $stat => $value) {
+            unset($sampledData[$stat]);
+            $sampledData[Settings::getValue("statsd", "prefix").".".$stat] = $value;
+        }
+        if (Settings::getValue("statsd", "enabled", false) == false) {
+            foreach ($sampledData as $stat => $value) {
+                Log::debug("Not tracking stat [".$stat."] => [".$value."]");
+            }
+            return;
         }
 
         if (empty($sampledData)) { return; }
@@ -93,6 +100,7 @@ class StatsD {
             }
             fclose($fp);
         } catch (Exception $e) {
+            Log::warn("Problem when sending UDP packet to monitoring daemon");
         }
     }
 }

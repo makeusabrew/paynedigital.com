@@ -39,9 +39,11 @@ class AdminController extends Controller {
             );
             if ($user) {
                 $user->addToSession();
+                StatsD::increment("login.success");
                 return $this->redirectAction("index");
             }
             // tut tut
+            StatsD::increment("login.failure");
             Log::warn("Invalid admin login attempt from IP [".$this->request->getIp()."] for email [".$this->request->getVar('email')."]");
             $this->addError('Invalid login details');
         }
