@@ -58,6 +58,10 @@ var pjaxify = (function() {
                 // if there's a delay loading the content, things look a bit weird
                 $(".topbar-inner li").removeClass("active");
 
+                // @todo we should make this better, but it's still an improvement on
+                // simply not moving the window viewport at all
+                window.scrollTo(0, 0);
+
                 var i = _links.length;
                 var currentUrl = window.location.pathname;
                 if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
