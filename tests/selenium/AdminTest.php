@@ -69,6 +69,7 @@ class AdminTest extends SeleniumTestController {
         $this->type("id=url", "a-new-post");
         $this->select("id=status", "Published");
         $this->type("id=published", "22/09/2011 11:54:51");
+        $this->type("id=introduction", "<p>Here is some test introductory content.</p>");
         $this->type("id=content", "<p>Here is some test content.</p>");
         $this->type("id=tags", "|test|tags|");
         $this->submit("//form");
