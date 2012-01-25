@@ -109,6 +109,7 @@ class AdminControllerTest extends PHPUnitTestController {
                 'title' => 'My Test Post',
                 'url' => 'my-test-post',
                 'published' => '01/01/11 11:00',
+                'introduction' => 'This is a test intro',
                 'content' => 'This is a test post',
             ))
             ->dispatch("/admin/posts/add");
