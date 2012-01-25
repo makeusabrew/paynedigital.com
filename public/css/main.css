@@ -431,3 +431,14 @@ a.label mark {
 .welcome h2 {
     font-size:20px;
 }
+
+.alert-message.welcome p {
+    margin-bottom:inherit;
+    margin-right:inherit;
+}
+
+.alert-message.welcome {
+    background:#fafafa;
+    border-color:#F7E6EA;
+    padding-bottom:0;
+}
