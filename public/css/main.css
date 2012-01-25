@@ -192,7 +192,7 @@ body {
 
 #posts .post {
     /*border-bottom:1px solid #ddd;*/
-    padding-bottom:2em;
+    padding-bottom:1em;
 }
 
 #comments .comment {
@@ -426,4 +426,8 @@ a.label mark {
 
 .alert-message a {
     color:#404040;
+}
+
+.welcome h2 {
+    font-size:20px;
 }

@@ -16,7 +16,13 @@
         </div>
     </div>
     <div class='content'>
-        {$post->content|gistify}
+        {if !isset($full_content)}
+            {$post->introduction}
+
+            <p><a href="/{$post->getUrl()}">Read the full article (approx. {$post->getWordCount()} words) &raquo;</a></p>
+        {else}
+            {$post->content|gistify}
+        {/if}
     </div>
     <div class='options'>
         <a href="http://twitter.com/share"
@@ -30,7 +36,5 @@
         <a href="https://twitter.com/{$post->user->twitter_username}"
         class="twitter-follow-button"
         data-show-count="false">Follow @{$post->user->twitter_username|htmlentities8}</a>
-{*<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>*}
-{*<script src="/js/defer_twitter.js"></script>*}
     </div>
 </div>

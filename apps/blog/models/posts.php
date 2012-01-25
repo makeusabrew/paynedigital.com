@@ -91,6 +91,12 @@ class Post extends Object {
         ),
         $str));
     }
+
+    public function getWordCount() {
+        $content = strip_tags($this->content);
+        $count = str_word_count($content);
+        return number_format($count);
+    }
 }
 
 class Posts extends Table {
@@ -107,6 +113,10 @@ class Posts extends Table {
             ),
             'url' => array(
                 'type' => 'text',
+                'required' => true,
+            ),
+            'introduction' => array(
+                'type' => 'textarea',
                 'required' => true,
             ),
             'content' => array(

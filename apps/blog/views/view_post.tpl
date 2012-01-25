@@ -7,7 +7,7 @@
     {/block}
 {/if}
 {block name='body'}
-    {include file='partials/post.tpl'}
+    {include file='partials/post.tpl' full_content=true}
     {if isset($related_posts) && count($related_posts) > 0}
         <div class='related'>
             <h3>Related Articles</h3>
