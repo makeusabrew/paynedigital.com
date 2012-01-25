@@ -7,7 +7,7 @@
 
     <p>We like writing about things. Some are relevant to many of the
     <a href="/services">professional services</a> we have to offer, others
-    less so &#8212; but one thing each article in the archive 
+    less so&mdash;but one thing each article in the archive 
     has in common is that it's always something we're genuinely interested in
     or passionate about.</p>
 
