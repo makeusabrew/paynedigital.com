@@ -11,7 +11,7 @@
             We're a young company, but don't let that put you off. We're enthusiastic and can
             probably <a href="/services">offer you</a> more than you think.
         </p>
-        <p>We also like writing about things&mdash;the most recent of which you can see below. For
+        <p>We also like writing about things&mdash;a recent selection of which you can see below. For
         more, check out the <a href="/articles">articles</a> section.</p>
     </div>
     <div id='posts'>

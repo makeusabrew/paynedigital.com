@@ -102,6 +102,9 @@ class BlogController extends Controller {
         $posts = Table::factory('Posts')->findAllForMonth($this->getMatch('month'));
         $this->assign('posts', $posts);
         $this->assign('month', str_replace("/", "-", $this->getMatch('month'))."-01");
+
+        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
+        $this->assign('archive', $archive);
     }
 
     public function burn_after_reading() {
