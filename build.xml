@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="Test Project" default="test">
+<project name="Payne Digital Website" default="test">
 
     <property name="project.dir" value="." />
     <property name="tests.dir" value="tests" />
