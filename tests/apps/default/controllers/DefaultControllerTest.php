@@ -62,4 +62,32 @@ class DefaultControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("September 2011");
         $this->assertBodyHasContentsInOrder("July 2011");
     }
+
+    public function testHomepageShowsWordCount() {
+        $this->request->dispatch("/");
+
+        $this->assertBodyHasContents('<a href="/2011/09/another-test-post">Read the full article (20 words)');
+    }
+
+    public function testNotFoundPageShowsCorrectCopyWhenVerboseErrorsDisabled() {
+
+        $original = Settings::getSettings();
+        $settings = $original;
+        $settings['errors']['verbose'] = false;
+        Settings::setFromArray($settings);
+
+        try {
+            $this->request->dispatch("/notfound");
+        } catch (Exception $e) {
+            $handler = new ErrorHandler();
+            $handler->setRequest($this->request);
+            $handler->handleError($e);
+            $this->assertResponseCode(404, $handler->getResponse());
+            $this->assertBodyHasContents("Oops! That's a 404", $handler->getResponse());
+            $this->assertBodyHasContents("It looks like the page you're after doesn't exist", $handler->getResponse());
+        }
+
+        Settings::setFromArray($original);
+
+    }
 }

@@ -81,6 +81,26 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("url is required");
         $this->assertBodyHasContents("published is required");
         $this->assertBodyHasContents("content is required");
+        $this->assertBodyHasContents("introduction is required");
+    }
+
+    public function testEditActionRedirectsAfterSuccessfulUpdate() {
+        $this->doValidLogin();
+        $this->request->setMethod("POST")
+            ->setParams(array(
+                'title' => 'Foo',
+                'url' => 'foo',
+                'published' => '01/01/11 00:00:00',
+                'introduction' => 'This is a test intro',
+                'content' => 'foo bar baz',
+            ))
+            ->dispatch("/admin/posts/edit/1");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("Post updated");
     }
 
     public function testAddActionShowsCorrectContent() {
@@ -172,6 +192,18 @@ class AdminControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("Test Person 2");
         $this->assertBodyHasContentsInOrder("Test User 1");
         $this->assertBodyHasContentsInOrder("Another Tester");
+    }
+
+    public function testViewOtherUsersCommentsResultsInRedirect() {
+        $this->doValidLogin();
+        $this->request->dispatch("/admin/posts/3/comments");
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/admin");
+
+        $this->request->reset();
+        $this->request->dispatch("/admin");
+        $this->assertBodyHasContents("You cannot perform this action");
     }
 
     public function testHeadBlockTextareaIsVisibleFromEditPostPage() {

@@ -39,4 +39,14 @@ class UserObjectTest extends PHPUnitTestController {
 
         $this->assertEquals(4, count($user->getAllPosts()));
     }
+
+    public function testToArrayRemovesSensitiveInformation() {
+        $user = Table::factory('Users')->read(1);
+        $this->assertEquals(array(
+            'email' => 'test@example.com',
+            'forename' => 'Test',
+            'surname' => 'User',
+            'twitter_username' => 'testuser',
+        ), $user->toArray());
+    }
 }
