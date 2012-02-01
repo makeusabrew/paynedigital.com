@@ -442,3 +442,25 @@ a.label mark {
     border-color:#F7E6EA;
     padding-bottom:0;
 }
+
+@media (max-width:480px) {
+    .supplementary {
+        display:none;
+    }
+    #header h1 {
+        font-size:26px;
+    }
+    #header .container {
+        padding:0;
+    }
+}
+
+@media (max-width: 980px) {
+    body {
+        padding-top:0;
+    }
+
+    .navbar-fixed-top {
+        margin-bottom:0;
+    }
+}

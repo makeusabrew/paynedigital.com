@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name=viewport content="width=device-width minimum-scale=1.0, maximum-scale=1.0">
     <title>{block name='title'}{setting value="site.title"}{/block}</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.responsive.css" />
@@ -39,7 +40,7 @@
     </div>
     <div id='header'>
         <div class='container'>
-            <h1>Web, Mobile, Apps &amp; Games. Whatever you need, we can build it.</h1>
+            <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</a></h1>
         </div>
     </div>
     <div class='container'>
@@ -55,12 +56,12 @@
                     {/foreach}
                 </div>
             {/if}
-            <div class='span9'>
+            <div class='span9 primary'>
                 {block name="body"}
                     <p>Your body content goes here.</p>
                 {/block}
             </div>
-            <div class='span3'>
+            <div class='span3 secondary'>
                 {block name="secondary"}
                     <p>
                         <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
