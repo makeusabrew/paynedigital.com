@@ -514,6 +514,9 @@ a.btn:hover {
     #header h1 {
         font-size:26px;
     }
+    #header .container {
+        padding:0;
+    }
     .post h2 {
         font-size:18px;
     }
@@ -524,6 +527,12 @@ a.btn:hover {
 
     .gist .gist-meta {
         display:none;
+    }
+}
+
+@media (width:768px) {
+    .row {
+        margin-left:0;
     }
 }
 
