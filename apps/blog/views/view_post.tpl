@@ -56,8 +56,8 @@
                     may be moderated before it appears.</p>
                 </div>
                 <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
-                    {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false}
-                    {include file='default/views/helpers/field.tpl' field='email'}
+                    {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
+                    {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
                     {include file='default/views/helpers/field.tpl' field='content'}
                     {include file='default/views/helpers/field.tpl' field='notifications'}
                     <div class="form-actions">

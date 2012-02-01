@@ -4,16 +4,20 @@ var Forms = {
             var self = this;
             e.preventDefault();
 
-            $(self).find("input[type='submit']").attr("disabled", "");
+            var submit = $(self).find("input[type='submit']");
+            submit.attr("disabled", "").addClass("btn-disabled");
+
+            var buttonText = submit.val();
+            submit.val("Sending...");
             // clear out any error states we had before
             $(self).find(".control-group.error").removeClass("error");
-            $(self).find("span.help-block").html("");
+            $(self).find(".help-block").html("");
             $.post($(self).attr("action"), $(self).serialize(), function(response) {
-                $(self).find("input[type='submit']").removeAttr("disabled");
+                submit.removeAttr("disabled").removeClass("btn-disabled").val(buttonText);
                 if (response._errors != null) {
                     // deal with em
                     for (var i in response._errors) {
-                        $(self).find("span#"+i+"_error").html(
+                        $(self).find("div#"+i+"_error").html(
                             response._errors[i]
                         ).parents("div.control-group").addClass("error");
                     }

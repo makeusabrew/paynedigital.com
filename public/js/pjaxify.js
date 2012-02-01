@@ -20,6 +20,22 @@ var pjaxify = (function() {
         }
     }
 
+    var linkNav = function() {
+        var i = _links.length;
+        var currentUrl = window.location.pathname;
+        if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
+            currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
+            currentUrl = "/articles";
+        }
+        while (i--) {
+            var href = _links[i].attr("href");
+            if (href == currentUrl.substr(0, href.length)) {
+                _links[i].parent().addClass("active");
+                break;
+            }
+        }
+    }
+
     that.init = function() {
         _body = $("body").get(0);
 
@@ -41,10 +57,9 @@ var pjaxify = (function() {
             return a.attr("href").length - b.attr("href").length;
         });
 
-        /*
-        $("#inner").bind("end.pjax", function() {
-        });
-        */
+        if ($(".navbar-inner li.active").length == 0) {
+            linkNav();
+        }
 
         $("#inner a").live("click", function(e) {
             removeTimestamp(this);
@@ -58,23 +73,11 @@ var pjaxify = (function() {
                 // if there's a delay loading the content, things look a bit weird
                 $(".navbar-inner li").removeClass("active");
 
+                linkNav();
+
                 // @todo we should make this better, but it's still an improvement on
                 // simply not moving the window viewport at all
                 window.scrollTo(0, 0);
-
-                var i = _links.length;
-                var currentUrl = window.location.pathname;
-                if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
-                    currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
-                    currentUrl = "/articles";
-                }
-                while (i--) {
-                    var href = _links[i].attr("href");
-                    if (href == currentUrl.substr(0, href.length)) {
-                        _links[i].parent().addClass("active");
-                        break;
-                    }
-                }
 
                 // transition baby!
                 $("html").addClass("transition");

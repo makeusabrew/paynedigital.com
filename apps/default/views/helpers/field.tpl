@@ -119,7 +119,7 @@
                 </div>
             {/if}
         {/if}
-        <span id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
+        <div id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</div>
     </div>
 </div>
 
