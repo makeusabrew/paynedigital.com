@@ -315,6 +315,7 @@ img.inline-right.border {
 
 #footer .well {
     text-align:center;
+    margin-bottom:0;
 }
 
 #footer .company-info {
@@ -485,7 +486,7 @@ a.btn:hover {
     #header h1 {
         font-size:26px;
     }
-    #posts h2 {
+    .post h2 {
         font-size:18px;
     }
     .welcome h2 {

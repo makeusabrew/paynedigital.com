@@ -2,7 +2,7 @@
     <h2><a href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     <div class='info'>
         {if count($post->getTags())}
-            <div class='tags'>
+            <div class='tags supplementary'>
                 <span class='label intro'>Tags:</span>
                 {foreach from=$post->getTags() item="tag" name="tag_loop"}
                     <a class='label {$post->formatTagLabel($tag)}' href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>
