@@ -66,7 +66,7 @@ class DefaultControllerTest extends PHPUnitTestController {
     public function testHomepageShowsWordCount() {
         $this->request->dispatch("/");
 
-        $this->assertBodyHasContents('href="/2011/09/another-test-post">Full article (20 words)');
+        $this->assertBodyHasContents('href="/2011/09/another-test-post"><i class="icon-search"></i> Full article (20 words)');
     }
 
     public function testNotFoundPageShowsCorrectCopyWhenVerboseErrorsDisabled() {
