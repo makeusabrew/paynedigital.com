@@ -52,13 +52,13 @@
                 </div>
                 <div class='row'>
                     <div class='span8 columns'>
-                        <form action="/{$post->getUrl()}/comment#comments" method="post">
+                        <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false}
                             {include file='default/views/helpers/field.tpl' field='email'}
                             {include file='default/views/helpers/field.tpl' field='content'}
                             {include file='default/views/helpers/field.tpl' field='notifications'}
-                            <div class="actions">
-                                <input type="submit" value="Send" class="btn primary" />
+                            <div class="form-actions">
+                                <input type="submit" value="Send" class="btn btn-primary" />
                             </div>
                         </form>
                     </div>
@@ -75,16 +75,18 @@
     </div>
 {/block}
 {block name='secondary'}
-    <p>
-        <strong>Hi there!</strong> We're always on the look out for good quality guest content, so if you've got an article
-        you'd like to see published then of course feel free to <a href="/contact">get in touch</a> or <a href="http://twitter.com/paynedigital">send us a tweet</a>.
-    </p>
+    <div class="supplementary">
+        <p>
+            <strong>Hi there!</strong> We're always on the look out for good quality guest content, so if you've got an article
+            you'd like to see published then of course feel free to <a href="/contact">get in touch</a> or <a href="http://twitter.com/paynedigital">send us a tweet</a>.
+        </p>
 
-    <p>
-        This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
-    </p>
+        <p>
+            This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
+        </p>
 
-    <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
+        <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
+    </div>
 
     {*
     {if isset($related_posts) && count($related_posts) > 0}
