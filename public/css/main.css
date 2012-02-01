@@ -130,6 +130,14 @@ body {
     background-color: #55A13B;
 }
 
+.green .nav-list .active > a {
+    background-color: #55A13B;
+}
+
+.green .nav-list .active > a:hover {
+    color:#cfcfcf;
+}
+
 /**
  * orange
  */
