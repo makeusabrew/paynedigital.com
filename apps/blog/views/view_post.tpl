@@ -112,11 +112,11 @@
                 $(form).parent().parent(".row").remove();
                 $("#comments p.no-comments").remove();
                 $("#comments .existing").append(
-                    "<div class='alert-message success' style='display:none;'> "+
+                    "<div class='alert alert-success' style='display:none;'> "+
                         "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
                     "</div>"
                 );
-                $("#comments .existing .alert-message").fadeIn('slow');
+                $("#comments .existing .alert").fadeIn('slow');
             });
         });
     </script>

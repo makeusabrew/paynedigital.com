@@ -14,6 +14,5 @@
 {block name='secondary'}
     {$smarty.block.parent}
 
-    <h3>The Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}

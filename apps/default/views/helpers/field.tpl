@@ -88,22 +88,18 @@
                 {assign var="selkey" value=null}
             </select>
         {elseif $type == "checkbox" && isset($seloptions)}
-            <ul class='inputs-list'>
-                {foreach from=$seloptions item="selopt" key="selkey"}
-                    <li>
-                        <label for="{$field}_{$selkey}">
-                            <input type="checkbox"
-                            {if isset($disabled)} disabled=""{/if}
-                            id="{$field}_{$selkey}"
-                            name="{$field}[{$selkey}]"
-                            class="checkbox{if $error} error{/if}"
-                            {if isset($value) && is_array($value) && isset($value[$selkey])} checked=""{/if}
-                            />
-                            <span>{$selopt}</span>
-                        </label>
-                    </li>
-                {/foreach}
-            </ul>
+            {foreach from=$seloptions item="selopt" key="selkey"}
+                <label class="checkbox" for="{$field}_{$selkey}">
+                    <input type="checkbox"
+                    {if isset($disabled)} disabled=""{/if}
+                    id="{$field}_{$selkey}"
+                    name="{$field}[{$selkey}]"
+                    class="checkbox{if $error} error{/if}"
+                    {if isset($value) && is_array($value) && isset($value[$selkey])} checked=""{/if}
+                    />
+                    <span>{$selopt}</span>
+                </label>
+            {/foreach}
             {assign var="selopt" value=null}
             {assign var="selkey" value=null}
         {elseif $type == 'bool'}

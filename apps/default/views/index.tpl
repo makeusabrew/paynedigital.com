@@ -17,6 +17,7 @@
     <div id='posts'>
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
+            <hr>
         {/foreach}
     </div>
 {/block}
@@ -30,7 +31,6 @@
         (which, funnily enough, is also available <a href="https://github.com/makeusabrew/jaoss-website">on github</a>)!</p>
     </div>
 
-    <h3>The Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}
 {block name='script'}
