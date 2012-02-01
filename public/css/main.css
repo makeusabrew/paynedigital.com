@@ -281,7 +281,7 @@ span.git-blue {
 }
 
 .comment .copy {
-    padding:0.25em;
+    padding:0 0.4em;
 }
 
 #comments .existing {
@@ -520,6 +520,10 @@ a.btn:hover {
     .welcome h2 {
         float:left;
         margin-right:0.5em;
+    }
+
+    .gist .gist-meta {
+        display:none;
     }
 }
 

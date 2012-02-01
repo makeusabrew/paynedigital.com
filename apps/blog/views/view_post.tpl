@@ -30,7 +30,7 @@
                         <span class='commenter'>{$comment->name|htmlentities8}</span>
                         <time>{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
                     </div>
-                    <div>
+                    <div class='copy'>
                         {$comment->content|htmlentities8}
                     </div>
                 </div>
