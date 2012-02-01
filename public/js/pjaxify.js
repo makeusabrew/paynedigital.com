@@ -51,7 +51,7 @@ var pjaxify = (function() {
         });
 
         // wire up pjax stuff
-        $("a").pjax("#inner", {
+        $("a:not(.no-pjax)").pjax("#inner", {
             "timeout": _timeout,
             "success": function() {
                 // for balance you'd want this in start.pjax, but then
