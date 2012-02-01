@@ -2,14 +2,18 @@ body {
     padding-top:40px;
 }
 
-.topbar .topbar-inner li a {
+.navbar .navbar-inner li a {
     color:#BFBFBF;
 }
 
-.topbar .topbar-inner .active a {
+.navbar .navbar-inner .active a {
     color:#fff;
 }
 
+.navbar .brand:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color:#fff;
+}
 
 /**
  * basic theme transition setup stuff
@@ -446,6 +450,11 @@ a.label mark {
 
 .alert.welcome a {
     font-weight:bold;
+}
+
+a.btn,
+a.btn:hover {
+    color:#333;
 }
 
 @media (max-width:480px) {

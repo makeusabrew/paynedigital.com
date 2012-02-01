@@ -19,7 +19,7 @@
         {if !isset($full_content)}
             {$post->introduction}
 
-            <p><a href="/{$post->getUrl()}">Read the full article ({$post->getWordCount()} words) &raquo;</a></p>
+            <p><a class="btn btn-small" href="/{$post->getUrl()}">Full article ({$post->getWordCount()} words)</a></p>
         {else}
             {$post->content|gistify}
         {/if}

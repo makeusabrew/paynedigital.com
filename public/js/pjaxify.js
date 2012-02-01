@@ -33,7 +33,7 @@ var pjaxify = (function() {
         */
 
         // a bit of manky link sorting
-        $(".topbar-inner li a").each(function(i, v) {
+        $(".navbar-inner li a").each(function(i, v) {
             _links.push($(v));
         });
 
@@ -56,7 +56,7 @@ var pjaxify = (function() {
             "success": function() {
                 // for balance you'd want this in start.pjax, but then
                 // if there's a delay loading the content, things look a bit weird
-                $(".topbar-inner li").removeClass("active");
+                $(".navbar-inner li").removeClass("active");
 
                 // @todo we should make this better, but it's still an improvement on
                 // simply not moving the window viewport at all
