@@ -519,6 +519,7 @@ a.btn:hover {
     }
     .post h2 {
         font-size:18px;
+        line-height:24px;
     }
     .welcome h2 {
         float:left;
@@ -542,6 +543,7 @@ a.btn:hover {
     }
     #header h1 {
         font-size:20px;
+        line-height:24px;
     }
     #header .container {
         padding:0;
