@@ -56,12 +56,12 @@
                     {/foreach}
                 </div>
             {/if}
-            <div class='span9'>
+            <div class='span8'>
                 {block name="body"}
                     <p>Your body content goes here.</p>
                 {/block}
             </div>
-            <div class='span3'>
+            <div class='span4'>
                 {block name="secondary"}
                     <div class='supplementary'>
                         <p>
@@ -108,10 +108,10 @@
 </html>
 {else}
 <title>{block name='title'}{setting value="site.title"}{/block}</title>
-<div class='span9'>
+<div class='span8'>
     {block name="body"}{/block}
 </div>
-<div class='span3'>
+<div class='span4'>
     {block name="secondary"}
         <div class='supplementary'>
             <p>
