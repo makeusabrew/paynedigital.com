@@ -1,7 +1,7 @@
 {extends file='default/views/base.tpl'}
 {block name='title'}{$smarty.block.parent} - Web Application &amp; Mobile Development{/block}
 {block name='body'}
-    <div class='welcome alert-message block-message'>
+    <div class='welcome alert alert-block'>
         <h2>Hello!</h2>
         <p>
             Payne Digital make all sorts of things: <a href="https://github.com/makeusabrew/paynedigital.com">websites

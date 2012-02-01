@@ -248,7 +248,7 @@ span.git-blue {
     color:#0000ff;
 }
 
-#comments .alert-message {
+#comments .alert {
     margin-top:1em;
 }
 
@@ -424,7 +424,7 @@ a.label mark {
     font-style:italic;
 }
 
-.alert-message a {
+.alert a {
     color:#404040;
 }
 
@@ -432,15 +432,20 @@ a.label mark {
     font-size:20px;
 }
 
-.alert-message.welcome p {
+.alert.welcome p {
     margin-bottom:inherit;
     margin-right:inherit;
 }
 
-.alert-message.welcome {
+.alert.welcome {
     background:#fafafa;
     border-color:#F7E6EA;
+    color:#333;
     padding-bottom:0;
+}
+
+.alert.welcome a {
+    font-weight:bold;
 }
 
 @media (max-width:480px) {
