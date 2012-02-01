@@ -74,11 +74,11 @@
     {/if}
 {/if}
 
-<div class="clearfix{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
-    <label for="{$field}">{$title}{if $required} <span class='required'>*</span>{/if}</label>
-    <div class="input">
+<div class="control-group{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
+    <label class="control-label" for="{$field}">{$title}{if $required} <span class='required'>*</span>{/if}</label>
+    <div class="controls">
         {if $type == "textarea"}
-            <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
+            <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="input-xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
         {elseif $type == "select" && isset($seloptions)}
             <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
                 {foreach from=$seloptions item="selopt" key="selkey"}

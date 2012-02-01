@@ -6,7 +6,7 @@ var Forms = {
 
             $(self).find("input[type='submit']").attr("disabled", "");
             // clear out any error states we had before
-            $(self).find(".clearfix.error").removeClass("error");
+            $(self).find(".control-group.error").removeClass("error");
             $(self).find("span.help-block").html("");
             $.post($(self).attr("action"), $(self).serialize(), function(response) {
                 $(self).find("input[type='submit']").removeAttr("disabled");
@@ -15,7 +15,7 @@ var Forms = {
                     for (var i in response._errors) {
                         $(self).find("span#"+i+"_error").html(
                             response._errors[i]
-                        ).parents("div.clearfix").addClass("error");
+                        ).parents("div.control-group").addClass("error");
                     }
                     return;
                 }

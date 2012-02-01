@@ -31,7 +31,7 @@
                         <li{if $current_url == "/articles"} class="active"{/if}><a href="/articles">Articles</a></li>
                         <li{if $current_url == "/contact"} class="active"{/if}><a href="/contact">Contact</a></li>
                     </ul>
-                    <form action="/search" method="get" class="navbar-search pull-right">
+                    <form class='supplementary' action="/search" method="get" class="navbar-search pull-right">
                         <input type="text" class="search-query" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
                     </form>
                 </div>
@@ -63,14 +63,16 @@
             </div>
             <div class='span3'>
                 {block name="secondary"}
-                    <p>
-                        <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                        (like this one),
-                        web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                        <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-                    </p>
-                    <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-                    probably <a href="/services">offer you</a> more than you think.</p>
+                    <div class='supplementary'>
+                        <p>
+                            <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+                            (like this one),
+                            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+                            <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+                        </p>
+                        <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+                        probably <a href="/services">offer you</a> more than you think.</p>
+                    </div>
                 {/block}
             </div>
         </div>
@@ -111,14 +113,16 @@
 </div>
 <div class='span3'>
     {block name="secondary"}
-        <p>
-            <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-            (like this one),
-            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-            <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-        </p>
-        <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-        probably <a href="/services">offer you</a> more than you think.</p>
+        <div class='supplementary'>
+            <p>
+                <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+                (like this one),
+                web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+                <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+            </p>
+            <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+            probably <a href="/services">offer you</a> more than you think.</p>
+        </div>
     {/block}
 </div>
 <div style='display:none' class='theme'>

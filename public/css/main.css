@@ -2,6 +2,9 @@ body {
     padding-top:40px;
 }
 
+/**
+ * bootstrap / theme related overrides
+ */
 .navbar .navbar-inner li a {
     color:#BFBFBF;
 }
@@ -13,6 +16,12 @@ body {
 .navbar .brand:hover {
     background-color: rgba(255, 255, 255, 0.05);
     color:#fff;
+}
+
+.page-header {
+    margin-top:0;
+    padding:0;
+    margin-bottom:17px;
 }
 
 /**
