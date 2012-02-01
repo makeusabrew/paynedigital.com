@@ -50,20 +50,22 @@
                 <div class='page-header'>
                     <h3>Add Your Own</h3>
                 </div>
-                <div class='small'>
-                    <p>We don't publish your email address and won't send you any spam.
-                    We do capture your IP address for auditing purposes and your comment
-                    may be moderated before it appears.</p>
-                </div>
-                <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
-                    {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
-                    {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
-                    {include file='default/views/helpers/field.tpl' field='content'}
-                    {include file='default/views/helpers/field.tpl' field='notifications'}
-                    <div class="form-actions">
-                        <input type="submit" value="Send" class="btn btn-primary" />
+                <div class='form-wrapper'>
+                    <div class='small'>
+                        <p>We don't publish your email address and won't send you any spam.
+                        We do capture your IP address for auditing purposes and your comment
+                        may be moderated before it appears.</p>
                     </div>
-                </form>
+                    <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
+                        {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
+                        {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
+                        {include file='default/views/helpers/field.tpl' field='content'}
+                        {include file='default/views/helpers/field.tpl' field='notifications'}
+                        <div class="form-actions">
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
         {/if}
     </div>
@@ -105,7 +107,7 @@
         $(function() {
             Forms.handle("form[method='post']", function(form) {
                 $("#comments .page-header").remove();
-                $(form).parent().parent(".row").remove();
+                $(form).parents(".form-wrapper").remove();
                 $("#comments p.no-comments").remove();
                 $("#comments .existing").append(
                     "<div class='alert alert-success' style='display:none;'> "+
