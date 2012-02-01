@@ -83,6 +83,7 @@ class AdminTest extends SeleniumTestController {
         $this->assertTextPresent("Here is some test content.");
     }
 
+    /* @todo re-implement
     public function testBurnAfterReadingGenerationWithDraftPost() {
         $this->doValidLogin();
         $this->open("/admin/posts/edit/2");
@@ -93,6 +94,7 @@ class AdminTest extends SeleniumTestController {
         $this->waitForPageToLoad(50000);
         $this->assertTextPresent("This post hasn't been published");
     }
+    */
 
     public function testCommentApprovalProcess() {
         $this->doValidLogin();
