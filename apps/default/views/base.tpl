@@ -56,12 +56,12 @@
                     {/foreach}
                 </div>
             {/if}
-            <div class='span9 primary'>
+            <div class='span9'>
                 {block name="body"}
                     <p>Your body content goes here.</p>
                 {/block}
             </div>
-            <div class='span3 secondary'>
+            <div class='span3'>
                 {block name="secondary"}
                     <p>
                         <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
@@ -82,13 +82,8 @@
             </span>
             <span class='company-info'>
                 13 Moorland Avenue, Leeds, LS20 9EQ.
-                Company No. 07277912. VAT No. 991909470.
+                <span class='supplementary'>Company No. 07277912. VAT No. 991909470.</span>
             </span>
-            {*
-            <span class='feedback'>
-                Something not quite right? <a href="https://github.com/makeusabrew/paynedigital.com/issues">Let us know!</a>
-            </span>
-            *}
         </div>
     </div>
 
@@ -111,10 +106,10 @@
 </html>
 {else}
 <title>{block name='title'}{setting value="site.title"}{/block}</title>
-<div class='span11 columns'>
+<div class='span9'>
     {block name="body"}{/block}
 </div>
-<div class='span5 columns'>
+<div class='span3'>
     {block name="secondary"}
         <p>
             <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
