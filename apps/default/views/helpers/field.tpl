@@ -108,7 +108,16 @@
                 <option value="0"{if isset($value) && $value == false} selected=""{/if}>No</option>
             </select>
         {else}
+            {if isset($icon)}
+                <div class="input-prepend">
+                    <span class="add-on">
+                        <i class="{$icon}"></i>
+                    </span>
+            {/if}
             <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
+            {if isset($icon)}
+                </div>
+            {/if}
         {/if}
         <span id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
     </div>
@@ -125,3 +134,4 @@
 {assign var="required" value=null}
 {assign var="seloptions" value=null}
 {assign var="origtype" value=null}
+{assign var="icon" value=null}

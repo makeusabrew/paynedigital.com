@@ -215,7 +215,6 @@ body {
 }
 
 #comments .commenter {
-    display:block;
     font-weight:bold;
 }
 
@@ -260,8 +259,25 @@ span.git-blue {
     margin-top:1em;
 }
 
-#comments .comment:nth-child(even) {
+#comments .comment {
+    padding-left:0.25em;
+    padding-right:0.25em;
+}
+
+#comments .comment:nth-child(odd) {
     background:#f7f7f7;
+}
+
+#comments .comment:nth-child(even) {
+    background:#EFFFEE;
+}
+
+.comment .copy {
+    padding:0.25em;
+}
+
+#comments .existing {
+    margin-bottom:1em;
 }
 
 .post .gist {
@@ -464,6 +480,10 @@ a.btn:hover {
 
 #posts hr {
     margin:0 4em 1em 4em;
+}
+
+.related.well {
+    padding:8px 0;
 }
 
 /**

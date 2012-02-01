@@ -11,8 +11,8 @@
         anything at all. If you're not sure why you'd want to then why not check out
         the <a href="/services">services we offer</a>?</p>
         <form class="form-horizontal" action="/contact" method="post">
-            {include file="default/views/helpers/field.tpl" field="name"}
-            {include file="default/views/helpers/field.tpl" field="email"}
+            {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
+            {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
             {include file="default/views/helpers/field.tpl" field="content"}
             <div class="form-actions">
                 <input type="submit" value="Send" class="btn btn-primary" />

@@ -9,9 +9,11 @@
 {block name='body'}
     {include file='partials/post.tpl' full_content=true}
     {if isset($related_posts) && count($related_posts) > 0}
-        <div class='related'>
-            <h3>Related Articles</h3>
-            <ul>
+        <div class='related well'>
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                    Related Articles
+                </li>
                 {foreach from=$related_posts item="related_post"}
                     <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
                 {/foreach}
@@ -24,14 +26,12 @@
         <div class='existing'>
             {foreach from=$comments item="comment" name="loop"}
                 <div class='comment'>
-                    <div class='row'>
-                        <div class='span3 columns'>
-                            <div class='commenter'>{$comment->name|htmlentities8}</div>
-                            <time>{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
-                        </div>
-                        <div class='span8 columns'>
-                            {$comment->content|htmlentities8}
-                        </div>
+                    <div>
+                        <span class='commenter'>{$comment->name|htmlentities8}</span>
+                        <time>{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
+                    </div>
+                    <div>
+                        {$comment->content|htmlentities8}
                     </div>
                 </div>
             {foreachelse}
@@ -50,26 +50,20 @@
                 <div class='page-header'>
                     <h3>Add Your Own</h3>
                 </div>
-                <div class='row'>
-                    <div class='span8 columns'>
-                        <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
-                            {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false}
-                            {include file='default/views/helpers/field.tpl' field='email'}
-                            {include file='default/views/helpers/field.tpl' field='content'}
-                            {include file='default/views/helpers/field.tpl' field='notifications'}
-                            <div class="form-actions">
-                                <input type="submit" value="Send" class="btn btn-primary" />
-                            </div>
-                        </form>
-                    </div>
-                    <div class='span3 columns'>
-                        <div class='small'>
-                            <p>We don't publish your email address and won't send you any spam.</p>
-                            <p>Note that we do capture your IP address for auditing purposes and your comment
-                            may be moderated before it appears.</p>
-                        </div>
-                    </div>
+                <div class='small'>
+                    <p>We don't publish your email address and won't send you any spam.
+                    We do capture your IP address for auditing purposes and your comment
+                    may be moderated before it appears.</p>
                 </div>
+                <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
+                    {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false}
+                    {include file='default/views/helpers/field.tpl' field='email'}
+                    {include file='default/views/helpers/field.tpl' field='content'}
+                    {include file='default/views/helpers/field.tpl' field='notifications'}
+                    <div class="form-actions">
+                        <input type="submit" value="Send" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
         {/if}
     </div>
