@@ -79,21 +79,23 @@
             This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
         </p>
 
+        {* breaks responsive due to stupid width
         <a href="https://twitter.com/{$post->user->twitter_username}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$post->user->twitter_username|htmlentities8}</a>
+        *}
     </div>
 
-    {*
     {if isset($related_posts) && count($related_posts) > 0}
-        <div class='related'>
-            <h3>Related Articles</h3>
-            <ul>
+        <div class='well related'>
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                    Why not check out&hellip;
+                </li>
                 {foreach from=$related_posts item="related_post"}
                     <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
                 {/foreach}
             </ul>
         </div>
     {/if}
-    *}
 {/block}
 {block name='script'}
     {$smarty.block.parent}
