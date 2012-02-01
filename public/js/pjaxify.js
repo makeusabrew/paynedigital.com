@@ -2,6 +2,7 @@ var pjaxify = (function() {
     var _timeout = 1000,
         _body = null,
         _links = [],
+        currentUrl = null,
         that = {};
 
     var removeTimestamp = function(elem) {
@@ -18,11 +19,12 @@ var pjaxify = (function() {
         if (twttr) {
             twttr.widgets.load();
         }
+
     }
 
     var linkNav = function() {
         var i = _links.length;
-        var currentUrl = window.location.pathname;
+        //var currentUrl = window.location.pathname;
         if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
             currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
             currentUrl = "/articles";
@@ -57,6 +59,7 @@ var pjaxify = (function() {
             return a.attr("href").length - b.attr("href").length;
         });
 
+        currentUrl = window.location.pathname;
         if ($(".navbar-inner li.active").length == 0) {
             linkNav();
         }
@@ -66,12 +69,19 @@ var pjaxify = (function() {
         });
 
         // wire up pjax stuff
+        $("a:not(.no-pjax)").live("click", function(e) {
+            currentUrl = $(this).attr("href");
+        });
+
         $("a:not(.no-pjax)").pjax("#inner", {
             "timeout": _timeout,
             "success": function() {
                 // for balance you'd want this in start.pjax, but then
                 // if there's a delay loading the content, things look a bit weird
                 $(".navbar-inner li").removeClass("active");
+
+                // if the collapsed nav state is open, get rid
+                $(".nav-collapse.in").collapse('hide');
 
                 linkNav();
 
