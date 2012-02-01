@@ -203,11 +203,6 @@ body {
     display:none;
 }
 
-#posts .post {
-    /*border-bottom:1px solid #ddd;*/
-    padding-bottom:1em;
-}
-
 #comments .comment {
     padding:1em 0;
     border-bottom:1px solid #ddd;
@@ -467,7 +462,7 @@ a.btn:hover {
 }
 
 #posts hr {
-    margin:0 4em;
+    margin:0 4em 1em 4em;
 }
 
 /**
@@ -491,7 +486,7 @@ a.btn:hover {
         font-size:26px;
     }
     #posts h2 {
-        font-size:20px;
+        font-size:18px;
     }
     .welcome h2 {
         float:left;
@@ -504,7 +499,7 @@ a.btn:hover {
         padding:1em;
     }
     #header h1 {
-        font-size:18px;
+        font-size:20px;
     }
     #header .container {
         padding:0;

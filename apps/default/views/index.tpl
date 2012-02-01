@@ -17,7 +17,7 @@
     <div id='posts'>
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
-            <hr>
+            {if !$smarty.foreach.posts.last}<hr>{/if}
         {/foreach}
     </div>
 {/block}
