@@ -8,6 +8,24 @@
     <property name="mode" value="test" override="true" />
 
     <target name="cleanup" description="Empty Temporary Dirs">
+        <if>
+            <isset property="chmodTmpDirs" />
+            <then>
+                <echo msg="Making folders writable" />
+                <exec passthru="false" command="chmod -R 0777 tmp/ log/" />
+            </then>
+        </if>
+        <if>
+            <isset property="deleteLogs" />
+            <then>
+                <echo msg="Deleting log files..." />
+                <delete>
+                    <fileset dir="log">
+                        <include name="*.log" />
+                    </fileset>
+                </delete>
+            </then>
+        </if>
         <delete>
             <fileset dir="tmp/templates_c">
                 <include name="*.tpl.php" />
@@ -52,13 +70,6 @@
 
     <target name="fullbuild" description="Full Project Build" depends="cleanup,sloc">
         <echo msg="Cleaning up, Running Tests &amp; Generating Reports" />
-        <if>
-            <isset property="chmodTmpDirs" />
-            <then>
-                <echo msg="Making folders writable" />
-                <exec passthru="false" command="chmod -R 0777 tmp/ log/" />
-            </then>
-        </if>
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
         --coverage-html ${reports.dir}/{$coverage.dir}
         --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
