@@ -71,7 +71,7 @@
     <target name="fullbuild" description="Full Project Build" depends="cleanup,sloc">
         <echo msg="Cleaning up, Running Tests &amp; Generating Reports" />
         <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
-        --coverage-html ${reports.dir}/{$coverage.dir}
+        --coverage-html ${reports.dir}/${coverage.dir}
         --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
     </target>
 
