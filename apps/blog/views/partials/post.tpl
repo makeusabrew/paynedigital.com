@@ -35,7 +35,7 @@
 
         <a href="https://twitter.com/{$post->user->twitter_username}"
         class="twitter-follow-button"
-        data-width="145px"
+        data-width="150px"
         data-show-count="false">Follow @{$post->user->twitter_username|htmlentities8}</a>
     </div>
 </div>
