@@ -40,7 +40,7 @@
     </div>
     <div id='header'>
         <div class='container'>
-            <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</a></h1>
+            <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
         </div>
     </div>
     <div class='container'>
