@@ -62,6 +62,9 @@
                         {include file='default/views/helpers/field.tpl' field='content'}
                         {include file='default/views/helpers/field.tpl' field='notifications'}
                         <div class="comment-details">
+                            {if isset($_errors) && isset($_errors.details)}
+                                <p>{$_errors.details}</p>
+                            {/if}
                             <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
                             <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
                         </div>
