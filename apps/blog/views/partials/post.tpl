@@ -12,7 +12,7 @@
         <div class='published'>
             {assign var='comment_count' value=$post->getApprovedCommentsCount()}
             <time>{$post->published|date_format:"l jS F Y \a\\t H:i"}</time> by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
-            <a href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>. <i class="icon-comment"></i>
+            <a class="no-pjax" href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>. <i class="icon-comment"></i>
         </div>
     </div>
     <div class='content'>

@@ -49,7 +49,7 @@
                 <div class='container'>
                     {foreach from=$messages item="message"}
                         {* other twitter styles are: error, warning, success *}
-                        <div class="alert-message info">
+                        <div class="alert alert-info">
                             <a class="close" href="#">&times;</a>
                             <p>{$message}</p>
                         </div>
