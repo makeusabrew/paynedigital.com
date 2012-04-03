@@ -69,6 +69,17 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Email Address is not a valid email address");
     }
 
+    public function testCommentFormWithHoneypotFieldFilledIn() {
+        $this->request->setMethod("POST")->setParams(array(
+            "name" => "Test Person",
+            "email" => "test@example.com",
+            "content" => "This is a test message",
+            "details" => "foo",
+        ))->dispatch("/2011/09/another-test-post/comment");
+
+        $this->assertBodyHasContents("Please do not fill in the details field");
+    }
+
     public function testCommentFormWithGetRequest() {
         try {
             $this->request->dispatch("/2011/09/another-test-post/comment");

@@ -494,6 +494,11 @@ a.btn:hover {
     padding:8px 0;
 }
 
+.comment-details {
+    text-indent:-8765px;
+    height:10px;
+}
+
 /**
  * media gubbins
  */

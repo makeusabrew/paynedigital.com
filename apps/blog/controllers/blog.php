@@ -46,6 +46,14 @@ class BlogController extends Controller {
     }
 
     public function add_comment() {
+        // very basic honeypot stuff
+        if ($this->request->getVar("details")) {
+            $this->setErrors(array(
+                "details" => "Please do not fill in the details field",
+            ));
+            return $this->render("view_post");
+        }
+
         $comment = Table::factory('Comments')->newObject();
         $name = ($this->request->getVar("name") != "") ? $this->request->getVar("name") : "Anonymous";
         $data = array(

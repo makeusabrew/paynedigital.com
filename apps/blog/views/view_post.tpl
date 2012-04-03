@@ -61,6 +61,10 @@
                         {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
                         {include file='default/views/helpers/field.tpl' field='content'}
                         {include file='default/views/helpers/field.tpl' field='notifications'}
+                        <div class="comment-details">
+                            <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
+                            <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
+                        </div>
                         <div class="form-actions">
                             <input type="submit" value="Send" class="btn btn-primary" />
                         </div>
