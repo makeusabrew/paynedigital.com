@@ -36,7 +36,7 @@
                 </div>
             {foreachelse}
                 {if !isset($comment_submitted)}
-                    <p class='no-comments'>There are currently no comments - feel free to add one!</p>
+                    <p class='no-comments'>There are currently no comments{if $post->commentsEnabled()} - feel free to add one!{else}.{/if}</p>
                 {/if}
             {/foreach}
             {if isset($comment_submitted)}
@@ -46,34 +46,38 @@
             {/if}
         </div>
         {if !isset($comment_submitted)}
-            <div id='add-comment'>
-                <div class='page-header'>
-                    <h3>Add Your Own</h3>
-                </div>
-                <div class='form-wrapper'>
-                    <div class='small'>
-                        <p>We don't publish your email address and won't send you any spam.
-                        We do capture your IP address for auditing purposes and your comment
-                        may be moderated before it appears.</p>
+            {if $post->commentsEnabled()}
+                <div id='add-comment'>
+                    <div class='page-header'>
+                        <h3>Add Your Own</h3>
                     </div>
-                    <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
-                        {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
-                        {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
-                        {include file='default/views/helpers/field.tpl' field='content'}
-                        {include file='default/views/helpers/field.tpl' field='notifications'}
-                        <div class="comment-details">
-                            {if isset($_errors) && isset($_errors.details)}
-                                <p>{$_errors.details}</p>
-                            {/if}
-                            <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
-                            <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
+                    <div class='form-wrapper'>
+                        <div class='small'>
+                            <p>We don't publish your email address and won't send you any spam.
+                            We do capture your IP address for auditing purposes and your comment
+                            may be moderated before it appears.</p>
                         </div>
-                        <div class="form-actions">
-                            <input type="submit" value="Send" class="btn btn-primary" />
-                        </div>
-                    </form>
+                        <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
+                            {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
+                            {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
+                            {include file='default/views/helpers/field.tpl' field='content'}
+                            {include file='default/views/helpers/field.tpl' field='notifications'}
+                            <div class="comment-details">
+                                {if isset($_errors) && isset($_errors.details)}
+                                    <p>{$_errors.details}</p>
+                                {/if}
+                                <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
+                                <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
+                            </div>
+                            <div class="form-actions">
+                                <input type="submit" value="Send" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            {else}
+                <p>Comments are now closed.</p>
+            {/if}
         {/if}
     </div>
 {/block}

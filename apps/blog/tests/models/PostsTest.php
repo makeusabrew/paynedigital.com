@@ -14,7 +14,7 @@ class PostsTableTest extends PHPUnitTestController {
     }
 
     public function testFindRecentIgnoresNonPublishedAndFuturePublishedPosts() {
-        $this->assertEquals(4, count($this->table->findRecent()));
+        $this->assertEquals(5, count($this->table->findRecent()));
     }
 
     public function testFindByUrlIgnoresFuturePosts() {
@@ -40,12 +40,14 @@ class PostsTableTest extends PHPUnitTestController {
         $this->assertEquals(array(
             "2011-09-01",
             "2011-07-01",
+            "2011-03-01",
         ), $this->table->findMonthsWithPublishedPosts());
     }
 
     public function testFindAllTagsReturnsNaturallySortedArray() {
         $this->assertEquals(array(
             "apache",
+            "comments",
             "music",
             "node.js",
             "php",

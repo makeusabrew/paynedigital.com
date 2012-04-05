@@ -37,7 +37,7 @@ class UserObjectTest extends PHPUnitTestController {
     public function testGetAllPostsCountIsCorrect() {
         $user = Table::factory('Users')->read(1);
 
-        $this->assertEquals(4, count($user->getAllPosts()));
+        $this->assertEquals(5, count($user->getAllPosts()));
     }
 
     public function testToArrayRemovesSensitiveInformation() {
