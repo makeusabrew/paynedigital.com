@@ -32,6 +32,10 @@ class Post extends Object {
         ));
     }
 
+    public function commentsEnabled() {
+        return !!$this->comments_enabled;
+    }
+
     public function getPublishedRelatedPostsCount() {
         return count(
             $this->getPublishedRelatedPosts()
@@ -148,6 +152,10 @@ class Posts extends Table {
                 'type' => 'textarea',
                 'required' => false,
                 'title' => 'Script Block',
+            ),
+            'comments_enabled' => array(
+                'type' => 'bool',
+                'title' => 'Comments Enabled?',
             ),
         ),
     );

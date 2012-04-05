@@ -10,6 +10,7 @@
         {include file='default/views/helpers/field.tpl' field='tags'}
         {include file='default/views/helpers/field.tpl' field='head_block'}
         {include file='default/views/helpers/field.tpl' field='script_block'}
+        {include file='default/views/helpers/field.tpl' field='comments_enabled'}
         <div class="actions">
             <input type="submit" id="save-button" value="Save" class="btn primary" />
             <a href="/admin" class="btn danger">Go Back</a>

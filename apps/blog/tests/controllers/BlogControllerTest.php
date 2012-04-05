@@ -43,7 +43,7 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertRedirect(true);
         $this->assertRedirectUrl("/2011/09/another-test-post/comment/thanks#comments");
         $this->request->reset();
-        // @todo fix the dispatch stuff? - it chokes on anchor tags. poss not required
+
         $this->request->dispatch("/2011/09/another-test-post/comment/thanks");
         $this->assertBodyHasContents("<strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.");
     }
@@ -263,5 +263,37 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContentsInOrder("Related Articles");
         $this->assertBodyHasContentsInOrder("This Is A Test Post");
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");
+    }
+
+    public function testCommentsFormShownOnEnabledPost() {
+        $this->request->dispatch("/2011/07/just-a-test");
+
+        $this->assertBodyHasContentsInOrder("Comments");
+        $this->assertBodyHasContentsInOrder("Add Your Own");
+        $this->assertBodyDoesNotHaveContents("Comments are now closed.");
+    }
+
+    public function testCommentsFormNotShownOnDisabledPost() {
+        $this->request->dispatch("/2011/03/test-post-for-comments");
+
+        $this->assertBodyHasContentsInOrder("Comments");
+        $this->assertBodyHasContentsInOrder("Comments are now closed.");
+        $this->assertBodyDoesNotHaveContents("Add Your Own");
+    }
+
+    public function testCommentSubmissionOnDisabledPost() {
+        TestEmailHandler::resetSentEmails();
+
+        $this->request->setMethod("POST")->setParams(array(
+            "name" => "Valid Comment",
+            "email" => "test@example.com",
+            "content" => "This is a valid message, but comments are disabled",
+        ))->dispatch("/2011/03/test-post-for-comments/comment");
+
+        $emails = TestEmailHandler::getSentEmails();
+        $this->assertEquals(0, count($emails));
+
+        $this->assertRedirect(true);
+        $this->assertRedirectUrl("/2011/03/test-post-for-comments");
     }
 }

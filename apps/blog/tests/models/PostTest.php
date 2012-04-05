@@ -64,4 +64,9 @@ class PostObjectTest extends PHPUnitTestController {
         $this->assertEquals(0, Table::factory('Posts')->read(6)->getUnpublishedRelatedPostsCount());
         $this->assertEquals(1, Table::factory('Posts')->read(7)->getUnpublishedRelatedPostsCount());
     }
+
+    public function testCommentsEnabled() {
+        $this->assertTrue(Table::factory('Posts')->read(1)->commentsEnabled());
+        $this->assertFalse(Table::factory('Posts')->read(8)->commentsEnabled());
+    }
 }

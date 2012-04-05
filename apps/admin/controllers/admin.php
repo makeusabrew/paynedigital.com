@@ -72,6 +72,7 @@ class AdminController extends Controller {
                 "tags" => $this->request->getVar('tags'),
                 "head_block" => $this->request->getVar('head_block'),
                 "script_block" => $this->request->getVar('script_block'),
+                "comments_enabled" => $this->request->getVar('comments_enabled'),
             );
             if ($this->post->updateValues($data)) {
                 $this->post->save();
@@ -97,6 +98,7 @@ class AdminController extends Controller {
                 "user_id" => $this->adminUser->getId(),
                 "head_block" => $this->request->getVar('head_block'),
                 "script_block" => $this->request->getVar('script_block'),
+                "comments_enabled" => $this->request->getVar('comments_enabled'),
             );
             $post = Table::factory('Posts')->newObject();
             if ($post->setValues($data)) {

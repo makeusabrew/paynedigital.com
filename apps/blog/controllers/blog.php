@@ -46,6 +46,9 @@ class BlogController extends Controller {
     }
 
     public function add_comment() {
+        if (!$this->post->commentsEnabled()) {
+            return $this->redirect("/".$this->post->getUrl());
+        }
         // very basic honeypot stuff
         if ($this->request->getVar("details")) {
             $this->setErrors(array(
