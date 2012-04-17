@@ -200,7 +200,7 @@ class Posts extends Table {
         $date = Utils::getDate("Y-m-d H:i:s");
         $sql = "SELECT DISTINCT(DATE_FORMAT(p.published, '%Y-%m-01')) FROM `posts` p
         WHERE `p`.`status` = ? AND `p`.`published` <= ?
-        ORDER BY `p`.`created` DESC";
+        ORDER BY `p`.`published` DESC";
 
         $params = array("PUBLISHED", $date);
 
