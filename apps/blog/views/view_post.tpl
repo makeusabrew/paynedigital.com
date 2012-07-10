@@ -116,7 +116,7 @@
     <script src="/js/forms.js"></script>
     <script>
         $(function() {
-            Forms.handle("form[method='post']", function(form) {
+            Forms.handle("#comments form[method='post']", function(form) {
                 $("#comments .page-header").remove();
                 $(form).parents(".form-wrapper").remove();
                 $("#comments p.no-comments").remove();
