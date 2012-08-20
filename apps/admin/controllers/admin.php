@@ -160,11 +160,13 @@ class AdminController extends Controller {
                     $email->setFrom($from);
                     $email->setTo($to);
                     $email->setSubject($subject);
-                    $email->setBodyFromTemplate("emails/comment-approved", array(
-                        "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
-                        "post"    => $this->post,
-                        "comment" => $comment,
-                    ));
+                    $email->setBody(
+                        $this->fetchTemplate("emails/comment-approved", array(
+                            "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
+                            "post"    => $this->post,
+                            "comment" => $comment,
+                        ))
+                    );
                     $email->send();
 
                     // ensure sent emails always contains the one we just sent, in case the same user has added another
@@ -187,12 +189,14 @@ class AdminController extends Controller {
                         $email->setFrom($from);
                         $email->setTo($to);
                         $email->setSubject($subject);
-                        $email->setBodyFromTemplate("blog/views/emails/new-comment", array(
-                            "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
-                            "post"    => $this->post,
-                            "comment" => $otherComment,
-                            "unsubscribe_hash" => $otherComment->getUnsubscribeHash(),
-                        ));
+                        $email->setBody(
+                            $this->fetchTemplate("blog/views/emails/new-comment", array(
+                                "host"    => Settings::getValue("site.base_href"),  // @see https://projects.paynedigital.com/issues/665
+                                "post"    => $this->post,
+                                "comment" => $otherComment,
+                                "unsubscribe_hash" => $otherComment->getUnsubscribeHash(),
+                            ))
+                        );
                         $email->send();
                         $sentEmails[$to] = true;
                     }

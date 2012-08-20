@@ -78,10 +78,12 @@ class BlogController extends Controller {
             $email->setFrom($from);
             $email->setTo($address);
             $email->setSubject($subject);
-            $email->setBodyFromTemplate("emails/comment", array(
-                "post"    => $this->post,
-                "comment" => $comment,
-            ));
+            $email->setBody(
+                $this->fetchTemplate("emails/comment", array(
+                    "post"    => $this->post,
+                    "comment" => $comment,
+                ))
+            );
             $email->send();
 
             if (!$this->request->isAjax()) {
