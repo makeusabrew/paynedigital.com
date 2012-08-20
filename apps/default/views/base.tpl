@@ -89,15 +89,15 @@
         </div>
     </div>
 
-    {*
-      ordinarily body will probably be wrapped with surrounding markup, so it
-      makes sense to have a separate block to put script tags in
-    *}
+    {setting assign="doPlugins" value="site.social_plugins"}
+
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/pjaxify.js"></script>
-    <script src="http://platform.twitter.com/widgets.js"></script>
+    {if $doPlugins}
+        <script src="http://platform.twitter.com/widgets.js"></script>
+    {/if}
     <script>
         $(function() {
             pjaxify.init();

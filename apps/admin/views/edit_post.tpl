@@ -33,7 +33,6 @@
     </form>
 {/block}
 {block name='script'}
-    <script src="/js/bootstrap-modal.1.3.0.js"></script>
     <script>
         $(function() {
             $("#generate-burn-link").click(function(e) {
