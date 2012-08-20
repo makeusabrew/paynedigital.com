@@ -18,10 +18,12 @@ class ContactController extends Controller {
                 $email->setFrom($from);
                 $email->setTo($address);
                 $email->setSubject($subject);
-                $email->setBodyFromTemplate("emails/contact", array(
-                    "query" => $contact->content,
-                    "name" => $contact->name,
-                ));
+                $email->setBody(
+                    $this->fetchTemplate("emails/contact", array(
+                        "query" => $contact->content,
+                        "name" => $contact->name,
+                    ))
+                );
                 $email->send();
 
                 if (!$this->request->isAjax()) {
