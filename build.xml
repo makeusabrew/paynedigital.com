@@ -4,6 +4,7 @@
     <property name="project.dir" value="." />
     <property name="tests.dir" value="tests" />
     <property name="reports.dir" value="reports" />
+    <property name="reportsFull.dir" value="tests/reports" />
     <property name="coverage.dir" value="coverage" />
     <property name="mode" value="test" override="true" />
 
@@ -36,7 +37,8 @@
                 <include name="*.sc" />
             </fileset>
             <fileset dir="${tests.dir}/${reports.dir}/${coverage.dir}">
-                <include name="*.*" />
+                <include name="*.html" />
+                <include name="*.xml" />
             </fileset>
         </delete>
     </target>
@@ -45,14 +47,17 @@
         <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} ./jcli fixture update-db --no-colour" />
     </target>
 
-    <target name="test" description="Non Selenium Tests" depends="cleanup">
+    <target name="test" description="PHPUnit tests" depends="cleanup">
         <echo msg="Running Test Suite" />
-        <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --exclude-group selenium" />
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit" />
     </target>
 
-    <target name="fulltest" description="All Tests" depends="cleanup">
-        <echo msg="Running Full Test Suite" />
-        <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit" />
+    <target name="fulltest" description="All Tests" depends="cleanup,test">
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter dot" />
+    </target>
+
+    <target name="mocha">
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha" />
     </target>
 
     <target name="sloc" description="Generate SLOC">
@@ -62,17 +67,18 @@
 
     <target name="build" description="Build (excluding selenium tests)" depends="cleanup,sloc">
         <echo msg="Running Tests &amp; Generating Reports" />
-        <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
-        --coverage-clover ${reports.dir}/phpunit.coverage.xml
-        --coverage-html ${reports.dir}/${coverage.dir}
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml 
+        --coverage-clover ${reportsFull.dir}/phpunit.coverage.xml
+        --coverage-html ${reportsFull.dir}/${coverage.dir}
         --exclude-group selenium" />
     </target>
 
     <target name="fullbuild" description="Full Project Build" depends="cleanup,sloc">
         <echo msg="Cleaning up, Running Tests &amp; Generating Reports" />
-        <exec dir="${tests.dir}" checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reports.dir}/test-results.xml 
-        --coverage-html ${reports.dir}/${coverage.dir}
-        --coverage-clover ${reports.dir}/phpunit.coverage.xml" />
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml 
+        --coverage-html ${reportsFull.dir}/${coverage.dir}
+        --coverage-clover ${reportsFull.dir}/phpunit.coverage.xml" />
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter xunit > ${reportsFull.dir}/mocha-test-results.xml" />
     </target>
 
     <target name="dist">
@@ -84,12 +90,19 @@
         <echo msg="removing build data" />
         <delete includeemptydirs="true" verbose="false" failonerror="true">
             <fileset dir="/tmp/${env.BUILD_TAG}">
+                <include name="_conf**" />
+                <include name="src**" />
                 <include name="tmp/templates_c/*.tpl.php" />
                 <include name="log/*.log" />
                 <include name=".git**" />
+                <include name="jcli" />
                 <include name="test**" />
+                <include name="jaoss/tests**" />
+                <include name="jaoss/tools**" />
+                <include name="jaoss/.git**" />
+                <include name="jaoss/README*" />
                 <include name="*.xml" />
-                <include name="README" />
+                <include name="README*" />
             </fileset>
         </delete>
         <echo msg="compressing archive" />
@@ -100,9 +113,10 @@
         <exec checkreturn="true" passthru="true" command="ssh ${env.remote_user}@${env.remote_host}
             'mkdir ${env.remote_dir}/${env.BUILD_TAG};
             tar -xjf ${env.remote_dir}/${env.BUILD_TAG}.tar.bz2 -C ${env.remote_dir}/${env.BUILD_TAG};
+            chgrp ${env.remote_group} ${env.remote_dir}/${env.BUILD_TAG} -R;
+            chmod 0775 ${env.remote_dir}/${env.BUILD_TAG}/tmp/ ${env.remote_dir}/${env.BUILD_TAG}/log/ -R;
             rm ${env.remote_symlink}; ln -f -s ${env.remote_dir}/${env.BUILD_TAG} ${env.remote_symlink};
-            rm -f ${env.remote_dir}/*.tar.bz2;
-            chmod 0777 ${env.remote_symlink}/tmp/ ${env.remote_symlink}/log/ -R;'" />
+            rm -f ${env.remote_dir}/*.tar.bz2;'" />
         <echo msg="cleaning up" />
         <exec checkreturn="true" passthru="true" command="rm -f /tmp/${env.BUILD_TAG}.tar.bz2" />
         <echo msg="done" />

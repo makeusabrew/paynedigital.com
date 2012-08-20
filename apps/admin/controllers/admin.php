@@ -8,23 +8,29 @@ class AdminController extends Controller {
         $this->assign('adminUser', $this->adminUser);
         switch ($this->path->getAction()) {
             case "login":
-                if ($this->adminUser->isAuthed() == true) {
-                    $this->redirectAction("index");
-                    throw new CoreException("Already Authed");
+                if ($this->adminUser->isAuthed()) {
+                    throw new InitException(
+                        $this->redirectAction("index"),
+                        "Already Authed"
+                    );
                 }
                 break;
             default:
-                if ($this->adminUser->isAuthed() == false) {
-                    $this->redirectAction("login");
-                    throw new CoreException("Not Authed");
+                if (!$this->adminUser->isAuthed()) {
+                    throw new InitException(
+                        $this->redirectAction("login"),
+                        "Not Authed"
+                    );
                 }
                 break;
         }
         if ($this->getMatch('id') !== null) {
             $post = Table::factory('Posts')->read($this->getMatch('id'));
             if ($post == false || $this->adminUser->owns($post) == false) {
-                $this->redirectAction("index", "You cannot perform this action");
-                throw new CoreException("You cannot perform this action");
+                throw new InitException(
+                    $this->redirectAction("index", "You cannot perform this action"),
+                    "You cannot perform this action"
+                );
             }
             $this->post = $post;
         }

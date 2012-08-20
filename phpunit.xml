@@ -1,0 +1,20 @@
+<phpunit colors="true" bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Project Tests">
+            <directory>apps/*/tests</directory>
+        </testsuite>
+        <testsuite name="Library Tests">
+            <directory>jaoss/tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <blacklist>
+            <directory suffix=".php">tests</directory>
+            <directory suffix=".php">jaoss/library/Smarty</directory>
+            <directory suffix=".php">jaoss/library/test</directory>
+            <directory suffix=".php">jaoss/tests</directory>
+            <directory suffix=".php">apps/*/deps</directory>
+        </blacklist>
+    </filter>
+</phpunit>
+
