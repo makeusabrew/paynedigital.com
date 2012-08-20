@@ -1,7 +1,6 @@
 <?php
 
 class User extends Object {
-    const PASSWORD_HASH = "kUyAmvcdo8cP2qJU7Pi9";
     /**
      * keep track of whether this user is authed (logged in)
      * or not
@@ -14,6 +13,9 @@ class User extends Object {
     public function addToSession() {
         $s = Session::getInstance();
         $s->user_id = $this->getId();
+        if ($s->user_id === null) {
+            Log::warn("Adding null user ID to session");
+        }
         $this->setAuthed(true);
     }
     
@@ -45,11 +47,18 @@ class User extends Object {
     }
 
     protected function encode($value) {
-        return self::hashPassword($value);
+        $salt = Utils::generatePassword(32);
+        return $salt.".".$this->generateHash($salt, $value);
     }
 
-    public static function hashPassword($value) {
-        return sha1(self::PASSWORD_HASH."-".$value);
+    protected function generateHash($salt, $value) {
+        return sha1($salt."-".$value);
+    }
+
+    public function verifyPassword($value) {
+        list($salt, $hash) = explode(".", $this->password);
+
+        return $hash === $this->generateHash($salt, $value);
     }
 
     public function toArray() {
@@ -105,9 +114,12 @@ class Users extends Table {
     }
 
     public function login($identifier, $password) {
-        // I'd love User::encode to be static, but because PHP < 5.3 doesn't support
-        // late static binding, it's no use to us
-        $saltedPass = User::hashPassword($password);
-        return $this->find("`email` = ? AND `password` = ?", array($identifier, $saltedPass));
+        $user = $this->find("`email` = ?", array($identifier));
+
+        if (!$user || !$user->verifyPassword($password)) {
+            return false;
+        }
+
+        return $user;
     }
 }

@@ -267,7 +267,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','5b97e1499159553e87e7bb1566ee8ed2aa228dc8','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
+INSERT INTO `users` VALUES (1,'test@example.com','jSEtNCmq96eIwFxmkhtAetQZrMtyH29d.8f6885ad11291ef844c7b856b314d85a75d8b503','Test','User','testuser','2011-09-14 19:12:38','2011-09-14 19:12:38'),(2,'another.test@example.com','plM4As9YgxydVgfCsmD7PWsbJZNxpLEC.f68387fca990e8d0d3b94f26281582d370f12f6d','Another','Tester','anotherUser','2011-09-14 19:12:38','2011-09-14 19:12:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
