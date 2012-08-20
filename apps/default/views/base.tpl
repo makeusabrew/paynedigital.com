@@ -29,6 +29,7 @@
                         <li{if $current_url == "/about"} class="active"{/if}><a href="/about">About</a></li>
                         <li{if $current_url == "/services"} class="active"{/if}><a href="/services">Services</a></li>
                         <li{if $current_url == "/articles"} class="active"{/if}><a href="/articles">Articles</a></li>
+                        <li{if $current_url == "/in-depth"} class="active"{/if}><a href="/in-depth">In Depth</a></li>
                         <li{if $current_url == "/contact"} class="active"{/if}><a href="/contact">Contact</a></li>
                     </ul>
                     <form action="/search" method="get" class="navbar-search pull-right supplementary">

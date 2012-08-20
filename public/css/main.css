@@ -138,6 +138,18 @@ body {
     color:#cfcfcf;
 }
 
+.darkgreen #header {
+    background:#068F28;
+}
+
+.darkgreen a {
+    color:#057A22;
+}
+
+.darkgreen a:hover {
+    color:#03691C;
+}
+
 /**
  * orange
  */
