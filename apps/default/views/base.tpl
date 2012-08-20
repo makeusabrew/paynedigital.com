@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://gist.github.com/stylesheets/gist/embed.css" />
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
+
+    <link rel="shortcut icon" href=/favicon.png>
     {block name="head"}{/block}
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
