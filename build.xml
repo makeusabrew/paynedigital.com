@@ -110,7 +110,7 @@
         <echo msg="copying to remote host" />
         <exec checkreturn="true" passthru="true" command="scp /tmp/${env.BUILD_TAG}.tar.bz2 ${env.remote_user}@${env.remote_host}:${env.remote_dir}" />
         <echo msg="setting up remote project" />
-        <exec checkreturn="true" passthru="true" command="ssh ${env.remote_user}@${env.remote_host}
+        <exec logoutput="true" checkreturn="true" passthru="true" command="ssh ${env.remote_user}@${env.remote_host}
             'mkdir ${env.remote_dir}/${env.BUILD_TAG};
             tar -xjf ${env.remote_dir}/${env.BUILD_TAG}.tar.bz2 -C ${env.remote_dir}/${env.BUILD_TAG};
             chgrp ${env.remote_group} ${env.remote_dir}/${env.BUILD_TAG} -R;
