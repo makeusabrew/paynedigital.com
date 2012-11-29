@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{block name='title'}{setting value="site.title"}{/block}</title>
+    {newrelic section="header"}
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.responsive.css" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -106,6 +107,8 @@
         });
     </script>
     {block name="script"}{/block}
+
+    {newrelic section="footer"}
 </body>
 </html>
 {else}
