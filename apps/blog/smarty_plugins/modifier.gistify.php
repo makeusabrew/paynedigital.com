@@ -10,8 +10,9 @@ function smarty_modifier_gistify($text) {
     $text = preg_replace_callback("@\[gist id=(\d+)\]@s", function($matches) {
         $id = $matches[1];
         $key = Settings::getValue("site", "namespace")."_gist_".$id;
-        $gist = Cache::fetch($key, $success);
-        if ($success) {
+        $cache = Cache::getInstance();
+        $gist = $cache->fetch($key);
+        if ($cache->fetchHit()) {
             Log::debug("got [".$id."] from cache");
             return $gist;
         }
@@ -30,7 +31,7 @@ function smarty_modifier_gistify($text) {
         }
 
         // permacache please
-        if (!Cache::store($key, $gist)) {
+        if (!$cache->store($key, $gist)) {
             Log::warn("Could not cache gist ID [".$id."]");
         }
         return $gist;
