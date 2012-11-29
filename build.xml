@@ -112,7 +112,7 @@
         <echo msg="setting up remote project" />
         <exec logoutput="true" checkreturn="true" passthru="true" command="ssh ${env.remote_user}@${env.remote_host}
             'mkdir ${env.remote_dir}/${env.BUILD_TAG};
-            tar -xjfm ${env.remote_dir}/${env.BUILD_TAG}.tar.bz2 -C ${env.remote_dir}/${env.BUILD_TAG};
+            tar --warning=no-timestamp -xjf ${env.remote_dir}/${env.BUILD_TAG}.tar.bz2 -C ${env.remote_dir}/${env.BUILD_TAG};
             chgrp ${env.remote_group} ${env.remote_dir}/${env.BUILD_TAG} -R;
             chmod 0775 ${env.remote_dir}/${env.BUILD_TAG}/tmp/ ${env.remote_dir}/${env.BUILD_TAG}/log/ -R;
             rm ${env.remote_symlink}; ln -f -s ${env.remote_dir}/${env.BUILD_TAG} ${env.remote_symlink};
