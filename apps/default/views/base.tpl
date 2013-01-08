@@ -21,18 +21,18 @@
         <div class='navbar-inner'>
             <div class='container'>
                 <a href='/' class=brand>Payne Digital</a>
-                <a class="no-pjax btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
                 <div class="nav-collapse">
                     <ul class='nav'>
-                        <li{if $current_url == "/"} class="active"{/if}><a href="/">Home</a></li>
-                        <li{if $current_url == "/about"} class="active"{/if}><a href="/about">About</a></li>
-                        <li{if $current_url == "/services"} class="active"{/if}><a href="/services">Services</a></li>
-                        <li{if $current_url == "/articles"} class="active"{/if}><a href="/articles">Articles</a></li>
-                        <li{if $current_url == "/contact"} class="active"{/if}><a href="/contact">Contact</a></li>
+                        <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                        <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                        <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                        <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                        <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
                     </ul>
                     <form action="/search" method="get" class="navbar-search pull-right supplementary">
                         <input type="text" class="search-query" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />

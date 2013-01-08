@@ -69,11 +69,11 @@ var pjaxify = (function() {
         });
 
         // wire up pjax stuff
-        $("a:not(.no-pjax)").live("click", function(e) {
+        $("a.pjax").live("click", function(e) {
             currentUrl = $(this).attr("href");
         });
 
-        $("a:not(.no-pjax)").pjax("#inner", {
+        $("a.pjax").pjax("#inner", {
             "timeout": _timeout,
             "success": function() {
                 // for balance you'd want this in start.pjax, but then

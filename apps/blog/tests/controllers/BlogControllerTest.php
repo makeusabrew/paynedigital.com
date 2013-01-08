@@ -151,7 +151,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testCommentsStringShownCorrectly() {
         $this->request->dispatch("/2011/09/another-test-post");
-        $this->assertBodyHasContents("<a class='no-pjax' href='/2011/09/another-test-post#comments'>2 comments</a>");
+        $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
     }
 
     public function testAuthorTwitterUrlsAreCorrect() {
