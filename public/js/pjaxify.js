@@ -1,15 +1,11 @@
 var pjaxify = (function() {
     "use strict";
 
-    var _timeout = 1000,
-        _body = null,
-        _links = [],
+    var _timeout   = 1000,
+        _body      = null,
+        _links     = [],
         currentUrl = null,
-        that = {};
-
-    var removeTimestamp = function(elem) {
-        $(elem).attr("href", $(elem).attr("href").replace(/\?__t=\d+$/, ''));
-    }
+        that       = {};
 
     var finishTransition = function() {
         // we remove this because we only actually *apply transitions* to
@@ -24,11 +20,12 @@ var pjaxify = (function() {
 
     var linkNav = function() {
         var i = _links.length;
-        //var currentUrl = window.location.pathname;
+
         if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
             currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
             currentUrl = "/articles";
         }
+
         while (i--) {
             var href = _links[i].attr("href");
             if (href == currentUrl.substr(0, href.length)) {
@@ -44,7 +41,20 @@ var pjaxify = (function() {
         // always listen out for when the theme has finished transitioning
         $(document).on("transitionend webkitTransitionEnd oTransitionEnd", ".theme", finishTransition);
 
+        // a bit of manky link sorting
+        $(".navbar-inner li a").each(function(i, v) {
+            _links.push($(v));
+        });
+
+        _links.sort(function(a, b) {
+            return a.attr("href").length - b.attr("href").length;
+        });
+
         currentUrl = window.location.pathname;
+
+        if ($(".navbar-inner li.active").length == 0) {
+            linkNav();
+        }
 
         // wire up pjax stuff
         $(document).on("click", "a.pjax", function(e) {
