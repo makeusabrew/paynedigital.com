@@ -12,11 +12,12 @@
     *}
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
+    <link rel="stylesheet" href="/css/style.min.css" />
     <link rel="shortcut icon" href=/favicon.png>
     {block name="head"}{/block}
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
-<body class='{block name="theme"}default{/block}'>
+<body class='theme theme--{block name="theme"}default{/block}'>
     <div class='navbar navbar-fixed-top'>
         <div class='navbar-inner'>
             <div class='container'>
@@ -124,7 +125,7 @@
         </div>
     {/block}
 </div>
-<div style='display:none' class='theme'>
+<div style='display:none' class='theme-identifier'>
     {block name="theme"}default{/block}
 </div>
 <div style='display:none' class='script'>

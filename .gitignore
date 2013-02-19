@@ -3,3 +3,4 @@ tmp/templates_c/*.tpl.php
 tmp/templates_c/wrt*
 *.swp
 *.DS_Store
+.sass-cache
