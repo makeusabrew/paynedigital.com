@@ -33,7 +33,7 @@ describe "Blog tests", ->
                 browser.visit "/2011/09/another-test-post", done
 
             it "should show the correct title", ->
-                assert.equal "Payne Digital Ltd - Another Test Post", browser.text("title")
+                assert.equal "Payne Digital Ltd—Another Test Post", browser.text("title")
 
             it "should show approved comments in the correct order", ->
                 assert.equal "15th September 2011 at 09:33", browser.text("#comments .comment:eq(0) time")

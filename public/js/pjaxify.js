@@ -80,9 +80,6 @@ var pjaxify = (function() {
                 // if there's a delay loading the content, things look a bit weird
                 $(".navbar-inner li").removeClass("active");
 
-                // if the collapsed nav state is open, get rid
-                $(".nav-collapse.in").collapse('hide');
-
                 linkNav();
 
                 // @todo we should make this better, but it's still an improvement on
