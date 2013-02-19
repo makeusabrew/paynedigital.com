@@ -16,7 +16,7 @@ var pjaxify = (function() {
         $("#inner a").each(function(i) {
             removeTimestamp(this);
         });
-        if (twttr) {
+        if (typeof twttr !== 'undefined') {
             twttr.widgets.load();
         }
 

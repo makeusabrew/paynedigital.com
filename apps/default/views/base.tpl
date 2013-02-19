@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
     {newrelic section="header"}
+    {*
+    no gist CSS for now, needs a rethink
     <link rel="stylesheet" href="https://gist.github.com/stylesheets/gist/embed.css" />
+    *}
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
     <link rel="shortcut icon" href=/favicon.png>
