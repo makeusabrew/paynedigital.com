@@ -41,14 +41,8 @@ var pjaxify = (function() {
     that.init = function() {
         _body = $("body").get(0);
 
-        // always listen out for when the header has finished transitioning
-        $("#header").live("transitionend webkitTransitionEnd oTransitionEnd", finishTransition);
-
-        /*
-        $("#inner").bind("start.pjax", function(e) {
-            // nothing at the moment
-        });
-        */
+        // always listen out for when the theme has finished transitioning
+        $(document).on("transitionend webkitTransitionEnd oTransitionEnd", ".theme", finishTransition);
 
         // a bit of manky link sorting
         $(".navbar-inner li a").each(function(i, v) {
@@ -100,7 +94,8 @@ var pjaxify = (function() {
                 // even though the HTML has *already* changed by this point,
                 // set a miniscule timeout for FF, otherwise link transitions fail
                 setTimeout(function() {
-                    var theme = $(".theme", _body).html();
+                    var themeValue = $(".theme-identifier", _body).text();
+                    var theme = "theme theme--"+$.trim(themeValue);
 
                     // transition stuff won't be fired, so manually invoke any cleanup
                     if (theme == _body.className) {
@@ -111,7 +106,7 @@ var pjaxify = (function() {
                     _body.className = theme;
 
                     // bosh! cya later theme element, you've done your job
-                    $(".theme", _body).remove();
+                    $(".theme-identifier", _body).remove();
                 }, 4);
             }
         });
