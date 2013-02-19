@@ -4,11 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{block name='title'}{setting value="site.title"}{/block}</title>
+    <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
     {newrelic section="header"}
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.responsive.css" />
-    <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://gist.github.com/stylesheets/gist/embed.css" />
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
@@ -21,11 +18,6 @@
         <div class='navbar-inner'>
             <div class='container'>
                 <a href='/' class=brand>Payne Digital</a>
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
                 <div class="nav-collapse">
                     <ul class='nav'>
                         <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
@@ -83,10 +75,10 @@
     <div id='footer'>
         <div class='well'>
             <span class='copyright'>
-                &copy; 2012 Payne Digital Ltd
+                &copy; 2013 Payne Digital Ltd
             </span>
             <span class='company-info'>
-                13 Moorland Avenue, Leeds, LS20 9EQ.
+                Moorland Avenue, Leeds, LS20 9EQ.
                 <span class='supplementary'>Company No. 07277912. VAT No. 991909470.</span>
             </span>
         </div>
@@ -96,7 +88,6 @@
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/pjaxify.js"></script>
     {if $doPlugins}
         <script src="http://platform.twitter.com/widgets.js"></script>
@@ -112,7 +103,7 @@
 </body>
 </html>
 {else}
-<title>{block name='title'}{setting value="site.title"}{/block}</title>
+<title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 <div class='span8'>
     {block name="body"}{/block}
 </div>

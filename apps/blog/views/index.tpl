@@ -1,5 +1,5 @@
 {extends 'base.tpl'}
-{block name="title"}{$smarty.block.parent} - Articles{/block}
+{block name="title"}Articles{/block}
 {block name='body'}
     <div class='page-header'>
         <h2>Articles</h2>

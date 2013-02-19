@@ -1,5 +1,5 @@
 {extends file='default/views/base.tpl'}
-{block name='title'}{$smarty.block.parent} - Web Application &amp; Mobile Development{/block}
+{block name='title'}Web Application &amp; Mobile Development{/block}
 {block name='body'}
     <div class='welcome alert alert-block'>
         <h2>Hello!</h2>
@@ -31,7 +31,4 @@
     </div>
 
     {include file='blog/views/partials/archive.tpl'}
-{/block}
-{block name='script'}
-    {$smarty.block.parent}
 {/block}

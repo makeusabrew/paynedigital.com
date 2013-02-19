@@ -1,6 +1,6 @@
 {extends file='default/views/base.tpl'}
 {block name='theme'}darkblue{/block}
-{block name="title"}{$smarty.block.parent} - About{/block}
+{block name="title"}About{/block}
 {block name='body'}
     <div class='page-header'>
         <h2>About</h2>

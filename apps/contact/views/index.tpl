@@ -1,6 +1,6 @@
-{extends file='default/views/base.tpl'}
+{extends 'default/views/base.tpl'}
 {block name='theme'}orange{/block}
-{block name="title"}{$smarty.block.parent} - Say Hello{/block}
+{block name='title'}Say Hello{/block}
 {block name='body'}
     <div class='page-header'>
         <h2>Say Hello</h2>
@@ -23,8 +23,6 @@
 {block name='secondary'}
     {$smarty.block.parent}
     <p>You might get just as quick a response <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
-
-{*<a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @makeusabrew</a>*}
 {/block}
 {block name='script'}
     <script src="/js/forms.js"></script>

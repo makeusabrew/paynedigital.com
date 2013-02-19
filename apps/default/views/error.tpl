@@ -1,5 +1,5 @@
 {extends file='base.tpl'}
-{block name="title"}{$smarty.block.parent} - Error{/block}
+{block name="title"}Error{/block}
 {block name='body'}
     <div class='page-header'>
         <h2>Oops! That's a {$code}</h2>
