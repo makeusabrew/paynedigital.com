@@ -1,4 +1,6 @@
 var pjaxify = (function() {
+    "use strict";
+
     var _timeout = 1000,
         _body = null,
         _links = [],
@@ -58,59 +60,58 @@ var pjaxify = (function() {
             linkNav();
         }
 
-        $("#inner a").live("click", function(e) {
+        $("#inner a").on("click", function(e) {
             removeTimestamp(this);
         });
 
         // wire up pjax stuff
-        $("a.pjax").live("click", function(e) {
+        $("a.pjax").on("click", function(e) {
             currentUrl = $(this).attr("href");
         });
 
-        $("a.pjax").pjax("#inner", {
-            "timeout": _timeout,
-            "success": function() {
-                // for balance you'd want this in start.pjax, but then
-                // if there's a delay loading the content, things look a bit weird
-                $(".navbar-inner li").removeClass("active");
+        $(document).pjax("a.pjax", "#inner", {timeout: _timeout});
 
-                linkNav();
+        $(document).on("pjax:end", function() {
+            // for balance you'd want this in start.pjax, but then
+            // if there's a delay loading the content, things look a bit weird
+            $(".navbar-inner li").removeClass("active");
 
-                // @todo we should make this better, but it's still an improvement on
-                // simply not moving the window viewport at all
-                window.scrollTo(0, 0);
+            linkNav();
 
-                // transition baby!
-                $("html").addClass("transition");
+            // @todo we should make this better, but it's still an improvement on
+            // simply not moving the window viewport at all
+            window.scrollTo(0, 0);
 
-                // temporarily give all the links a unique timestamp. we'll blat this
-                // as soon as the transition's finished. Entirely for WebKit's benefit
-                // @see http://code.google.com/p/chromium/issues/detail?id=101245
-                $("#inner a").each(function(i) {
-                    var dt = new Date().getTime();
-                    $(this).attr("href", $(this).attr("href")+"?__t="+dt);
-                });
+            // transition baby!
+            $("html").addClass("transition");
 
-                // even though the HTML has *already* changed by this point,
-                // set a miniscule timeout for FF, otherwise link transitions fail
-                setTimeout(function() {
-                    var themeValue = $(".theme-identifier", _body).text();
-                    var theme = "theme theme--"+$.trim(themeValue);
+            // temporarily give all the links a unique timestamp. we'll blat this
+            // as soon as the transition's finished. Entirely for WebKit's benefit
+            // @see http://code.google.com/p/chromium/issues/detail?id=101245
+            $("#inner a").each(function(i) {
+                var dt = new Date().getTime();
+                $(this).attr("href", $(this).attr("href")+"?__t="+dt);
+            });
 
-                    // transition stuff won't be fired, so manually invoke any cleanup
-                    if (theme == _body.className) {
-                        finishTransition();
-                    }
+            // even though the HTML has *already* changed by this point,
+            // set a miniscule timeout for FF, otherwise link transitions fail
+            setTimeout(function() {
+                var themeValue = $(".theme-identifier", _body).text();
+                var theme = "theme theme--"+$.trim(themeValue);
 
-                    // set the new classname (triggers the transition)
-                    _body.className = theme;
+                // transition stuff won't be fired, so manually invoke any cleanup
+                if (theme == _body.className) {
+                    finishTransition();
+                }
 
-                    // bosh! cya later theme element, you've done your job
-                    $(".theme-identifier", _body).remove();
-                }, 4);
-            }
+                // set the new classname (triggers the transition)
+                _body.className = theme;
+
+                // bosh! cya later theme element, you've done your job
+                $(".theme-identifier", _body).remove();
+            }, 4);
         });
-    }
+    };
 
     return that;
 })();
