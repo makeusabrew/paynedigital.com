@@ -15,9 +15,7 @@ var pjaxify = (function() {
         // we remove this because we only actually *apply transitions* to
         // any selectors under .transition
         $("html").removeClass("transition");
-        $("#inner a").each(function(i) {
-            removeTimestamp(this);
-        });
+
         if (typeof twttr !== 'undefined') {
             twttr.widgets.load();
         }
@@ -46,26 +44,10 @@ var pjaxify = (function() {
         // always listen out for when the theme has finished transitioning
         $(document).on("transitionend webkitTransitionEnd oTransitionEnd", ".theme", finishTransition);
 
-        // a bit of manky link sorting
-        $(".navbar-inner li a").each(function(i, v) {
-            _links.push($(v));
-        });
-
-        _links.sort(function(a, b) {
-            return a.attr("href").length - b.attr("href").length;
-        });
-
         currentUrl = window.location.pathname;
-        if ($(".navbar-inner li.active").length == 0) {
-            linkNav();
-        }
-
-        $("#inner a").on("click", function(e) {
-            removeTimestamp(this);
-        });
 
         // wire up pjax stuff
-        $("a.pjax").on("click", function(e) {
+        $(document).on("click", "a.pjax", function(e) {
             currentUrl = $(this).attr("href");
         });
 
@@ -84,14 +66,6 @@ var pjaxify = (function() {
 
             // transition baby!
             $("html").addClass("transition");
-
-            // temporarily give all the links a unique timestamp. we'll blat this
-            // as soon as the transition's finished. Entirely for WebKit's benefit
-            // @see http://code.google.com/p/chromium/issues/detail?id=101245
-            $("#inner a").each(function(i) {
-                var dt = new Date().getTime();
-                $(this).attr("href", $(this).attr("href")+"?__t="+dt);
-            });
 
             // even though the HTML has *already* changed by this point,
             // set a miniscule timeout for FF, otherwise link transitions fail
