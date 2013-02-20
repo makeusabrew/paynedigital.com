@@ -5,17 +5,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
+
     {newrelic section="header"}
-    {*
-    no gist CSS for now, needs a rethink
-    <link rel="stylesheet" href="https://gist.github.com/stylesheets/gist/embed.css" />
-    *}
+
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
     <link rel="stylesheet" href="/css/style.min.css" />
     <link rel="shortcut icon" href=/favicon.png>
+
     {block name="head"}{/block}
-    {include file='default/views/helpers/google_analytics.tpl'}
+
+    {setting value="analytics.enabled" assign="stats_enabled"}
+    {if $stats_enabled}
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{setting value="analytics.account_no"}']);
+            _gaq.push(['_setDomainName', 'none']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    {/if}
 </head>
 <body class='theme theme--{block name="theme"}default{/block}'>
     <div class="wrapper">
