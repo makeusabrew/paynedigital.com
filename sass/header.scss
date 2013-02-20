@@ -17,11 +17,13 @@
     margin-left:2em;
 }
 
+// our dolly track for the camera
 .header__dolly {
     position:relative;
     margin-bottom:$base-spacing-unit;
 }
 
+// make sure by default the camera has no width so it grows 'out'
 .header__camera {
     width:0px;
     height:2px;

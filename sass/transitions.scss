@@ -1,10 +1,15 @@
 .transition .theme {
     @include vendor(transition, all 1.0s);
 
+    /**
+     * we need a more explicit rule to coerce link
+     * colours to transition properly
+     */
     a {
         @include vendor(transition, color 1.0s);
     }
 
+    // make sure the tracking underline transitions too
     .header__camera {
         @include vendor(transition, all 1.0s ease-in-out)
     }

@@ -3,9 +3,6 @@
     STYLE.CSS
 \*------------------------------------*/
 /**
- *
- * sass --watch style.scss:style.min.css --style compressed
- *
  * Here we pull in some variables, include the inuit.css framework, then add our
  * project-specific components afterwards.
  */
@@ -19,7 +16,7 @@
 
 /**
  * lots of this is *heavily* influenced and in some parts
- * lifted with thanks @csswizardry's site:
+ * lifted with thanks from @csswizardry's site:
  * https://github.com/csswizardry/csswizardry.github.com/tree/master/css
  */
 @import "base";

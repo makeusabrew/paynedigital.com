@@ -2,6 +2,7 @@
     .theme--#{$name} {
         background:$background;
         color:$colour;
+
         .inner a {
             color:$colour;
         }
