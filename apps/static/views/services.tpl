@@ -1,5 +1,5 @@
 {extends file='default/views/base.tpl'}
-{block name='theme'}blue{/block}
+{block name='theme'}brown{/block}
 {block name="title"}Services{/block}
 {block name="heading"}Our Services{/block}
 {block name='body'}
