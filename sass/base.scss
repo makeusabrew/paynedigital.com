@@ -17,7 +17,7 @@ body {
 
 .header {
     padding-top:$base-spacing-unit;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom:1px solid gray;
     background:white;
     margin-bottom:$base-spacing-unit;
 
@@ -26,8 +26,22 @@ body {
     }
 }
 
+.header__nav {
+    margin-bottom:0;
+}
+
 .header__nav > li {
     margin-left:2em;
+}
+
+.header__dolly {
+    position:relative;
+    margin-bottom:$base-spacing-unit;
+}
+
+.header__camera {
+    width:0px;
+    height:2px;
 }
 
 .hero {

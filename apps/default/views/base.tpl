@@ -40,13 +40,17 @@
 <body class="theme theme--{block name="theme"}default{/block}">
     <header class="header">
         <div class=wrapper>
-            <ul class="nav  header__nav">
-                <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
-            </ul>
+            <div class="header__dolly">
+                <ul class="nav  header__nav">
+                    <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                    <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                    <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                    <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                    <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+                </ul>
+                <div class="header__camera">
+                </div>
+            </div>
         </div>
         {*
         <form action="/search" method="get">
@@ -104,12 +108,14 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.pjax.js"></script>
     <script src="/js/pjaxify.js"></script>
+    <script src="/js/linkify.js"></script>
     {if $doPlugins}
         <script src="http://platform.twitter.com/widgets.js"></script>
     {/if}
     <script>
         $(function() {
             pjaxify.init();
+            linkify.init();
         });
     </script>
     {block name="script"}{/block}

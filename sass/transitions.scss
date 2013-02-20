@@ -4,4 +4,8 @@
     a {
         @include vendor(transition, color 1.0s);
     }
+
+    .header__camera {
+        @include vendor(transition, all 1.0s ease-in-out)
+    }
 }

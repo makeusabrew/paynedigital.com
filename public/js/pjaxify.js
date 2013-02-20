@@ -94,6 +94,8 @@ var pjaxify = (function() {
                 $(this).attr("href", $(this).attr("href")+"?__t="+dt);
             });
 
+            linkify.focus("li.active > a");
+
             // even though the HTML has *already* changed by this point,
             // set a miniscule timeout for FF, otherwise link transitions fail
             setTimeout(function() {
