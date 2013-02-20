@@ -37,7 +37,7 @@
         </script>
     {/if}
 </head>
-<body class="theme theme--{block name="theme"}default{/block}">
+<body class="theme theme--{block name="theme"}dark-blue{/block}">
     <header class="header">
         <div class=wrapper>
             <div class="header__dolly">
@@ -148,7 +148,7 @@
     </div>
 </div>
 <div style='display:none' class='theme-identifier'>
-    {block name="theme"}default{/block}
+    {block name="theme"}dark-blue{/block}
 </div>
 <div style='display:none' class='script'>
     {block name="script"}{/block}

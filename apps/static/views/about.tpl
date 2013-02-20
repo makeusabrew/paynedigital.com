@@ -1,5 +1,5 @@
 {extends 'default/views/base.tpl'}
-{block name='theme'}dark-blue{/block}
+{block name='theme'}army{/block}
 {block name='title'}About{/block}
 {block name='heading'}About{/block}
 {block name='body'}

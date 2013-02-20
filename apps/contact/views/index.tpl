@@ -1,5 +1,5 @@
 {extends 'default/views/base.tpl'}
-{block name='theme'}redbrick{/block}
+{block name='theme'}burgundy{/block}
 {block name='title'}Say Hello{/block}
 {block name='heading'}Say Hello{/block}
 {block name='body'}
