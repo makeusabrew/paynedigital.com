@@ -4,7 +4,10 @@
         color:$colour;
         .inner a {
             color:$colour;
-            font-weight:bold;
+        }
+
+        .inner a:hover {
+            color:darken($colour, 15%);
         }
 
         .header__camera {
