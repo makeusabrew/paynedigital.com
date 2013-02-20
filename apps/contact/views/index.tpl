@@ -2,19 +2,17 @@
 {block name='theme'}orange{/block}
 {block name='title'}Say Hello{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>Say Hello</h2>
-    </div>
+    <h2>Say Hello</h2>
 
     <div id='content-wrapper'>
         <p>We'd love to hear from you! No, seriously... feel free to get in touch about
         anything at all. If you're not sure why you'd want to then why not check out
         the <a href="/services">services we offer</a>?</p>
-        <form class="form-horizontal" action="/contact" method="post">
+        <form action="/contact" method="post">
             {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
             {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
             {include file="default/views/helpers/field.tpl" field="content"}
-            <div class="form-actions">
+            <div>
                 <input type="submit" value="Send" class="btn btn-primary" />
             </div>
         </form>
@@ -30,7 +28,7 @@
         $(function() {
             Forms.handle("form[method='post']", function(form) {
                 $("#content-wrapper").html(
-                    "<div class='alert alert-success' style='display:none;'> "+
+                    "<div class='alert alert--success' style='display:none;'> "+
                         "<p><strong>Thanks!</strong> We appreciate you getting in touch and will get back to you shortly.</p> "+
                     "</div>"
                 );
