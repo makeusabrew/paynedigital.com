@@ -2,7 +2,7 @@
 {block name='theme'}blue{/block}
 {block name="title"}Services{/block}
 {block name='body'}
-    <div class='page-header'>
+    <div>
         <h2>Services</h2>
     </div>
     <p>So what exactly do we have to offer you? Well, quite a lot really. Take a look:</p> 

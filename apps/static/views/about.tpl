@@ -2,9 +2,8 @@
 {block name='theme'}darkblue{/block}
 {block name="title"}About{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>About</h2>
-    </div>
+    <h2>About</h2>
+
     <p>Payne Digital Ltd was founded in 2010 in order to provide specialised Web Application
     and Mobile development. You won&#8217;t find a &#8216;meet the team&#8217; page just yet
     because it would be rather thin on the ground; at present Payne Digital only has one 
