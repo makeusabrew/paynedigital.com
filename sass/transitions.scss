@@ -1,7 +1,3 @@
 .transition .theme {
-    -webkit-transition: background-color 1.0s;
-       -moz-transition: background-color 1.0s;
-        -ms-transition: background-color 1.0s;
-         -o-transition: background-color 1.0s;
-            transition: background-color 1.0s;
+    @include vendor(transition, background-color 1.0s);
 }
