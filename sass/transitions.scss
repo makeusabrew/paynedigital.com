@@ -1,3 +1,7 @@
 .transition .theme {
     @include vendor(transition, all 1.0s);
+
+    a {
+        @include vendor(transition, color 1.0s);
+    }
 }
