@@ -34,20 +34,24 @@
         </script>
     {/if}
 </head>
-<body class='theme theme--{block name="theme"}default{/block}'>
-    <div class="wrapper">
-        <header>
-            <ul class='nav'>
+<body class="theme theme--{block name="theme"}default{/block}">
+    <header class="header">
+        <div class=wrapper>
+            <ul class="nav  header__nav">
                 <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
                 <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
                 <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
                 <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
                 <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
             </ul>
-            <form action="/search" method="get">
-                <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
-            </form>
-        </header>
+        </div>
+        {*
+        <form action="/search" method="get">
+            <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
+        </form>
+        *}
+    </header>
+    <div class="wrapper">
 
         {* @todo make this per-page *}
         <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
