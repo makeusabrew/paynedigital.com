@@ -9,8 +9,8 @@
 {block name='body'}
     {include file='partials/post.tpl' full_content=true}
     {if isset($related_posts) && count($related_posts) > 0}
-        <div class='related well'>
-            <ul class="nav nav-list">
+        <div class='related'>
+            <ul>
                 <li class="nav-header">
                     Related Articles
                 </li>
@@ -21,6 +21,7 @@
         </div>
     {/if}
 
+    {* @todo can we class this? does any JS hook into the ID? *}
     <div id="comments">
         <h3>Comments</h3>
         <div class='existing'>
@@ -93,8 +94,8 @@
         </p>
 
         {if isset($related_posts) && count($related_posts) > 0}
-            <div class='well related'>
-                <ul class="nav nav-list">
+            <div class='related'>
+                <ul>
                     <li class="nav-header">
                         Why not check out&hellip;
                     </li>
@@ -108,7 +109,6 @@
 {/block}
 {block name='script'}
     {$smarty.block.parent}
-    {*<script src="http://platform.twitter.com/widgets.js" rel="defer"></script>*}
     <script src="/js/forms.js"></script>
     <script>
         $(function() {

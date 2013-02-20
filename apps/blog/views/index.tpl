@@ -1,9 +1,7 @@
 {extends 'base.tpl'}
 {block name="title"}Articles{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>Articles</h2>
-    </div>
+    <h2>Articles</h2>
 
     <p>We like writing about things. Some are relevant to many of the
     <a class=pjax href="/services">professional services</a> we have to offer, others
@@ -11,17 +9,13 @@
     has in common is that it's always something we're genuinely interested in
     or passionate about.</p>
 
-    <div class='page-header'>
-        <h3>By Month</h3>
-    </div>
+    <h3>By Month</h3>
     {include file='blog/views/partials/archive.tpl'}
 
-    <div class='page-header'>
-        <h3>By Tag</h3>
-    </div>
+    <h3>By Tag</h3>
     <p>
         {foreach from=$tags item="tag" name="tag_loop"}
-            <a href="/tag/{$tag|lower|escape:'url'}" class="label {$post->formatTagLabel($tag)}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a> 
+            <a href="/tag/{$tag|lower|escape:'url'}" class="label">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a> 
         {/foreach}
     </p>
 {/block}
