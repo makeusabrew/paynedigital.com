@@ -7,10 +7,18 @@ var pjaxify = (function() {
         currentUrl = null,
         that       = {};
 
+    var removeTimestamp = function(elem) {
+        $(elem).attr("href", $(elem).attr("href").replace(/\?__t=\d+$/, ''));
+    }
+
     var finishTransition = function() {
         // we remove this because we only actually *apply transitions* to
         // any selectors under .transition
         $("html").removeClass("transition");
+
+        $(".inner a").each(function(i) {
+            removeTimestamp(this);
+        });
 
         if (typeof twttr !== 'undefined') {
             twttr.widgets.load();
@@ -56,6 +64,10 @@ var pjaxify = (function() {
             linkNav();
         }
 
+        $(document).on("click", ".inner a", function(e) {
+            removeTimestamp(this);
+        });
+
         // wire up pjax stuff
         $(document).on("click", "a.pjax", function(e) {
             currentUrl = $(this).attr("href");
@@ -76,6 +88,11 @@ var pjaxify = (function() {
 
             // transition baby!
             $("html").addClass("transition");
+
+            $(".inner a").each(function(i) {
+                var dt = new Date().getTime();
+                $(this).attr("href", $(this).attr("href")+"?__t="+dt);
+            });
 
             // even though the HTML has *already* changed by this point,
             // set a miniscule timeout for FF, otherwise link transitions fail
