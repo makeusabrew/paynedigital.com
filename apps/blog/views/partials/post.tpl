@@ -1,5 +1,7 @@
 <div class='article'>
-    <h2><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+    {if !isset($full_content)}
+        <h2><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+    {/if}
     <div class='info'>
         {if count($post->getTags())}
             <div class='tags supplementary'>

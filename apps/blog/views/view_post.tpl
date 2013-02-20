@@ -1,5 +1,6 @@
 {extends file='base.tpl'}
 {block name="title"}{$post->title}{/block}
+{block name="heading"}{$post->title}{/block}
 {if $post->head_block != ''}
     {block name="head"}
         {$smarty.block.parent}

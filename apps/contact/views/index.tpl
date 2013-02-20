@@ -1,9 +1,8 @@
 {extends 'default/views/base.tpl'}
 {block name='theme'}orange{/block}
 {block name='title'}Say Hello{/block}
+{block name='heading'}Say Hello{/block}
 {block name='body'}
-    <h2>Say Hello</h2>
-
     <div id='content-wrapper'>
         <p>We'd love to hear from you! No, seriously... feel free to get in touch about
         anything at all. If you're not sure why you'd want to then why not check out

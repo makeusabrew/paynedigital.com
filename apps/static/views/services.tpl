@@ -1,10 +1,8 @@
 {extends file='default/views/base.tpl'}
 {block name='theme'}blue{/block}
 {block name="title"}Services{/block}
+{block name="heading"}Our Services{/block}
 {block name='body'}
-    <div>
-        <h2>Services</h2>
-    </div>
     <p>So what exactly do we have to offer you? Well, quite a lot really. Take a look:</p> 
     <ul> 
         <li>Website Development</li> 

@@ -1,5 +1,8 @@
 {extends file='default/views/base.tpl'}
 {block name='title'}Web Application &amp; Mobile Development{/block}
+{block name='heading'}
+    Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span>
+{/block}
 {block name='body'}
     <div>
         <p>

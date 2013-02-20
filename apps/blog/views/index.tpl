@@ -1,8 +1,7 @@
 {extends 'base.tpl'}
 {block name="title"}Articles{/block}
+{block name="heading"}Articles{/block}
 {block name='body'}
-    <h2>Articles</h2>
-
     <p>We like writing about things. Some are relevant to many of the
     <a class=pjax href="/services">professional services</a> we have to offer, others
     less so&mdash;but one thing each article in the archive 

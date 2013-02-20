@@ -1,9 +1,8 @@
-{extends file='default/views/base.tpl'}
-{block name='theme'}darkblue{/block}
-{block name="title"}About{/block}
+{extends 'default/views/base.tpl'}
+{block name='theme'}dark-blue{/block}
+{block name='title'}About{/block}
+{block name='heading'}About{/block}
 {block name='body'}
-    <h2>About</h2>
-
     <p>Payne Digital Ltd was founded in 2010 in order to provide specialised Web Application
     and Mobile development. You won&#8217;t find a &#8216;meet the team&#8217; page just yet
     because it would be rather thin on the ground; at present Payne Digital only has one 

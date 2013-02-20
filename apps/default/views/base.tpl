@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 
+    <script type="text/javascript" src="//use.typekit.net/fva2awi.js"></script>
+    <script type="text/javascript">try{ Typekit.load(); }catch(e) { }</script>
+
     {newrelic section="header"}
 
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
@@ -51,12 +54,11 @@
         </form>
         *}
     </header>
-    <div class="wrapper">
+    <div class="wrapper inner">
 
-        {* @todo make this per-page *}
-        <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
+        <h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
 
-        <div class="gw inner">
+        <div class="gw">
             {if isset($messages) && count($messages)}
                 {foreach from=$messages item="message"}
                     {* other twitter styles are: error, warning, success *}
@@ -117,22 +119,27 @@
 </html>
 {else}
 <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
-<div class="g two-thirds">
-    {block name="body"}{/block}
-</div>
-<div class="g one-third">
-    {block name="secondary"}
-        <div class="supplementary">
-            <p>
-                <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                (like this one),
-                web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-            </p>
-            <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-            probably <a href="/services">offer you</a> more than you think.</p>
-        </div>
-    {/block}
+
+<h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
+
+<div class="gw">
+    <div class="g two-thirds">
+        {block name="body"}{/block}
+    </div>
+    <div class="g one-third">
+        {block name="secondary"}
+            <div class="supplementary">
+                <p>
+                    <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+                    (like this one),
+                    web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+                    <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+                </p>
+                <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+                probably <a href="/services">offer you</a> more than you think.</p>
+            </div>
+        {/block}
+    </div>
 </div>
 <div style='display:none' class='theme-identifier'>
     {block name="theme"}default{/block}
