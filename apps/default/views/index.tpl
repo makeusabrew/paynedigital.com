@@ -1,20 +1,15 @@
 {extends file='default/views/base.tpl'}
 {block name='title'}Web Application &amp; Mobile Development{/block}
 {block name='body'}
-    <div class='welcome alert alert-block'>
-        <h2>Hello!</h2>
+    <div>
         <p>
-            Payne Digital make all sorts of things: <a href="https://github.com/makeusabrew/paynedigital.com">websites
-            like this one</a>,
-            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+            Payne Digital make
+            <a href="https://github.com/makeusabrew/paynedigital.com">websites like this one</a>,
+            web apps, mobile apps &amp; games through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
             <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-            We're a relatively young company, but don't let that put you off. We're enthusiastic and can
-            probably <a class=pjax href="/services">offer you</a> more than you think.
         </p>
-        <p>We also like writing about things&mdash;a recent selection of which you can see below. For
-        more, check out the <a class=pjax href="/articles">articles</a> section.</p>
     </div>
-    <div id='posts'>
+    <div class="articles">
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
         {/foreach}
