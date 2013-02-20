@@ -1,4 +1,9 @@
 html {
+}
+
+body {
+    font-family:pt-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.1);
     /* make sure if no theme kicks in our text is legible */
     background:#000;
     color:#fff;
@@ -12,9 +17,7 @@ html {
 
 .header {
     padding-top:$base-spacing-unit;
-    border: {
-        bottom: 1px solid #e6e6e6;
-    }
+    border-bottom: 1px solid #e6e6e6;
     background:white;
     margin-bottom:$base-spacing-unit;
 
@@ -25,4 +28,8 @@ html {
 
 .header__nav > li {
     margin-left:2em;
+}
+
+.hero {
+    font-family:"proxima-nova";
 }
