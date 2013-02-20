@@ -1,6 +1,6 @@
 <div class='article'>
     {if !isset($full_content)}
-        <h2><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+        <h2 class="hero"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     {/if}
     <div class='info'>
         {if count($post->getTags())}
