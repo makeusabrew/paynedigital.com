@@ -42,7 +42,7 @@ var pjaxify = (function() {
         $(document).on("transitionend webkitTransitionEnd oTransitionEnd", ".theme", finishTransition);
 
         // a bit of manky link sorting
-        $(".navbar-inner li a").each(function(i, v) {
+        $(".nav li a").each(function(i, v) {
             _links.push($(v));
         });
 
@@ -52,7 +52,7 @@ var pjaxify = (function() {
 
         currentUrl = window.location.pathname;
 
-        if ($(".navbar-inner li.active").length == 0) {
+        if ($(".nav li.active").length == 0) {
             linkNav();
         }
 
@@ -61,12 +61,12 @@ var pjaxify = (function() {
             currentUrl = $(this).attr("href");
         });
 
-        $(document).pjax("a.pjax", "#inner", {timeout: _timeout});
+        $(document).pjax("a.pjax", ".inner", {timeout: _timeout});
 
         $(document).on("pjax:end", function() {
             // for balance you'd want this in start.pjax, but then
             // if there's a delay loading the content, things look a bit weird
-            $(".navbar-inner li").removeClass("active");
+            $(".nav li").removeClass("active");
 
             linkNav();
 

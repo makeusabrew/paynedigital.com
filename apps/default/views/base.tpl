@@ -18,49 +18,39 @@
     {include file='default/views/helpers/google_analytics.tpl'}
 </head>
 <body class='theme theme--{block name="theme"}default{/block}'>
-    <div class='navbar navbar-fixed-top'>
-        <div class='navbar-inner'>
-            <div class='container'>
-                <a href='/' class=brand>Payne Digital</a>
-                <div class="nav-collapse">
-                    <ul class='nav'>
-                        <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                        <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                        <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                        <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                        <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
-                    </ul>
-                    <form action="/search" method="get" class="navbar-search pull-right supplementary">
-                        <input type="text" class="search-query" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id='header'>
-        <div class='container'>
-            <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
-        </div>
-    </div>
-    <div class='container'>
-        <div id='inner' class='row'>
+    <div class="wrapper">
+        <header>
+            <ul class='nav'>
+                <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+            </ul>
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
+            </form>
+        </header>
+
+        {* @todo make this per-page *}
+        <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
+
+        <div class="gw inner">
             {if isset($messages) && count($messages)}
-                <div class='container'>
-                    {foreach from=$messages item="message"}
-                        {* other twitter styles are: error, warning, success *}
-                        <div class="alert alert-info">
-                            <a class="close" href="#">&times;</a>
-                            <p>{$message}</p>
-                        </div>
-                    {/foreach}
-                </div>
+                {foreach from=$messages item="message"}
+                    {* other twitter styles are: error, warning, success *}
+                    <div class="alert alert-info">
+                        <a class="close" href="#">&times;</a>
+                        <p>{$message}</p>
+                    </div>
+                {/foreach}
             {/if}
-            <div class='span8'>
+            <div class="g two-thirds">
                 {block name="body"}
                     <p>Your body content goes here.</p>
                 {/block}
             </div>
-            <div class='span4'>
+            <div class="g one-third">
                 {block name="secondary"}
                     <div class='supplementary'>
                         <p>
@@ -76,17 +66,15 @@
             </div>
         </div>
     </div>
-    <div id='footer'>
-        <div class='well'>
-            <span class='copyright'>
-                &copy; 2013 Payne Digital Ltd
-            </span>
-            <span class='company-info'>
-                Moorland Avenue, Leeds, LS20 9EQ.
-                <span class='supplementary'>Company No. 07277912. VAT No. 991909470.</span>
-            </span>
-        </div>
-    </div>
+    <footer class="footer">
+        <span class="footer__copyright">
+            &copy; 2013 Payne Digital Ltd
+        </span>
+        <span class="footer__company-info">
+            Moorland Avenue, Leeds, LS20 9EQ.
+            <span class="supplementary">Company No. 07277912. VAT No. 991909470.</span>
+        </span>
+    </footer>
 
     {setting assign="doPlugins" value="site.social_plugins"}
 
@@ -108,12 +96,12 @@
 </html>
 {else}
 <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
-<div class='span8'>
+<div class="g two-thirds">
     {block name="body"}{/block}
 </div>
-<div class='span4'>
+<div class="g one-third">
     {block name="secondary"}
-        <div class='supplementary'>
+        <div class="supplementary">
             <p>
                 <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
                 (like this one),
