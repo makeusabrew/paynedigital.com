@@ -9,12 +9,14 @@
         you&rsquo;d prefer you can always contact me on <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
 
         <form action="/contact" method="post">
-            {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
-            {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
-            {include file="default/views/helpers/field.tpl" field="content"}
-            <div>
-                <input type="submit" value="Send" class="btn btn-primary" />
-            </div>
+            <ul class="form-fields">
+                {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
+                {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
+                {include file="default/views/helpers/field.tpl" field="content"}
+                <li>
+                    <input type="submit" value="Send" class="btn btn-primary" />
+                </li>
+            </ul>
         </form>
     </div>
 {/block}

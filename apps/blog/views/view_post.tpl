@@ -57,12 +57,14 @@
                             Your IP address is captured for auditing purposes and your comment
                             may be moderated before it appears.</p>
                         </div>
-                        <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
-                            {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
-                            {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
-                            {include file='default/views/helpers/field.tpl' field='content'}
-                            {include file='default/views/helpers/field.tpl' field='notifications'}
-                            <div class="comment-details">
+                        <form action="/{$post->getUrl()}/comment#comments" method="post">
+                            <ul class="form-fields">
+                                {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
+                                {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
+                                {include file='default/views/helpers/field.tpl' field='content'}
+                                {include file='default/views/helpers/field.tpl' field='notifications'}
+                            </ul>
+                            <div class="accessibility">
                                 {if isset($_errors) && isset($_errors.details)}
                                     <p>{$_errors.details}</p>
                                 {/if}
