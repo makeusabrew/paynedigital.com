@@ -8,13 +8,13 @@
     has in common is that it's always something we're genuinely interested in
     or passionate about.</p>
 
-    <h3>By Month</h3>
+    <h2 class="hero">By Month</h2>
     {include file='blog/views/partials/archive.tpl'}
 
-    <h3>By Tag</h3>
+    <h2 class="hero">By Tag</h2>
     <p>
-        {foreach from=$tags item="tag" name="tag_loop"}
-            <a href="/tag/{$tag|lower|escape:'url'}" class="label">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a> 
+        {foreach $tags as $tag}
+            <a href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$tag@last}, {/if} 
         {/foreach}
     </p>
 {/block}

@@ -1,6 +1,8 @@
 {extends 'base.tpl'}
+{block name='heading'}
+    Articles from {$month|date_format:"F Y"}
+{/block}
 {block name='body'}
-    <h2>Articles from {$month|date_format:"F Y"}</h2>
     <div class="articles">
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}

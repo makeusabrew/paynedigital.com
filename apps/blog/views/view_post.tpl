@@ -11,10 +11,8 @@
     {include file='partials/post.tpl' full_content=true}
     {if isset($related_posts) && count($related_posts) > 0}
         <div class='related'>
+            <h2 class="hero">Related Articles</h2>
             <ul>
-                <li class="nav-header">
-                    Related Articles
-                </li>
                 {foreach from=$related_posts item="related_post"}
                     <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
                 {/foreach}
@@ -24,7 +22,7 @@
 
     {* @todo can we class this? does any JS hook into the ID? *}
     <div id="comments">
-        <h3>Comments</h3>
+        <h2 class="hero">Comments</h2>
         <div class='existing'>
             {foreach from=$comments item="comment" name="loop"}
                 <div class='comment'>
@@ -51,7 +49,7 @@
             {if $post->commentsEnabled()}
                 <div id='add-comment'>
                     <div class='page-header'>
-                        <h3>Add Your Own</h3>
+                        <h3 class="hero">Add Your Own</h3>
                     </div>
                     <div class='form-wrapper'>
                         <div class='small'>
@@ -95,10 +93,9 @@
         </p>
 
         {if isset($related_posts) && count($related_posts) > 0}
+            <h2 class="hero">Why not check out&hellip;</h2>
             <div class='related'>
                 <ul>
-                    <li class="nav-header">
-                        Why not check out&hellip;
                     </li>
                     {foreach from=$related_posts item="related_post"}
                         <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>

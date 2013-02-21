@@ -28,5 +28,6 @@
         (which, funnily enough, is also available <a href="https://github.com/makeusabrew/jaoss-website">on github</a>)!</p>
     </div>
 
+    <h3 class="hero">Articles by month</h3>
     {include file='blog/views/partials/archive.tpl'}
 {/block}
