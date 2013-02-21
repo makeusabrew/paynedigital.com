@@ -15,3 +15,11 @@ body {
 .hero {
     font-family:"proxima-nova";
 }
+
+.logo {
+    float:left;
+
+    > img {
+        display:block;
+    }
+}

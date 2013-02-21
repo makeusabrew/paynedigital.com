@@ -39,7 +39,10 @@
 </head>
 <body class="theme theme--{block name="theme"}dark-blue{/block}">
     <header class="header">
-        <div class=wrapper>
+        <div class="wrapper">
+            <a class="logo" href="/">
+                <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" />
+            </a>
             <div class="header__dolly">
                 <ul class="nav  header__nav">
                     <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>

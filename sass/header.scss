@@ -11,21 +11,26 @@
 
 .header__nav {
     margin-bottom:0;
+
+    > li {
+        line-height:75px;   // logo height
+        margin-left:2em;
+    }
 }
 
-.header__nav > li {
-    margin-left:2em;
-}
+// we need to track this so we can whip it back off the dolly's margin
+$camera_height: 2px;
 
 // our dolly track for the camera
 .header__dolly {
     position:relative;
-    margin-bottom:$base-spacing-unit;
+    margin-bottom:($base-spacing-unit*2)-$camera_height;
 }
 
 // make sure by default the camera has no width so it grows 'out'
 .header__camera {
     width:0px;
-    height:2px;
+    height:$camera_height;
+    margin-top:-$base-spacing-unit;
 }
 
