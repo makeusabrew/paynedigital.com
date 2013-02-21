@@ -15,11 +15,16 @@
     @include font-size(14px);
 }
 
+.article--full {
+    border-bottom:none;
+}
+
+.article-options {
+    padding:$half-spacing-unit;
+    border-radius:5px;
+}
+
 .split-after:after,
 .split-before:before {
     content:" // ";
-}
-
-.article--full {
-    border-bottom:none;
 }

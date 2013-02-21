@@ -24,6 +24,10 @@
         .article {
             border-bottom:1px solid lighten($colour, 0%);
         }
+
+        .article-options {
+            background:darken($background, 5%);
+        }
     }
 }
 
