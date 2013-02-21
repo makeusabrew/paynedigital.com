@@ -22,6 +22,4 @@
 {block name='secondary'}
     <p>You can find out more about the work I do by following the link to my
     <a href="http://github.com/makeusabrew">GitHub portfolio</a>, or by <a href="http://twitter.com/makeusabrew">following me on twitter</a>.</p>
-
-    <a href="https://twitter.com/makeusabrew" data-size="large" class="twitter-follow-button" data-show-count="false">Follow @makeusabrew</a>
 {/block}
