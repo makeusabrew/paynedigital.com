@@ -47,7 +47,8 @@ var pjaxify = (function() {
         _body = $("body").get(0);
 
         // always listen out for when the theme has finished transitioning
-        $(document).on("transitionend webkitTransitionEnd oTransitionEnd", ".theme", finishTransition);
+        // not sure if this selector is the most efficient way of doing this
+        $(document).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", ".theme", finishTransition);
 
         // a bit of manky link sorting
         $(".nav li a").each(function(i, v) {
