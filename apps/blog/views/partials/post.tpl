@@ -5,9 +5,9 @@
     <div class='info'>
         {if count($post->getTags())}
             <div class='tags supplementary'>
-                <span class='label intro'>Tags:</span>
+                <span class='intro'>Tags:</span>
                 {foreach from=$post->getTags() item="tag" name="tag_loop"}
-                    <a class='label {$post->formatTagLabel($tag)}' href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>
+                    <a class='{$post->formatTagLabel($tag)}' href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>
                 {/foreach}
             </div>
         {/if}
