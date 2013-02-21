@@ -1,3 +1,25 @@
 .inner {
     border-bottom:1px solid gray;
 }
+
+.article {
+    margin-bottom:$base-spacing-unit;
+}
+
+.article__heading {
+    margin-bottom:0;
+}
+
+.article-meta {
+    margin-bottom:$base-spacing-unit;
+    @include font-size(14px);
+}
+
+.split-after:after,
+.split-before:before {
+    content:" // ";
+}
+
+.article--full {
+    border-bottom:none;
+}

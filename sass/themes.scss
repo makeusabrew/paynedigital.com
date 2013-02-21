@@ -22,7 +22,7 @@
         }
 
         .article {
-            margin-bottom:$base-spacing-unit;
+            border-bottom:1px solid lighten($colour, 0%);
         }
     }
 }
