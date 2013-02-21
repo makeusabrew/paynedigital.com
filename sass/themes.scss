@@ -12,7 +12,9 @@
         }
 
         .header__camera {
-            background:$background;
+            // the camera trail is quite hard to see so
+            // let's brighten it up a bit
+            background:lighten($background, 20%);
         }
     }
 }
