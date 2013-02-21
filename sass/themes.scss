@@ -3,6 +3,10 @@
         background:$background;
         color:$colour;
 
+        .inner {
+            border-bottom:1px solid desaturate($background, 80%);
+        }
+
         .inner a {
             color:$colour;
         }
