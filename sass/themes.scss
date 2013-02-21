@@ -16,6 +16,10 @@
             // let's brighten it up a bit
             background:lighten($background, 20%);
         }
+
+        .article {
+            margin-bottom:$base-spacing-unit;
+        }
     }
 }
 

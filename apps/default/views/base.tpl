@@ -61,49 +61,53 @@
         </form>
         *}
     </header>
-    <div class="wrapper inner">
+    <div class="inner">
+        <div class="wrapper">
 
-        <h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
+            <h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
 
-        <div class="gw">
-            {if isset($messages) && count($messages)}
-                {foreach from=$messages item="message"}
-                    {* other twitter styles are: error, warning, success *}
-                    <div class="alert alert-info">
-                        <a class="close" href="#">&times;</a>
-                        <p>{$message}</p>
-                    </div>
-                {/foreach}
-            {/if}
-            <div class="g two-thirds">
-                {block name="body"}
-                    <p>Your body content goes here.</p>
-                {/block}
-            </div>
-            <div class="g one-third">
-                {block name="secondary"}
-                    <div class='supplementary'>
-                        <p>
-                            <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                            (like this one),
-                            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                            <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-                        </p>
-                        <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-                        probably <a href="/services">offer you</a> more than you think.</p>
-                    </div>
-                {/block}
+            <div class="gw">
+                {if isset($messages) && count($messages)}
+                    {foreach from=$messages item="message"}
+                        {* other twitter styles are: error, warning, success *}
+                        <div class="alert alert-info">
+                            <a class="close" href="#">&times;</a>
+                            <p>{$message}</p>
+                        </div>
+                    {/foreach}
+                {/if}
+                <div class="g two-thirds">
+                    {block name="body"}
+                        <p>Your body content goes here.</p>
+                    {/block}
+                </div>
+                <div class="g one-third">
+                    {block name="secondary"}
+                        <div class='supplementary'>
+                            <p>
+                                <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
+                                (like this one),
+                                web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
+                                <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
+                            </p>
+                            <p>We're a young company, but don't let that put you off. We're enthusiastic and can
+                            probably <a href="/services">offer you</a> more than you think.</p>
+                        </div>
+                    {/block}
+                </div>
             </div>
         </div>
     </div>
     <footer class="footer">
-        <span class="footer__copyright">
-            &copy; 2013 Payne Digital Ltd
-        </span>
-        <span class="footer__company-info">
-            Moorland Avenue, Leeds, LS20 9EQ.
-            <span class="supplementary">Company No. 07277912. VAT No. 991909470.</span>
-        </span>
+        <div class="wrapper">
+            <span class="footer__copyright">
+                &copy; 2013 Payne Digital Ltd
+            </span>
+            <span class="footer__company-info">
+                Moorland Avenue, Leeds, LS20 9EQ.
+                <span class="supplementary">Company No. 07277912. VAT No. 991909470.</span>
+            </span>
+        </div>
     </footer>
 
     {setting assign="doPlugins" value="site.social_plugins"}

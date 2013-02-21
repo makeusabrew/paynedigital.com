@@ -1,4 +1,6 @@
 .transition .theme {
+    // we actually only care about color & bg color here
+    // but the comma in the syntax scuppers us @todo fix!
     @include vendor(transition, all 1.0s);
 
     /**
@@ -11,6 +13,7 @@
 
     // make sure the tracking underline transitions too
     .header__camera {
+        // could be more explicit: just width and margin
         @include vendor(transition, all 1.0s ease-in-out)
     }
 }

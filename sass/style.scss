@@ -3,6 +3,8 @@
     STYLE.CSS
 \*------------------------------------*/
 /**
+ * sass --watch sass/style.scss:public/css/style.min.css --style compressed
+ *
  * Here we pull in some variables, include the inuit.css framework, then add our
  * project-specific components afterwards.
  */
@@ -21,6 +23,9 @@
  */
 @import "base";
 @import "header";
+@import "main";
+@import "footer";
 @import "typography";
+
 @import "transitions";
 @import "themes";
