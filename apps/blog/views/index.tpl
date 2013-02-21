@@ -1,11 +1,12 @@
 {extends 'base.tpl'}
 {block name="title"}Articles{/block}
-{block name="heading"}Articles{/block}
+{block name="heading"}Technical Articles{/block}
 {block name='body'}
-    <p>We like writing about things. Some are relevant to many of the
-    <a class=pjax href="/services">professional services</a> we have to offer, others
+
+    <p>Many of these articles are relevant to the
+    <a class=pjax href="/services">professional services</a> I offer, others
     less so&mdash;but one thing each article in the archive 
-    has in common is that it's always something we're genuinely interested in
+    has in common is that it&rsquo;s always something I&rsquo;m genuinely interested in
     or passionate about.</p>
 
     <h2 class="hero">By Month</h2>

@@ -53,8 +53,8 @@
                     </div>
                     <div class='form-wrapper'>
                         <div class='small'>
-                            <p>We don't publish your email address and won't send you any spam.
-                            We do capture your IP address for auditing purposes and your comment
+                            <p>Your email address won&rsquo;t be published you&rsquo;ll never be sent any spam.
+                            Your IP address is captured for auditing purposes and your comment
                             may be moderated before it appears.</p>
                         </div>
                         <form class="form-horizontal" action="/{$post->getUrl()}/comment#comments" method="post">
@@ -83,11 +83,6 @@
 {/block}
 {block name='secondary'}
     <div class="supplementary">
-        <p>
-            <strong>Hi there!</strong> We're always on the look out for good quality guest content, so if you've got an article
-            you'd like to see published then of course feel free to <a href="/contact">get in touch</a> or <a href="http://twitter.com/paynedigital">send us a tweet</a>.
-        </p>
-
         <p>
             This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
         </p>

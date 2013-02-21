@@ -4,9 +4,10 @@
 {block name='heading'}Say Hello{/block}
 {block name='body'}
     <div id='content-wrapper'>
-        <p>We'd love to hear from you! No, seriously... feel free to get in touch about
-        anything at all. If you're not sure why you'd want to then why not check out
-        the <a href="/services">services we offer</a>?</p>
+        <p>Please feel free to get in touch about anything from a simple &lsquo;hello&rsquo;
+        to availability enquiries. I&rsquo;ll make every effort to get back to you as soon as possible. If
+        you&rsquo;d prefer you can always contact me on <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
+
         <form action="/contact" method="post">
             {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
             {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
@@ -19,7 +20,6 @@
 {/block}
 {block name='secondary'}
     {$smarty.block.parent}
-    <p>You might get just as quick a response <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
 {/block}
 {block name='script'}
     <script src="/js/forms.js"></script>
@@ -28,7 +28,7 @@
             Forms.handle("form[method='post']", function(form) {
                 $("#content-wrapper").html(
                     "<div class='alert alert--success' style='display:none;'> "+
-                        "<p><strong>Thanks!</strong> We appreciate you getting in touch and will get back to you shortly.</p> "+
+                        "<p><strong>Thanks!</strong> I appreciate you getting in touch and will get back to you shortly.</p> "+
                     "</div>"
                 );
                 $("#content-wrapper .alert").fadeIn('slow');

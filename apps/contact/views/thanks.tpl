@@ -4,6 +4,6 @@
 {block name='body'}
     <h2>Say Hello</h2>
     <div class='alert alert--success'>
-        <p><strong>Thanks!</strong> We appreciate you getting in touch and will get back to you shortly.</p>
+        <p><strong>Thanks!</strong> I appreciate you getting in touch and will get back to you shortly.</p>
     </div>
 {/block}

@@ -1,7 +1,7 @@
 {extends 'default/views/base.tpl'}
 {block name='theme'}army{/block}
 {block name='title'}About{/block}
-{block name='heading'}About{/block}
+{block name='heading'}About Payne Digital{/block}
 {block name='body'}
     <p>Payne Digital Ltd was founded in 2010 in order to provide specialised Web Application
     and Mobile development. You won&#8217;t find a &#8216;meet the team&#8217; page just yet
@@ -18,10 +18,6 @@
     <p>I also offer Software Development consultancy &amp; training&mdash;please see
     a more thorough <a href="/services">list of services</a> for more information, or by all means
     <a href="/contact">get in touch</a> if you&rsquo;d like to speak to me directly.</p>
-
-    <p>You&#8217;ll probably notice the use of the royal &#8216;we&#8217; around the rest of
-    the site. That&#8217;s not me being pretentious&mdash;this page wouldn&#8217;t exist if it
-    was&mdash;it&#8217;s just easier that way. Honest.</p> 
 {/block}
 {block name='secondary'}
     <p>You can find out more about the work I do by following the link to my

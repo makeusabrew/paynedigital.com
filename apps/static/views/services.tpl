@@ -1,9 +1,9 @@
 {extends file='default/views/base.tpl'}
 {block name='theme'}brown{/block}
 {block name="title"}Services{/block}
-{block name="heading"}Our Services{/block}
+{block name="heading"}Professional Services{/block}
 {block name='body'}
-    <p>So what exactly do we have to offer you? Well, quite a lot really. Take a look:</p> 
+    <p>So what exactly do I have to offer you? Well, quite a lot really. Take a look:</p> 
     <ul> 
         <li>Website Development</li> 
         <li>Web Application Development</li> 
@@ -25,10 +25,5 @@
     <a href="/contact" title="Say Hello">get in touch</a>!</p> 
 {/block}
 {block name='secondary'}
-    <p>You might be interested in checking out some of our experiments on <a href="https://github.com/makeusabrew">GitHub</a>.
-    You'll even find <a href="https://github.com/makeusabrew/paynedigital.com">this website</a> on there.</p>
-
-    <p>Our most active open source project is the <a href="https://github.com/makeusabrew/jaoss">jaoss</a>
-    <a href="https://github.com/makeusabrew/jaoss-web-template">framework</a>, which you can find more about at <a href="http://jaoss.org">jaoss.org</a>
-    (which, funnily enough, is also available <a href="https://github.com/makeusabrew/jaoss-website">on github</a>)!</p>
+    {include file="default/views/includes/github.tpl"}
 {/block}

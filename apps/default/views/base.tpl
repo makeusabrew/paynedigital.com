@@ -83,16 +83,7 @@
                 </div>
                 <div class="g one-third">
                     {block name="secondary"}
-                        <div class='supplementary'>
-                            <p>
-                                <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                                (like this one),
-                                web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                                <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-                            </p>
-                            <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-                            probably <a href="/services">offer you</a> more than you think.</p>
-                        </div>
+                        {include file="default/views/includes/intro.tpl"}
                     {/block}
                 </div>
             </div>
@@ -141,16 +132,7 @@
     </div>
     <div class="g one-third">
         {block name="secondary"}
-            <div class="supplementary">
-                <p>
-                    <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                    (like this one),
-                    web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                    <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-                </p>
-                <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-                probably <a href="/services">offer you</a> more than you think.</p>
-            </div>
+            {include file="default/views/includes/intro.tpl"}
         {/block}
     </div>
 </div>
