@@ -1,19 +1,23 @@
+$timing: 1.0s;
+
 .transition .theme {
-    // we actually only care about color & bg color here
-    // but the comma in the syntax scuppers us @todo fix!
-    @include vendor(transition, all 1.0s);
+    /**
+     * this covers most elements...
+     */
+    @include vendor(transition, color $timing, background $timing);
 
     /**
-     * we need a more explicit rule to coerce link
-     * colours to transition properly
+     * ... but some things need a little more specific targetting
      */
     a {
-        @include vendor(transition, color 1.0s);
+        @include vendor(transition, color $timing);
     }
 
-    // make sure the tracking underline transitions too
     .header__camera {
-        // could be more explicit: just width and margin
-        @include vendor(transition, all 1.0s ease-in-out)
+        @include vendor(transition, width $timing, margin $timing ease-in-out, background-color $timing)
+    }
+
+    .article-options {
+        @include vendor(transition, background-color $timing);
     }
 }
