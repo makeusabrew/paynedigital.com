@@ -1,6 +1,8 @@
 {extends file='base.tpl'}
+{block name='heading'}
+    Articles tagged with &lsquo;{$search_tag}&rsquo;
+{/block}
 {block name='body'}
-    <h2>Articles tagged with '{$search_tag}'</h2>
     <div class="articles">
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
