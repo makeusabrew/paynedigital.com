@@ -5,14 +5,14 @@
 
         .inner {
             border-bottom:1px solid desaturate($background, 80%);
-        }
 
-        .inner a {
-            color:$colour;
-        }
+            a {
+                color:$colour;
+            }
 
-        .inner a:hover {
-            color:darken($colour, 15%);
+            a:hover {
+                color:darken($colour, 15%);
+            }
         }
 
         .header__camera {
