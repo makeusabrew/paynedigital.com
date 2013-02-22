@@ -31,14 +31,18 @@ class BlogController extends Controller {
             // get the fields for comments
             $this->assign('columns', Table::factory('Comments')->getColumns());
         }
+
+        $this->assign('tags', Table::factory('Posts')->findAllTags());
     }
 
     public function index() {
         $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
         $this->assign('archive', $archive);
 
-        $this->assign('tags', Table::factory('Posts')->findAllTags());
         $this->assign('post', Table::factory('Posts')->newObject());
+
+        $posts = Table::factory('Posts')->findRecent(3);
+        $this->assign('posts', $posts);
     }
 
     public function view_post() {

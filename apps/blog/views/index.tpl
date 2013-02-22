@@ -9,17 +9,8 @@
     has in common is that it&rsquo;s always something I&rsquo;m genuinely interested in
     or passionate about.</p>
 
-    <h2>By Month</h2>
-    {include file='blog/views/partials/archive.tpl'}
+    {foreach $posts as $post}
+        {include file="blog/views/partials/post.tpl"}
+    {/foreach}
 
-    <h2>By Tag</h2>
-    <p>
-        {foreach $tags as $tag}
-            <a href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$tag@last}, {/if} 
-        {/foreach}
-    </p>
-{/block}
-{block name='secondary'}
-    <p>An <a href="/feed.xml">RSS feed</a> of the ten latest articles
-    is available so you can keep up-to-date via the comfort of your favourite RSS reader.</p>
 {/block}

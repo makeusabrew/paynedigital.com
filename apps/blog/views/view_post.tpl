@@ -84,23 +84,17 @@
     </div>
 {/block}
 {block name='secondary'}
-    <div class="supplementary">
-        <p>
-            This article was written by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
-        </p>
-
-        {if isset($related_posts) && count($related_posts) > 0}
-            <h2>Why not check out&hellip;</h2>
-            <div class='related'>
-                <ul>
-                    </li>
-                    {foreach from=$related_posts item="related_post"}
-                        <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
-                    {/foreach}
-                </ul>
-            </div>
-        {/if}
-    </div>
+    {if isset($related_posts) && count($related_posts) > 0}
+        <h2 class="gamma">Why not check out&hellip;</h2>
+        <div class='related'>
+            <ul>
+                </li>
+                {foreach from=$related_posts item="related_post"}
+                    <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+    {/if}
 {/block}
 {block name='script'}
     {$smarty.block.parent}
