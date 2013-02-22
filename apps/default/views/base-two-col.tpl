@@ -2,7 +2,7 @@
 {block name=content}
     <div class="wrapper">
 
-        <h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
+        <h1>{block name='heading'}Payne Digital Ltd{/block}</h1>
 
         <div class="gw">
             {if isset($messages) && count($messages)}

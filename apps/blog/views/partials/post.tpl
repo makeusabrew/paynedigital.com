@@ -1,6 +1,6 @@
 <div class='article{if isset($full_content)}--full{/if}'>
     {if !isset($full_content)}
-        <h2 class="article__heading hero"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+        <h2 class="article__heading"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     {/if}
     <div class='article-meta article-options'>
         <div class='article-meta__published'>

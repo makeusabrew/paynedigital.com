@@ -100,18 +100,8 @@
 {else}
 <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 
-<h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
+{block name=content}{/block}
 
-<div class="gw">
-    <div class="g two-thirds">
-        {block name="body"}{/block}
-    </div>
-    <div class="g one-third">
-        {block name="secondary"}
-            {include file="default/views/includes/intro.tpl"}
-        {/block}
-    </div>
-</div>
 <div style='display:none' class='theme-identifier'>
     {block name="theme"}dark-blue{/block}
 </div>

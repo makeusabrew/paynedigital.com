@@ -2,7 +2,7 @@
 {block name=content}
     <div class="wrapper">
 
-        <h1 class="hero">{block name='heading'}Payne Digital Ltd{/block}</h1>
+        <h1>{block name='heading'}Payne Digital Ltd{/block}</h1>
 
         {if isset($messages) && count($messages)}
             {foreach from=$messages item="message"}

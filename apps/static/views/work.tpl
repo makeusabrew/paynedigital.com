@@ -14,30 +14,30 @@
     <p>Please note that the work &amp; projects shown are not listed in any
     particular order.</p>
 
-    <h2 class="hero">Full website redevelopment</h2>
+    <h2>Full website redevelopment</h2>
     <p>Project duration: 3 months</p>
 
-    <h2 class="hero">Jaoss Library &amp; Web Application Framework</h2>
+    <h2>Jaoss Library &amp; Web Application Framework</h2>
     <p>Project duration: 3 years (ongoing)</p>
     <p>&hellip;</p>
 
-    <h2 class="hero">Development &amp; deployment workflow consultancy</h2>
+    <h2>Development &amp; deployment workflow consultancy</h2>
     <p>Project duration: 1 week</p>
     <p>Savvy Marketing.</p>
 
-    <h2 class="hero">Bootbox.js</h2>
+    <h2>Bootbox.js</h2>
     <p>&hellip;</p>
 
-    <h2 class="hero">Mobile HTML5 web app</h2>
+    <h2>Mobile HTML5 web app</h2>
     <p>Project duration: 1 month</p>
     <p>MadeByPi.</p>
     <p>&hellip;</p>
 
-    <h2 class="hero">faavorite.com</h2>
+    <h2>faavorite.com</h2>
     <p>Project duration: 3 months</p>
     <p>&hellip;</p>
 
-    <h2 class="hero">Lead Software Engineer</h2>
+    <h2>Lead Software Engineer</h2>
     <p>Project duration: 1 year</p>
     <p>BSkyB.</p>
     <p>&hellip;</p>

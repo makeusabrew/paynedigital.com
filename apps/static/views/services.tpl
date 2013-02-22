@@ -4,25 +4,24 @@
 {block name="heading"}Professional Services{/block}
 {block name='body'}
     <div class="service">
-        <h2 class="hero">Website Development</h2>
         <p>&hellip;</p>
     </div>
 
     <div class="service">
-        <h2 class="hero">Web Application Development</h2>
+        <h2>Web Application Development</h2>
         <p>&hellip;</p>
     </div>
 
     <div class="service">
-        <h2 class="hero">API Development</h2>
+        <h2>API Development</h2>
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2 class="hero">iOS Application &amp; Game Development</h2>
+        <h2>iOS Application &amp; Game Development</h2>
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2 class="hero">Linux, Apache, MySQL and PHP consultancy (the &#8216;LAMP&#8217; stack)</h2>
+        <h2>Linux, Apache, MySQL and PHP consultancy (the &#8216;LAMP&#8217; stack)</h2>
         <ul> 
             <li>Full UNIX server set up and maintenance including cloud server configuration</li> 
             <li>Apache set up and maintenance (Virtual Hosts, SSL certificates, module set up etc)</li> 
@@ -30,19 +29,19 @@
         </ul> 
     </div>
     <div class="service">
-        <h2 class="hero">Application Testing</h2>
+        <h2>Application Testing</h2>
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2 class="hero">Test Driven Development consultancy</h2>
+        <h2>Test Driven Development consultancy</h2>
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2 class="hero">Continuous Integration set up &amp; consultancy</h2>
+        <h2>Continuous Integration set up &amp; consultancy</h2>
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2 class="hero">Project management consultancy (cutting edge software backed with a pragmatic agile implementation)</h2>
+        <h2>Project management consultancy (cutting edge software backed with a pragmatic agile implementation)</h2>
         <p>&hellip;</p>
     </div>
 
