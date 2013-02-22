@@ -41,7 +41,7 @@
     <header class="header">
         <div class="wrapper">
             <a class="logo" href="/">
-                <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" />
+                <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" width="72" />
             </a>
             <div class="header__dolly">
                 <ul class="nav  header__nav">
