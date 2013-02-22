@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name='theme'}purple{/block}
 {block name="title"}Work{/block}
 {block name="heading"}Selected Work{/block}

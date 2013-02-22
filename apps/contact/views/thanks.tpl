@@ -1,5 +1,5 @@
-{extends file='default/views/base.tpl'}
-{block name='theme'}redbrick{/block}
+{extends 'default/views/base-two-col.tpl'}
+{block name='theme'}burgundy{/block}
 {block name="title"}Thanks!{/block}
 {block name='body'}
     <h2>Say Hello</h2>

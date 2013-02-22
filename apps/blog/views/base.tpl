@@ -1,2 +1,2 @@
-{extends 'default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name='theme'}green{/block}

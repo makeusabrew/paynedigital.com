@@ -1,4 +1,4 @@
-{extends 'default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name='theme'}burgundy{/block}
 {block name='title'}Say Hello{/block}
 {block name='heading'}Say Hello{/block}

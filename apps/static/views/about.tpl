@@ -1,4 +1,4 @@
-{extends 'default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name='theme'}army{/block}
 {block name='title'}About{/block}
 {block name='heading'}About Payne Digital{/block}

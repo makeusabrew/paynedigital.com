@@ -1,4 +1,4 @@
-{extends file='default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name='heading'}
     {if isset($search_query)}
         Search results for &lsquo;{$search_query|htmlentities8}&rsquo;
