@@ -48,6 +48,7 @@
                     <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
                     <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
                     <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                    <li{if $current_url == "/work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
                     <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
                     <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
                 </ul>
