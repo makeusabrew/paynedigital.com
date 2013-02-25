@@ -4,7 +4,6 @@ var pjaxify = (function() {
     var _timeout   = 1000,
         _body      = null,
         _links     = [],
-        currentUrl = null,
         startTheme = null,
         that       = {};
 
@@ -28,7 +27,8 @@ var pjaxify = (function() {
     }
 
     var linkNav = function() {
-        var i = _links.length;
+        var i = _links.length,
+            currentUrl = window.location.pathname;
 
         if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
             currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
@@ -47,9 +47,7 @@ var pjaxify = (function() {
     that.init = function() {
         _body = $("body").get(0);
 
-        startTheme = _body.className.match(/theme--(\w+)/)[1]
-
-        currentUrl = window.location.pathname;
+        startTheme = _body.className.match(/theme--([\w-]+)/)[1];
 
         // always listen out for when the theme has finished transitioning
         // not sure if this selector is the most efficient way of doing this
@@ -70,11 +68,6 @@ var pjaxify = (function() {
 
         $(document).on("click", ".inner a", function(e) {
             removeTimestamp(this);
-        });
-
-        // wire up pjax stuff
-        $(document).on("click", "a.pjax", function(e) {
-            currentUrl = $(this).attr("href");
         });
 
         var options = {
