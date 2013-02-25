@@ -5,15 +5,22 @@ html {
 body {
     font-family:rooney-web;
     text-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -webkit-font-smoothing:antialiased;
     /* make sure if no theme kicks in our text is legible */
     background:#000;
     color:#fff;
 }
 
 .wrapper {
-    max-width:1100px;
+    max-width:640px;
     margin-left:auto;
     margin-right:auto;
+    padding-right:$half-spacing-unit;
+    padding-left:$half-spacing-unit;
+
+    @include media-query(desk) {
+        max-width:1100px;
+    }
 }
 
 h1,h2,h3,

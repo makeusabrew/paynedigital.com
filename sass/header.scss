@@ -9,12 +9,28 @@
     }
 }
 
+$logo_height: 75px;
+
 .header__nav {
     margin-bottom:0;
 
     > li {
-        line-height:75px;   // logo height
-        margin-left:$base-spacing-unit*2;
+        line-height:$logo_height/2;
+        margin-left:$half-spacing-unit;
+
+        @include media-query(lap-and-up) {
+            line-height:$logo_height;
+            margin-left:$base-spacing-unit;
+        }
+
+        @include media-query(desk) {
+            margin-left:$base-spacing-unit*2;
+        }
+
+        &.active > a {
+            text-decoration:underline;
+        }
+
     }
 }
 
@@ -25,6 +41,10 @@ $camera_height: 2px;
 .header__dolly {
     position:relative;
     margin-bottom:($base-spacing-unit*2)-$camera_height;
+
+    @include media-query(palm) {
+        margin-bottom:$base-spacing-unit;
+    }
 }
 
 // make sure by default the camera has no width so it grows 'out'
@@ -32,5 +52,9 @@ $camera_height: 2px;
     width:0px;
     height:$camera_height;
     margin-top:-$base-spacing-unit;
+
+    @include media-query(palm) {
+        display:none;
+    }
 }
 

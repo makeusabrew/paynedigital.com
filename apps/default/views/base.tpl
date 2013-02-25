@@ -67,13 +67,13 @@
     </div>
     <footer class="footer">
         <div class="wrapper">
-            <span class="footer__copyright">
-                &copy; 2013 Payne Digital Ltd
-            </span>
-            <span class="footer__company-info">
+            <div class="footer__copyright">
+                &copy; 2013 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
+            </div>
+            <div class="footer__company-info hide--palm">
                 Moorland Avenue, Leeds, LS20 9EQ.
-                <span class="supplementary">Company No. 07277912. VAT No. 991909470.</span>
-            </span>
+                Company No. 07277912. VAT No. 991909470.
+            </div>
         </div>
     </footer>
 

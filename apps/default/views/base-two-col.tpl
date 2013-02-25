@@ -14,10 +14,10 @@
                     </div>
                 {/foreach}
             {/if}
-            <div class="g two-thirds">
+            <div class="g two-thirds palm-one-whole">
                 {block name=body}{/block}
             </div>
-            <div class="g one-third">
+            <div class="g one-third palm-one-whole">
                 {block name="secondary"}
                     {include file="default/views/includes/intro.tpl"}
                 {/block}

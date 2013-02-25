@@ -2,3 +2,19 @@
     padding:$base-spacing-unit;
     background: #141414;
 }
+
+.footer__copyright {
+    text-align:center;
+}
+
+@include media-query(lap-and-up) {
+    .footer__copyright {
+        float:left;
+    }
+}
+
+@include media-query(desk) {
+    .footer__company-info {
+        float:right;
+    }
+}
