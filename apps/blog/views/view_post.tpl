@@ -48,34 +48,30 @@
         {if !isset($comment_submitted)}
             {if $post->commentsEnabled()}
                 <div id='add-comment'>
-                    <div class='page-header'>
-                        <h3>Add Your Own</h3>
+                    <h3>Add a comment</h3>
+                    <div class='milli'>
+                        <p>Your email address won&rsquo;t be published you&rsquo;ll never be sent any spam.
+                        Your IP address is captured for auditing purposes and your comment
+                        will be moderated before it appears.</p>
                     </div>
-                    <div class='form-wrapper'>
-                        <div class='small'>
-                            <p>Your email address won&rsquo;t be published you&rsquo;ll never be sent any spam.
-                            Your IP address is captured for auditing purposes and your comment
-                            may be moderated before it appears.</p>
+                    <form action="/{$post->getUrl()}/comment#comments" method="post">
+                        <ul class="form-fields">
+                            {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
+                            {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
+                            {include file='default/views/helpers/field.tpl' field='content'}
+                            {include file='default/views/helpers/field.tpl' field='notifications'}
+                        </ul>
+                        <div class="accessibility">
+                            {if isset($_errors) && isset($_errors.details)}
+                                <p>{$_errors.details}</p>
+                            {/if}
+                            <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
+                            <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
                         </div>
-                        <form action="/{$post->getUrl()}/comment#comments" method="post">
-                            <ul class="form-fields">
-                                {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
-                                {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
-                                {include file='default/views/helpers/field.tpl' field='content'}
-                                {include file='default/views/helpers/field.tpl' field='notifications'}
-                            </ul>
-                            <div class="accessibility">
-                                {if isset($_errors) && isset($_errors.details)}
-                                    <p>{$_errors.details}</p>
-                                {/if}
-                                <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
-                                <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
-                            </div>
-                            <div class="form-actions">
-                                <input type="submit" value="Send" class="btn btn-primary" />
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-actions">
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                    </form>
                 </div>
             {else}
                 <p>Comments are now closed.</p>
@@ -85,14 +81,16 @@
 {/block}
 {block name='secondary'}
     {if isset($related_posts) && count($related_posts) > 0}
-        <h2 class="gamma">Why not check out&hellip;</h2>
-        <div class='related'>
-            <ul>
-                </li>
-                {foreach from=$related_posts item="related_post"}
-                    <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
-                {/foreach}
-            </ul>
+        <div class="hide--palm">
+            <h2 class="gamma">Why not check out&hellip;</h2>
+            <div class='related'>
+                <ul>
+                    </li>
+                    {foreach from=$related_posts item="related_post"}
+                        <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
+                    {/foreach}
+                </ul>
+            </div>
         </div>
     {/if}
 {/block}
