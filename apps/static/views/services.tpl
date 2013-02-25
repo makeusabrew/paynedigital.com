@@ -4,6 +4,7 @@
 {block name="heading"}Professional Services{/block}
 {block name='body'}
     <div class="service">
+        <h2>Website Development</h2>
         <p>&hellip;</p>
     </div>
 
@@ -21,7 +22,7 @@
         <p>&hellip;</p>
     </div>
     <div class="service">
-        <h2>Linux, Apache, MySQL and PHP consultancy (the &#8216;LAMP&#8217; stack)</h2>
+        <h2>Linux, Apache, MySQL &amp; PHP consultancy</h2>
         <ul> 
             <li>Full UNIX server set up and maintenance including cloud server configuration</li> 
             <li>Apache set up and maintenance (Virtual Hosts, SSL certificates, module set up etc)</li> 
