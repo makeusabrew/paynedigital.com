@@ -1,6 +1,7 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name='theme'}green{/block}
 {block name='secondary'}
+    <h3>Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
 
     <h3>Tags</h3>
