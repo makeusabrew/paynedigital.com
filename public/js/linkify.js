@@ -1,14 +1,22 @@
-var linkify = (function(document) {
+var linkify = (function(window, document) {
     "use strict";
 
     var camera = null,
         buffer = 2,
+        timer  = null,
         that   = {};
 
     that.init = function() {
         camera = $(".header__camera");
 
         that.focus("li.active > a");
+
+        $(window).on("resize", function(e) {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                that.focus("li.active > a");
+            }, 40);
+        });
     };
 
     that.focus = function(selector) {
@@ -26,4 +34,4 @@ var linkify = (function(document) {
 
     return that;
 
-}(document));
+}(window, document));

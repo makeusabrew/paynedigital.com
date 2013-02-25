@@ -21,7 +21,9 @@
     </div>
 {/block}
 {block name='secondary'}
-    {$smarty.block.parent}
+    <div class="hide--palm">
+        {$smarty.block.parent}
+    </div>
 {/block}
 {block name='script'}
     <script src="/js/forms.js"></script>
