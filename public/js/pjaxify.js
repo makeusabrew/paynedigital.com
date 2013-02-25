@@ -74,7 +74,7 @@ var pjaxify = (function() {
             currentUrl = $(this).attr("href");
         });
 
-        $(document).pjax("a.pjax", ".inner > .wrapper", {timeout: _timeout});
+        $(document).pjax("a.pjax", ".inner", {timeout: _timeout});
 
         $(document).on("pjax:end", function() {
             // for balance you'd want this in start.pjax, but then
