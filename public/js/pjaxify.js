@@ -5,6 +5,7 @@ var pjaxify = (function() {
         _body      = null,
         _links     = [],
         currentUrl = null,
+        startTheme = null,
         that       = {};
 
     var removeTimestamp = function(elem) {
@@ -46,6 +47,10 @@ var pjaxify = (function() {
     that.init = function() {
         _body = $("body").get(0);
 
+        startTheme = _body.className.match(/theme--(\w+)/)[1]
+
+        currentUrl = window.location.pathname;
+
         // always listen out for when the theme has finished transitioning
         // not sure if this selector is the most efficient way of doing this
         $(document).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", ".theme", finishTransition);
@@ -58,8 +63,6 @@ var pjaxify = (function() {
         _links.sort(function(a, b) {
             return a.attr("href").length - b.attr("href").length;
         });
-
-        currentUrl = window.location.pathname;
 
         if ($(".nav li.active").length == 0) {
             linkNav();
@@ -74,7 +77,12 @@ var pjaxify = (function() {
             currentUrl = $(this).attr("href");
         });
 
-        $(document).pjax("a.pjax", ".inner", {timeout: _timeout});
+        var options = {
+            timeout: _timeout,
+            scrollTo: 0
+        };
+
+        $(document).pjax("a.pjax", ".inner", options);
 
         $(document).on("pjax:end", function() {
             // for balance you'd want this in start.pjax, but then
@@ -82,10 +90,6 @@ var pjaxify = (function() {
             $(".nav li").removeClass("active");
 
             linkNav();
-
-            // @todo we should make this better, but it's still an improvement on
-            // simply not moving the window viewport at all
-            window.scrollTo(0, 0);
 
             // transition baby!
             $("html").addClass("transition");
@@ -100,8 +104,16 @@ var pjaxify = (function() {
             // even though the HTML has *already* changed by this point,
             // set a miniscule timeout for FF, otherwise link transitions fail
             setTimeout(function() {
-                var themeValue = $(".theme-identifier", _body).text();
-                var theme = "theme theme--"+$.trim(themeValue);
+                var themeValue, theme;
+                var themeFragment = $(".theme-identifier");
+
+                theme = "theme theme--";
+
+                if (themeFragment.length) {
+                    theme += $.trim(themeFragment.text());
+                } else {
+                    theme += startTheme;
+                }
 
                 // transition stuff won't be fired, so manually invoke any cleanup
                 if (theme == _body.className) {
@@ -110,9 +122,6 @@ var pjaxify = (function() {
 
                 // set the new classname (triggers the transition)
                 _body.className = theme;
-
-                // bosh! cya later theme element, you've done your job
-                $(".theme-identifier", _body).remove();
             }, 4);
         });
     };
