@@ -66,7 +66,7 @@
         {block name=content}{/block}
     </div>
     <footer class="footer">
-        <div class="wrapper">
+        <div class="wrapper cf">
             <div class="footer__copyright">
                 &copy; 2013 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
             </div>
