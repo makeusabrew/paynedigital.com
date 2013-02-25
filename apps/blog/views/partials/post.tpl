@@ -2,7 +2,7 @@
     {if !isset($full_content)}
         <h2 class="article__heading"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     {/if}
-    <div class='article-meta article-options'>
+    <div class='article-meta bump-out'>
         <div class='article-meta__published'>
             {assign var='comment_count' value=$post->getApprovedCommentsCount()}
             <time class="split-after">{$post->published|date_format:"jS F Y"}</time>
@@ -30,7 +30,7 @@
         {/if}
     </div>
     {if isset($full_content)}
-        <div class='article-options'>
+        <div class='bump-out'>
             <a href="http://twitter.com/share"
             class="twitter-share-button"
             data-url="{$base_href}{$post->getUrl()}"

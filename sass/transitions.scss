@@ -17,7 +17,7 @@ $timing: 1.0s;
         @include vendor(transition, width $timing, margin $timing ease-in-out, background-color $timing)
     }
 
-    .article-options {
+    .bump-out {
         @include vendor(transition, background-color $timing);
     }
 }
