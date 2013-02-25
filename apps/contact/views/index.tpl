@@ -1,5 +1,5 @@
 {extends 'default/views/base-two-col.tpl'}
-{block name='theme'}burgundy{/block}
+{block name='theme'}mustard{/block}
 {block name='title'}Say Hello{/block}
 {block name='heading'}Say Hello{/block}
 {block name='body'}
