@@ -1,5 +1,10 @@
+.form {
+    margin-bottom:$base-spacing-unit;
+}
+
 @include media-query(palm) {
-    .text-input {
+    .text-input, .btn {
         width:100%;
     }
+        
 }

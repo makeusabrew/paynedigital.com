@@ -54,23 +54,23 @@
                         Your IP address is captured for auditing purposes and your comment
                         will be moderated before it appears.</p>
                     </div>
-                    <form action="/{$post->getUrl()}/comment#comments" method="post">
+                    <form action="/{$post->getUrl()}/comment#comments" method="post" class="form">
                         <ul class="form-fields">
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
                             {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
                             {include file='default/views/helpers/field.tpl' field='content'}
                             {include file='default/views/helpers/field.tpl' field='notifications'}
+                            <li class="accessibility">
+                                {if isset($_errors) && isset($_errors.details)}
+                                    <p>{$_errors.details}</p>
+                                {/if}
+                                <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
+                                <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
+                            </li>
+                            <li>
+                                <input type="submit" value="Send" class="btn">
+                            </li>
                         </ul>
-                        <div class="accessibility">
-                            {if isset($_errors) && isset($_errors.details)}
-                                <p>{$_errors.details}</p>
-                            {/if}
-                            <label for="details">Please&mdash;don&rsquo;t fill this field in! <span class='required'>*</span></label>
-                            <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
-                        </div>
-                        <div class="form-actions">
-                            <input type="submit" value="Send" class="btn btn-primary" />
-                        </div>
                     </form>
                 </div>
             {else}

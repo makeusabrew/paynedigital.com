@@ -27,8 +27,10 @@ $logo_height: 75px;
             margin-left:$base-spacing-unit*2;
         }
 
-        &.active > a {
-            text-decoration:underline;
+        @include media-query(palm) {
+            &.active > a {
+                text-decoration:underline;
+            }
         }
 
     }
