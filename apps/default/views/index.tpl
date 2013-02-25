@@ -9,8 +9,9 @@
             {include file="default/views/includes/intro.tpl"}
 
             <p>You can find out more <a href="/about" class="pjax">about me</a>,
-            discover what <a href="/services" class="pjax">services I offer</a> or
-            read some of the <a href="/articles" class="pjax">technical articles</a>
+            discover what <a href="/services" class="pjax">services I offer</a>,
+            check out <a href="/work" class="pjax">some of my work</a> or
+            read some of the <a href="/articles" class="pjax">articles</a>
             I&rsquo;ve written.</p>
         </div>
     </div>
