@@ -1,7 +1,7 @@
 {extends file='default/views/base-two-col.tpl'}
 {block name='theme'}brown{/block}
 {block name="title"}Services{/block}
-{block name="heading"}Professional Services{/block}
+{block name="heading"}<span class="hide--palm">Professional</span> Services{/block}
 {block name='body'}
     <div class="service">
         <h2>Web<span class="hide--palm">site</span> Development</h2>
