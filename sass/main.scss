@@ -1,9 +1,13 @@
 .hero__title {
-    @include font-size(64px);
+    @include media-query(lap-and-up) {
+        @include font-size(64px);
+    }
 }
 
 .hero__copy {
-    @include font-size(30px);
+    @include media-query(lap-and-up) {
+        @include font-size(30px);
+    }
 }
 
 .inner {
