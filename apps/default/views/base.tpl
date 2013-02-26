@@ -38,7 +38,7 @@
     {/if}
 </head>
 <body class="theme theme--{block name="theme"}dark-blue{/block}">
-    <header class="header">
+    <div class="header">
         <div class="wrapper header__dolly">
             <a class="logo" href="/">
                 <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" width="72" />
@@ -59,11 +59,11 @@
             <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
         </form>
         *}
-    </header>
+    </div>
     <div class="inner">
         {block name=content}{/block}
     </div>
-    <footer class="footer">
+    <div class="footer">
         <div class="wrapper cf">
             <div class="footer__copyright">
                 &copy; 2013 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
@@ -73,7 +73,7 @@
                 Company No. 07277912. VAT No. 991909470.
             </div>
         </div>
-    </footer>
+    </div>
 
 
     <script src="/js/jquery.min.js"></script>
