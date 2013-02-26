@@ -75,15 +75,15 @@ describe "Admin area", ->
             it "should update the submit button's content", ->
                 assert.equal "Saved!", browser.query("input[type=submit]").value
 
-            describe "When viewing the home page", ->
+            describe "When viewing the articles landing page", ->
                 before (done) ->
-                    browser.visit "/", done
+                    browser.visit "/articles", done
 
                 it "should show the newly created post", ->
-                    assert.equal "A New Post", browser.text(".post:first h2 a")
+                    assert.equal "A New Post", browser.text(".article__heading:first")
 
                 it "should show the post intro copy", ->
-                    assert.equal "Here is some test introductory content.", browser.text(".post:first .content p:first")
+                    assert.equal "Here is some test introductory content.", browser.text(".article-content:first p:first")
 
                 describe "When following the link to the post", ->
                     before (done) ->
@@ -93,10 +93,10 @@ describe "Admin area", ->
                         assert.equal "/2011/09/a-new-post", browser.location.pathname
 
                     it "should show the correct title", ->
-                        assert.equal "A New Post", browser.text(".post:first h2 a")
+                        assert.equal "A New Post", browser.text("h1")
 
                     it "should show the body copy", ->
-                        assert.equal "Here is some test content.", browser.text(".post .content p")
+                        assert.equal "Here is some test content.", browser.text(".article-content:first p:first")
 
         describe "When approving a pending comment", ->
             before (done) ->

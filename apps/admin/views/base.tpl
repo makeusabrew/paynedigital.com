@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>{block name='title'}{setting value="site.title"}{/block}</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/admin/css/main.css" />
 </head>
 <body>
@@ -38,6 +37,7 @@
         {/block}
     </div>
     <script src="/js/jquery.min.js"></script>
+    <script src="/assets/js/base.min.js"></script>
     {block name='script'}
     {/block}
 </body>
