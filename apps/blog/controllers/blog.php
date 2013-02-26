@@ -36,8 +36,7 @@ class BlogController extends Controller {
     }
 
     public function index() {
-        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
-        $this->assign('archive', $archive);
+        $this->assignArchive();
 
         $this->assign('post', Table::factory('Posts')->newObject());
 
@@ -113,6 +112,9 @@ class BlogController extends Controller {
         $posts = Table::factory('Posts')->findAllForTag($this->getMatch('tag'));
         $this->assign('search_tag', $this->getMatch('tag'));
         $this->assign('posts', $posts);
+
+
+        $this->assignArchive();
     }
 
     public function view_month() {
@@ -120,8 +122,7 @@ class BlogController extends Controller {
         $this->assign('posts', $posts);
         $this->assign('month', str_replace("/", "-", $this->getMatch('month'))."-01");
 
-        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
-        $this->assign('archive', $archive);
+        $this->assignArchive();
     }
 
     public function burn_after_reading() {
@@ -160,5 +161,10 @@ class BlogController extends Controller {
             "/".$comment->post->getUrl()."?ok",
             "You have been unsubscribed from new comment notifications on this article"
         );
+    }
+
+    protected function assignArchive() {
+        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
+        $this->assign('archive', $archive);
     }
 }

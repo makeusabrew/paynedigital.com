@@ -7,7 +7,7 @@
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
         {foreachelse}
-            <p>Sorry - there are no articles for this month.</p>
+            <p>Sorry&mdash;there are no articles for this month.</p>
         {/foreach}
     </div>
 {/block}

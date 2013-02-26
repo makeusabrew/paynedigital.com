@@ -135,7 +135,7 @@ class BlogControllerTest extends PHPUnitTestController {
     public function testTagSearchWithNoResults() {
         $this->request->dispatch("/tag/no match found here");
 
-        $this->assertBodyHasContents("Sorry - no posts match this tag.");
+        $this->assertBodyHasContents("Sorry&mdash;no articles match this tag.");
     }
 
     public function testTagSearchWithDots() {
@@ -146,7 +146,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testTagSearchWithNumbers() {
         $this->request->dispatch("/tag/html5");
-        $this->assertBodyHasContents("Sorry - no posts match this tag.");
+        $this->assertBodyHasContents("Sorry&mdash;no articles match this tag.");
     }
 
     public function testCommentsStringShownCorrectly() {
@@ -154,14 +154,9 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
     }
 
-    public function testAuthorTwitterUrlsAreCorrect() {
-        $this->request->dispatch("/2011/09/another-test-post");
-        $this->assertBodyHasContents("<a href=\"http://twitter.com/anotherUser\"");
-    }
-
     public function testViewMonthWithMatchingPosts() {
         $this->request->dispatch("/2011/07");
-        $this->assertBodyHasContents("Posts from July 2011");
+        $this->assertBodyHasContents("Articles from July 2011");
         $this->assertBodyHasContents("Just A Test");
 
         $this->assertBodyDoesNotHaveContents("Another Test Post");
@@ -169,7 +164,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testViewMonthWithNoPosts() {
         $this->request->dispatch("/2011/01");
-        $this->assertBodyHasContents("Sorry - there are no posts for this month.");
+        $this->assertBodyHasContents("Sorry&mdash;there are no articles for this month.");
     }
 
     public function testIndexShowsMonthArchive() {
@@ -269,7 +264,7 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/2011/07/just-a-test");
 
         $this->assertBodyHasContentsInOrder("Comments");
-        $this->assertBodyHasContentsInOrder("Add Your Own");
+        $this->assertBodyHasContentsInOrder("Add a comment");
         $this->assertBodyDoesNotHaveContents("Comments are now closed.");
     }
 
