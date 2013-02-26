@@ -14,7 +14,7 @@
             <h2>Related Articles</h2>
             <ul>
                 {foreach from=$related_posts item="related_post"}
-                    <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
+                    <li><a href="/articles/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
                 {/foreach}
             </ul>
         </div>
@@ -54,7 +54,7 @@
                         Your IP address is captured for auditing purposes and your comment
                         will be moderated before it appears.</p>
                     </div>
-                    <form action="/{$post->getUrl()}/comment#comments" method="post">
+                    <form action="/articles/{$post->getUrl()}/comment#comments" method="post">
                         <ul class="form-fields">
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
                             {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
@@ -87,7 +87,7 @@
                 <ul>
                     </li>
                     {foreach from=$related_posts item="related_post"}
-                        <li><a href="/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
+                        <li><a href="/articles/{$related_post->getUrl()}">{$related_post->title|htmlentities8}</a></li>
                     {/foreach}
                 </ul>
             </div>

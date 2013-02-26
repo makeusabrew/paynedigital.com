@@ -9,7 +9,7 @@
 {foreach from=$articles item="article"}
     <item>
         <title>{$article->title}</title>
-        <link>{$base_href}{$article->getUrl()}</link>
+        <link>{$base_href}articles/{$article->getUrl()}</link>
         <description>
             <![CDATA[
                 {$article->content}

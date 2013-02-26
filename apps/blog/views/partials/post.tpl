@@ -1,6 +1,6 @@
 <div class='article{if isset($full_content)} article--full{/if}'>
     {if !isset($full_content)}
-        <h2 class="article__heading"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
+        <h2 class="article__heading"><a class="pjax" href="/articles/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     {/if}
     <div class='article-meta bump-out'>
         <div class='article-meta__published'>
@@ -11,11 +11,11 @@
             by <a href="http://twitter.com/{$post->user->twitter_username}" title="Follow {$post->user->forename} on twitter" class="author">{$post->user->getDisplayName()}</a>.
             *}
 
-            <a href='/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>
+            <a href='/articles/{$post->getUrl()}#comments'>{if $comment_count != 0}{$comment_count}{else}No{/if} comment{if $comment_count != 1}s{/if}</a>
             {if count($post->getTags())}
                 <span class="split-before">Tags:</span>
                 {foreach $post->getTags() as $tag}
-                    <a class href="/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$tag@last}, {/if}
+                    <a class href="/articles/tag/{$tag|lower|escape:'url'}">{if isset($search_tag) && $search_tag == $tag|lower}<mark>{/if}{$tag|htmlentities8}{if isset($search_tag) && $search_tag == $tag|lower}</mark>{/if}</a>{if !$tag@last}, {/if}
                 {/foreach}
             {/if}
         </div>
@@ -24,7 +24,7 @@
         {if !isset($full_content)}
             {$post->introduction}
 
-            <p><a class="pjax go" href="/{$post->getUrl()}">Full article ({$post->getWordCount()} words)</a></p>
+            <p><a class="pjax go" href="/articles/{$post->getUrl()}">Full article ({$post->getWordCount()} words)</a></p>
         {else}
             {$post->content|gistify}
         {/if}

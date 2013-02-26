@@ -30,11 +30,6 @@ var pjaxify = (function() {
         var i = _links.length,
             currentUrl = window.location.pathname;
 
-        if (currentUrl.search(/^\/\d{4}\/\d{2}/) !== -1 ||
-            currentUrl.search(/^\/tag\/[a-z0-9%\s\.]+$/) !== -1) {
-            currentUrl = "/articles";
-        }
-
         while (i--) {
             var href = _links[i].attr("href");
             if (href == currentUrl.substr(0, href.length)) {
