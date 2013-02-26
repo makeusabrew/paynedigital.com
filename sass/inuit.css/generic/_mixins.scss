@@ -242,6 +242,7 @@
  * We define some broad breakpoints in our vars file that are picked up here
  * for use in a simple media query mixin. Our options are:
  *
+ * palm-portrait
  * palm
  * lap
  * lap-and-up
@@ -255,10 +256,29 @@
  *
  * We work out your end points for you:
  */
+$palm-portrait-end:     $palm-landscape-start - 1px;
 $palm-end:              $lap-start - 1px;
 $lap-end:               $desk-start - 1px;
 
 @mixin media-query($media-query){
+
+    @if $media-query == palm-portrait{
+
+        @media only screen and (max-width:$palm-portrait-end) { @content; }
+
+    }
+
+    @if $media-query == palm-landscape{
+
+        @media only screen and (min-width:$palm-landscape-start) and (max-width:$palm-end) { @content; }
+
+    }
+
+    @if $media-query == palm-landscape-and-up{
+
+        @media only screen and (min-width:$palm-landscape-start) { @content; }
+
+    }
 
     @if $media-query == palm{
 

@@ -1,3 +1,6 @@
+$logo_height: 75px;
+$camera_height: 2px; // we need to track this so we can whip it back off the dolly's margin
+
 .header {
     padding-top:$base-spacing-unit;
     border-bottom:1px solid gray;
@@ -9,8 +12,6 @@
     }
 }
 
-$logo_height: 75px;
-
 .header__nav {
     margin-bottom:0;
 
@@ -18,33 +19,49 @@ $logo_height: 75px;
         line-height:$logo_height/2;
         margin-left:$half-spacing-unit;
 
-        @include media-query(lap-and-up) {
+        /**
+         * handle the awkward exceptions for *specific* sizes
+         * first of all
+         */
+        @include media-query(palm-portrait) {
+            &.active > a {
+                text-decoration:underline;
+            }
+        }
+
+        @include media-query(palm-landscape) {
+            &:first-child {
+
+                margin-left:$half-spacing-unit/2;
+            }
+        }
+
+        /**
+         * everything else is an additive, x-and-up MQ
+         */
+        @include media-query(palm-landscape-and-up) {
             line-height:$logo_height;
+        }
+
+        @include media-query(lap-and-up) {
             margin-left:$base-spacing-unit;
         }
 
         @include media-query(desk) {
             margin-left:$base-spacing-unit*2;
         }
-
-        @include media-query(palm) {
-            &.active > a {
-                text-decoration:underline;
-            }
-        }
-
     }
 }
 
-// we need to track this so we can whip it back off the dolly's margin
-$camera_height: 2px;
 
 // our dolly track for the camera
 .header__dolly {
     position:relative;
     margin-bottom:($base-spacing-unit*2)-$camera_height;
 
-    @include media-query(palm) {
+    // when we take the camera off make sure we restore
+    // the expected margin
+    @include media-query(palm-portrait) {
         margin-bottom:$base-spacing-unit;
     }
 }
@@ -55,7 +72,7 @@ $camera_height: 2px;
     height:$camera_height;
     margin-top:-$base-spacing-unit;
 
-    @include media-query(palm) {
+    @include media-query(palm-portrait) {
         display:none;
     }
 }
