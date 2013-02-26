@@ -1,9 +1,9 @@
-{extends file='base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
 {block name="title"}Error{/block}
+{block name=heading}
+    Oops! That's a {$code}
+{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>Oops! That's a {$code}</h2>
-    </div>
     {if $code == 404}
         <p>It looks like the page you're after doesn't exist - sorry about that. Try
         heading to the <a href="/">home page</a> and going from there. If you think this

@@ -49,24 +49,10 @@ class DefaultControllerTest extends PHPUnitTestController {
     public function testCompanyInformationShownInFooter() {
         $this->request->dispatch("/");
 
-        $this->assertBodyHasContentsInOrder("<div id='footer'>");
+        $this->assertBodyHasContentsInOrder("<footer class=\"footer\">");
         $this->assertBodyHasContentsInOrder("Moorland Avenue, Leeds, LS20 9EQ");
         $this->assertBodyHasContentsInOrder("Company No. 07277912");
         $this->assertBodyHasContentsInOrder("VAT No. 991909470");
-    }
-
-    public function testHomepageShowsPostArchive() {
-        $this->request->dispatch("/");
-
-        $this->assertBodyHasContentsInOrder("The Archive");
-        $this->assertBodyHasContentsInOrder("September 2011");
-        $this->assertBodyHasContentsInOrder("July 2011");
-    }
-
-    public function testHomepageShowsWordCount() {
-        $this->request->dispatch("/");
-
-        $this->assertBodyHasContents('href="/2011/09/another-test-post"><i class="icon-search"></i> Full article (20 words)');
     }
 
     public function testNotFoundPageShowsCorrectCopyWhenVerboseErrorsDisabled() {
