@@ -111,7 +111,7 @@
     {else}
         <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text-input{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
     {/if}
-    <span id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
+    <span id="{$field}_error" class="error__help">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
 </li>
 
 {assign var="coldata" value=null}
