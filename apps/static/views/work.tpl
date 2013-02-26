@@ -6,9 +6,8 @@
     <p>Much of the work I undertake is on behalf of agencies and as such
     it is not always possible to divulge full project details (often including
     the name of the end-client), but as much information about each piece
-    of work is given.</p>
-
-    <p>This page also highlights a selection of my own projects, most of which
+    of work is given. This page also highlights a selection of my own projects,
+    most of which
     are freely available on <a href="https://github.com">GitHub</a>.</p>
 
     <h2>Retail website rebuild</h2>
@@ -23,26 +22,38 @@
     website, in which I was employed as the sole backend developer. In additition,
     all frontend JavaScript was my responsibility.
     To ensure the utmost quality of the build over
-    1,500 automated tests were written over the course of the project (both
-    full-stack scenarios and unit tests), all of which are run through my
+    1,500 automated tests were written over the course of the project: both
+    unit tests and full-stack scenarios, the latter of which amount to over
+    7,000 lines of tests written in <a href="http://coffeescript.org/">CoffeeScript</a>
+    and run using <a href="http://zombie.labnotes.org/">ZombieJS</a>. All tests
+    are run through my
     Continuous Integration server&mdash;which also manages the automated
-    release process to both the test and the live, load-balanced cluster.</p>
+    release process to both the test and the live, load-balanced cluster. The backend
+    architecture is a fairly typical LAMP stack except for the use of
+    <a href="http://redis.io/">Redis</a> a session storage mechanism and key-value
+    cache store.</p>
 
     <h2>Jaoss Library &amp; Web Application Framework</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 3 years (ongoing)</span>
-        <a href="https://github.com/makeusabrew/jaoss">GitHub</a>
+        GitHub Repositories:
+        <a href="https://github.com/makeusabrew/jaoss">Library</a>,
+        <a href="https://github.com/makeusabrew/jaoss-web-template">Framework</a>
         <span class="split-before">
-            PHP, MVC, OOP
+            PHP, MVC, OOP, TDD
         </span>
     </p>
 
-    <p>The <a href="https://github.com/makeusabrew/jaoss">jaoss framework</a>
+    <p>The <a href="https://github.com/makeusabrew/jaoss">jaoss library</a>
     is an open source MVC PHP5 framework focused on speed and testability. It
     started life in May 2010 and has since been used in the vast majority of projects
     I&rsquo;ve built from quick-turnaround microsites to high-performance 
-    sites supporting tens of thousands of daily visitors.</p>
+    sites supporting tens of thousands of daily visitors. Although the library
+    is a <a href="https://github.com/makeusabrew/jaoss">standalone project</a>
+    it is more commonly used as part of the <a href="https://github.com/makeusabrew/jaoss-web-template">jaoss web template</a>
+    which includes the library as a
+    <a href="/2011/10/introduction-to-git-submodules">git submodule</a>.</p>
 
     <h2>Development &amp; deployment workflow consultancy</h2>
 
@@ -65,7 +76,7 @@
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1&frac12; years (ongoing)</span>
-        <a href="https://github.com/makeusabrew/bootbox">GitHub</a>
+        <a href="https://github.com/makeusabrew/bootbox">GitHub Repository</a>
         <span class="split-before">JavaScript</span>
     </p>
 
@@ -83,7 +94,7 @@
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1 month</span>
-        HTML5, CSS, JavaScript
+        HTML, CSS, JavaScript
     </p>
 
     <p>Undertaken on behalf of <a href="http://www.madebypi.co.uk/">MadeByPi</a>
@@ -100,7 +111,8 @@
     <p class="bump-out milli">
         <span class="split-after">Duration: 3 months</span>
         PHP, JavaScript, MySQL, Redis, WebSockets, ZeroMQ, NodeJS
-        <span class="split-before"><a href="http://faavorite.com">faavorite.com</a></span>
+        <span class="split-before"></span><a href="http://faavorite.com">faavorite.com</a>
+        <span class="split-before"></span><a href="/2012/04/faavorite-tech-stack">writeup</a>
     </p>
 
     <p>An out-of-hours project built with a friend to satisfy our shared

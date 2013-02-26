@@ -1,22 +1,34 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name='theme'}army{/block}
 {block name='title'}About{/block}
-{block name='heading'}About Payne Digital{/block}
+{block name='heading'}About Nick Payne{/block}
 {block name='body'}
-    <p>Payne Digital Ltd was founded in 2010 in order to provide specialised Web Application
-    and Mobile development. You won&#8217;t find a &#8216;meet the team&#8217; page just yet
-    because it would be rather thin on the ground; at present Payne Digital only has one 
-    employee&mdash;<a title="Hi there! My name's Nick Payne" href="http://twitter.com/makeusabrew">me</a>.</p> 
+    <p>With a BSc Hons degree in Software Engineering my primary skills lie in
+    a range programming languages&mdash;primarily PHP, JavaScript, Objective C and
+    less recently C plus plus&mdash;as well
+    as their commonly associated data stores: namely MySQL, MongoDB and more
+    recently Redis. I also have many years&rsquo; experience administering unix-like
+    systems from dedicated source-control servers, all-in-one LAMP stacks
+    and dedicated load-balanced clusters.</p>
 
-    <p>Don&#8217;t let that put you off&mdash;I work with a number of talented individuals
-    and companies to provide a full range of online services from Website Design &amp; Build, right up
-    to full <a href="http://faavorite.com" title="faavorite is a great example of a full scale web application">Web Application development</a>
-    and Mobile Application development. I also have a passionate interest in the <a href="http://en.wikipedia.org/wiki/Real-time_web">&lsquo;Real-time web&rsquo;</a>,
+    <p>In typical web parlance I am a &lsquo;backend&rsquo; developer though
+    the distinction between front and back end is not one I am fond of; 
+    <a href="https://github.com/makeusabrew/paynedigital.com">this website itself</a>
+    involves a number of best-practice &lsquo;frontend&rsquo; techniques
+    such as use of <a href="http://sass-lang.com/">Sass</a>, HTML5 APIs, CSS3, Responsive
+    Design and a sprinkling of progressive enhancement using JavaScript&mdash;none
+    of which conform to traditional &lsquo;backend&rsquo; expectations, though
+    none of which would make me consider myself a frontend developer.</p>
+
+    <p>I have a passionate interest in the <a href="http://en.wikipedia.org/wiki/Real-time_web">&lsquo;Real-time web&rsquo;</a>,
     in particular how it can be leveraged in tandem with HTML5 and associated technologies to
-    make immersive online multiplayer games using only a user&rsquo;s browser.</p> 
+    make immersive online multiplayer games using only a user&rsquo;s browser. I
+    am also a fervent supporter of open source software having contributed
+    to numerous projects and having a <a href="https://github.com/makeusabrew?tab=repositories">diverse portfolio
+    of my own work</a> online.</p> 
 
-    <p>I also offer Software Development consultancy &amp; training&mdash;please see
-    a more thorough <a href="/services">list of services</a> for more information, or by all means
+    <p>Please see
+    a thorough <a href="/services">list of services</a> for more information, or by all means
     <a href="/contact">get in touch</a> if you&rsquo;d like to speak to me directly.</p>
 {/block}
 {block name='secondary'}

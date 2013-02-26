@@ -5,7 +5,7 @@
 
     <p>Many of these articles are relevant to the
     <a class=pjax href="/services">professional services</a> I offer, others
-    less so&mdash;but one thing each article in the archive 
+    less so&mdash;but one thing each article
     has in common is that it&rsquo;s always something I&rsquo;m genuinely interested in
     or passionate about.</p>
 

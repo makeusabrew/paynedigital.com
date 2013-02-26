@@ -13,11 +13,13 @@
         and securely &amp; automatically deployed by a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a>
         server. Bespoke doesn&rsquo;t necessarily mean expensive&mdash;especially
         with years&rsquo; worth of reusable modules including a fully functional
-        CMS&mdash;but it <i>does</i>
+        <abbr title="Content Management System">CMS</abbr>&mdash;but it <i>does</i>
         mean fast, flexible and perfectly suited.</p>
 
         <p>Whilst I do usually work with my own battle-hardened PHP framework
-        which has been in active, open source development for three years, I am happy
+        which has been in
+        <a href="https://github.com/makeusabrew/jaoss">active,
+        open source development for three years</a>, I am happy
         to work with a variety of systems and languages depending on requirements.</p>
     </div>
 
