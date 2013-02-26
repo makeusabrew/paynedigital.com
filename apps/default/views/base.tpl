@@ -77,16 +77,22 @@
         </div>
     </footer>
 
-    {setting assign="doPlugins" value="site.social_plugins"}
 
     <script src="/js/jquery.min.js"></script>
+
     <script src="/js/jquery.pjax.js"></script>
     <script src="/js/pjaxify.js"></script>
     <script src="/js/linkify.js"></script>
+    <script src="/js/gistify.js"></script>
+
+    {setting assign="doPlugins" value="site.social_plugins"}
     {if $doPlugins}
         <script src="http://platform.twitter.com/widgets.js"></script>
     {/if}
+
     <script>
+        Gistify.init();
+
         $(function() {
             pjaxify.init();
             linkify.init();

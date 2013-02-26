@@ -9,6 +9,9 @@
 function smarty_modifier_gistify($text) {
     $text = preg_replace_callback("@\[gist id=(\d+)\]@s", function($matches) {
         $id = $matches[1];
+        //$js = file_get_contents("https://gist.github.com/".$id.".js");
+        return '<div id="g'.$id.'" class="gist--embedded"></div> <script src="https://gist.github.com/'.$id.'.js"></script>';
+        /*
         $key = Settings::getValue("site", "namespace")."_gist_".$id;
         $cache = Cache::getInstance();
         $gist = $cache->fetch($key);
@@ -35,6 +38,8 @@ function smarty_modifier_gistify($text) {
             Log::warn("Could not cache gist ID [".$id."]");
         }
         return $gist;
+        */
     }, $text);
+
     return $text;
 }
