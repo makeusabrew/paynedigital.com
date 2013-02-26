@@ -61,3 +61,11 @@
 .comments__author {
     font-weight:bold;
 }
+
+.gist {
+    font-size:$half-spacing-unit;
+    
+    table {
+        margin-bottom:0;
+    }
+}
