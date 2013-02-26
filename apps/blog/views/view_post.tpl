@@ -10,7 +10,7 @@
 {block name='body'}
     {include file='partials/post.tpl' full_content=true}
     {if isset($related_posts) && count($related_posts) > 0}
-        <div class='related'>
+        <div class='related article'>
             <h2>Related Articles</h2>
             <ul>
                 {foreach from=$related_posts item="related_post"}
@@ -21,7 +21,7 @@
     {/if}
 
     {* @todo can we class this? does any JS hook into the ID? *}
-    <div id="comments">
+    <div id="comments" class="bump-out comments">
         <h2>Comments</h2>
         <div class='existing'>
             {foreach from=$comments item="comment" name="loop"}
@@ -54,7 +54,7 @@
                         Your IP address is captured for auditing purposes and your comment
                         will be moderated before it appears.</p>
                     </div>
-                    <form action="/{$post->getUrl()}/comment#comments" method="post" class="form">
+                    <form action="/{$post->getUrl()}/comment#comments" method="post">
                         <ul class="form-fields">
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
                             {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
@@ -82,7 +82,7 @@
 {block name='secondary'}
     {if isset($related_posts) && count($related_posts) > 0}
         <div class="hide--palm">
-            <h2 class="gamma">Why not check out&hellip;</h2>
+            <h2 class="gamma">Related Articles</h2>
             <div class='related'>
                 <ul>
                     </li>
