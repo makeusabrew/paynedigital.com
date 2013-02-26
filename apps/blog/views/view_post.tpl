@@ -96,7 +96,6 @@
 {/block}
 {block name='script'}
     {$smarty.block.parent}
-    <script src="/js/forms.js"></script>
     <script>
         $(function() {
             Forms.handle("#comments form[method='post']", function(form) {

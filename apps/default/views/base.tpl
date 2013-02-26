@@ -80,10 +80,15 @@
 
     <script src="/js/jquery.min.js"></script>
 
-    <script src="/js/jquery.pjax.js"></script>
-    <script src="/js/pjaxify.js"></script>
-    <script src="/js/linkify.js"></script>
-    <script src="/js/gistify.js"></script>
+    {strip}
+    {asset type="js" add="apps/default/assets/js/deps/jquery.pjax.js"}
+    {asset type="js" add="apps/default/assets/js/pjaxify.js"}
+    {asset type="js" add="apps/default/assets/js/linkify.js"}
+    {asset type="js" add="apps/default/assets/js/forms.js"}
+    {asset type="js" add="apps/blog/assets/js/gistify.js"}
+    {asset type="js" file="base" min=true}
+    {/strip}
+
 
     {setting assign="doPlugins" value="site.social_plugins"}
     {if $doPlugins}
