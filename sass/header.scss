@@ -10,6 +10,14 @@ $camera_height: 2px; // we need to track this so we can whip it back off the dol
     a {
         color:#3d3d3d;
     }
+
+    /**
+     * firefox keeps the focus on links after they're clicked which in
+     * PJAX land is no good as we'll get a horrible outline
+     */
+    a:focus {
+        outline:none;
+    }
 }
 
 .header__nav {
