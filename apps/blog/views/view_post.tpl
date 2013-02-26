@@ -23,20 +23,20 @@
     {* @todo can we class this? does any JS hook into the ID? *}
     <div id="comments" class="bump-out comments">
         <h2>Comments</h2>
-        <div class='existing'>
+        <div class='comments__existing'>
             {foreach from=$comments item="comment" name="loop"}
-                <div class='comment'>
-                    <div>
-                        <span class='commenter'>{$comment->name|htmlentities8}</span>
-                        <time>{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
+                <div class='comments__comment'>
+                    <div class="comments__details">
+                        <span class="comments__author">{$comment->name|htmlentities8}</span>
+                        <time class="comments__time milli">{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
                     </div>
-                    <div class='copy'>
+                    <div class='comments__copy'>
                         {$comment->content|htmlentities8}
                     </div>
                 </div>
             {foreachelse}
                 {if !isset($comment_submitted)}
-                    <p class='no-comments'>There are currently no comments{if $post->commentsEnabled()} - feel free to add one!{else}.{/if}</p>
+                    <p class='comments__no-comments'>There are currently no comments{if $post->commentsEnabled()} - feel free to add one!{else}.{/if}</p>
                 {/if}
             {/foreach}
             {if isset($comment_submitted)}
@@ -74,7 +74,7 @@
                     </form>
                 </div>
             {else}
-                <p>Comments are now closed.</p>
+                <p class="comments__closed">Comments are now closed.</p>
             {/if}
         {/if}
     </div>

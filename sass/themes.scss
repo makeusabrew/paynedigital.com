@@ -28,6 +28,15 @@
         .bump-out {
             background:darken($background, 5%);
         }
+
+        .comments__comment:nth-child(odd) {
+            background:darken($background, 10%);
+        }
+
+        .comments__comment:nth-child(even) {
+            background:darken($background, 13%);
+        }
+
     }
 }
 
