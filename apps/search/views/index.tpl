@@ -6,6 +6,7 @@
         Search results
     {/if}
 {/block}
+{block name=theme}burgundy{/block}
 {block name='body'}
     <div class="articles">
         {if isset($search_query)}
