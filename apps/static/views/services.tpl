@@ -4,19 +4,19 @@
 {block name="heading"}Professional Services{/block}
 {block name='body'}
     <div class="service">
-        <h2>Website Development</h2>
+        <h2>Web<span class="hide--palm">site</span> Development</h2>
 
         <p>Everything from small microsites to high-traffic, load-balanced systems
         all built bespoke on the open source
         <a href="https://github.com/makeusabrew/jaoss">jaoss framework</a>,
         covered by <a href="http://en.wikipedia.org/wiki/Test_automation">automated tests</a>
-        and securely deployed by a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a>
+        and securely &amp; automatically deployed by a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a>
         server. Bespoke doesn&rsquo;t necessarily mean expensive&mdash;especially
         with years&rsquo; worth of reusable modules including a fully functional
         CMS&mdash;but it <i>does</i>
         mean fast, flexible and perfectly suited.</p>
 
-        <p>Whilst I do prefer to work with my own battle-hardened PHP framework
+        <p>Whilst I do usually work with my own battle-hardened PHP framework
         which has been in active, open source development for three years, I am happy
         to work with a variety of systems and languages depending on requirements.</p>
     </div>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="service">
-        <h2>Automated testing consultancy</h2>
+        <h2>Automated Testing<span class="hide--palm"> Consultancy</span></h2>
 
         <p>Every project I build is covered by its own 
         comprehensive automated test suite. The core
@@ -47,9 +47,9 @@
         tests which test user journeys using state-of-the-art tools to
         ensure that each application is incredibly robust.</p>
 
-        <p>Whilst the actual implementation of TDD or the wider concept of automated testing is not a
+        <p>Whilst the actual implementation of automated testing is not a
         service I offer per-se, it is something I am incredibly passionate
-        about and am always happy to discuss on a consultancy basis.</p>
+        about and am always happy to discuss on a case-by-case basis.</p>
     </div>
 
     <div class="service">

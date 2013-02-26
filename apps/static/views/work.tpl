@@ -11,17 +11,18 @@
     <p>This page also highlights a selection of my own projects, most of which
     are freely available on <a href="https://github.com">GitHub</a>.</p>
 
-    <h2>Full website redevelopment</h2>
+    <h2>Retail website rebuild</h2>
 
     <p class="bump-out milli">
         Duration: 3 months
         <span class="split-before">
-            PHP5, CI, TDD, JS, LAMP, JS
+            PHP5, CI, TDD, JavaScript, LAMP, MySQL, Redis
         </span>
 
     <p>This project involved a full rewrite of a national retailer&rsquo;s
-    website, in which I was employed as the sole backend and
-    JavaScript developer. To ensure the utmost quality of the build over
+    website, in which I was employed as the sole backend developer. In additition,
+    all frontend JavaScript was my responsibility.
+    To ensure the utmost quality of the build over
     1,500 automated tests were written over the course of the project (both
     full-stack scenarios and unit tests), all of which are run through my
     Continuous Integration server&mdash;which also manages the automated
@@ -39,7 +40,7 @@
 
     <p>The <a href="https://github.com/makeusabrew/jaoss">jaoss framework</a>
     is an open source MVC PHP5 framework focused on speed and testability. It
-    started life in May 2010 and has since been used the vast majority of projects
+    started life in May 2010 and has since been used in the vast majority of projects
     I&rsquo;ve built from quick-turnaround microsites to high-performance 
     sites supporting tens of thousands of daily visitors.</p>
 
@@ -48,14 +49,24 @@
     <p class="bump-out milli">Duration: 1 week</p>
 
     <p>This project was undertaken on behalf of
-    <a href="http://www.getsavvy.com/">Savvy Marketing</a> to...</p>
+    <a href="http://www.getsavvy.com/">Savvy Marketing</a> to implement the
+    foundations of a best-practice development and deployment process within
+    Savvy&rsquo;s web team. The work involved:</p>
+    <ul>
+        <li>Build &amp; configuration of two web servers, an <abbr title="Source Control Management">SCM</abbr> server
+        and a CI server</li>
+        <li>Installation and configuration of <a href="https://www.chiliproject.org/">Chiliproject</a>,
+        a web-based project management system</li>
+        <li>Configuration of multiple SCM mirrors and regular mirrored MySQL backups</li>
+        <li>Creation &amp; implementation of an automated project deployment process.</li>
+    </ul>
 
     <h2>Bootbox.js</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1&frac12; years (ongoing)</span>
         <a href="https://github.com/makeusabrew/bootbox">GitHub</a>
-        <span class="split-before">JS</span>
+        <span class="split-before">JavaScript</span>
     </p>
 
     <p>Originally a small set of wrapper functions written to scratch my own
@@ -68,9 +79,12 @@
     <a href="https://github.com/metaskills/mocha-phantomjs">mocha-phantomjs</a>
     to run the tests in a &lsquo;headless&rsquo; WebKit browser.</p>
 
-    <h2>Mobile HTML5 web app</h2>
+    <h2>Mobile HTML5 app</h2>
 
-    <p class="bump-out milli">Duration: 1 month</p>
+    <p class="bump-out milli">
+        <span class="split-after">Duration: 1 month</span>
+        HTML5, CSS, JavaScript
+    </p>
 
     <p>Undertaken on behalf of <a href="http://www.madebypi.co.uk/">MadeByPi</a>
     in Leeds, this project involved the development of a dedicated mobile site
@@ -83,7 +97,11 @@
 
     <h2>faavorite.com</h2>
 
-    <p class="bump-out milli">Duration: 3 months</p>
+    <p class="bump-out milli">
+        <span class="split-after">Duration: 3 months</span>
+        PHP, JavaScript, MySQL, Redis, WebSockets, ZeroMQ, NodeJS
+        <span class="split-before"><a href="http://faavorite.com">faavorite.com</a></span>
+    </p>
 
     <p>An out-of-hours project built with a friend to satisfy our shared
     desire for a better way of organising, sharing and discovering
@@ -101,12 +119,14 @@
 
     <h2>Lead Software Engineer</h2>
 
-    <p class="bump-out milli">Duration: 1 year</p>
+    <p class="bump-out milli">
+        <span class="split-after">Duration: 1 year</span>
+        PHP, JavaScript, MySQL, HTML, CSS
+    </p>
 
     <p>A one year contract for <a href="http://www.sky.com/">BSkyB</a>
     working as a software engineer (later moved into the role of team lead)
     for <a href="http://www.skybet.com/">Sky Bet</a> in central Leeeds.</p>
-
 {/block}
 {block name=secondary}
     {include file="default/views/includes/github.tpl"}
