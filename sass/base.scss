@@ -40,3 +40,7 @@ h4,h5,h6 {
 .inner a {
     font-weight:bold;
 }
+
+ul,ol {
+    margin-left:$base-spacing-unit;
+}
