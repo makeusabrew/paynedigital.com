@@ -39,21 +39,19 @@
 </head>
 <body class="theme theme--{block name="theme"}dark-blue{/block}">
     <header class="header">
-        <div class="wrapper">
+        <div class="wrapper header__dolly">
             <a class="logo" href="/">
                 <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" width="72" />
             </a>
-            <div class="header__dolly">
-                <ul class="nav  header__nav">
-                    <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                    <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                    <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                    <li{if $current_url == "/work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
-                    <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                    <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
-                </ul>
-                <div class="header__camera">
-                </div>
+            <ul class="nav  header__nav">
+                <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                <li{if $current_url == "/work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
+                <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+            </ul>
+            <div class="header__camera">
             </div>
         </div>
         {*

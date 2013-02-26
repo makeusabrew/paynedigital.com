@@ -2,12 +2,18 @@ var linkify = (function(window, document) {
     "use strict";
 
     var camera = null,
-        buffer = 2,
+        buffer = 4,
         timer  = null,
+        offset = 0,
         that   = {};
 
     that.init = function() {
         camera = $(".header__camera");
+
+        // all we're actually doing here is capturing
+        // $half-spacing-unit from SASS which we set as the
+        // width property of the camera to save us hard-coding it here
+        offset = camera.width();
 
         that.focus("li.active > a");
 
@@ -26,7 +32,7 @@ var linkify = (function(window, document) {
             var width = elem.width();
 
             camera.css({
-                "margin-left": left - buffer,
+                "margin-left": left - buffer - offset,
                 "width": width + (buffer*2)
             });
         }
