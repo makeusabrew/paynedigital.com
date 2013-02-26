@@ -1,4 +1,4 @@
-<div class='article{if isset($full_content)}--full{/if}'>
+<div class='article{if isset($full_content)} article--full{/if}'>
     {if !isset($full_content)}
         <h2 class="article__heading"><a class="pjax" href="/{$post->getUrl()}">{$post->title|htmlentities8}</a></h2>
     {/if}
