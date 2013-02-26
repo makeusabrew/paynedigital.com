@@ -40,8 +40,8 @@
                 {/if}
             {/foreach}
             {if isset($comment_submitted)}
-                <div class='alert-message success'>
-                    <p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p>
+                <div class='alert-message success bump-out'>
+                    <strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.
                 </div>
             {/if}
         </div>
@@ -68,7 +68,7 @@
                                 <input type="text" name="details" id="details" value="{if isset($smarty.post.details)}{$smarty.post.details|htmlentities8}{/if}" />
                             </li>
                             <li>
-                                <input type="submit" value="Send" class="btn">
+                                <input type="submit" value="Send" class="btn btn-primary">
                             </li>
                         </ul>
                     </form>
@@ -99,15 +99,12 @@
     <script>
         $(function() {
             Forms.handle("#comments form[method='post']", function(form) {
-                $("#comments .page-header").remove();
-                $(form).parents(".form-wrapper").remove();
-                $("#comments p.no-comments").remove();
-                $("#comments .existing").append(
-                    "<div class='alert alert-success' style='display:none;'> "+
-                        "<p><strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.</p> "+
+                $("#add-comment").html(
+                    "<div class='alert alert-success bump-out' style='display:none;'> "+
+                        "<strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly. "+
                     "</div>"
                 );
-                $("#comments .existing .alert").fadeIn('slow');
+                $("#add-comment .alert").fadeIn('slow');
             });
         });
     </script>

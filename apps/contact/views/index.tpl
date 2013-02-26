@@ -30,8 +30,8 @@
         $(function() {
             Forms.handle("form[method='post']", function(form) {
                 $("#content-wrapper").html(
-                    "<div class='alert alert--success' style='display:none;'> "+
-                        "<p><strong>Thanks!</strong> I appreciate you getting in touch and will get back to you shortly.</p> "+
+                    "<div class='alert alert--success bump-out' style='display:none;'> "+
+                        "<strong>Thanks!</strong> I appreciate you getting in touch and will get back to you shortly. "+
                     "</div>"
                 );
                 $("#content-wrapper .alert").fadeIn('slow');

@@ -25,4 +25,4 @@ describe "Contact page", ->
                 .pressButton "Send", done
 
             it "should show the correct thank you message", ->
-                assert.equal "Thanks! We appreciate you getting in touch and will get back to you shortly.", browser.text(".alert-success")
+                assert.equal "Thanks! I appreciate you getting in touch and will get back to you shortly.", browser.text(".alert--success")
