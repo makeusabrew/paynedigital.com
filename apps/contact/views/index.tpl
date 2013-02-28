@@ -8,7 +8,7 @@
         to availability enquiries. I&rsquo;ll make every effort to get back to you as soon as possible. If
         you&rsquo;d prefer you can always contact me on <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
 
-        <form action="/contact" method="post" class="form">
+        <form action="/contact" method="post" class="form" novalidate>
             <ul class="form-fields">
                 {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
                 {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}

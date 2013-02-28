@@ -18,6 +18,12 @@ textarea {
     border-radius:4px;
 }
 
+.btn-primary {
+    background-color:#e6e6e6;
+    color:#333333;
+    border:1px solid #bbb;
+}
+
 @include media-query(palm) {
     .text-input, .btn {
         width:100%;

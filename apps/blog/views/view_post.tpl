@@ -54,7 +54,7 @@
                         Your IP address is captured for auditing purposes and your comment
                         will be moderated before it appears.</p>
                     </div>
-                    <form action="/articles/{$post->getUrl()}/comment#comments" method="post">
+                    <form action="/articles/{$post->getUrl()}/comment#comments" method="post" novalidate>
                         <ul class="form-fields">
                             {include file='default/views/helpers/field.tpl' field='name' placeholder='Anonymous' required=false icon="icon-user"}
                             {include file='default/views/helpers/field.tpl' field='email' icon="icon-envelope"}
