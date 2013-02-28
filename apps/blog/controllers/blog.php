@@ -50,7 +50,7 @@ class BlogController extends Controller {
 
     public function add_comment() {
         if (!$this->post->commentsEnabled()) {
-            return $this->redirect("/".$this->post->getUrl());
+            return $this->redirect("/articles/".$this->post->getUrl());
         }
         // very basic honeypot stuff
         if ($this->request->getVar("details")) {
@@ -91,7 +91,7 @@ class BlogController extends Controller {
 
             if (!$this->request->isAjax()) {
                 $this->setFlash("comment_thanks");
-                return $this->redirect("/".$this->post->getUrl()."/comment/thanks#comments");
+                return $this->redirect("/articles/".$this->post->getUrl()."/comment/thanks#comments");
             }
         } else {
             $this->setErrors($comment->getErrors());
@@ -140,7 +140,7 @@ class BlogController extends Controller {
         $preview->save();
 
         $this->setFlash("preview_post_id", $post->getId());
-        return $this->redirect("/".$post->getUrl());
+        return $this->redirect("/articles/".$post->getUrl());
     }
 
     public function comment_unsubscribe() {
@@ -158,7 +158,7 @@ class BlogController extends Controller {
 
         $comment->save();
         return $this->redirect(
-            "/".$comment->post->getUrl()."?ok",
+            "/articles/".$comment->post->getUrl()."?ok",
             "You have been unsubscribed from new comment notifications on this article"
         );
     }
