@@ -27,5 +27,8 @@
 @import "forms";
 @import "footer";
 
+/**
+ * transition and theme stuff last so it can override defaults
+ */
 @import "transitions";
 @import "themes";
