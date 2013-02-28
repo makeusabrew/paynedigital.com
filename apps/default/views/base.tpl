@@ -41,7 +41,7 @@
     <div class="header">
         <div class="wrapper header__dolly">
             <a class="logo" href="/">
-                <img src="/img/placeholder-mono.png" alt="Payne Digital Ltd" height="75" width="72" />
+                <img src="/img/logo.svg" alt="Payne Digital Ltd" height="76" width="72" />
             </a>
             <ul class="nav  header__nav">
                 <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
