@@ -16,6 +16,12 @@ textarea {
 
 .btn {
     border-radius:4px;
+    padding: {
+        top:    $half-spacing-unit;
+        bottom: $half-spacing-unit;
+        left:   $base-spacing-unit;
+        right:  $base-spacing-unit;
+    }
 }
 
 .btn-primary {
