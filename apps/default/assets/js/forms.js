@@ -13,7 +13,13 @@ var Forms = {
             $(self).find(".error").removeClass("error");
             $(self).find(".error__help").html("");
             $.post($(self).attr("action"), $(self).serialize(), function(response) {
-                submit.removeAttr("disabled").removeClass("btn-disabled").val(buttonText);
+
+                // aesthetically a small delay on setting the button text
+                // back is a bit more appealing
+                setTimeout(function() {
+                    submit.removeAttr("disabled").removeClass("btn-disabled").val(buttonText);
+                }, 200);
+
                 if (response._errors != null) {
                     // deal with em
                     for (var i in response._errors) {
