@@ -1,6 +1,10 @@
 <?php
 
 class ContactController extends Controller {
+    public function init() {
+        $this->assign('section', 'contact');
+    }
+
     public function index() {
         if ($this->request->isGet()) {
             $this->assign("columns", Table::factory('Contacts')->getColumns());

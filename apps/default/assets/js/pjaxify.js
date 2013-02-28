@@ -57,10 +57,6 @@ var pjaxify = (function() {
             return a.attr("href").length - b.attr("href").length;
         });
 
-        if ($(".nav li.active").length == 0) {
-            linkNav();
-        }
-
         $(document).on("click", ".inner a", function(e) {
             removeTimestamp(this);
         });
@@ -88,6 +84,9 @@ var pjaxify = (function() {
             });
 
             linkify.focus("li.active > a");
+
+            // clear any search queries
+            $(".search__input").val("");
 
             // even though the HTML has *already* changed by this point,
             // set a miniscule timeout for FF, otherwise link transitions fail

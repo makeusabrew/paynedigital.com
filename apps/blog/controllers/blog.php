@@ -33,6 +33,7 @@ class BlogController extends Controller {
         }
 
         $this->assign('tags', Table::factory('Posts')->findAllTags());
+        $this->assign('section', 'articles');
     }
 
     public function index() {

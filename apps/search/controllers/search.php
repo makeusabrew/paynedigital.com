@@ -1,6 +1,10 @@
 <?php
 
 class SearchController extends Controller {
+    public function init() {
+        $this->assign('section', 'search');
+    }
+
     public function index() {
         $posts = Table::factory('Posts')->findAllForTagOrTitle($this->request->getVar('q'));
         $query = $this->request->getVar('q');

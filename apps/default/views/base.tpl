@@ -42,25 +42,25 @@
 <body class="theme theme--{block name="theme"}dark-blue{/block}">
     <div class="header">
         <div class="wrapper header__dolly">
+
+            <form action="/search" method="get" class="search   hide--palm  hide--lap">
+                <input type="text" class="search__input" placeholder="Search&hellip;" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
+            </form>
+
             <a class="logo" href="/">
                 {include file="default/views/includes/logo.tpl"}
             </a>
             <ul class="nav  header__nav">
-                <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                <li{if $current_url == "/work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
-                <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+                <li{if $section == "home"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                <li{if $section == "about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                <li{if $section == "services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                <li{if $section == "work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
+                <li{if $section == "articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                <li{if $section == "contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
             </ul>
             <div class="header__camera">
             </div>
         </div>
-        {*
-        <form action="/search" method="get">
-            <input type="text" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
-        </form>
-        *}
     </div>
     <div class="inner">
         {block name=content}{/block}
