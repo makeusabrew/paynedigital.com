@@ -32,9 +32,17 @@ h4,h5,h6 {
 .logo {
     float:left;
 
-    > img {
+    > img,
+    > svg {
         display:block;
     }
+}
+
+.pd-mark {
+    fill:#000000;
+    fill-opacity:1;
+    fill-rule:nonzero;
+    stroke:none;
 }
 
 .inner a {
