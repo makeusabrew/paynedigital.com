@@ -26,7 +26,7 @@ describe "Blog tests", ->
 
         it "should link to the posts correctly", ->
             href = browser.query(".article a:first").href
-            assert.equal "#{Zombie.site}2011/09/another-test-post", href
+            assert.equal "#{Zombie.site}articles/2011/09/another-test-post", href
 
         describe "When visiting an article page", ->
             before (done) ->
