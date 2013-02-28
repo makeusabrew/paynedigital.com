@@ -27,19 +27,16 @@ $camera_height: 2px; // we need to track this so we can whip it back off the dol
         line-height:$logo_height/2;
         margin-left:$half-spacing-unit;
 
+        &.active > a {
+            text-decoration:underline;
+        }
+
         /**
          * handle the awkward exceptions for *specific* sizes
          * first of all
          */
-        @include media-query(palm-portrait) {
-            &.active > a {
-                text-decoration:underline;
-            }
-        }
-
         @include media-query(palm-landscape) {
             &:first-child {
-
                 margin-left:$half-spacing-unit/2;
             }
         }
@@ -49,6 +46,10 @@ $camera_height: 2px; // we need to track this so we can whip it back off the dol
          */
         @include media-query(palm-landscape-and-up) {
             line-height:$logo_height;
+
+            &.active > a {
+                text-decoration:none;
+            }
         }
 
         @include media-query(lap-and-up) {
