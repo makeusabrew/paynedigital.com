@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 
+    <link rel="stylesheet" href="/css/style.min.css" />
+
     <script type="text/javascript" src="//use.typekit.net/fva2awi.js"></script>
     <script type="text/javascript">try{ Typekit.load(); }catch(e) { }</script>
 
@@ -13,7 +15,6 @@
 
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
-    <link rel="stylesheet" href="/css/style.min.css" />
     <link rel="shortcut icon" href=/favicon.png>
 
     {block name="head"}{/block}
