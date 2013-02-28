@@ -98,7 +98,9 @@
 
         $(function() {
             pjaxify.init();
-            linkify.init();
+            setTimeout(function() {
+                linkify.init();
+            }, 50);
         });
     </script>
     {block name="script"}{/block}
