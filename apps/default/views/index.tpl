@@ -3,7 +3,7 @@
 {block name='content'}
     <div class="wrapper hero">
         <h1 class="hero__title">
-            High performance web application &amp; real-time game development
+            High performance web application and real-time game development
         </h1>
         <div class="hero__copy">
             {include file="default/views/includes/intro.tpl"}
