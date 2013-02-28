@@ -1,4 +1,4 @@
-var linkify = (function(window, document) {
+var linkify = (function(window) {
     "use strict";
 
     var camera = null,
@@ -15,18 +15,28 @@ var linkify = (function(window, document) {
         // width property of the camera to save us hard-coding it here
         offset = camera.width();
 
-        that.focus("li.active > a");
+        var elem = $("li.active > a")
+        that.focusElem(elem);
 
         $(window).on("resize", function(e) {
             clearTimeout(timer);
+
             timer = setTimeout(function() {
-                that.focus("li.active > a");
+                that.focusElem(elem);
             }, 40);
         });
     };
 
     that.focus = function(selector) {
         var elem = $(selector);
+        return that.focusElem(elem);
+    };
+
+    that.focusElem = function(elem) {
+        if (camera.is(":hidden")) {
+            return;
+        }
+
         if (elem.length) {
             var left  = elem.position().left;
             var width = elem.width();
@@ -40,4 +50,4 @@ var linkify = (function(window, document) {
 
     return that;
 
-}(window, document));
+}(window));
