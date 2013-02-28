@@ -23,6 +23,8 @@
 {block name='secondary'}
     <div class="hide--palm">
         {$smarty.block.parent}
+
+        <p>Based in Guiseley, Leeds, LS20 9EQ.</p>
     </div>
 {/block}
 {block name='script'}

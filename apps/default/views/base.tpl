@@ -69,7 +69,6 @@
                 &copy; 2013 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
             </div>
             <div class="footer__company-info hide--palm">
-                Moorland Avenue, Leeds, LS20 9EQ.
                 Company No. 07277912. VAT No. 991909470.
             </div>
         </div>
