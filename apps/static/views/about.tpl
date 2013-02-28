@@ -3,12 +3,12 @@
 {block name='title'}About{/block}
 {block name='heading'}About Nick Payne{/block}
 {block name='body'}
-    <p>With a BSc Hons degree in Software Engineering my primary skills lie in
-    a range programming languages&mdash;primarily PHP, JavaScript, Objective C and
+    <p>With a BSc Honours degree in Software Engineering my primary skills lie in
+    a range of programming languages&mdash;primarily PHP, JavaScript, Objective C and
     less recently C plus plus&mdash;as well
     as their commonly associated data stores: namely MySQL, MongoDB and more
     recently Redis. I also have many years&rsquo; experience administering unix-like
-    systems from dedicated source-control servers, all-in-one LAMP stacks
+    systems from dedicated source-control servers, all-in-one <abbr title="Linux, Apache, MySQL and PHP">LAMP</abbr> stacks
     and dedicated load-balanced clusters.</p>
 
     <p>In typical web parlance I am a &lsquo;backend&rsquo; developer though

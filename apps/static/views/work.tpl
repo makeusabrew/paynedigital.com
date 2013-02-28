@@ -10,6 +10,8 @@
     most of which
     are freely available on <a href="https://github.com">GitHub</a>.</p>
 
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Retail website rebuild</h2>
 
     <p class="bump-out milli">
@@ -33,6 +35,8 @@
     <a href="http://redis.io/">Redis</a> a session storage mechanism and key-value
     cache store.</p>
 
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Jaoss Library &amp; Web Application Framework</h2>
 
     <p class="bump-out milli">
@@ -55,6 +59,8 @@
     which includes the library as a
     <a href="/2011/10/introduction-to-git-submodules">git submodule</a>.</p>
 
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Development &amp; deployment workflow consultancy</h2>
 
     <p class="bump-out milli">Duration: 1 week</p>
@@ -71,6 +77,8 @@
         <li>Configuration of multiple SCM mirrors and regular mirrored MySQL backups</li>
         <li>Creation &amp; implementation of an automated project deployment process.</li>
     </ul>
+
+    <hr class="rule    rule--ornament rule--dotted" />
 
     <h2>Bootbox.js</h2>
 
@@ -90,6 +98,8 @@
     <a href="https://github.com/metaskills/mocha-phantomjs">mocha-phantomjs</a>
     to run the tests in a &lsquo;headless&rsquo; WebKit browser.</p>
 
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Mobile HTML5 app</h2>
 
     <p class="bump-out milli">
@@ -99,12 +109,14 @@
 
     <p>Undertaken on behalf of <a href="http://www.madebypi.co.uk/">MadeByPi</a>
     in Leeds, this project involved the development of a dedicated mobile site
-    for which I was contracted as the sole front-end developer, meaning my
+    for which I was contracted as the sole frontend developer, meaning my
     remit was HTML5, CSS3 and JavaScript (unusually, no PHP!). The brief
     required avoiding pre-existing mobile libraries and as such presented
     numerous challenges involving the creation of a bespoke JavaScript
     library taking care of flyout navigation menus and iOS-style page sliding
     transitions.</p>
+
+    <hr class="rule    rule--ornament rule--dotted" />
 
     <h2>faavorite.com</h2>
 
@@ -128,6 +140,8 @@
     the typical LAMP stack including the use of <a href="http://redis.io/">redis</a>
     as both a news feed and caching mechanism along with ZeroMQ and WebSockets to
     deliver low-latency notifications to users.</p>
+
+    <hr class="rule    rule--ornament rule--dotted" />
 
     <h2>Lead Software Engineer</h2>
 

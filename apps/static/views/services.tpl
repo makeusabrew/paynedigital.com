@@ -23,6 +23,8 @@
         to work with a variety of systems and languages depending on requirements.</p>
     </div>
 
+    <hr class="rule    rule--dotted" />
+
     <div class="service">
         <h2>Web Application Development</h2>
 
@@ -37,6 +39,8 @@
 
     </div>
 
+    <hr class="rule    rule--dotted" />
+
     <div class="service">
         <h2>Automated Testing<span class="hide--palm"> Consultancy</span></h2>
 
@@ -49,10 +53,12 @@
         tests which test user journeys using state-of-the-art tools to
         ensure that each application is incredibly robust.</p>
 
-        <p>Whilst the actual implementation of automated testing is not a
+        <p>Whilst the actual <i>implementation</i> of automated testing is not a
         service I offer per-se, it is something I am incredibly passionate
         about and am always happy to discuss on a case-by-case basis.</p>
     </div>
+
+    <hr class="rule    rule--dotted" />
 
     <div class="service">
         <h2>API Development</h2>
@@ -64,6 +70,8 @@
         can provide advice or implementation of best-practice API designs.</p>
     </div>
 
+    <hr class="rule    rule--dotted" />
+
     <div class="service">
         <h2>Linux, Apache, MySQL &amp; PHP consultancy</h2>
         <ul> 
@@ -72,6 +80,8 @@
             <li>Robust, reusable and highly tuned PHP &amp; MySQL</li> 
         </ul> 
     </div>
+
+    <hr class="rule    rule--dotted" />
 
     <div class="service">
         <h2>Continuous Integration set up &amp; consultancy</h2>
