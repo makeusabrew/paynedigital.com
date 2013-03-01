@@ -2,18 +2,18 @@
 PathManager::setAppCacheTtl(120);
 
 PathManager::loadPaths(
-    array("/(?P<month>\d{4}/\d{2})", "view_month"),
-    array("/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)", "view_post"),
-    array("/tag/(?P<tag>[a-z0-9\s\.]+)", "search_tags"),
+    array("/articles/(?P<month>\d{4}/\d{2})", "view_month"),
+    array("/articles/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)", "view_post"),
+    array("/articles/tag/(?P<tag>[a-z0-9\s\.]+)", "search_tags"),
     array("/articles", "index"),
     array(
-        "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment",
+        "pattern"  => "/articles/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment",
         "action"   => "add_comment",
         "cacheTtl" => false,
         "method"   => "POST",
     ),
     array(
-        "pattern"  => "/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment/thanks",
+        "pattern"  => "/articles/(?P<month>\d{4}/\d{2})/(?P<url>[A-z0-9-]+)/comment/thanks",
         "action"   => "comment_thanks",
         "cacheTtl" => false,
     ),

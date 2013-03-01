@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ * sass --watch sass/style.scss:public/css/style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * Setup
+ */
+@import "vars";
+@import "inuit.css/inuit";
+
+/**
+ * lots of this is *heavily* influenced and in some parts
+ * lifted with thanks from @csswizardry's site:
+ * https://github.com/csswizardry/csswizardry.github.com/tree/master/css
+ */
+@import "base";
+@import "header";
+@import "main";
+@import "forms";
+@import "footer";
+
+/**
+ * transition and theme stuff last so it can override defaults
+ */
+@import "transitions";
+@import "themes";

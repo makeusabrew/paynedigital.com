@@ -31,14 +31,18 @@ class BlogController extends Controller {
             // get the fields for comments
             $this->assign('columns', Table::factory('Comments')->getColumns());
         }
+
+        $this->assign('tags', Table::factory('Posts')->findAllTags());
+        $this->assign('section', 'articles');
     }
 
     public function index() {
-        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
-        $this->assign('archive', $archive);
+        $this->assignArchive();
 
-        $this->assign('tags', Table::factory('Posts')->findAllTags());
         $this->assign('post', Table::factory('Posts')->newObject());
+
+        $posts = Table::factory('Posts')->findRecent(3);
+        $this->assign('posts', $posts);
     }
 
     public function view_post() {
@@ -47,7 +51,7 @@ class BlogController extends Controller {
 
     public function add_comment() {
         if (!$this->post->commentsEnabled()) {
-            return $this->redirect("/".$this->post->getUrl());
+            return $this->redirect("/articles/".$this->post->getUrl());
         }
         // very basic honeypot stuff
         if ($this->request->getVar("details")) {
@@ -88,7 +92,7 @@ class BlogController extends Controller {
 
             if (!$this->request->isAjax()) {
                 $this->setFlash("comment_thanks");
-                return $this->redirect("/".$this->post->getUrl()."/comment/thanks#comments");
+                return $this->redirect("/articles/".$this->post->getUrl()."/comment/thanks#comments");
             }
         } else {
             $this->setErrors($comment->getErrors());
@@ -109,6 +113,9 @@ class BlogController extends Controller {
         $posts = Table::factory('Posts')->findAllForTag($this->getMatch('tag'));
         $this->assign('search_tag', $this->getMatch('tag'));
         $this->assign('posts', $posts);
+
+
+        $this->assignArchive();
     }
 
     public function view_month() {
@@ -116,8 +123,7 @@ class BlogController extends Controller {
         $this->assign('posts', $posts);
         $this->assign('month', str_replace("/", "-", $this->getMatch('month'))."-01");
 
-        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
-        $this->assign('archive', $archive);
+        $this->assignArchive();
     }
 
     public function burn_after_reading() {
@@ -135,7 +141,7 @@ class BlogController extends Controller {
         $preview->save();
 
         $this->setFlash("preview_post_id", $post->getId());
-        return $this->redirect("/".$post->getUrl());
+        return $this->redirect("/articles/".$post->getUrl());
     }
 
     public function comment_unsubscribe() {
@@ -153,8 +159,13 @@ class BlogController extends Controller {
 
         $comment->save();
         return $this->redirect(
-            "/".$comment->post->getUrl()."?ok",
+            "/articles/".$comment->post->getUrl()."?ok",
             "You have been unsubscribed from new comment notifications on this article"
         );
+    }
+
+    protected function assignArchive() {
+        $archive = Table::factory('Posts')->findMonthsWithPublishedPosts();
+        $this->assign('archive', $archive);
     }
 }

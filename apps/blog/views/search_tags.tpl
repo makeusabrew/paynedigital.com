@@ -1,13 +1,13 @@
 {extends file='base.tpl'}
+{block name='heading'}
+    Articles tagged with &lsquo;{$search_tag}&rsquo;
+{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>Posts tagged with '{$search_tag}'</h2>
-    </div>
-    <div id='posts'>
+    <div class="articles">
         {foreach from=$posts item="post" name="posts"}
             {include file='blog/views/partials/post.tpl'}
         {foreachelse}
-            <p>Sorry - no posts match this tag.</p>
+            <p>Sorry&mdash;no articles match this tag.</p>
         {/foreach}
     </div>
 {/block}

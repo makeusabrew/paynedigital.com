@@ -1,0 +1,49 @@
+@mixin theme($name, $background, $colour) {
+    .theme--#{$name} {
+        background:$background;
+        color:$colour;
+
+        .inner {
+            border-bottom:1px solid desaturate($background, 80%);
+
+            a {
+                color:darken($colour, 15%);
+            }
+
+            a:hover {
+                //color:darken($colour, 5%);
+            }
+        }
+
+        .header__camera {
+            // the camera trail is quite hard to see so
+            // let's brighten it up a bit
+            background:lighten($background, 20%);
+        }
+
+        .article {
+            border-bottom:1px solid lighten($colour, 0%);
+        }
+
+        .bump-out {
+            background:darken($background, 5%);
+        }
+
+        .comments__comment:nth-child(odd) {
+            background:darken($background, 10%);
+        }
+
+        .comments__comment:nth-child(even) {
+            background:darken($background, 13%);
+        }
+    }
+}
+
+@include theme(dark-blue, #2b395f, #dbe2bb);
+@include theme(brown, #7F5F39, #e8e1D8);
+@include theme(green, #83A850, #ecead6);
+@include theme(redbrick, #C14444, rgb(255, 252, 178));
+@include theme(army, #3b4116, #ebe0c2);
+@include theme(burgundy, #451717, #EEF8ED);
+@include theme(purple, #2E1525, #EDF2E3);
+@include theme(mustard, #EABA22, #fff);

@@ -15,7 +15,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testDraftUrlReturnsErrorResponse() {
         try {
-            $this->request->dispatch("/2010/01/not-published-yet");
+            $this->request->dispatch("/articles/2010/01/not-published-yet");
         } catch (CoreException $e) {
             $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
             return;
@@ -25,7 +25,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
     public function testDeletedUrlReturnsErrorResponse() {
         try {
-            $this->request->dispatch("/2011/09/this-post-has-been-deleted");
+            $this->request->dispatch("/articles/2011/09/this-post-has-been-deleted");
         } catch (CoreException $e) {
             $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
             return;
@@ -38,13 +38,13 @@ class BlogControllerTest extends PHPUnitTestController {
             "name" => "Test Person",
             "email" => "test@example.com",
             "content" => "This is a test message",
-        ))->dispatch("/2011/09/another-test-post/comment");
+        ))->dispatch("/articles/2011/09/another-test-post/comment");
 
         $this->assertRedirect(true);
-        $this->assertRedirectUrl("/2011/09/another-test-post/comment/thanks#comments");
+        $this->assertRedirectUrl("/articles/2011/09/another-test-post/comment/thanks#comments");
         $this->request->reset();
 
-        $this->request->dispatch("/2011/09/another-test-post/comment/thanks");
+        $this->request->dispatch("/articles/2011/09/another-test-post/comment/thanks");
         $this->assertBodyHasContents("<strong>Thanks!</strong> Your comment has been submitted and will be reviewed shortly.");
     }
 
@@ -53,7 +53,7 @@ class BlogControllerTest extends PHPUnitTestController {
             "name" => "",
             "email" => "",
             "content" => "",
-        ))->dispatch("/2011/09/another-test-post/comment");
+        ))->dispatch("/articles/2011/09/another-test-post/comment");
 
         $this->assertBodyHasContents("Email Address is required");
         $this->assertBodyHasContents("Comment is required");
@@ -64,7 +64,7 @@ class BlogControllerTest extends PHPUnitTestController {
             "name" => "",
             "email" => "email@",
             "content" => "",
-        ))->dispatch("/2011/09/another-test-post/comment");
+        ))->dispatch("/articles/2011/09/another-test-post/comment");
 
         $this->assertBodyHasContents("Email Address is not a valid email address");
     }
@@ -75,14 +75,14 @@ class BlogControllerTest extends PHPUnitTestController {
             "email" => "test@example.com",
             "content" => "This is a test message",
             "details" => "foo",
-        ))->dispatch("/2011/09/another-test-post/comment");
+        ))->dispatch("/articles/2011/09/another-test-post/comment");
 
         $this->assertBodyHasContents("Please do not fill in the details field");
     }
 
     public function testCommentFormWithGetRequest() {
         try {
-            $this->request->dispatch("/2011/09/another-test-post/comment");
+            $this->request->dispatch("/articles/2011/09/another-test-post/comment");
         } catch (CoreException $e) {
             $this->assertEquals(CoreException::URL_NOT_FOUND, $e->getCode());
             return;
@@ -91,13 +91,13 @@ class BlogControllerTest extends PHPUnitTestController {
     }
 
     public function testCommentThanksPageWithoutCompletingCommentForm() {
-        $this->request->dispatch("/2011/09/another-test-post/comment/thanks");
+        $this->request->dispatch("/articles/2011/09/another-test-post/comment/thanks");
         $this->assertRedirect(true);
         $this->assertRedirectUrl("/");
     }
 
     public function testTagSearch() {
-        $this->request->dispatch("/tag/test");
+        $this->request->dispatch("/articles/tag/test");
 
         $this->assertBodyHasContents("Another Test Post");
         $this->assertBodyHasContents("This Is A Test Post");
@@ -107,7 +107,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
         $this->request->reset();
 
-        $this->request->dispatch("/tag/php");
+        $this->request->dispatch("/articles/tag/php");
 
         $this->assertBodyHasContents("Another Test Post");
 
@@ -117,7 +117,7 @@ class BlogControllerTest extends PHPUnitTestController {
 
         $this->request->reset();
 
-        $this->request->dispatch("/tag/music");
+        $this->request->dispatch("/articles/tag/music");
 
         $this->assertBodyHasContents("This Is A Test Post");
 
@@ -127,49 +127,44 @@ class BlogControllerTest extends PHPUnitTestController {
     }
 
     public function testTagSearchWithSpaces() {
-        $this->request->dispatch("/tag/server administration");
+        $this->request->dispatch("/articles/tag/server administration");
 
         $this->assertBodyHasContents("Testing Tags");
     }
 
     public function testTagSearchWithNoResults() {
-        $this->request->dispatch("/tag/no match found here");
+        $this->request->dispatch("/articles/tag/no match found here");
 
-        $this->assertBodyHasContents("Sorry - no posts match this tag.");
+        $this->assertBodyHasContents("Sorry&mdash;no articles match this tag.");
     }
 
     public function testTagSearchWithDots() {
-        $this->request->dispatch("/tag/node.js");
+        $this->request->dispatch("/articles/tag/node.js");
 
         $this->assertBodyHasContents("Testing Tags");
     }
 
     public function testTagSearchWithNumbers() {
-        $this->request->dispatch("/tag/html5");
-        $this->assertBodyHasContents("Sorry - no posts match this tag.");
+        $this->request->dispatch("/articles/tag/html5");
+        $this->assertBodyHasContents("Sorry&mdash;no articles match this tag.");
     }
 
     public function testCommentsStringShownCorrectly() {
-        $this->request->dispatch("/2011/09/another-test-post");
-        $this->assertBodyHasContents("<a href='/2011/09/another-test-post#comments'>2 comments</a>");
-    }
-
-    public function testAuthorTwitterUrlsAreCorrect() {
-        $this->request->dispatch("/2011/09/another-test-post");
-        $this->assertBodyHasContents("<a href=\"http://twitter.com/anotherUser\"");
+        $this->request->dispatch("/articles/2011/09/another-test-post");
+        $this->assertBodyHasContents("<a href='/articles/2011/09/another-test-post#comments'>2 comments</a>");
     }
 
     public function testViewMonthWithMatchingPosts() {
-        $this->request->dispatch("/2011/07");
-        $this->assertBodyHasContents("Posts from July 2011");
+        $this->request->dispatch("/articles/2011/07");
+        $this->assertBodyHasContents("Articles from July 2011");
         $this->assertBodyHasContents("Just A Test");
 
         $this->assertBodyDoesNotHaveContents("Another Test Post");
     }
 
     public function testViewMonthWithNoPosts() {
-        $this->request->dispatch("/2011/01");
-        $this->assertBodyHasContents("Sorry - there are no posts for this month.");
+        $this->request->dispatch("/articles/2011/01");
+        $this->assertBodyHasContents("Sorry&mdash;there are no articles for this month.");
     }
 
     public function testIndexShowsMonthArchive() {
@@ -202,20 +197,20 @@ class BlogControllerTest extends PHPUnitTestController {
     public function testBurnAfterReadingRedirectsWithValidIdentifier() {
         $this->request->dispatch("/burn-after-reading/AbDx041F");
         $this->assertRedirect(true);
-        $this->assertRedirectUrl("/2010/01/not-published-yet");
+        $this->assertRedirectUrl("/articles/2010/01/not-published-yet");
 
         $this->request->reset();
-        $this->request->dispatch("/2010/01/not-published-yet");
+        $this->request->dispatch("/articles/2010/01/not-published-yet");
         $this->assertBodyHasContents("This post hasn't been published");
     }
 
     public function testHeadBlockAddsContentWhenProvided() {
-        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->request->dispatch("/articles/2011/09/this-is-a-test-post");
         $this->assertBodyHasContents("<link rel=\"stylesheet\" type=\"text/css\" href=\"/foo/bar.css\" />", Table::factory('Posts')->read(3)->head_block);
     }
 
     public function testScriptBlockAddsContentWhenProvided() {
-        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->request->dispatch("/articles/2011/09/this-is-a-test-post");
         $this->assertBodyHasContents("<script type=\"text/javascript\" src=\"/foo/bar.js\"></script>", Table::factory('Posts')->read(3)->script_block);
     }
 
@@ -223,11 +218,11 @@ class BlogControllerTest extends PHPUnitTestController {
         $this->request->dispatch("/comment-unsubscribe/a80cf660b49c20ec5ee5e79988c25549a13e50aa");
 
         $this->assertRedirect(true);
-        $this->assertRedirectUrl("/2011/09/another-test-post?ok");
+        $this->assertRedirectUrl("/articles/2011/09/another-test-post?ok");
 
         $this->request->reset();
         $this->request->setParams(array("ok" => true));
-        $this->request->dispatch("/2011/09/another-test-post");
+        $this->request->dispatch("/articles/2011/09/another-test-post");
         $this->assertBodyHasContents("You have been unsubscribed from new comment notifications on this article");
     }
 
@@ -247,34 +242,34 @@ class BlogControllerTest extends PHPUnitTestController {
     }
 
     public function testRelatedArticlesHeaderNotShownIfNoneSet() {
-        $this->request->dispatch("/2011/09/this-is-a-test-post");
+        $this->request->dispatch("/articles/2011/09/this-is-a-test-post");
         $this->assertBodyDoesNotHaveContents("Related Articles");
     }
 
     public function testRelatedArticlesShownIfSet() {
-        $this->request->dispatch("/2011/09/testing-tags");
+        $this->request->dispatch("/articles/2011/09/testing-tags");
         $this->assertBodyHasContentsInOrder("Related Articles");
         $this->assertBodyHasContentsInOrder("Another Test Post");
         $this->assertBodyHasContentsInOrder("This Is A Test Post");
     }
 
     public function testRelatedArticlesOnlyShowPublished() {
-        $this->request->dispatch("/2011/07/just-a-test");
+        $this->request->dispatch("/articles/2011/07/just-a-test");
         $this->assertBodyHasContentsInOrder("Related Articles");
         $this->assertBodyHasContentsInOrder("This Is A Test Post");
         $this->assertBodyDoesNotHaveContents("This post hasn't been published");
     }
 
     public function testCommentsFormShownOnEnabledPost() {
-        $this->request->dispatch("/2011/07/just-a-test");
+        $this->request->dispatch("/articles/2011/07/just-a-test");
 
         $this->assertBodyHasContentsInOrder("Comments");
-        $this->assertBodyHasContentsInOrder("Add Your Own");
+        $this->assertBodyHasContentsInOrder("Add a comment");
         $this->assertBodyDoesNotHaveContents("Comments are now closed.");
     }
 
     public function testCommentsFormNotShownOnDisabledPost() {
-        $this->request->dispatch("/2011/03/test-post-for-comments");
+        $this->request->dispatch("/articles/2011/03/test-post-for-comments");
 
         $this->assertBodyHasContentsInOrder("Comments");
         $this->assertBodyHasContentsInOrder("Comments are now closed.");
@@ -288,12 +283,12 @@ class BlogControllerTest extends PHPUnitTestController {
             "name" => "Valid Comment",
             "email" => "test@example.com",
             "content" => "This is a valid message, but comments are disabled",
-        ))->dispatch("/2011/03/test-post-for-comments/comment");
+        ))->dispatch("/articles/2011/03/test-post-for-comments/comment");
 
         $emails = TestEmailHandler::getSentEmails();
         $this->assertEquals(0, count($emails));
 
         $this->assertRedirect(true);
-        $this->assertRedirectUrl("/2011/03/test-post-for-comments");
+        $this->assertRedirectUrl("/articles/2011/03/test-post-for-comments");
     }
 }

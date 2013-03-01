@@ -1,23 +1,24 @@
-{extends file='default/views/base.tpl'}
+{extends 'default/views/base-two-col.tpl'}
+{block name='heading'}
+    {if isset($search_query)}
+        Search results for &lsquo;{$search_query|htmlentities8}&rsquo;
+    {else}
+        Search results
+    {/if}
+{/block}
+{block name=theme}burgundy{/block}
 {block name='body'}
-    <div class='page-header'>
-        {if isset($search_query)}
-            <h2>Results for '{$search_query|htmlentities8}'</h2>
-        {else}
-            <h2>Search</h2>
-        {/if}
-    </div>
-    <div id='posts'>
+    <div class="articles">
         {if isset($search_query)}
             {foreach from=$posts item="post" name="posts"}
                 {include file='blog/views/partials/post.tpl'}
             {foreachelse}
-                <p>Sorry - no posts match this query. This search facility will be
+                <p>Sorry&mdash;no articles match this query. This search facility will be
                 improved over time to actually search the entire site but for now
-                is limited to only searching blog post titles and tags.</p>
+                is limited to only searching article titles and tags.</p>
             {/foreach}
         {else}
-            <p>Sorry - you must enter a query.</p>
+            <p>Sorry&mdash;you must enter a query.</p>
         {/if}
     </div>
 {/block}

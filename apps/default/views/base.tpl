@@ -4,106 +4,114 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{block name='title'}{setting value="site.title"}{/block}</title>
+    <meta name="format-detection" content="telephone=no" />
+    <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
+
+    <link rel="stylesheet" href="/css/style.min.css" />
+
+    <script src="//use.typekit.net/fva2awi.js"></script>
+    <script>
+        // we need this global variable for other on DOM ready scripts to look for
+        var typekitActive = false;
+        try {
+
+            Typekit.load({
+                active: function() {
+                    typekitActive = true;
+                }
+            });
+
+        } catch (e) { }
+    </script>
+
     {newrelic section="header"}
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.responsive.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="https://gist.github.com/stylesheets/gist/embed.css" />
+
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
     <link rel="shortcut icon" href=/favicon.png>
+
     {block name="head"}{/block}
-    {include file='default/views/helpers/google_analytics.tpl'}
+
+    {setting value="analytics.enabled" assign="stats_enabled"}
+    {if $stats_enabled}
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{setting value="analytics.account_no"}']);
+            _gaq.push(['_setDomainName', 'none']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    {/if}
 </head>
-<body class='{block name="theme"}default{/block}'>
-    <div class='navbar navbar-fixed-top'>
-        <div class='navbar-inner'>
-            <div class='container'>
-                <a href='/' class=brand>Payne Digital</a>
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="nav-collapse">
-                    <ul class='nav'>
-                        <li{if $current_url == "/"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                        <li{if $current_url == "/about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                        <li{if $current_url == "/services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                        <li{if $current_url == "/articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                        <li{if $current_url == "/contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
-                    </ul>
-                    <form action="/search" method="get" class="navbar-search pull-right supplementary">
-                        <input type="text" class="search-query" placeholder="Search" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
-                    </form>
-                </div>
+<body class="theme theme--{block name="theme"}dark-blue{/block}">
+    <div class="header">
+        <div class="wrapper header__dolly">
+
+            <form action="/search" method="get" class="search   hide--palm  hide--lap">
+                <input type="text" class="search__input" placeholder="Search&hellip;" name="q"{if isset($smarty.get.q)} value="{$smarty.get.q|escape:'html'}"{/if} />
+            </form>
+
+            <a class="logo" href="/">
+                {include file="default/views/includes/logo.tpl"}
+            </a>
+            <ul class="nav  header__nav">
+                <li{if $section == "home"} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                <li{if $section == "about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                <li{if $section == "services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                <li{if $section == "work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
+                <li{if $section == "articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                <li{if $section == "contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+            </ul>
+            <div class="header__camera">
             </div>
         </div>
     </div>
-    <div id='header'>
-        <div class='container'>
-            <h1>Web, Mobile, Apps &amp; Games.<span class='supplementary'> Whatever you need, we can build it.</span></h1>
-        </div>
+    <div class="inner">
+        {block name=content}{/block}
     </div>
-    <div class='container'>
-        <div id='inner' class='row'>
-            {if isset($messages) && count($messages)}
-                <div class='container'>
-                    {foreach from=$messages item="message"}
-                        {* other twitter styles are: error, warning, success *}
-                        <div class="alert alert-info">
-                            <a class="close" href="#">&times;</a>
-                            <p>{$message}</p>
-                        </div>
-                    {/foreach}
-                </div>
-            {/if}
-            <div class='span8'>
-                {block name="body"}
-                    <p>Your body content goes here.</p>
-                {/block}
+    <div class="footer">
+        <div class="wrapper cf">
+            <div class="footer__copyright">
+                &copy; 2013 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
             </div>
-            <div class='span4'>
-                {block name="secondary"}
-                    <div class='supplementary'>
-                        <p>
-                            <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                            (like this one),
-                            web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                            <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-                        </p>
-                        <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-                        probably <a href="/services">offer you</a> more than you think.</p>
-                    </div>
-                {/block}
+            <div class="footer__company-info hide--palm">
+                Company No. 07277912. VAT No. 991909470.
             </div>
-        </div>
-    </div>
-    <div id='footer'>
-        <div class='well'>
-            <span class='copyright'>
-                &copy; 2012 Payne Digital Ltd
-            </span>
-            <span class='company-info'>
-                13 Moorland Avenue, Leeds, LS20 9EQ.
-                <span class='supplementary'>Company No. 07277912. VAT No. 991909470.</span>
-            </span>
         </div>
     </div>
 
-    {setting assign="doPlugins" value="site.social_plugins"}
 
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.pjax.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/pjaxify.js"></script>
+
+    {strip}
+    {asset type="js" add="apps/default/assets/js/deps/jquery.pjax.js"}
+    {asset type="js" add="apps/default/assets/js/pjaxify.js"}
+    {asset type="js" add="apps/default/assets/js/linkify.js"}
+    {asset type="js" add="apps/default/assets/js/forms.js"}
+    {asset type="js" add="apps/blog/assets/js/gistify.js"}
+    {asset type="js" file="base" min=true}
+    {/strip}
+
+
+    {setting assign="doPlugins" value="site.social_plugins"}
     {if $doPlugins}
         <script src="http://platform.twitter.com/widgets.js"></script>
     {/if}
+
     <script>
+        Gistify.init();
+
         $(function() {
             pjaxify.init();
+            linkify.init();
         });
     </script>
     {block name="script"}{/block}
@@ -112,26 +120,12 @@
 </body>
 </html>
 {else}
-<title>{block name='title'}{setting value="site.title"}{/block}</title>
-<div class='span8'>
-    {block name="body"}{/block}
-</div>
-<div class='span4'>
-    {block name="secondary"}
-        <div class='supplementary'>
-            <p>
-                <b>Hello!</b> Payne Digital make all sorts of things - from <a href="https://github.com/makeusabrew/paynedigital.com">websites</a>
-                (like this one),
-                web apps, mobile apps &amp; games all the way through to more <a href="https://github.com/makeusabrew/arduinode">experimental</a>
-                <a href="https://github.com/makeusabrew/goursome">demos</a> using cutting edge <a href="http://nodejs.org">software</a> and <a href="http://arduino.cc">hardware</a>.
-            </p>
-            <p>We're a young company, but don't let that put you off. We're enthusiastic and can
-            probably <a href="/services">offer you</a> more than you think.</p>
-        </div>
-    {/block}
-</div>
-<div style='display:none' class='theme'>
-    {block name="theme"}default{/block}
+<title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
+
+{block name=content}{/block}
+
+<div style='display:none' class='theme-identifier'>
+    {block name="theme"}dark-blue{/block}
 </div>
 <div style='display:none' class='script'>
     {block name="script"}{/block}

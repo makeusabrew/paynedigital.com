@@ -1,0 +1,51 @@
+html {
+    background: #141414;
+}
+
+body {
+    font-family:rooney-web, serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -webkit-font-smoothing:antialiased;
+    /* make sure if no theme kicks in our text is legible */
+    background:#000;
+    color:#fff;
+}
+
+.wrapper {
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-right:$half-spacing-unit;
+    padding-left:$half-spacing-unit;
+
+    @include media-query(desk) {
+        max-width:1100px;
+    }
+}
+
+h1,h2,h3,
+h4,h5,h6 {
+    font-family:"proxima-nova";
+    text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+
+.logo {
+    float:left;
+
+    > img,
+    > svg {
+        display:block;
+    }
+}
+
+.pd-mark {
+    fill:#141414;
+}
+
+.inner a {
+    font-weight:bold;
+}
+
+ul,ol {
+    margin-left:$base-spacing-unit;
+}

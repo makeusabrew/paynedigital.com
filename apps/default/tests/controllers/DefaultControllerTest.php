@@ -31,10 +31,10 @@ class DefaultControllerTest extends PHPUnitTestController {
             array("/contact", "index", "Contact", "contact"),
             array("/contact/thanks", "thanks", "Contact", "contact", 303, true, "/"),
             array("/articles", "index", "Blog", "blog"),
-            array("/2011/01", "view_month", "Blog", "blog"),
-            array("/2011/09/another-test-post", "view_post", "Blog", "blog"),
-            array("/2011/09/another-test-post/comment/thanks", "comment_thanks", "Blog", "blog", 303, true, "/"),
-            array("/tag/foo", "search_tags", "Blog", "blog"),
+            array("/articles/2011/01", "view_month", "Blog", "blog"),
+            array("/articles/2011/09/another-test-post", "view_post", "Blog", "blog"),
+            array("/articles/2011/09/another-test-post/comment/thanks", "comment_thanks", "Blog", "blog", 303, true, "/"),
+            array("/articles/tag/foo", "search_tags", "Blog", "blog"),
             array("/search", "index", "Search", "search"),
             array("/feed.xml", "index", "Feed", "feed"),
             array("/feed.rss", "index", "Feed", "feed"),
@@ -49,24 +49,9 @@ class DefaultControllerTest extends PHPUnitTestController {
     public function testCompanyInformationShownInFooter() {
         $this->request->dispatch("/");
 
-        $this->assertBodyHasContentsInOrder("<div id='footer'>");
-        $this->assertBodyHasContentsInOrder("13 Moorland Avenue, Leeds, LS20 9EQ");
+        $this->assertBodyHasContentsInOrder("<div class=\"footer\">");
         $this->assertBodyHasContentsInOrder("Company No. 07277912");
         $this->assertBodyHasContentsInOrder("VAT No. 991909470");
-    }
-
-    public function testHomepageShowsPostArchive() {
-        $this->request->dispatch("/");
-
-        $this->assertBodyHasContentsInOrder("The Archive");
-        $this->assertBodyHasContentsInOrder("September 2011");
-        $this->assertBodyHasContentsInOrder("July 2011");
-    }
-
-    public function testHomepageShowsWordCount() {
-        $this->request->dispatch("/");
-
-        $this->assertBodyHasContents('href="/2011/09/another-test-post"><i class="icon-search"></i> Full article (20 words)');
     }
 
     public function testNotFoundPageShowsCorrectCopyWhenVerboseErrorsDisabled() {

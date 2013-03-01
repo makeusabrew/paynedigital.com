@@ -48,7 +48,6 @@
             });
         });
     </script>
-    <script src="/js/forms.js"></script>
     <script>
         $(function() {
             Forms.handle("form[method='post']", function(form) {

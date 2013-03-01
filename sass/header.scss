@@ -1,0 +1,91 @@
+$logo_height: 76px;
+$camera_height: 2px; // we need to track this so we can whip it back off the dolly's margin
+
+.header {
+    padding-top:$base-spacing-unit;
+    border-bottom:1px solid gray;
+    background:white;
+    margin-bottom:$base-spacing-unit;
+
+    a {
+        color:#3d3d3d;
+    }
+
+    /**
+     * firefox keeps the focus on links after they're clicked which in
+     * PJAX land is no good as we'll get a horrible outline
+     */
+    a:focus {
+        outline:none;
+    }
+}
+
+.header__nav {
+    margin-bottom:0;
+
+    > li {
+        line-height:$logo_height/2;
+        margin-left:$half-spacing-unit;
+
+        &.active > a {
+            text-decoration:underline;
+        }
+
+        /**
+         * handle the awkward exceptions for *specific* sizes
+         * first of all
+         */
+        @include media-query(palm-landscape) {
+            margin-left:$half-spacing-unit/2;
+        }
+
+        /**
+         * everything else is an additive, x-and-up MQ
+         */
+        @include media-query(palm-landscape-and-up) {
+            line-height:$logo_height;
+
+            &.active > a {
+                text-decoration:none;
+            }
+        }
+
+        @include media-query(lap-and-up) {
+            margin-left:$base-spacing-unit;
+        }
+
+        @include media-query(desk) {
+            margin-left:$base-spacing-unit*2;
+        }
+    }
+}
+
+
+// our dolly track for the camera
+.header__dolly {
+    position:relative;
+    margin-bottom:($base-spacing-unit*2)-$camera_height;
+
+    // when we take the camera off make sure we restore
+    // the expected margin
+    @include media-query(palm-portrait) {
+        margin-bottom:$base-spacing-unit;
+    }
+}
+
+.header__camera {
+    width:$half-spacing-unit;
+
+    @include media-query(palm-landscape) {
+        &:first-child {
+            width:$half-spacing-unit/2;
+        }
+    }
+
+    height:$camera_height;
+    margin-top:-$base-spacing-unit;
+
+    @include media-query(palm-portrait) {
+        display:none;
+    }
+}

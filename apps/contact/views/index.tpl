@@ -1,39 +1,39 @@
-{extends file='default/views/base.tpl'}
-{block name='theme'}orange{/block}
-{block name="title"}{$smarty.block.parent} - Say Hello{/block}
+{extends 'default/views/base-two-col.tpl'}
+{block name='theme'}mustard{/block}
+{block name='title'}Say Hello{/block}
+{block name='heading'}Say Hello{/block}
 {block name='body'}
-    <div class='page-header'>
-        <h2>Say Hello</h2>
-    </div>
-
     <div id='content-wrapper'>
-        <p>We'd love to hear from you! No, seriously... feel free to get in touch about
-        anything at all. If you're not sure why you'd want to then why not check out
-        the <a href="/services">services we offer</a>?</p>
-        <form class="form-horizontal" action="/contact" method="post">
-            {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
-            {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
-            {include file="default/views/helpers/field.tpl" field="content"}
-            <div class="form-actions">
-                <input type="submit" value="Send" class="btn btn-primary" />
-            </div>
+        <p>Please feel free to get in touch about anything from a simple &lsquo;hello&rsquo;
+        to availability enquiries. I&rsquo;ll make every effort to get back to you as soon as possible. If
+        you&rsquo;d prefer you can always contact me on <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
+
+        <form action="/contact" method="post" class="form" novalidate>
+            <ul class="form-fields">
+                {include file="default/views/helpers/field.tpl" field="name" icon="icon-user"}
+                {include file="default/views/helpers/field.tpl" field="email" icon="icon-envelope"}
+                {include file="default/views/helpers/field.tpl" field="content"}
+                <li>
+                    <input type="submit" value="Send" class="btn btn-primary" />
+                </li>
+            </ul>
         </form>
     </div>
 {/block}
 {block name='secondary'}
-    {$smarty.block.parent}
-    <p>You might get just as quick a response <a href="http://twitter.com/makeusabrew">on twitter</a> instead.</p>
+    <div class="hide--palm">
+        {$smarty.block.parent}
 
-{*<a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @makeusabrew</a>*}
+        <p>Based in Guiseley, Leeds, LS20 9EQ.</p>
+    </div>
 {/block}
 {block name='script'}
-    <script src="/js/forms.js"></script>
     <script>
         $(function() {
             Forms.handle("form[method='post']", function(form) {
                 $("#content-wrapper").html(
-                    "<div class='alert alert-success' style='display:none;'> "+
-                        "<p><strong>Thanks!</strong> We appreciate you getting in touch and will get back to you shortly.</p> "+
+                    "<div class='alert alert--success bump-out' style='display:none;'> "+
+                        "<strong>Thanks!</strong> I appreciate you getting in touch and will get back to you shortly. "+
                     "</div>"
                 );
                 $("#content-wrapper .alert").fadeIn('slow');

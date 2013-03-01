@@ -6,7 +6,7 @@ class SearchControllerTest extends PHPUnitTestController {
             "q" => "no matching content",
         ))->dispatch("/search");
 
-        $this->assertBodyHasContents("Sorry - no posts match this query.");
+        $this->assertBodyHasContents("Sorry&mdash;no articles match this query.");
     }
 
     public function testSearchWithResults() {
@@ -23,6 +23,6 @@ class SearchControllerTest extends PHPUnitTestController {
     public function testSearchWithNoQuery() {
         $this->request->dispatch("/search");
 
-        $this->assertBodyHasContents("Sorry - you must enter a query.");
+        $this->assertBodyHasContents("Sorry&mdash;you must enter a query.");
     }
 }

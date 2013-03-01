@@ -54,11 +54,11 @@ class Comments extends Table {
                 'required' => true,
             ),
             'notifications' => array(
-                'title' => 'Notification Options',
+                'title' => 'Email me...',
                 'type' => 'checkbox',
                 "options" => array(
-                    "email_on_approval" => "Email me when my comment is approved",
-                    "email_on_new"      => "Email me when new comments are posted",
+                    "email_on_approval" => "when my comment is approved",
+                    "email_on_new"      => "when new comments are posted",
                 ),
             ),
             'approved' => array(

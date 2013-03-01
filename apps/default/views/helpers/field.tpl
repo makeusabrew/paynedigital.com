@@ -74,22 +74,22 @@
     {/if}
 {/if}
 
-<div class="control-group{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
-    <label class="control-label" for="{$field}">{$title}{if $required} <span class='required'>*</span>{/if}</label>
-    <div class="controls">
-        {if $type == "textarea"}
-            <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="input-xlarge{if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
-        {elseif $type == "select" && isset($seloptions)}
-            <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
-                {foreach from=$seloptions item="selopt" key="selkey"}
-                    <option value="{$selkey}"{if isset($value) && $value == $selkey} selected=""{/if}>{$selopt}</option>
-                {/foreach}
-                {assign var="selopt" value=null}
-                {assign var="selkey" value=null}
-            </select>
-        {elseif $type == "checkbox" && isset($seloptions)}
+<li class="{if isset($fclass)} {$fclass}{/if}{if $error} error{/if}">
+    <label for="{$field}">{$title}{if $required} <span class='required'>*</span>{/if}</label>
+    {if $type == "textarea"}
+        <textarea{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="text-input {if $error} error{/if}"{if $required} required=""{/if}>{if isset($value)}{$value|htmlentities8}{/if}</textarea>
+    {elseif $type == "select" && isset($seloptions)}
+        <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
             {foreach from=$seloptions item="selopt" key="selkey"}
-                <label class="checkbox" for="{$field}_{$selkey}">
+                <option value="{$selkey}"{if isset($value) && $value == $selkey} selected=""{/if}>{$selopt}</option>
+            {/foreach}
+            {assign var="selopt" value=null}
+            {assign var="selkey" value=null}
+        </select>
+    {elseif $type == "checkbox" && isset($seloptions)}
+        <ul class="check-list">
+            {foreach from=$seloptions item="selopt" key="selkey"}
+                <li>
                     <input type="checkbox"
                     {if isset($disabled)} disabled=""{/if}
                     id="{$field}_{$selkey}"
@@ -97,31 +97,22 @@
                     class="checkbox{if $error} error{/if}"
                     {if isset($value) && is_array($value) && isset($value[$selkey])} checked=""{/if}
                     />
-                    <span>{$selopt}</span>
-                </label>
+                    <label class="checkbox" for="{$field}_{$selkey}">{$selopt}</label>
+                </li>
             {/foreach}
-            {assign var="selopt" value=null}
-            {assign var="selkey" value=null}
-        {elseif $type == 'bool'}
-            <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
-                <option value="1"{if isset($value) && $value == true} selected=""{/if}>Yes</option>
-                <option value="0"{if isset($value) && $value == false} selected=""{/if}>No</option>
-            </select>
-        {else}
-            {if isset($icon)}
-                <div class="input-prepend">
-                    <span class="add-on">
-                        <i class="{$icon}"></i>
-                    </span>
-            {/if}
-            <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
-            {if isset($icon)}
-                </div>
-            {/if}
-        {/if}
-        <div id="{$field}_error" class="help-block">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</div>
-    </div>
-</div>
+        </ul>
+        {assign var="selopt" value=null}
+        {assign var="selkey" value=null}
+    {elseif $type == 'bool'}
+        <select{if isset($disabled)} disabled=""{/if} id="{$field}" name="{$field}" class="select{if $error} error{/if}"{if $required} required=""{/if}>
+            <option value="1"{if isset($value) && $value == true} selected=""{/if}>Yes</option>
+            <option value="0"{if isset($value) && $value == false} selected=""{/if}>No</option>
+        </select>
+    {else}
+        <input{if isset($placeholder)} placeholder="{$placeholder}"{/if}{if isset($disabled)} disabled=""{/if} type="{$type}" id="{$field}" name="{$field}" class="text-input{if $error} error{/if}" value="{if isset($value)}{$value|htmlentities8}{/if}"{if $required} required=""{/if} />
+    {/if}
+    <span id="{$field}_error" class="error__help">{if $error}{if !isset($supress_messages)}{$error}{/if}{/if}</span>
+</li>
 
 {assign var="coldata" value=null}
 {assign var="type" value=null}
