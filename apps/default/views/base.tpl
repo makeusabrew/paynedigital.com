@@ -24,8 +24,6 @@
         } catch (e) { }
     </script>
 
-    {newrelic section="header"}
-
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
     <link rel="shortcut icon" href=/favicon.png>
@@ -115,8 +113,6 @@
         });
     </script>
     {block name="script"}{/block}
-
-    {newrelic section="footer"}
 </body>
 </html>
 {else}
