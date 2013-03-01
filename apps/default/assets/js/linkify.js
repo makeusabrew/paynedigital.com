@@ -17,7 +17,9 @@ var linkify = (function(window) {
 
         var selector = "li.active > a";
 
-        that.focus(selector);
+        that.waitForTypekitActive(function() {
+            that.focus(selector);
+        });
 
         $(window).on("resize", function(e) {
             clearTimeout(timer);
@@ -47,6 +49,28 @@ var linkify = (function(window) {
                 "width": width + (buffer*2)
             });
         }
+    };
+
+    that.waitForTypekitActive = function(callback) {
+        var timer, start, threshold;
+
+        // repeatedly perform a task waiting for typekit
+        // fonts to load - but give up after a defined threshold
+
+        start = new Date();
+        threshold = 3000;
+
+        timer = setInterval(function() {
+            // always invoke the callback...
+            callback();
+
+            // ... but stop the timer if appropriate
+            var now = new Date();
+            if (typekitActive || now - start >= threshold) {
+                clearInterval(timer);
+            }
+
+        }, 30);
     };
 
     return that;

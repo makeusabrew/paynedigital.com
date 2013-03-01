@@ -9,8 +9,20 @@
 
     <link rel="stylesheet" href="/css/style.min.css" />
 
-    <script type="text/javascript" src="//use.typekit.net/fva2awi.js"></script>
-    <script type="text/javascript">try{ Typekit.load(); }catch(e) { }</script>
+    <script src="//use.typekit.net/fva2awi.js"></script>
+    <script>
+        // we need this global variable for other on DOM ready scripts to look for
+        var typekitActive = false;
+        try {
+
+            Typekit.load({
+                active: function() {
+                    typekitActive = true;
+                }
+            });
+
+        } catch (e) { }
+    </script>
 
     {newrelic section="header"}
 
@@ -99,9 +111,7 @@
 
         $(function() {
             pjaxify.init();
-            setTimeout(function() {
-                linkify.init();
-            }, 50);
+            linkify.init();
         });
     </script>
     {block name="script"}{/block}
