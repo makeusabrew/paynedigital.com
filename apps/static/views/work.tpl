@@ -152,7 +152,7 @@
 
     <p>A one year contract for <a href="http://www.sky.com/">BSkyB</a>
     working as a software engineer (later moved into the role of team lead)
-    for <a href="http://www.skybet.com/">Sky Bet</a> in central Leeeds.</p>
+    for <a href="http://www.skybet.com/">Sky Bet</a> in central Leeds.</p>
 {/block}
 {block name=secondary}
     {include file="default/views/includes/github.tpl"}
