@@ -7,11 +7,11 @@
             border-bottom:1px solid desaturate($background, 80%);
 
             a {
-                color:darken($colour, 5%);
+                color:darken($colour, 15%);
             }
 
             a:hover {
-                color:darken($colour, 15%);
+                //color:darken($colour, 5%);
             }
         }
 
