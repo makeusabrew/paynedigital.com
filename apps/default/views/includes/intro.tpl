@@ -1,5 +1,5 @@
 <p>
-    Payne Digital is the professional home of Nick Payne, a Software Engineer based in Leeds.
+    Payne Digital Ltd is the professional home of Nick Payne, a Software Engineer based in Leeds.
     I make
     <a href="https://github.com/makeusabrew/paynedigital.com">websites like this one</a>,
     <a href="http://faavorite.com">web apps</a>, mobile apps and
