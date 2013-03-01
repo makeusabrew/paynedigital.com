@@ -15,14 +15,15 @@ var linkify = (function(window) {
         // width property of the camera to save us hard-coding it here
         offset = camera.width();
 
-        var elem = $("li.active > a")
-        that.focusElem(elem);
+        var selector = "li.active > a";
+
+        that.focus(selector);
 
         $(window).on("resize", function(e) {
             clearTimeout(timer);
 
             timer = setTimeout(function() {
-                that.focusElem(elem);
+                that.focus(selector);
             }, 40);
         });
     };
