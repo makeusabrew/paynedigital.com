@@ -1,10 +1,9 @@
-var pjaxify = (function() {
+var pjaxify = (function(window, document) {
+
     "use strict";
 
     var _timeout   = 1000,
-        _body      = null,
         _links     = [],
-        startTheme = null,
         that       = {};
 
     var removeTimestamp = function(elem) {
@@ -40,12 +39,11 @@ var pjaxify = (function() {
     }
 
     that.init = function() {
-        _body = $("body").get(0);
-
-        startTheme = _body.className.match(/theme--([\w-]+)/)[1];
+        var _body      = $("body").get(0),
+            _window    = $(window),
+            startTheme = _body.className.match(/theme--([\w-]+)/)[1];
 
         // always listen out for when the theme has finished transitioning
-        // not sure if this selector is the most efficient way of doing this
         $(document).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", ".theme", finishTransition);
 
         // a bit of manky link sorting
@@ -63,12 +61,22 @@ var pjaxify = (function() {
 
         var options = {
             timeout: _timeout,
-            scrollTo: 0
+            scrollTo: false
         };
 
         $(document).pjax("a.pjax", ".inner", options);
 
         $(document).on("pjax:end", function() {
+
+            // we can't easily cache the nav height due to resize / orientation
+            // changes, so we have to check it here
+            var navHeight = $(".header").outerHeight();
+            if (_window.scrollTop() > navHeight) {
+
+                console.log(_window.scrollTop(), navHeight);
+                _window.scrollTop(0);
+            }
+
             // for balance you'd want this in start.pjax, but then
             // if there's a delay loading the content, things look a bit weird
             $(".nav li").removeClass("active");
@@ -114,4 +122,4 @@ var pjaxify = (function() {
     };
 
     return that;
-})();
+}(window, document));
