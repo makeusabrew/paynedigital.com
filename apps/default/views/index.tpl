@@ -1,5 +1,6 @@
 {extends 'default/views/base.tpl'}
 {block name='title'}Web Application &amp; Mobile Development{/block}
+{block name='theme'}green{/block}
 {block name='content'}
     <div class="wrapper hero">
         <h1 class="hero__title">
