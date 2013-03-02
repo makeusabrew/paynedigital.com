@@ -19,6 +19,9 @@ set_error_handler("handleErrors");
 
 include("library/init.php");
 
+// well, why not...
+include("apps/default/controllers/abstract.php");
+
 $mode = getenv("PROJECT_MODE") !== false ? getenv("PROJECT_MODE") : "live";
 
 //session_cache_limiter(false);

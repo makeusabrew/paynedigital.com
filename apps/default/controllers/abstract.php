@@ -2,10 +2,13 @@
 
 class AbstractController extends Controller {
     public function init() {
-        $assetPaths = array(
-            'css' => 'foo', // take a value from settings which is a regex...
-            'js'  => 'bar', // ... and run it against getcwd() - maybe??
-        );
-        $this->assign('assets', $assetPaths);
+        $regex  = Settings::getValue("assets", "regex", false);
+        $append = Settings::getValue("assets", "append", "");
+
+        if ($regex != false && $append !== "") {
+            $append = preg_replace("#".$regex."#", $append, PROJECT_ROOT);
+        }
+
+        $this->assign('assetPath', $append);
     }
 }

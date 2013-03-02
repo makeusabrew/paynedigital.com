@@ -1,5 +1,5 @@
 <?php
-class DefaultController extends Controller {
+class DefaultController extends AbstractController {
     public function index() {
         $posts = Table::factory('Posts')->findRecent(3);
         $this->assign('posts', $posts);

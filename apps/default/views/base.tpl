@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 
-    <link rel="stylesheet" href="/css/style.min.css" />
+    <link rel="stylesheet" href="/css/style{$assetPath}.min.css" />
 
     <script src="//use.typekit.net/fva2awi.js"></script>
     <script>
@@ -95,7 +95,7 @@
     {asset type="js" add="apps/default/assets/js/linkify.js"}
     {asset type="js" add="apps/default/assets/js/forms.js"}
     {asset type="js" add="apps/blog/assets/js/gistify.js"}
-    {asset type="js" file="base" min=true}
+    {asset type="js" file="base`$assetPath`" min=true}
     {/strip}
 
 
