@@ -10,5 +10,12 @@ class AbstractController extends Controller {
         }
 
         $this->assign('assetPath', $append);
+
+        $section = null;
+        $segments = explode("/", $this->request->getUrl());
+        if (count($segments) > 1) {
+            $section = $segments[1];
+        }
+        $this->assign('section', $section);
     }
 }

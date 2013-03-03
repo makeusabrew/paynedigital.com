@@ -61,12 +61,12 @@
                 {include file="default/views/includes/logo.tpl"}
             </a>
             <ul class="nav  header__nav">
-                <li{if $section == "home"} class="active"{/if}><a class=pjax href="/">Home</a></li>
-                <li{if $section == "about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
-                <li{if $section == "services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
-                <li{if $section == "work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
-                <li{if $section == "articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
-                <li{if $section == "contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
+                <li{if $section eq ""} class="active"{/if}><a class=pjax href="/">Home</a></li>
+                <li{if $section eq "about"} class="active"{/if}><a class=pjax href="/about">About</a></li>
+                <li{if $section eq "services"} class="active"{/if}><a class=pjax href="/services">Services</a></li>
+                <li{if $section eq "work"} class="active"{/if}><a class=pjax href="/work">Work</a></li>
+                <li{if $section eq "articles"} class="active"{/if}><a class=pjax href="/articles">Articles</a></li>
+                <li{if $section eq "contact"} class="active"{/if}><a class=pjax href="/contact">Contact</a></li>
             </ul>
             <div class="header__camera">
             </div>

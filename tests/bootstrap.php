@@ -30,3 +30,5 @@ if (($timezone = Settings::getValue("site", "timezone", false)) !== false) {
 
 include("library/test/phpunit_test_controller.php");
 include("library/test/test_request.php");
+
+include("apps/default/controllers/abstract.php");
