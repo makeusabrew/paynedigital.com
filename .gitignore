@@ -5,4 +5,3 @@ tmp/templates_c/wrt*
 *.DS_Store
 .sass-cache
 node_modules
-public/assets
