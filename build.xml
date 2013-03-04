@@ -81,6 +81,11 @@
         <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter xunit > ${reportsFull.dir}/mocha-test-results.xml" />
     </target>
 
+    <target name="assets">
+        <echo msg="Compiling assets" />
+        <exec checkreturn="true" passthru="true" command="grunt --append=${env.BUILD_TAG}" />
+    </target>
+
     <target name="dist">
         <echo msg="creating temporary files" />
         <delete dir="/tmp/${env.BUILD_TAG}" />
