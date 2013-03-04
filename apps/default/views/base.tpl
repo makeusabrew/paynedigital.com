@@ -9,19 +9,16 @@
 
     <link rel="stylesheet" href="/assets/css/style{$assetPath}.min.css" />
 
-    <script src="//use.typekit.net/fva2awi.js"></script>
+    <script src="/assets/js/deps/typekit.js"></script>
     <script>
-        // we need this global variable for other on DOM ready scripts to look for
         var typekitActive = false;
         try {
-
             Typekit.load({
                 active: function() {
                     typekitActive = true;
                 }
             });
-
-        } catch (e) { }
+        } catch (e) {}
     </script>
 
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
