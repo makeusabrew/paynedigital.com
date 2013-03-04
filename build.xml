@@ -82,8 +82,16 @@
     </target>
 
     <target name="assets">
-        <echo msg="Compiling assets" />
-        <exec checkreturn="true" passthru="true" command="grunt --append=${env.BUILD_TAG}" />
+        <echo msg="Cleaning asset directories" />
+        <delete includeemptydirs="true" verbose="false" failonerror="true">
+            <fileset dir="public/assets">
+                <include name="js/*.js" />
+                <include name="css/*.css" />
+            </fileset>
+        </delete>
+        <exec checkreturn="true" command="echo ${env.BUILD_TAG} | cut -d '-' -f 4" outputproperty="buildNo" />
+        <echo msg="Asset append path: ${buildNo}" />
+        <exec checkreturn="true" passthru="true" command="grunt --append=-${buildNo}" />
     </target>
 
     <target name="dist">
