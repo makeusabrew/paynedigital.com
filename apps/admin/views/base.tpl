@@ -36,8 +36,7 @@
         {block name='body'}
         {/block}
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/assets/js/base.min.js"></script>
+    <script src="/assets/js/main{$assetPath}.min.js"></script>
     {block name='script'}
     {/block}
 </body>
