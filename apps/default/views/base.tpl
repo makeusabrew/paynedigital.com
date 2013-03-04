@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
 
-    <link rel="stylesheet" href="/css/style{$assetPath}.min.css" />
+    <link rel="stylesheet" href="/assets/css/style{$assetPath}.min.css" />
 
     <script src="//use.typekit.net/fva2awi.js"></script>
     <script>
@@ -86,17 +86,7 @@
         </div>
     </div>
 
-
-    <script src="/js/jquery.min.js"></script>
-
-    {strip}
-    {asset type="js" add="apps/default/assets/js/deps/jquery.pjax.js"}
-    {asset type="js" add="apps/default/assets/js/pjaxify.js"}
-    {asset type="js" add="apps/default/assets/js/linkify.js"}
-    {asset type="js" add="apps/default/assets/js/forms.js"}
-    {asset type="js" add="apps/blog/assets/js/gistify.js"}
-    {asset type="js" file="base`$assetPath`" min=true}
-    {/strip}
+    <script src="/assets/js/main{$assetPath}.min.js"></script>
 
 
     {setting assign="doPlugins" value="site.social_plugins"}
