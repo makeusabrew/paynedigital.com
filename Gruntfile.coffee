@@ -16,7 +16,7 @@ module.exports = (grunt) ->
                     "apps/default/assets/js/deps/jquery.min.js",
                     "tmp/build.js"
                 ]
-                dest: "public/assets/js/main.js"
+                dest: "public/assets/js/main.min.js"
 
         sass:
             options:
