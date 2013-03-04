@@ -89,8 +89,13 @@
                 <include name="css/*.css" />
             </fileset>
         </delete>
+
+        <echo msg="Syncing typekit JS" />
+        <exec checkreturn="true" dir="public/assets/js/typekit" command="wget http://use.typekit.net/fva2awi.js" outputproperty="buildNo" />
+
         <exec checkreturn="true" command="echo ${env.BUILD_TAG} | cut -d '-' -f 4" outputproperty="buildNo" />
         <echo msg="Asset append path: ${buildNo}" />
+
         <exec checkreturn="true" passthru="true" command="echo '-${buildNo}' > .append" />
         <exec checkreturn="true" passthru="true" command="grunt --append=-${buildNo}" />
     </target>
