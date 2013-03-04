@@ -1,5 +1,6 @@
 module.exports = (grunt) ->
     config =
+        append: if grunt.option "append" then grunt.option "append"  else ""
         uglify:
             build:
                 files:
@@ -16,14 +17,14 @@ module.exports = (grunt) ->
                     "apps/default/assets/js/deps/jquery.min.js",
                     "tmp/build.js"
                 ]
-                dest: "public/assets/js/main.min.js"
+                dest: "public/assets/js/main<%= append %>.min.js"
 
         sass:
             options:
                 style: "compressed"
             build:
                 files:
-                    "public/assets/css/style.min.css" : "sass/style.scss"
+                    "public/assets/css/style<%= append %>.min.css" : "sass/style.scss"
 
     grunt.initConfig config
 
