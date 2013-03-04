@@ -2,13 +2,7 @@
 
 class AbstractController extends Controller {
     public function init() {
-        $regex  = Settings::getValue("assets", "regex", false);
-        $append = Settings::getValue("assets", "append", "");
-
-        if ($regex != false && $append !== "") {
-            $append = preg_replace("#".$regex."#", $append, PROJECT_ROOT);
-        }
-
+        $append = trim(file_get_contents(PROJECT_ROOT.".append"));
         $this->assign('assetPath', $append);
 
         $section = null;
