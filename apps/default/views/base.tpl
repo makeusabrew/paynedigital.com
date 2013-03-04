@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/assets/css/style{$assetPath}.min.css" />
 
-    <script src="/assets/js/deps/typekit.js"></script>
+    <script src="/assets/js/typekit/fva2awi.js"></script>
     <script>
         var typekitActive = false;
         try {
