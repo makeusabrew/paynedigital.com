@@ -81,6 +81,19 @@
         <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter xunit > ${reportsFull.dir}/mocha-test-results.xml" />
     </target>
 
+    <target name="assets">
+        <echo msg="Cleaning asset directories" />
+        <delete includeemptydirs="true" verbose="false" failonerror="true">
+            <fileset dir="public/assets">
+                <include name="js/*.js" />
+                <include name="css/*.css" />
+            </fileset>
+        </delete>
+        <exec checkreturn="true" command="echo ${env.BUILD_TAG} | cut -d '-' -f 4" outputproperty="buildNo" />
+        <echo msg="Asset append path: ${buildNo}" />
+        <exec checkreturn="true" passthru="true" command="grunt --append=-${buildNo}" />
+    </target>
+
     <target name="dist">
         <echo msg="creating temporary files" />
         <delete dir="/tmp/${env.BUILD_TAG}" />

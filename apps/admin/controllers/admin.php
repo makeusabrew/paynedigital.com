@@ -1,9 +1,11 @@
 <?php
-class AdminController extends Controller {
+class AdminController extends AbstractController {
     protected $adminUser = null;
     protected $post = null;
 
     public function init() {
+        parent::init();
+
         $this->adminUser = Table::factory('Users')->loadFromSession();
         $this->assign('adminUser', $this->adminUser);
         switch ($this->path->getAction()) {

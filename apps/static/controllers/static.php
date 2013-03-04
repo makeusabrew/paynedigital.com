@@ -1,8 +1,7 @@
 <?php
-class StaticController extends Controller {
+class StaticController extends AbstractController {
     public function view_static() {
         try {
-            $this->assign('section', $this->getMatch('path'));
             return $this->render($this->getMatch('path'));
         } catch (CoreException $e) {
             // no static, oh well. Reject the path

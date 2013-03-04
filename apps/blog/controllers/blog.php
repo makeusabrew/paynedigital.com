@@ -1,8 +1,10 @@
 <?php
-class BlogController extends Controller {
+class BlogController extends AbstractController {
     protected $post = null;
 
     public function init() {
+        parent::init();
+
         if (($post_id = $this->getFlash("preview_post_id")) !== null) {
             Log::debug("Got preview post ID [".$post_id."]");
             $post = Table::factory('Posts')->read($post_id);
@@ -33,7 +35,6 @@ class BlogController extends Controller {
         }
 
         $this->assign('tags', Table::factory('Posts')->findAllTags());
-        $this->assign('section', 'articles');
     }
 
     public function index() {
