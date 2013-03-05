@@ -1,0 +1,23 @@
+.running {
+    min-height:300px;
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .dot {
+      stroke: #000;
+    }
+
+    .area {
+        fill: #2b395f;
+    }
+
+    .chart svg {
+          font: 10px sans-serif;
+          margin-bottom:$base-spacing-unit;
+    }
+}
