@@ -41,6 +41,12 @@
         a world-leading cancer centre which provides treatment and care for more than 40,000 cancer patients every
         year. This page does <i>not</i> exist to seek donations, though any would of course be
         <a href="https://www.justgiving.com/Nick-Payne-Yorkshire-Marathon">hugely appreciated</a>.</p>
+
+        <hr class="rule    rule--ornament rule--dotted" />
+
+        <p>The charts on this page use the fantastic <a href="http://d3js.org/">d3js</a> library&mdash;they&rsquo;re
+        my first attempt at using it and as such are pretty crude. Check out the official
+        <a href="https://github.com/mbostock/d3/wiki/Gallery">d3 gallery</a> to see just what it&rsquo;s capable of!</p>
     </div>
 {/block}
 {block name=script}
