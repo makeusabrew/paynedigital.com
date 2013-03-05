@@ -121,5 +121,9 @@ var pjaxify = (function(window, document) {
         });
     };
 
+    that.disable = function() {
+        $("a.pjax").removeClass("pjax");
+    };
+
     return that;
 }(window, document));

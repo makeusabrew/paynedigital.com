@@ -69,6 +69,8 @@
             $("[data-total]").html(Runs.getTotalDistance());
 
             $(".running__body").fadeIn();
+
+            pjaxify.disable();
         });
     </script>
 {/block}
