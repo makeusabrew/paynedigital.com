@@ -13,7 +13,7 @@
         </div>
 
         <div class="scatter chart">
-            <p>This chart plots all my runs this year on a scatter graph. The idea is to
+            <p>The next chart plots all my runs this year on a scatter graph. The idea is to
             try and gain an insight into what factors have the most impact on my pace per mile: feel
             free to play around with the x-axis value, though to be honest the chart needs
             to be a little better organised to glean much from it.</p>
@@ -46,7 +46,7 @@
 
         <p>The charts on this page use the fantastic <a href="http://d3js.org/">d3js</a> library&mdash;they&rsquo;re
         my first attempt at using it and as such are pretty crude. Check out the official
-        <a href="https://github.com/mbostock/d3/wiki/Gallery">d3 gallery</a> to see just what it&rsquo;s capable of!</p>
+        <a href="https://github.com/mbostock/d3/wiki/Gallery">d3 gallery</a> to see just what it&rsquo;s actually capable of!</p>
     </div>
 {/block}
 {block name=script}
