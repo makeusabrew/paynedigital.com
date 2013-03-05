@@ -44,18 +44,53 @@ var Runs = (function(d3) {
         return runs;
     };
 
+    that.getLegendGroups = function(data, key) {
+        switch (key) {
+            case "gain":
+                return that.getElevationGroups(data, null);
+            case "miles":
+                return that.getDistanceGroups(data, null);
+            default:
+                return [];
+        }
+    };
+
     that.getElevationGroups = function(data, numGroups) {
         var min = 99999,
             max = 0;
 
+        // temporary overrides for nicer elev spreads
         min = 100;
-        max = 800;
-        numGroups = 14;
+        max = 750;
+        numGroups = 13;
 
         var block = 50;
 
         var i = numGroups;
         var groups = [];
+
+        while (i--) {
+            var _min = (i*block)+min;
+            var _max = ((i+1)*block)+min;
+            var str = _min+" - "+_max;
+            groups.push({
+                "label": str,
+                "min"  : _min,
+                "max"  : _max
+            });
+        }
+
+        return groups;
+    };
+
+    that.getDistanceGroups = function(data, numGroups) {
+
+        var min = 3,
+            max = 14,
+            block = 1,
+            numGroups = 11,
+            groups = [],
+            i = numGroups;
 
         while (i--) {
             var _min = (i*block)+min;

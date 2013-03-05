@@ -17,7 +17,7 @@ var Scatter = (function(document, d3) {
             left   : 40
         };
 
-        width  = 960 - margin.left - margin.right;
+        width  = 1100 - margin.left - margin.right;
         height = 600 - margin.top - margin.bottom;
 
         x = d3.scale.linear()
@@ -65,12 +65,14 @@ var Scatter = (function(document, d3) {
 
         renderTargetLine("Marathon", "9:00", 26.2);
 
-        svg.append("text")
+        svg.append("g")
+        .attr("class", "legend-outer")
+        .append("text")
         .attr("x", width)
         .attr("y", 0)
         .attr("class", "label-legend")
         .attr("text-anchor", "end")
-        .text("Elevation gain (ft)");
+        .text("");
         
         $(document).on("change", "select[name=chart-type]", function(e) {
             e.preventDefault();
@@ -84,24 +86,54 @@ var Scatter = (function(document, d3) {
 
         var metrics = {
             "elevation": {
-                "x": "gain",
-                "label": "Elevation Gain (ft)"
+                "x": {
+                    "key": "gain",
+                    "label": "Elevation Gain (ft)"
+                },
+                "legend": {
+                    "key": "miles",
+                    "label": "Distance (miles)"
+                }
             },
             "elevation-mile": {
-                "x": "gainMile",
-                "label": "Gain per mile (ft)"
+                "x": {
+                    "key": "gainMile",
+                    "label": "Gain per mile (ft)"
+                },
+                "legend": {
+                    "key": "miles",
+                    "label": "Distance (miles)"
+                }
             },
             "distance": {
-                "x": "miles",
-                "label": "Distance (miles)"
+                "x": {
+                    "key": "miles",
+                    "label": "Distance (miles)"
+                },
+                "legend": {
+                    "key": "gain",
+                    "label": "Elevation Gain (ft)"
+                }
             },
             "date": {
-                "x": "start",
-                "label": "Date"
+                "x": {
+                    "key": "start",
+                    "label": "Date"
+                },
+                "legend": {
+                    "key": "miles",
+                    "label": "Distance (miles)"
+                }
             },
             "time": {
-                "x": "timeStart",
-                "label": "Time of day"
+                "x": {
+                    "key": "timeStart",
+                    "label": "Time of day"
+                },
+                "legend": {
+                    "key": "miles",
+                    "label": "Distance (miles)"
+                }
             }
         };
 
@@ -109,7 +141,7 @@ var Scatter = (function(document, d3) {
 
         var color = d3.scale.category20();
 
-        var legends = Runs.getElevationGroups(data, 10);
+        var legends = Runs.getLegendGroups(data, metric.legend.key);
 
         if (type === 'date' || type === 'time') {
             x = d3.time.scale();
@@ -117,7 +149,7 @@ var Scatter = (function(document, d3) {
             x = d3.scale.linear();
         }
 
-        x.domain(d3.extent(data, function(d) { return d[metric.x]; }));
+        x.domain(d3.extent(data, function(d) { return d[metric.x.key]; }));
 
         if (type === 'date') {
             x.nice(d3.time.day);
@@ -148,7 +180,7 @@ var Scatter = (function(document, d3) {
         .select(".label")
         .attr("x", width)
         .attr("y", -6)
-        .text(metric.label);
+        .text(metric.x.label);
 
         svg.selectAll(".target-line")
         .attr("transform", function() {
@@ -161,50 +193,50 @@ var Scatter = (function(document, d3) {
         .call(yAxis);
 
         // legend gubbins
-        var legend = svg.selectAll(".legend")
-        .data(legends)
-        .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + (10 + (i * 15)) + ")"; });
+        svg.select(".label-legend")
+        .text(metric.legend.label);
 
-        legend.append("rect")
+        d3.select("[data-legend]")
+        .text(metric.legend.label)
+
+        var legend = svg
+        .select(".legend-outer")
+        .selectAll(".legend")
+        .data(legends);
+
+        var legendGroup = legend.enter()
+        .append("g");
+
+        legendGroup.attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + (10 + (i * 15)) + ")"; })
+        .append("rect")
+        .attr("class", "legend__rect")
         .attr("x", width - 16)
         .attr("width", 16)
         .attr("height", 8)
+        legendGroup.append("text")
+          .attr("x", width - 20)
+          .attr("y", 4)
+          .attr("dy", ".35em")
+          .attr("class", "legend__text")
+          .style("text-anchor", "end");
+
+        legend.select(".legend__text").text(function(d) { return d.label; });
+        legend.select(".legend__rect")
         .style("fill", function(d) {
             return color(d.label);
         });
 
-        legend.append("text")
-          .attr("x", width - 20)
-          .attr("y", 4)
-          .attr("dy", ".35em")
-          .style("text-anchor", "end")
-          .text(function(d) { return d.label; });
+        legend.exit().remove();
 
         // data points
         var points = svg.selectAll(".dot").data(data);
 
         points
-        .transition()
-        .duration(800)
-        .attr("cx", function(d) { return x(d[metric.x]); })
-
-        points
         .enter().append("circle")
         .attr("class", "dot")
         .attr("r", function(d) { return calories(d.calories); })
-        .attr("cx", function(d) { return x(d[metric.x]); })
         .attr("cy", function(d) { return y(d.paceSecs); })
-        .style("fill", function(d) {
-            var i = legends.length;
-            while (i--) {
-                var l = legends[i];
-                if (d.gain < l.max) {
-                    return color(l.label);
-                }
-            }
-        })
         .on("mouseover", function(d) {
             var point = d3.select(this);
 
@@ -225,6 +257,22 @@ var Scatter = (function(document, d3) {
             .attr("r", oldRadius)
             .ease("elastic");
         });
+
+        points
+        .style("fill", function(d) {
+            var i = legends.length;
+            var key = metric.legend.key;
+            while (i--) {
+                var l = legends[i];
+                if (d[key] < l.max) {
+                    return color(l.label);
+                }
+            }
+        })
+        .transition()
+        .duration(800)
+        .attr("cx", function(d) { return x(d[metric.x.key]); })
+
     };
 
     /**

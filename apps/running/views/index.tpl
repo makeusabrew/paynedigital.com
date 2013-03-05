@@ -17,7 +17,7 @@
             try and gain an insight into what factors have the most impact on my pace per mile: feel
             free to play around with the x-axis value, though to be honest the chart needs
             to be a little better organised to glean much from it.</p>
-            <p>
+            <div class="bump-out">
                 <b>X-Axis:</b>
                 <select name="chart-type">
                     <option value='distance'>Distance</option>
@@ -26,13 +26,14 @@
                     <option value='date'>Date</option>
                     <option value='time'>Time of day</option>
                 </select>
+                <span class="split-after"></span>
 
-                <b>Y-Axis:</b> Pace
+                <b>Y-Axis:</b> Pace <span class="split-after"></span>
 
-                <b>Legend:</b> <span data-legend>Elevation gain (ft)</span>
+                <b>Legend:</b> <span data-legend>Elevation gain (ft)</span> <span class="split-after"></span>
 
-                <b>Circle size:</b> <span data-legend>Calories</span>
-            </p>
+                <b>Plot size:</b> <span data-legend>Calories burned</span>
+            </div>
         </div>
 
         <p>I&rsquo;m also running the <a href="http://www.theyorkshiremarathon.com/">Yorkshire Marathon</a>
