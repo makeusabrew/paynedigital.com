@@ -20,4 +20,8 @@ $timing: 0.5s;
     .bump-out {
         @include vendor(transition, background-color $timing);
     }
+
+    pre {
+        @include vendor(transition, background-color $timing, color $timing);
+    }
 }

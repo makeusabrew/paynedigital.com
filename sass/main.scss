@@ -69,3 +69,10 @@
         margin-bottom:0;
     }
 }
+
+pre {
+    white-space:pre;
+    word-wrap:normal;
+    border-radius:5px;
+    padding:$half-spacing-unit;
+}

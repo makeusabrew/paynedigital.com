@@ -29,6 +29,11 @@
             background:darken($background, 5%);
         }
 
+        pre {
+            background:darken($background, 10%);
+            color:lighten($colour, 10%);
+        }
+
         .comments__comment:nth-child(odd) {
             background:darken($background, 10%);
         }
