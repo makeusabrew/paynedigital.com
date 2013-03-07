@@ -17,7 +17,7 @@ var Total = (function(document, d3) {
             left   : 40
         };
 
-        width  = 1100 - margin.left - margin.right;
+        width  = 1000 - margin.left - margin.right;
         height = 300 - margin.top - margin.bottom;
 
         x = d3.time.scale()

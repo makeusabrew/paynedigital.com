@@ -17,7 +17,7 @@ var Scatter = (function(document, d3) {
             left   : 40
         };
 
-        width  = 1100 - margin.left - margin.right;
+        width  = 1000 - margin.left - margin.right;
         height = 600 - margin.top - margin.bottom;
 
         x = d3.scale.linear()
@@ -232,6 +232,8 @@ var Scatter = (function(document, d3) {
         // data points
         var points = svg.selectAll(".dot").data(data);
 
+        var shortFormat = d3.time.format("%d %B");
+
         points
         .enter().append("circle")
         .attr("class", "dot")
@@ -246,6 +248,22 @@ var Scatter = (function(document, d3) {
             .duration(1000)
             .attr("r", oldRadius*2)
             .ease("elastic");
+
+            var str = ""
+            str += "<div><b>"+d.miles+" miles @ "+secsToMins(d.paceSecs)+" min/mi</b></div>";
+            str += "<div>"+d.calories+" calories, "+d.gain+"</b> ft climb</div>";
+            str += "<div>"+shortFormat(d.start)+"</div>";
+
+            d3.select("body").append("div")
+            .attr("class", "running__tip")
+            .style("opacity", 0)
+            .style("left", (d3.event.pageX + 22) + "px")     
+            .style("top", (d3.event.pageY - 30) + "px")
+            .html(str)
+            .transition()
+            .duration(500)
+            .style("opacity", 1);
+
         })
         .on("mouseout", function(d) {
             var point = d3.select(this);
@@ -256,6 +274,12 @@ var Scatter = (function(document, d3) {
             .duration(1000)
             .attr("r", oldRadius)
             .ease("elastic");
+
+            d3.selectAll(".running__tip")
+            .transition()
+            .duration(500)
+            .style("opacity", 0)
+            .remove();
         });
 
         points

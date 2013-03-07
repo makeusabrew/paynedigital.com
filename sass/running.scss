@@ -17,7 +17,18 @@
     }
 
     .chart svg {
-          font: 10px sans-serif;
-          margin-bottom:$base-spacing-unit;
+        font: 10px sans-serif;
+        margin-bottom:$base-spacing-unit;
     }
+
+}
+
+.running__tip {
+    @include font-size(12px);
+    position:absolute;
+    border-radius:5px;
+    pointer-events:none;
+    max-width:200px;
+    background:#e3e3e3;
+    padding:$half-spacing-unit/2;
 }
