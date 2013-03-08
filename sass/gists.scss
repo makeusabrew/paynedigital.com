@@ -1,0 +1,11 @@
+.gist {
+    font-size:$half-spacing-unit;
+    
+    table {
+        margin-bottom:0;
+    }
+
+    pre {
+        color:black !important; // sadly we need this otherwise theme stuff kicks in
+    }
+}

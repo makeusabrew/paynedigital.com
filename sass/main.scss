@@ -14,23 +14,6 @@
     border-bottom:1px solid gray;
 }
 
-.article {
-    margin-bottom:$base-spacing-unit;
-}
-
-.article--full {
-    padding-bottom:$base-spacing-unit;
-}
-
-.article__heading {
-    margin-bottom:0;
-}
-
-.article-meta {
-    margin-bottom:$base-spacing-unit;
-    @include font-size(14px);
-}
-
 .bump-out {
     padding:$half-spacing-unit;
     border-radius:5px;
@@ -39,35 +22,6 @@
 .split-after:after,
 .split-before:before {
     content:" // ";
-}
-
-.comments {
-    margin-bottom:$base-spacing-unit;
-}
-
-.comments__existing {
-    margin-bottom:$base-spacing-unit;
-}
-
-.comments__comment {
-    padding:$half-spacing-unit;
-}
-
-.comments__closed {
-    padding-left:$half-spacing-unit;
-    padding-right:$half-spacing-unit;
-}
-
-.comments__author {
-    font-weight:bold;
-}
-
-.gist {
-    font-size:$half-spacing-unit;
-    
-    table {
-        margin-bottom:0;
-    }
 }
 
 pre {

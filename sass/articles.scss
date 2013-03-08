@@ -1,0 +1,37 @@
+.article {
+    margin-bottom:$base-spacing-unit;
+}
+
+.article--full {
+    padding-bottom:$base-spacing-unit;
+}
+
+.article__heading {
+    margin-bottom:0;
+}
+
+.article-meta {
+    margin-bottom:$base-spacing-unit;
+    @include font-size(14px);
+}
+
+.comments {
+    margin-bottom:$base-spacing-unit;
+}
+
+.comments__existing {
+    margin-bottom:$base-spacing-unit;
+}
+
+.comments__comment {
+    padding:$half-spacing-unit;
+}
+
+.comments__closed {
+    padding-left:$half-spacing-unit;
+    padding-right:$half-spacing-unit;
+}
+
+.comments__author {
+    font-weight:bold;
+}
