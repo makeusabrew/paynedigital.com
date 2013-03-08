@@ -1,7 +1,7 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name="title"}Error{/block}
 {block name=heading}
-    Oops! That's a {$code}
+    Oops! That&rsquo;s a {$code}
 {/block}
 {block name='body'}
     {if $code == 404}

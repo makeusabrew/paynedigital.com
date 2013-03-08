@@ -68,8 +68,8 @@ class DefaultControllerTest extends PHPUnitTestController {
             $handler->setRequest($this->request);
             $handler->handleError($e);
             $this->assertResponseCode(404, $handler->getResponse());
-            $this->assertBodyHasContents("Oops! That's a 404", $handler->getResponse());
-            $this->assertBodyHasContents("It looks like the page you're after doesn't exist", $handler->getResponse());
+            $this->assertBodyHasContents("Oops! That&rsquo;s a 404", $handler->getResponse());
+            $this->assertBodyHasContents("It looks like the page you&rsquo;re after doesn&rsquo;t exist", $handler->getResponse());
         }
 
         Settings::setFromArray($original);
