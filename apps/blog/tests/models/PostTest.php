@@ -69,4 +69,30 @@ class PostObjectTest extends PHPUnitTestController {
         $this->assertTrue(Table::factory('Posts')->read(1)->commentsEnabled());
         $this->assertFalse(Table::factory('Posts')->read(8)->commentsEnabled());
     }
+
+    public function testGetTweetUrlWithOldArticle() {
+        $post = Table::factory('Posts')->newObject();
+        $post->setValues(array(
+            "published" => "28/02/2013 00:00:00",
+            "url"       => "test-article",
+        ));
+        
+        $this->assertEquals(
+            "2013/02/test-article",
+            $post->getTweetUrl()
+        );
+    }
+
+    public function testGetTweetUrlWithRecentArticle() {
+        $post = Table::factory('Posts')->newObject();
+        $post->setValues(array(
+            "published" => "01/03/2013 00:00:00",
+            "url"       => "test-article",
+        ));
+
+        $this->assertEquals(
+            "articles/2013/03/test-article",
+            $post->getTweetUrl()
+        );
+    }
 }

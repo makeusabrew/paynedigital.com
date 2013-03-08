@@ -33,7 +33,7 @@
         <div class='bump-out'>
             <a href="http://twitter.com/share"
             class="twitter-share-button"
-            data-url="{$base_href}{$post->getUrl()}"
+            data-url="{$base_href}{$post->getTweetUrl()}"
             data-text="{$post->title}"
             data-via="{$post->user->twitter_username}"
             data-related="{$post->user->twitter_username}"

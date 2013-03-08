@@ -1,6 +1,16 @@
 <?php
 
 class Post extends Object {
+    public function getTweetUrl() {
+        $legacyDate = strtotime("2013-03-01 00:00:00");
+
+        if (strtotime($this->published) < $legacyDate) {
+            return $this->getUrl();
+        }
+
+        return "articles/".$this->getUrl();
+    }
+
     public function getUrl() {
         return date("Y/m", strtotime($this->published))."/".$this->url;
     }
