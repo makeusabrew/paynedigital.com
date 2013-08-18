@@ -9,7 +9,8 @@
 
         <div class="total chart">
             <p>The following chart simply plots my total mileage this year against what I need to be running
-            to hit 1,000 miles by the 31st December. So far so good!</p>
+            to hit 1,000 miles by the 31st December. A knee injury put me out of action from April&mdash;June
+            but I&rsquo;m hopeful I can make up the distance by the end of the year!</p>
         </div>
 
         <div class="scatter chart">

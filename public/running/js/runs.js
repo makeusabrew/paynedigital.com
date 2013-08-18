@@ -60,11 +60,11 @@ var Runs = (function(d3) {
             max = 0;
 
         // temporary overrides for nicer elev spreads
-        min = 100;
-        max = 750;
-        numGroups = 13;
+        min = 0;
+        max = 1000;
+        numGroups = 10;
 
-        var block = 50;
+        var block = 100;
 
         var i = numGroups;
         var groups = [];
@@ -85,10 +85,10 @@ var Runs = (function(d3) {
 
     that.getDistanceGroups = function(data, numGroups) {
 
-        var min = 3,
-            max = 14,
+        var min = 2,
+            max = 16,
             block = 1,
-            numGroups = 11,
+            numGroups = 14,
             groups = [],
             i = numGroups;
 
