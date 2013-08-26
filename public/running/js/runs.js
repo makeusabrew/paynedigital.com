@@ -86,9 +86,9 @@ var Runs = (function(d3) {
     that.getDistanceGroups = function(data, numGroups) {
 
         var min = 2,
-            max = 16,
+            max = 18,
             block = 1,
-            numGroups = 14,
+            numGroups = 16,
             groups = [],
             i = numGroups;
 
