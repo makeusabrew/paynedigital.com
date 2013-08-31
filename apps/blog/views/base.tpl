@@ -1,5 +1,5 @@
 {extends 'default/views/base-two-col.tpl'}
-{block name='theme'}dark-blue{/block}
+{block name='theme'}neon-inverted{/block}
 {block name='secondary'}
     <h3>Archive</h3>
     {include file='blog/views/partials/archive.tpl'}
