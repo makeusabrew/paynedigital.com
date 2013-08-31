@@ -44,8 +44,33 @@
     }
 }
 
+@mixin theme-inverted($name, $background, $colour, $header) {
+    @include theme(#{$name}-inverted, $background, $colour);
+    .theme--#{$name}-inverted {
+        .header {
+            color: $background;
+            background: $header;
+
+            a {
+                //font-weight:bold;
+                color: $background;
+            }
+        }
+
+        .header__camera {
+            background: $colour;
+        }
+
+        h1,h2,h3,
+        h4,h5,h6 {
+            text-shadow: none;
+        }
+    }
+}
+
 @include theme(dark-blue, #2b395f, #dbe2bb);
 @include theme(brown, #7F5F39, #e8e1D8);
+@include theme(faded-blue, #5A7A7E, #e8e1D8);
 @include theme(green, #83A850, #ecead6);
 @include theme(redbrick, #C14444, rgb(255, 252, 178));
 @include theme(army, #3b4116, #ebe0c2);
@@ -53,3 +78,4 @@
 @include theme(purple, #2E1525, #EDF2E3);
 @include theme(mustard, #EABA22, #fff);
 @include theme(paper, #f0f0f0, #141414);
+@include theme-inverted(neon, white, #222, #B40E4D);

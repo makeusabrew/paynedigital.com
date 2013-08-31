@@ -13,6 +13,10 @@ $timing: 0.5s;
         @include vendor(transition, color $timing);
     }
 
+    .header {
+        @include vendor(transition, background $timing);
+    }
+
     .header__camera {
         @include vendor(transition, width $timing, margin $timing ease-in-out, background-color $timing)
     }
