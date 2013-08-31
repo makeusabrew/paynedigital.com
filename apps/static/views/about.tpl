@@ -1,14 +1,16 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name='theme'}army{/block}
 {block name='title'}About{/block}
-{block name='heading'}About Nick Payne{/block}
+{block name='heading'}About Nick Payne &amp; Payne Digital Ltd{/block}
 {block name='body'}
     <p>With a BSc Honours degree in Software Engineering my primary skills lie in
-    a range of programming languages&mdash;primarily PHP, JavaScript, Objective C and
-    less recently C plus plus&mdash;as well
-    as their commonly associated data stores: namely MySQL, MongoDB and more
-    recently Redis. I also have many years&rsquo; experience administering unix-like
-    systems from dedicated source-control servers, all-in-one <abbr title="Linux, Apache, MySQL and PHP">LAMP</abbr> stacks
+    a range of programming languages&mdash;notably PHP, JavaScript (and often CoffeeScript), Objective C and
+    less recently C++ and Java, as demonstrated by my
+    <a href="https://github.com/makeusabrew?tab=repositories">open sourced projects on GitHub</a>.
+    I&rsquo;ve configured, used &amp; tuned many data stores commonly associated with these
+    languages: namely MySQL, MongoDB and more recently Redis. I have many years&rsquo;
+    experience administering unix-like systems from dedicated source-control servers,
+    all-in-one <abbr title="Linux, Apache, MySQL and PHP">LAMP</abbr> stacks
     and dedicated load-balanced clusters.</p>
 
     <p>In typical web parlance I am a &lsquo;backend&rsquo; developer though
@@ -26,6 +28,11 @@
     am also a fervent supporter of open source software having contributed
     to numerous projects and having a <a href="https://github.com/makeusabrew?tab=repositories">diverse portfolio
     of my own work</a> online.</p> 
+
+    <p>Payne Digital Ltd was founded in 2010 after deciding to leave my position
+    as Lead Developer of a well respected digital agency in Leeds in search of a fresh
+    challenge. It serves as a professional outlet for work which I would still be
+    doing even if it was just a hobby.</p>
 
     <p>Please see
     a thorough <a href="/services">list of services</a> for more information, or by all means
