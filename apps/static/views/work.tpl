@@ -1,24 +1,26 @@
 {extends 'default/views/base-two-col.tpl'}
-{block name='theme'}purple{/block}
+{block name='theme'}faded-blue{/block}
 {block name="title"}Work{/block}
-{block name="heading"}Selected Work{/block}
+{block name="heading"}Selected Work &amp; Roles{/block}
 {block name='body'}
     <p>Much of the work I undertake is on behalf of agencies and as such
     it is not always possible to divulge full project details (often including
     the name of the end-client), but as much information about each piece
-    of work is given. This page also highlights a selection of my own projects,
+    of work is given. An asterisk(*) next to a project title indicates
+    such a restriction. This page also highlights a selection of my own projects,
     most of which
     are freely available on <a href="https://github.com">GitHub</a>.</p>
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Retail website rebuild</h2>
+    <h2>Retail website rebuild* (2012&ndash;2013)</h2>
 
     <p class="bump-out milli">
         Duration: 3 months
         <span class="split-before">
             PHP5, CI, TDD, JavaScript, LAMP, MySQL, Redis
         </span>
+    </p>
 
     <p>This project involved a full rewrite of a national retailer&rsquo;s
     website, in which I was employed as the sole backend developer. In additition,
@@ -37,7 +39,7 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Jaoss Library &amp; Web Application Framework</h2>
+    <h2>Jaoss Library &amp; Web Application Framework (2010&ndash;2013)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 3 years (ongoing)</span>
@@ -61,9 +63,12 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Development &amp; deployment workflow consultancy</h2>
+    <h2>Development &amp; deployment workflow consultancy (2012)</h2>
 
-    <p class="bump-out milli">Duration: 1 week</p>
+    <p class="bump-out milli">
+        <span class="split-after">Duration: 1 week</span>
+        LAMP setup, SCM setup, Jenkins CI setup, Shell Scripting
+    </p>
 
     <p>This project was undertaken on behalf of
     <a href="http://www.getsavvy.com/">Savvy Marketing</a> to implement the
@@ -80,27 +85,28 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Bootbox.js</h2>
+    <h2>Bootbox.js (2011&ndash;2013)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1&frac12; years (ongoing)</span>
         <a href="https://github.com/makeusabrew/bootbox">GitHub Repository</a>
-        <span class="split-before">JavaScript</span>
+        <span class="split-before">JavaScript, CoffeeScript</span>
     </p>
 
     <p>Originally a small set of wrapper functions written to scratch my own
     itch, <a href="http://bootboxjs.com/">Bootbox</a> has since grown into
-    its own standalone JavaScript library with over 1,100 watchers on
+    its own standalone JavaScript library with over 1,500 watchers on
     <a href="https://github.com">GitHub</a>. To support an ever-growing
-    community of users and developers it has its own in-browser test suite and follows
-    the <a href="http://semver.org/">Semantic Versioning</a> specification. The 
-    project is also under Continuous Integration by using
+    community of users and developers it has its own comprehensive test suite
+    written in CoffeeScript and providing full code coverage. The project follows
+    the <a href="http://semver.org/">Semantic Versioning</a> specification and
+    is also under Continuous Integration by using
     <a href="https://github.com/metaskills/mocha-phantomjs">mocha-phantomjs</a>
     to run the tests in a &lsquo;headless&rsquo; WebKit browser.</p>
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Mobile HTML5 app</h2>
+    <h2>Mobile HTML5 app* (2012)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1 month</span>
@@ -118,7 +124,7 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>faavorite.com</h2>
+    <h2>Faavorite (2012)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 3 months</span>
@@ -143,7 +149,7 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Lead Software Engineer</h2>
+    <h2>Lead Software Engineer (2010&ndash;2011)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1 year</span>

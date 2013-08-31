@@ -1,5 +1,5 @@
 {extends file='default/views/base-two-col.tpl'}
-{block name='theme'}brown{/block}
+{block name='theme'}dark-blue{/block}
 {block name="title"}Services{/block}
 {block name="heading"}<span class="hide--palm">Professional</span> Services{/block}
 {block name='body'}
