@@ -13,6 +13,26 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
+    <h2>JavaScript Developer (2013)</h2>
+
+    <p class="bump-out milli">
+        Duration: 6 months
+        <span class="split-before">
+            JavaScript
+        </span>
+    </p>
+
+    <p>A six month contract for <a href="http://www.skysports.com/">Sky Sports</a>
+    working as part of an Agile team architecting &amp; implementing a responsive
+    website&mdash;also set to double up as a replacement to several native apps
+    upon launch&mdash;for one of the brand&rsquo;s flagship products. The app-heavy
+    focus of the project led to the site being developed as a
+    <a href="http://en.wikipedia.org/wiki/Single-page_application">Single-page application</a>
+    using <a href="http://angularjs.org/">AngularJS</a>.</p>
+
+
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Retail website rebuild* (2012&ndash;2013)</h2>
 
     <p class="bump-out milli">
