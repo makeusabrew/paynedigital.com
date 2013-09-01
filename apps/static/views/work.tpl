@@ -149,6 +149,23 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
+    <h2>Flingball iOS (2011)</h2>
+
+    <p class="bump-out milli">
+        <span class="split-after">Duration: 3 months</span>
+        <a href="https://github.com/makeusabrew/flingball-ios">GitHub Repository</a>
+        <span class="split-before">Objective C, C++</span>
+    </p>
+
+    <p>A summer experiment with game development for iOS
+    (both iPhone and iPad). Although the game never saw the light
+    of the App Store it yielded a thorough understanding of universal
+    iOS development. The project eventually found its way
+    <a href="https://github.com/makeusabrew/flingball-ios">onto GitHub</a>
+    instead of iTunes.</p>
+
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Lead Software Engineer (2010&ndash;2011)</h2>
 
     <p class="bump-out milli">

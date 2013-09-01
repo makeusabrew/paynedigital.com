@@ -3,6 +3,12 @@
 {block name="title"}Services{/block}
 {block name="heading"}<span class="hide--palm">Professional</span> Services{/block}
 {block name='body'}
+    <p>The following list of professional services is by no means exhaustive;
+    please <a class="pjax" href="/contact">get in touch</a> if you have a project
+    which doesn&rsquo;t quite fit any of the following descriptions.</p>
+
+    <hr class="rule    rule--dotted" />
+
     <div class="service">
         <h2>Web<span class="hide--palm">site</span> Development</h2>
 
