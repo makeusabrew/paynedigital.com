@@ -1,4 +1,8 @@
 Favorite,Activity Name,Course,Start,Time,Distance,Elevation Gain,Avg Speed(Avg Pace),Max Speed(Best Pace),Avg HR,Max HR,Calories,Avg SWOLF,Best SWOLF,Best Efficiency,Training Effect
+false,"60m easy, 30m h/m pace",--,"Sun, 1 Sep 2013 9:51",1:30:50,11.28,467,8:03,5:47,160,171,"1,240",--,--,--,--,
+false,Recovery Run,--,"Thu, 29 Aug 2013 17:04",41:58,5.18,193,8:07,4:15,157,166,564,--,--,--,--,
+false,Almost abandoned intervals,--,"Wed, 28 Aug 2013 17:08",51:21,6.42,248,8:00,2:53,159,169,689,--,--,--,--,
+false,Easy Run,--,"Tue, 27 Aug 2013 18:16",45:42,5.67,289,8:03,3:05,158,168,615,--,--,--,--,
 false,Long Slow Run,--,"Sun, 25 Aug 2013 8:01",2:35:55,17.54,847,8:53,5:41,--,--,"2,168",--,--,--,--,
 false,Tired intervals (1km : 90s x 6),--,"Fri, 23 Aug 2013 16:36",51:16,6.61,232,7:46,4:37,164,175,718,--,--,--,--,
 false,Recovery (ish) Run,--,"Thu, 22 Aug 2013 17:06",36:32,4.51,221,8:06,5:01,161,171,502,--,--,--,--,
