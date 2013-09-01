@@ -8,10 +8,10 @@
 
             a {
                 color:darken($colour, 15%);
-            }
 
-            a:hover {
-                color:darken($colour, 12%);
+                &:hover {
+                    color:darken($colour, 12%);
+                }
             }
         }
 
@@ -57,13 +57,23 @@
             }
         }
 
+        .inner {
+            a {
+                color:lighten($colour, 2%);
+
+                &:hover {
+                    color:lighten($colour, 5%);
+                }
+            }
+        }
+
         .header__camera {
             background: $colour;
         }
 
         h1,h2,h3,
         h4,h5,h6 {
-            text-shadow: none;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
         }
     }
 }
@@ -78,4 +88,4 @@
 @include theme(purple, #2E1525, #EDF2E3);
 @include theme(mustard, #EABA22, #fff);
 @include theme(paper, #f0f0f0, #141414);
-@include theme-inverted(neon, white, #222, #B40E4D);
+@include theme-inverted(neon, #efefef, #333, #B40E4D);
