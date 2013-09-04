@@ -127,7 +127,7 @@
     <h2>Payne Digital Website (2011&ndash;2013)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: ongoing</span>
+        <span class="split-after">Duration: 2 years (ongoing)</span>
         <a href="https://github.com/makeusabrew/paynedigital.com">GitHub Repository</a>
         <span class="split-before">PHP, JavaScript, HTML5, Sass, TDD, CI</span>
     </p>
