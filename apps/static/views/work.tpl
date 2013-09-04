@@ -124,6 +124,32 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
+    <h2>Payne Digital Website (2011&ndash;2013)</h2>
+
+    <p class="bump-out milli">
+        <span class="split-after">Duration: ongoing</span>
+        <a href="https://github.com/makeusabrew/paynedigital.com">GitHub Repository</a>
+        <span class="split-before">PHP, JavaScript, HTML5, Sass, TDD, CI</span>
+    </p>
+
+    <p>This site itself is a reflection of much of the work I do; it is
+    <a href="https://github.com/makeusabrew/paynedigital.com">open source</a>,
+    built on the <a href="https://github.com/makeusabrew/jaoss">jaoss framework</a>,
+    has a comprehensive <a href="https://github.com/makeusabrew/paynedigital.com/tree/master/test">test</a>
+    <a href="https://github.com/makeusabrew/paynedigital.com/tree/master/tests">suite</a>
+    and is built and automatically deployed via <a href="/search?q=ci">Jenkins CI</a>.
+    It employs cutting-edge use of the HTML5 pushState API and CSS3 transitions for
+    subtle yet smooth page navigation, works with and without JavaScript and uses
+    the <a href="http://sass-lang.com/">Sass</a> CSS preprocessor for the perfect
+    blend of
+    <a href="https://github.com/makeusabrew/paynedigital.com/tree/master/sass">maintainable stylesheets</a>
+    and optimised CSS output. It serves minified and compressed assets for maximum
+    bandwidth efficiency and employs
+    <a href="http://en.wikipedia.org/wiki/Responsive_web_design">responsive design</a>
+    to ensure the best experience across mobile, tablet and desktop devices.</p>
+
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>Faavorite (2012)</h2>
 
     <p class="bump-out milli">
