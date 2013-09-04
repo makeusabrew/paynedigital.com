@@ -4,7 +4,7 @@
 {block name='heading'}About Nick Payne &amp; Payne Digital Ltd{/block}
 {block name='body'}
     <p>With a BSc Honours degree in Software Engineering my primary skills lie in
-    a range of programming languages&mdash;notably PHP, JavaScript (and often CoffeeScript), Objective C and
+    a range of programming languages&mdash;notably PHP, JavaScript (often via CoffeeScript), Objective C and
     less recently C++ and Java, as demonstrated by my
     <a href="https://github.com/makeusabrew?tab=repositories">open sourced projects on GitHub</a>.
     I&rsquo;ve configured, used &amp; tuned many data stores commonly associated with these
