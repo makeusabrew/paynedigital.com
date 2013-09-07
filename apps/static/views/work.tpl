@@ -6,7 +6,7 @@
     <p>Much of the work I undertake is on behalf of agencies and as such
     it is not always possible to divulge full project details (often including
     the name of the end-client), but as much information about each piece
-    of work is given. An asterisk(*) next to a project title indicates
+    of work is given. An asterisk next to a project title indicates
     such a restriction. This page also highlights a selection of my own projects,
     most of which
     are freely available on <a href="https://github.com">GitHub</a>.</p>
