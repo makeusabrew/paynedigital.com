@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no" />
-    <title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
+    <title>{block name='outer-title'}{block name='title' hide=true}{$smarty.block.child} | {/block}{setting value="site.title"}{/block}</title>
 
     <link rel="stylesheet" href="/assets/css/style{$assetPath}.min.css" />
 
@@ -102,7 +102,7 @@
 </body>
 </html>
 {else}
-<title>{block name='outer-title'}{setting value="site.title"}{block name='title' hide=true}&mdash;{$smarty.block.child}{/block}{/block}</title>
+<title>{block name='outer-title'}{block name='title' hide=true}{$smarty.block.child} | {/block}{setting value="site.title"}{/block}</title>
 
 {block name=content}{/block}
 
