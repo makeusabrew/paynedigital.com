@@ -165,7 +165,10 @@ var Scatter = (function(document, d3) {
 
         // nasty, but we always want to show at *least* something below the 8:00 line - nice
         // might not quite cut it
-        y.domain(d3.extent(data.concat({paceSecs: 470}), function(d) { return d.paceSecs; })).nice();
+        //y.domain(d3.extent(data.concat({paceSecs: 470}), function(d) { return d.paceSecs; })).nice();
+        // we've got a serious outlier now in the form of the trail run/walk which ruins the graphs; for
+        // now just hard code but this needs revisiting!
+        y.domain([420, 600]);
 
         var calories = d3.scale.linear()
                        .range([2, 7]);
