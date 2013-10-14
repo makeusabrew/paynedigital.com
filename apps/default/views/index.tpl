@@ -9,6 +9,9 @@
         <div class="hero__copy">
             {include file="default/views/includes/intro.tpl"}
 
+            <p>I am taking on new projects as of November 2013 so please do
+            <a href="/contact" class="pjax">get in touch</a>.</p>
+
             <p>You can find out more <a href="/about" class="pjax">about me</a>,
             discover what <a href="/services" class="pjax">services I offer</a>,
             check out <a href="/work" class="pjax">some of my work</a> or
