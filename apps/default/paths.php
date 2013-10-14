@@ -3,5 +3,6 @@
 PathManager::setAppCacheTtl(300);
 
 PathManager::loadPaths(
-    array("/", "index")
+    array("/", "index"),
+    array("/process", "process")
 );
