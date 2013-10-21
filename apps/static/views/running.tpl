@@ -40,8 +40,8 @@
 
         <p>I ran the <a href="http://www.theyorkshiremarathon.com/">Yorkshire Marathon</a>
         on the 20th October on behalf of <a href="http://www.royalmarsden.org/">The Royal Marsden Cancer Charity</a>,
-        a world-leading cancer centre which provides treatment and care for more than 40,000 cancer patients every
-        year. This page does <i>not</i> exist to seek donations, though any would of course be
+        a world-leading cancer research centre and hospital which provides treatment and care for more than 40,000
+        cancer patients every year. This page does <i>not</i> exist to seek donations, though any would of course be
         <a href="https://www.justgiving.com/Nick-Payne-Yorkshire-Marathon">hugely appreciated</a>.</p>
 
         <hr class="rule    rule--ornament rule--dotted" />
