@@ -10,7 +10,8 @@
         <div class="total chart">
             <p>The following chart simply plots my total mileage this year against what I need to be running
             to hit 1,000 miles by the 31st December. A knee injury put me out of action from April&mdash;June
-            but I&rsquo;m hopeful I can make up the distance by the end of the year!</p>
+            and life got in the way during September so the challenge may well have to start all over again
+            in 2014!</p>
         </div>
 
         <div class="scatter chart">
@@ -37,7 +38,7 @@
             </div>
         </div>
 
-        <p>I&rsquo;m also running the <a href="http://www.theyorkshiremarathon.com/">Yorkshire Marathon</a>
+        <p>I ran the <a href="http://www.theyorkshiremarathon.com/">Yorkshire Marathon</a>
         on the 20th October on behalf of <a href="http://www.royalmarsden.org/">The Royal Marsden Cancer Charity</a>,
         a world-leading cancer centre which provides treatment and care for more than 40,000 cancer patients every
         year. This page does <i>not</i> exist to seek donations, though any would of course be
