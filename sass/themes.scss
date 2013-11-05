@@ -88,4 +88,5 @@
 @include theme(purple, #2E1525, #EDF2E3);
 @include theme(mustard, #EABA22, #fff);
 @include theme(paper, #f0f0f0, #141414);
+@include theme-inverted(xmas, #efefef, #333, #386136);
 @include theme-inverted(neon, #efefef, #333, #B40E4D);
