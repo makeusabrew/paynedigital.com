@@ -25,9 +25,23 @@
 
 {/block}
 {block name=secondary}
-    <p><b>Nodeflakes</b> is an open source demo I first put together in time
-    for Christmas 2011&mdash;you can read the <a href="/2011/12/nodeflakes">original
-    writeup here</a>.</p>
+    <p>This is an <a href="https://github.com/makeusabrew/nodeflakes/">open source demo</a>
+    I first put together in time for Christmas 2011; you can read the
+    <a href="/2011/12/nodeflakes">original writeup</a> although the demo itself has
+    now moved to its seasonal home here.</p>
+
+    <p>It involves a number of interesting technologies and components: CSS3 transforms,
+    NodeJS, WebSockets, ZeroMQ, Graphite, StatsD and a new addition for 2013, Docker.</p>
+
+    <p>The code hasn't changed much over the past two years and in some places is certainly
+    showing its age, but as long as it works and people enjoy it it'll make an appearance
+    every year for the run up to Christmas.</p>
+
+    <p>If you'd like to <a href="/contact">get in touch</a> to find out more about the
+    demo or discuss any of the technologies it uses then by all means <a href="/contact">please
+    do so</a>.</p>
+
+    <p>Enjoy the snowflakes!</p>
 {/block}
 {block name=script}
     <script src="http://localhost:7979/socket.io/socket.io.js"></script>
@@ -36,6 +50,9 @@
     <script src="/nodeflakes-client/js/flake.js"></script>
     <script src="/nodeflakes-client/js/client.js"></script>
     <script>
-        $(function() { Client.start("localhost", 7979); });
+        $(function() {
+            pjaxify.disable();
+            Client.start("localhost", 7979);
+        });
     </script>
 {/block}
