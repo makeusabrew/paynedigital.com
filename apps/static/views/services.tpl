@@ -20,12 +20,12 @@
         server. Bespoke doesn&rsquo;t necessarily mean expensive&mdash;especially
         with years&rsquo; worth of reusable modules including a fully functional
         <abbr title="Content Management System">CMS</abbr>&mdash;but it <i>does</i>
-        mean fast, flexible and perfectly suited.</p>
+        mean fast, flexible and perfectly tailored to the job at hand.</p>
 
         <p>Whilst I do usually work with my own battle-hardened PHP framework
         which has been in
         <a href="https://github.com/makeusabrew/jaoss">active,
-        open source development for three years</a>, I am happy
+        open source development for three and a half years</a>, I am happy
         to work with a variety of systems and languages depending on requirements.</p>
     </div>
 
