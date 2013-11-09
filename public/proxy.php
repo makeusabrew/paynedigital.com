@@ -12,8 +12,8 @@ use ReSRC\ReSRC;
  */
 
 $options = array(
-    "host" => "http://paynedigital.build/process",
-    "key"  => "foo",
+    "host"   => "http://paynedigital.build/process",
+    "token"  => "foo",
 );
 
 $resrc = new ReSRC($options);
@@ -33,19 +33,24 @@ if ($params === null) {
     exit(1);
 }
 
-if (!$resrc->hasCachedResource($params)) {
+try {
+    if (!$resrc->hasCachedResource($params)) {
 
-    // ping off to resrc.it API
-    $imageData = $resrc->fetchProcessedResource($params);
 
-    $resrc->storeResourceImage($params, $imageData);
+        // ping off to resrc.it API
+        $imageData = $resrc->fetchProcessedResource($params);
+
+        $resrc->storeResourceImage($params, $imageData);
+    }
+
+    // bear in mind this just serves a *cached* resource
+    // we need a way of serving an in-memory resource too
+    // it would be nice to make one method which could take
+    // either some params or a data string
+    $resrc->outputResource($params);
+} catch (\ReSRC\Exception $e) {
+    die("Exception: ".$e->getMessage());
 }
-
-// bear in mind this just serves a *cached* resource
-// we need a way of serving an in-memory resource too
-// it would be nice to make one method which could take
-// either some params or a data string
-$resrc->outputResource($params);
 
 // $resrc->getResourceHeaders($params);
 // $resrc->getResourceData($params);
@@ -53,10 +58,12 @@ $resrc->outputResource($params);
 // one main method?
 // $resrc->serveResourceFromString($string);
 //
-//
+// e.g. VVVVVV
 
+/*
 try {
     $resrc->outputResourceForString($string);
-} catch (Exception $e/* SomeResrcException */) {
+} catch (Exception $e SomeResrcException ) {
     die("doh");
 }
+*/

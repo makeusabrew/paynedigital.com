@@ -20,6 +20,8 @@ class DefaultController extends AbstractController {
         imagedestroy($rotated);
 
         $string = file_get_contents("/tmp/image.jpg");
-        return $this->renderJson(array("image" => base64_encode($string)));
+
+        $this->response->addHeader("Content-Type", "image/jpeg");
+        $this->response->setBody($string);
     }
 }
