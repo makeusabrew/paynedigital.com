@@ -9,7 +9,7 @@
 {block name=body}
 
     <p>The snowflakes you can see gently floating down your screen are
-    real-time representations of tweets, taken <strong>live</strong> from
+    real-time representations of tweets, taken <i>live</i> from
     <a href="https://dev.twitter.com/docs/streaming-api">Twitter&rsquo;s Streaming API</a>.
     The size of each flake is loosely based on its author&rsquo;s follower count, and
     hovering over each flake will reveal the tweet it represents complete with
@@ -22,7 +22,7 @@
 
     <h2>Try It Out!</h2>
 
-    <p>To avoid a total blizzard only tweets containing certain keywords are shown, so if
+    <p>To avoid a total whiteout only tweets containing certain festive keywords are shown, so if
     you want to feature simply <a href="https://twitter.com/intent/tweet">send a tweet</a> including
     any of the following phrases. Your tweet will appear instantly at the top of the
     page&mdash;although it can sometimes be a little tricky to spot!</p>
@@ -47,14 +47,12 @@
     data-count="horizontal">Tweet #nodeflakes</a>
     </p>
 
-    <h2>Video Here?</h2>
-
     <h2>How It Works</h2>
 
     <p>If you&rsquo;re interested in more information about the technology powering nodeflakes
-    your best bet is to head over to <a href="/2011/12/nodeflakes">the original article</a>.
+    your best bet is to head over to <a href="/articles/2011/12/nodeflakes">the original article</a>.
     The following image will give you <i>some</i> idea of what&rsquo;s going on but
-    the writeup goes into <a href="/2011/12/nodeflakes">far more detail</a> about each
+    the writeup goes into <a href="/articles/2011/12/nodeflakes">far more detail</a> about each
     individual component and the frontend code.</p>
 
     <p class="caption">
@@ -62,11 +60,14 @@
         <span class="caption__attribute">This fantastic diagram was provided courtesy of my good friend <a href="http://www.ian-thomas.net/">Ian Thomas</a></span>
     </p>
 
+    <h2>Video Here?</h2>
+
     <h2>Follow-up Articles</h2>
 
     <ul>
-        <li><a href="/2012/12/beginning-to-look-like-nodeflakes">Christmas 2012 Introduction</a></li>
-        <li><a href="/2013/01/nodeflakes-analysis-statsd-graphite">2012 analysis using StatsD &amp; Graphite</a></li>
+        <li><a href="/articles/2011/12/nodeflakes">Original 2011 article</a></li>
+        <li><a href="/articles/2012/12/beginning-to-look-like-nodeflakes">Christmas 2012 Introduction</a></li>
+        <li><a href="/articles/2013/01/nodeflakes-analysis-statsd-graphite">2012 analysis using StatsD &amp; Graphite</a></li>
         <li><a href="@TODO">Introducing Docker, Christmas 2013</a></li>
     </ul>
 
@@ -79,11 +80,16 @@
 {block name=secondary}
     <p>This is an <a href="https://github.com/makeusabrew/nodeflakes/">open source demo</a>
     I first put together in time for Christmas 2011; you can read the
-    <a href="/2011/12/nodeflakes">original writeup</a> although the demo itself has
+    <a href="/articles/2011/12/nodeflakes">original writeup</a> although the demo itself has
     now moved to its seasonal home here.</p>
 
-    <p>It involves a number of interesting technologies and components: CSS3 transforms,
-    NodeJS, WebSockets, ZeroMQ, Graphite, StatsD and a new addition for 2013, Docker.</p>
+    <p>It involves a number of interesting technologies and components:
+    <a href="https://github.com/makeusabrew/nodeflakes-client/blob/master/css/main.css#L67-L113">CSS3 transforms</a>,
+    <a href="https://github.com/makeusabrew/nodeflakes">NodeJS</a>,
+    <a href="http://en.wikipedia.org/wiki/WebSocket">WebSockets</a>,
+    <a href="http://zguide.zeromq.org/page:all">ZeroMQ</a>,
+    <a href="/articles/2013/01/nodeflakes-analysis-statsd-graphite">Graphite, StatsD</a>
+    and a new addition for 2013, Docker.</p>
 
     <p>The code hasn&rsquo;t changed much over the past two years and in some places is certainly
     showing its age, but as long as it works and people enjoy it it&rsquo;ll make an appearance
