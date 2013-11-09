@@ -57,8 +57,9 @@
     the writeup goes into <a href="/2011/12/nodeflakes">far more detail</a> about each
     individual component and the frontend code.</p>
 
-    <p>
-    <img src="/img/nodeflakes.png" alt="nodeflakes flow diagram" />
+    <p class="caption">
+        <img class="caption__image" src="/img/nodeflakes.jpg" alt="nodeflakes flow diagram" />
+        <span class="caption__attribute">This fantastic diagram was provided courtesy of my good friend <a href="http://www.ian-thomas.net/">Ian Thomas</a></span>
     </p>
 
     <h2>Follow-up Articles</h2>
