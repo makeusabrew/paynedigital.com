@@ -1,4 +1,5 @@
 var child_process = require("child_process"),
+    Zombie        = require("zombie"),
     Settings      = require("./settings");
 
 Settings.setModeAndLoad(process.env.PROJECT_MODE || "test");
@@ -6,7 +7,7 @@ Settings.setModeAndLoad(process.env.PROJECT_MODE || "test");
 module.exports = {
     loadFixture: function(cb) {
 
-        var sql = 
+        var sql =
         "mysql -u"+Settings.getValue("db", "user")+" "+
         "-h"+Settings.getValue("db", "host")+" "+
         "-p"+Settings.getValue("db", "pass")+" "+
@@ -15,6 +16,14 @@ module.exports = {
         "< "+__dirname+"/../../tests/fixtures/pd_clean.sql";
 
         child_process.exec(sql, cb);
+    },
+
+    getBrowser: function(debug) {
+      var browser = new Zombie();
+      browser.debug = debug || false;
+      browser.site = Settings.getValue("site", "base_href");
+
+      return browser;
     },
 
     Settings: Settings,

@@ -1,15 +1,12 @@
 boot   = require "./lib/boot"
 helper = require "./lib/helper"
-Zombie = require "zombie"
 assert = require "./lib/assert"
-
-Zombie.site = boot.Settings.getValue "site", "base_href"
 
 describe "Admin area", ->
     browser = null
 
     before (done) ->
-        browser = new Zombie()
+        browser = boot.getBrowser()
         boot.loadFixture done
 
     describe "When logging into the admin area as a valid user", ->
@@ -22,14 +19,14 @@ describe "Admin area", ->
                 done()
 
         it "should show a greeting message", ->
-            assert.equal "Hi Test.", browser.text("p:first")
+            assert.equal "Hi Test.", browser.text("p:nth-of-type(1)")
 
         it "should show the correct posts for a user", ->
-            assert.equal "This post will be published in the future", browser.text("tbody tr:eq(0) td:first")
-            assert.equal "This Post Has Been Deleted", browser.text("tbody tr:eq(1) td:first")
-            assert.equal "This Is A Test Post", browser.text("tbody tr:eq(2) td:first")
-            assert.equal "A test post for comments", browser.text("tbody tr:eq(3) td:first")
-            assert.equal "This post hasn't been published", browser.text("tbody tr:eq(4) td:first")
+            assert.equal "This post will be published in the future", browser.text("tr:nth-of-type(1) td:nth-of-type(1)")
+            assert.equal "This Post Has Been Deleted", browser.text("tr:nth-of-type(2) td:nth-of-type(1)")
+            assert.equal "This Is A Test Post", browser.text("tr:nth-of-type(3) td:nth-of-type(1)")
+            assert.equal "A test post for comments", browser.text("tr:nth-of-type(4) td:nth-of-type(1)")
+            assert.equal "This post hasn't been published", browser.text("tr:nth-of-type(5) td:nth-of-type(1)")
 
         it "should not show another user's posts", ->
             assert.equal 5, browser.queryAll("tbody tr").length
@@ -37,23 +34,24 @@ describe "Admin area", ->
         describe "When editing an existing post", ->
             before (done) ->
                 browser
-                .clickLink("tbody tr:eq(0) a:first")
+                .clickLink("tbody tr:nth-of-type(1) a:nth-of-type(1)")
                 .then ->
                     browser.fill "#title", "Test Post (Edited)"
                     browser.select "#status", "Draft"
                     browser.fill "#published", "01/09/21 12:34:56"
                 .then ->
-                    browser.pressButton "Save", done
+                    browser.pressButton "Save"
+                    setTimeout done, 200
 
             describe "When returning to the admin listing page", ->
                 before (done) ->
                     browser.visit "/admin", done
 
                 it "should show the updated post contents", ->
-                    assert.equal "Test Post (Edited)", browser.text("tbody tr:eq(0) td:first")
-                    assert.equal "DRAFT", browser.text("tbody tr:eq(0) td:eq(1)")
-                    assert.equal "2021-09-01 12:34:56", browser.text("tbody tr:eq(0) td:eq(2)")
-        
+                    assert.equal "Test Post (Edited)", browser.text("tbody tr:nth-of-type(1) td:nth-of-type(1)")
+                    assert.equal "DRAFT", browser.text("tbody tr:nth-of-type(1) td:nth-of-type(2)")
+                    assert.equal "2021-09-01 12:34:56", browser.text("tbody tr:nth-of-type(1) td:nth-of-type(3)")
+
         describe "When creating a new post", ->
             before (done) ->
                 browser
@@ -67,30 +65,31 @@ describe "Admin area", ->
                     browser.fill "#content", "<p>Here is some test content.</p>"
                     browser.fill "#tags", "|test|tags|"
                 .then ->
-                    browser.pressButton "Save", done
+                    browser.pressButton "Save"
+                    setTimeout done, 200
 
             describe "When viewing the articles landing page", ->
                 before (done) ->
                     browser.visit "/articles", done
 
                 it "should show the newly created post", ->
-                    assert.equal "A New Post", browser.text(".article__heading:first")
+                    assert.equal "A New Post", browser.text(".article:nth-of-type(1) .article__heading")
 
                 it "should show the post intro copy", ->
-                    assert.equal "Here is some test introductory content.", browser.text(".article-content:first p:first")
+                    assert.equal "Here is some test introductory content.", browser.text(".article:nth-of-type(1) p:nth-of-type(1)")
 
-                describe "When following the link to the post", ->
-                    before (done) ->
-                        browser.clickLink "A New Post", done
+            describe "When following the link to the post", ->
+                before (done) ->
+                    browser.clickLink "A New Post", done
 
-                    it "should load the correct URL", ->
-                        assert.equal "/articles/2011/09/a-new-post", browser.location.pathname
+                it "should load the correct URL", ->
+                    assert.equal "/articles/2011/09/a-new-post", browser.location.pathname
 
-                    it "should show the correct title", ->
-                        assert.equal "A New Post", browser.text("h1")
+                it "should show the correct title", ->
+                    assert.equal "A New Post", browser.text("h1")
 
-                    it "should show the body copy", ->
-                        assert.equal "Here is some test content.", browser.text(".article-content:first p:first")
+                it "should show the body copy", ->
+                    assert.equal "Here is some test content.", browser.text(".article-content p")
 
         describe "When approving a pending comment", ->
             before (done) ->
@@ -106,7 +105,7 @@ describe "Admin area", ->
                         browser.visit "/2011/09/this-is-a-test-post", done
 
                     it "should show the correct number of comments", ->
-                        assert.equal "1 comment", browser.text(".published a:eq(1)")
+                        assert.equal "1 comment", browser.text(".published a:nth-of-type(2)")
 
                     it "should show the comment on the page", ->
                         assert.equal "Mr Test", browser.text(".comment .commenter")

@@ -78,6 +78,7 @@
         <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml 
         --coverage-html ${reportsFull.dir}/${coverage.dir}
         --coverage-clover ${reportsFull.dir}/phpunit.coverage.xml" />
+        <echo msg="Running Mocha Integration Tests" />
         <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter xunit > ${reportsFull.dir}/mocha-test-results.xml" />
     </target>
 
