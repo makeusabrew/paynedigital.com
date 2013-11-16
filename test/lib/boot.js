@@ -18,8 +18,9 @@ module.exports = {
         child_process.exec(sql, cb);
     },
 
-    getBrowser: function() {
+    getBrowser: function(debug) {
       var browser = new Zombie();
+      browser.debug = debug || false;
       browser.site = Settings.getValue("site", "base_href");
 
       return browser;
