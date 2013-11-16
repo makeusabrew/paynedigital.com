@@ -1,15 +1,12 @@
 boot   = require "./lib/boot"
 helper = require "./lib/helper"
-Zombie = require "zombie"
 assert = require "./lib/assert"
-
-Zombie.site = boot.Settings.getValue "site", "base_href"
 
 describe "Admin area", ->
     browser = null
 
     before (done) ->
-        browser = new Zombie()
+        browser = boot.getBrowser()
         boot.loadFixture done
 
     describe "When logging into the admin area as a valid user", ->
