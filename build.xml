@@ -67,7 +67,7 @@
 
     <target name="build" description="Build (excluding selenium tests)" depends="cleanup,sloc">
         <echo msg="Running Tests &amp; Generating Reports" />
-        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml 
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml
         --coverage-clover ${reportsFull.dir}/phpunit.coverage.xml
         --coverage-html ${reportsFull.dir}/${coverage.dir}
         --exclude-group selenium" />
@@ -75,10 +75,11 @@
 
     <target name="fullbuild" description="Full Project Build" depends="cleanup,sloc">
         <echo msg="Cleaning up, Running Tests &amp; Generating Reports" />
-        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml 
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} phpunit --log-junit ${reportsFull.dir}/test-results.xml
         --coverage-html ${reportsFull.dir}/${coverage.dir}
         --coverage-clover ${reportsFull.dir}/phpunit.coverage.xml" />
-        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} /usr/local/bin/mocha --reporter xunit > ${reportsFull.dir}/mocha-test-results.xml" />
+        <echo msg="Running Mocha Integration Tests" />
+        <exec checkreturn="true" passthru="true" command="PROJECT_MODE=${mode} XUNIT_FILE=${reportsFull.dir}/mocha-test-results.xml ./node_modules/mocha/bin/mocha -R xunit-file" />
     </target>
 
     <target name="assets">

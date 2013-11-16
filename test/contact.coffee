@@ -1,15 +1,12 @@
 boot   = require "./lib/boot"
 helper = require "./lib/helper"
-Zombie = require "zombie"
 assert = require "./lib/assert"
-
-Zombie.site = boot.Settings.getValue "site", "base_href"
 
 describe "Contact page", ->
     browser = null
 
     before (done) ->
-        browser = new Zombie()
+        browser = boot.getBrowser()
         boot.loadFixture done
 
     describe "When visiting the contact page", ->
