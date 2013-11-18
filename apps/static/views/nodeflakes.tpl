@@ -68,7 +68,7 @@
         <li><a href="/articles/2011/12/nodeflakes">Original 2011 article</a></li>
         <li><a href="/articles/2012/12/beginning-to-look-like-nodeflakes">Christmas 2012 Introduction</a></li>
         <li><a href="/articles/2013/01/nodeflakes-analysis-statsd-graphite">2012 analysis using StatsD &amp; Graphite</a></li>
-        <li><a href="@TODO">Introducing Docker, Christmas 2013</a></li>
+        <li><a href="/articles/2013/11/introduction-to-docker">Introducing Docker, Christmas 2013</a></li>
     </ul>
 
     <h2>Like What You See?</h2>
@@ -89,7 +89,7 @@
     <a href="http://en.wikipedia.org/wiki/WebSocket">WebSockets</a>,
     <a href="http://zguide.zeromq.org/page:all">ZeroMQ</a>,
     <a href="/articles/2013/01/nodeflakes-analysis-statsd-graphite">Graphite, StatsD</a>
-    and a new addition for 2013, Docker.</p>
+    and a new addition for 2013, <a href="/articles/2013/11/introduction-to-docker">Docker</a>.</p>
 
     <p>The code hasn&rsquo;t changed much over the past two years and in some places is certainly
     showing its age, but as long as it works and people enjoy it it&rsquo;ll make an appearance
