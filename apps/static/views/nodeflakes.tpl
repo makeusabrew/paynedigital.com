@@ -34,7 +34,7 @@
     <a href="https://twitter.com/intent/tweet?text=I'm trying out %23nodeflakes - real time tweet powered snowflakes by @makeusabrew">#nodeflakes</a>
     hashtag in <i>any</i> tweet for an extra special snowflake you&rsquo;ll
     be hard pressed to miss (especially if you
-    have your sound turned on!). The following Tweet button will illustrate a special <b>gold</b>
+    have your sound turned on!). The following Tweet button will illustrate a special gold
     nodeflake in full effect:</p>
 
     <a
@@ -73,7 +73,7 @@
 
     <h2>Like What You See?</h2>
 
-    <p>This is small demo I put together two years ago, but hopefully you&rsquo;ve enjoyed it nonetheless.
+    <p class="hide--palm">This is a small demo I put together two years ago, but hopefully you&rsquo;ve enjoyed it nonetheless.
     If you&rsquo;re interested in finding out more about me then please do <a href="/contact">get in touch</a>.</p>
 
 {/block}
