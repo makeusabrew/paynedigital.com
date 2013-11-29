@@ -60,7 +60,9 @@
         <span class="caption__attribute">This fantastic diagram was provided courtesy of my good friend <a href="http://www.ian-thomas.net/">Ian Thomas</a></span>
     </p>
 
+    {*
     <h2>Video Here?</h2>
+    *}
 
     <h2>Follow-up Articles</h2>
 
@@ -102,7 +104,7 @@
     <p>Enjoy the snowflakes!</p>
 {/block}
 {block name=script}
-    <script src="http://localhost:7979/socket.io/socket.io.js"></script>
+    <script src="http://ws.paynedigital.com/socket.io/socket.io.js"></script>
     <script src="/nodeflakes-client/js/engine.js"></script>
     <script src="/nodeflakes-client/js/sound_manager.js"></script>
     <script src="/nodeflakes-client/js/flake.js"></script>
@@ -110,7 +112,7 @@
     <script>
         $(function() {
             pjaxify.disable();
-            Client.start("localhost", 7979);
+            Client.start("ws.paynedigital.com", 80);
         });
     </script>
 {/block}
