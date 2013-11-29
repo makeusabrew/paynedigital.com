@@ -100,6 +100,7 @@
         <echo msg="Cleaning asset directories" />
         <delete includeemptydirs="true" verbose="false" failonerror="true">
             <fileset dir="public/assets">
+                <include name="js/typekit/*.js" />
                 <include name="js/*.js" />
                 <include name="css/*.css" />
             </fileset>

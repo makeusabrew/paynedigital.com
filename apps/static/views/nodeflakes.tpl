@@ -17,8 +17,7 @@
     with any luck the snowflakes will even rotate slowly as they glide
     down your screen. If things get a bit juddery, try playing with some of the options
     in the bottom right-hand corner of the viewport. Try a few combinations as their
-    effects seem to differ not just between browsers but also operating systems too.
-    If you&rsquo;re on a mobile, your mileage may vary.</p>
+    effects seem to differ not just between browsers but also operating systems too.</p>
 
     <h2>Try It Out!</h2>
 
@@ -43,8 +42,7 @@
     data-related="makeusabrew"
     data-lang="en"
     data-size="large"
-    data-url="http://paynedigital.com/2011/12/nodeflakes"
-    data-count="horizontal">Tweet #nodeflakes</a>
+    data-url="http://paynedigital.com/nodeflakes">Tweet #nodeflakes</a>
     </p>
 
     <h2>How It Works</h2>
@@ -76,7 +74,9 @@
     <h2>Like What You See?</h2>
 
     <p class="hide--palm">This is a small demo I put together two years ago, but hopefully you&rsquo;ve enjoyed it nonetheless.
-    If you&rsquo;re interested in finding out more about me then please do <a href="/contact">get in touch</a>.</p>
+    If it&rsquo;s piqued your interest at all feel free to <a href="/contact">get in touch</a> to discuss it or find out
+    how we may be able to work together using any of the technologies on show here, or indeed <a href="/services">anything else</a>
+    I may be able to help you with.</p>
 
 {/block}
 {block name=secondary}
@@ -104,11 +104,7 @@
     <p>Enjoy the snowflakes!</p>
 {/block}
 {block name=script}
-    <script src="http://ws.paynedigital.com/socket.io/socket.io.js"></script>
-    <script src="/nodeflakes-client/js/engine.js"></script>
-    <script src="/nodeflakes-client/js/sound_manager.js"></script>
-    <script src="/nodeflakes-client/js/flake.js"></script>
-    <script src="/nodeflakes-client/js/client.js"></script>
+    <script src="/assets/js/nodeflakes{$assetPath}.min.js"></script>
     <script>
         $(function() {
             pjaxify.disable();
