@@ -11,7 +11,7 @@ var Gistify = (function(document) {
     };
 
     that.onDocumentWrite = function(v) {
-        if (v.search(/^<link href=/) !== -1) {
+        if (v.search(/^<link/) !== -1) {
             head.append(v);
         } else {
             var id = v.match(/id="gist([^\s]+)"/)[1];
