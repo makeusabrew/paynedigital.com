@@ -8,6 +8,9 @@ module.exports = (grunt) ->
                         "apps/default/assets/js/deps/jquery.pjax.js",
                         "apps/*/assets/js/*.js"
                     ]
+            nodeflakes:
+                files:
+                    "public/assets/js/nodeflakes<%= append %>.min.js" : ["public/nodeflakes-client/js/*.js"]
 
         concat:
             options:

@@ -30,3 +30,14 @@ pre {
     border-radius:5px;
     padding:$half-spacing-unit;
 }
+
+.caption__image {
+    display:block;
+}
+
+.caption__attribute {
+    display:block;
+    text-align:center;
+    font-style:italic;
+    font-size:$half-spacing-unit;
+}

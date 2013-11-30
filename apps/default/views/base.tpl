@@ -55,6 +55,7 @@
             </form>
 
             <a class="logo" href="/">
+                {block name='logo-extra'}{/block}
                 {include file="default/views/includes/logo.tpl"}
             </a>
             <ul class="nav  header__nav">
