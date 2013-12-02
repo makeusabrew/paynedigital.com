@@ -3,7 +3,7 @@
 {block name=theme}xmas-inverted{/block}
 {block name='logo-extra'}<img src="/img/xmas.png" alt="" class="logo__xmas" />{/block}
 {block name=head}
-    <link rel="stylesheet" href="/nodeflakes-client/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/nodeflakes-client/css/main.css?v=467" type="text/css" />
 {/block}
 {block name=heading}Nodeflakes&mdash;real time tweet powered snowflakes{/block}
 {block name=body}
@@ -15,9 +15,7 @@
     hovering over each flake will reveal the tweet it represents complete with
     highlighted hashtags, usernames and URLs. If you&rsquo;re using a modern web browser
     with any luck the snowflakes will even rotate slowly as they glide
-    down your screen. If things get a bit juddery, try playing with some of the options
-    in the bottom right-hand corner of the viewport. Try a few combinations as their
-    effects seem to differ not just between browsers but also operating systems too.</p>
+    down your screen.</p>
 
     <h2>Try It Out!</h2>
 
