@@ -31,7 +31,7 @@
                         <time class="comments__time milli">{$comment->created|date_format:"jS F Y \a\\t H:i"}</time>
                     </div>
                     <div class='comments__copy'>
-                        {$comment->content|htmlentities8}
+                        {$comment->content|htmlentities8|nl2br}
                     </div>
                 </div>
             {foreachelse}
