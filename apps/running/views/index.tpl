@@ -58,7 +58,7 @@
     <script src="/running/js/charts/total.js"></script>
 
     <script>
-        Runs.load("/running/data/runs.csv", function() {
+        Runs.load({$runs}, function() {
 
             var data = Runs.getAll();
 

@@ -73,11 +73,11 @@ var Scatter = (function(document, d3) {
         .attr("class", "label-legend")
         .attr("text-anchor", "end")
         .text("");
-        
+
         $(document).on("change", "select[name=chart-type]", function(e) {
             e.preventDefault();
             var chart = $(this).val();
-            
+
             that.plot(Runs.getAll(), chart);
         });
     };
@@ -171,7 +171,7 @@ var Scatter = (function(document, d3) {
         y.domain([420, 600]);
 
         var calories = d3.scale.linear()
-                       .range([2, 7]);
+                       .range([2, 10]);
 
         calories.domain(
             d3.extent(data, function(d) { return d.calories; })
@@ -200,7 +200,7 @@ var Scatter = (function(document, d3) {
         .text(metric.legend.label);
 
         d3.select("[data-legend]")
-        .text(metric.legend.label)
+        .text(metric.legend.label);
 
         var legend = svg
         .select(".legend-outer")
@@ -216,7 +216,8 @@ var Scatter = (function(document, d3) {
         .attr("class", "legend__rect")
         .attr("x", width - 16)
         .attr("width", 16)
-        .attr("height", 8)
+        .attr("height", 8);
+
         legendGroup.append("text")
           .attr("x", width - 20)
           .attr("y", 4)
@@ -252,7 +253,7 @@ var Scatter = (function(document, d3) {
             .attr("r", oldRadius*2)
             .ease("elastic");
 
-            var str = ""
+            var str = "";
             str += "<div><b>"+d.miles+" miles @ "+secsToMins(d.paceSecs)+" min/mi</b></div>";
             str += "<div>"+d.calories+" calories, "+d.gain+"</b> ft climb</div>";
             str += "<div>"+shortFormat(d.start)+"</div>";
@@ -260,7 +261,7 @@ var Scatter = (function(document, d3) {
             d3.select("body").append("div")
             .attr("class", "running__tip")
             .style("opacity", 0)
-            .style("left", (d3.event.pageX + 22) + "px")     
+            .style("left", (d3.event.pageX + 22) + "px")
             .style("top", (d3.event.pageY - 30) + "px")
             .html(str)
             .transition()
@@ -298,7 +299,7 @@ var Scatter = (function(document, d3) {
         })
         .transition()
         .duration(800)
-        .attr("cx", function(d) { return x(d[metric.x.key]); })
+        .attr("cx", function(d) { return x(d[metric.x.key]); });
 
     };
 
@@ -318,7 +319,7 @@ var Scatter = (function(document, d3) {
         .attr("y1", 0)
         .attr("y2", 0)
         .style("stroke", "gray")
-        .style("stroke-dasharray", "5, 5")
+        .style("stroke-dasharray", "5, 5");
 
         line.append("text")
         .attr("x", 20)
