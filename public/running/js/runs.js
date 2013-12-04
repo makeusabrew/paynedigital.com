@@ -4,40 +4,38 @@ var Runs = (function(d3) {
     var runs = [],
         that = {};
 
-    that.load = function(path, callback) {
-        d3.csv(path, function(error, data) {
-            data.reverse();
+    that.load = function(data, callback) {
+        data.reverse();
 
-            runs = [];
+        runs = [];
 
-            var parse = d3.time.format("%a, %e %b %Y %H:%M").parse;
+        var parse = d3.time.format("%a, %e %b %Y %H:%M").parse;
 
-            var total = 0;
-            data.forEach(function(d) {
+        var total = 0;
+        data.forEach(function(d) {
 
-                var gain  = +d["Elevation Gain"];
-                var miles = +d.Distance;
-                var start = parse(d.Start);
+            var gain  = +d["Elevation Gain"];
+            var miles = +d.Distance;
+            var start = parse(d.Start);
 
-                total += miles;
+            total += miles;
 
-                var run = {
-                    miles: miles,
-                    gain: gain,
-                    gainMile: (gain / miles),
-                    paceSecs: that.minsToSecs(d["Avg Speed(Avg Pace)"]),
-                    calories: +d.Calories.replace(/,/, ''),
-                    start: start,
-                    timeStart: new Date(2013, 0, 1, start.getHours(), start.getMinutes()),
-                    totalMiles: total
-                };
+            var run = {
+                miles: miles,
+                gain: gain,
+                gainMile: (gain / miles),
+                paceSecs: that.minsToSecs(d["Avg Speed(Avg Pace)"]),
+                calories: +d.Calories.replace(/,/, ''),
+                start: start,
+                timeStart: new Date(2013, 0, 1, start.getHours(), start.getMinutes()),
+                totalMiles: total
+            };
 
-                runs.push(run);
+            runs.push(run);
 
-            });
-
-            callback();
         });
+
+        callback();
     };
 
     that.getAll = function() {
@@ -83,12 +81,12 @@ var Runs = (function(d3) {
         return groups;
     };
 
-    that.getDistanceGroups = function(data, numGroups) {
+    that.getDistanceGroups = function(data, _ /* was numGroups? */) {
 
         var min = 2,
-            max = 18,
-            block = 1,
-            numGroups = 16,
+            max = 27,
+            block = 2,
+            numGroups = 13,
             groups = [],
             i = numGroups;
 
@@ -119,7 +117,7 @@ var Runs = (function(d3) {
 
     that.minsToSecs = function(d) {
         var parts = d.split(":");
-        return parseInt(parts[0])*60 + parseInt(parts[1]);
+        return parseInt(parts[0], 10)*60 + parseInt(parts[1], 10);
     };
 
     return that;
