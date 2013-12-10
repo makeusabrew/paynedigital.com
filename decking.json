@@ -1,12 +1,19 @@
 {
     "images": {
         "pd/base": "./docker/base",
-        "pd/web": "./docker/web"
+        "pd/web": "./docker/web",
+        "pd/db": "./docker/mysql"
     },
     "containers": {
         "pdweb": {
             "image": "pd/web",
-            "port": ["8181:80"]
+            "port": ["8181:80"],
+            "env": ["PROJECT_MODE=build"],
+            "dependencies": ["pddb:db"],
+            "mount": ["~/code/web/paynedigital:/var/www"]
+        },
+        "pddb": {
+            "image": "pd/db"
         }
     },
     "clusters": {
