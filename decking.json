@@ -1,0 +1,15 @@
+{
+    "images": {
+        "pd/base": "./docker/base",
+        "pd/web": "./docker/web"
+    },
+    "containers": {
+        "pdweb": {
+            "image": "pd/web",
+            "port": ["8181:80"]
+        }
+    },
+    "clusters": {
+        "main": ["pdweb"]
+    }
+}
