@@ -3,8 +3,9 @@
 {block name='theme'}paper{/block}
 {block name='content'}
     <div class='running wrapper'>
-    <div class='running__body' style="display:none;">
-        <h1>I want to run <b>1,000</b> miles in <b>2013</b>. So far I&rsquo;ve run <b data-total>&hellip;</b> miles.</h1>
+    <div class='running__body' style='display:none;'>
+        <h1>I want to run <del><b>1000</b> miles</del> 1,500 kilometres&#42; in <b>2013</b>.<br />
+        <small>So far I&rsquo;ve run <b data-total>&hellip;</b> miles (or <b data-total-km>&hellip;</b> kilometres).</small></h1>
 
 
         <div class="total chart">
@@ -12,6 +13,9 @@
             to hit 1,000 miles by the 31st December. A knee injury put me out of action from April&mdash;June
             and life got in the way during September so the challenge may well have to start all over again
             in 2014!</p>
+
+            <p class="bump-out">&#42; The gaps in May, June &amp; September mean 1,000 miles isn&rsquo;t going to happen this year.
+            But 1,500km&mdash;932 miles&mdash;might just be within reach!</p>
         </div>
 
         <div class="scatter chart">
@@ -68,7 +72,8 @@
             Scatter.plot(data, 'distance');
             Total.plot(data);
 
-            $("[data-total]").html(Runs.getTotalDistance());
+            $("[data-total]").html(Runs.getTotalDistance("miles"));
+            $("[data-total-km]").html(Runs.getTotalDistance("km"));
 
             $(".running__body").fadeIn();
 

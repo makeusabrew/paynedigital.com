@@ -64,7 +64,7 @@ var Total = (function(document, d3) {
           .style("text-anchor", "end")
           .text("Total miles");
     };
-    
+
     that.plot = function(data) {
 
         // x axis and label
@@ -92,8 +92,16 @@ var Total = (function(document, d3) {
         .attr("x2", width)
         .attr("y1", height)
         .attr("y2", 0)
-        .style("stroke", "gray")
-        .style("stroke-dasharray", "3, 7");
+        .style("stroke", "black")
+        .style("stroke-dasharray", "2, 3");
+
+        svg.append("line")
+        .attr("x1", 0)
+        .attr("x2", width)
+        .attr("y1", height)
+        .attr("y2", y(932))
+        .style("stroke", "grey")
+        .style("stroke-dasharray", "2, 3");
     };
 
     return that;
