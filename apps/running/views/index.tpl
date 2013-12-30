@@ -3,15 +3,19 @@
 {block name='theme'}paper{/block}
 {block name='content'}
     <div class='running wrapper'>
-    <div class='running__body' style="display:none;">
-        <h1>I want to run <b>1,000</b> miles in <b>2013</b>. So far I&rsquo;ve run <b data-total>&hellip;</b> miles.</h1>
+    <div class='running__body' style='display:none;'>
+        <h1>I want to run <del><b>1000</b> miles</del> 1,500 kilometres&#42; in <b>2013</b>.<br />
+        <small>So far I&rsquo;ve run <b data-total>&hellip;</b> miles (or <b data-total-km>&hellip;</b> kilometres).</small></h1>
 
 
         <div class="total chart">
             <p>The following chart simply plots my total mileage this year against what I need to be running
-            to hit 1,000 miles by the 31st December. A knee injury put me out of action from April&mdash;June
+            to hit 1,000 miles by the 31st December. A knee injury put me out of action from April&ndash;June
             and life got in the way during September so the challenge may well have to start all over again
             in 2014!</p>
+
+            <p class="bump-out">&#42; The gaps from April&ndash;June meant 1,000 miles wasn&rsquo;t going to happen this year.
+            But the revised target of 1,500km&mdash;932 miles&mdash;was <i>just</i> hit with a few days to spare!</p>
         </div>
 
         <div class="scatter chart">
@@ -41,8 +45,9 @@
         <p>I ran the <a href="http://www.theyorkshiremarathon.com/">Yorkshire Marathon</a>
         on the 20th October on behalf of <a href="http://www.royalmarsden.org/">The Royal Marsden Cancer Charity</a>,
         a world-leading cancer research centre and hospital which provides treatment and care for more than 40,000
-        cancer patients every year. This page does <i>not</i> exist to seek donations, though any would of course be
-        <a href="https://www.justgiving.com/Nick-Payne-Yorkshire-Marathon">hugely appreciated</a>.</p>
+        cancer patients every year. This page does <i>not</i> exist to seek donations, though all those received were
+        <a href="https://www.justgiving.com/Nick-Payne-Yorkshire-Marathon">hugely appreciated</a> and helped me hit
+        my fundraising target of £1,000.</p>
 
         <hr class="rule    rule--ornament rule--dotted" />
 
@@ -68,7 +73,8 @@
             Scatter.plot(data, 'distance');
             Total.plot(data);
 
-            $("[data-total]").html(Runs.getTotalDistance());
+            $("[data-total]").html(Runs.getTotalDistance("miles"));
+            $("[data-total-km]").html(Runs.getTotalDistance("km"));
 
             $(".running__body").fadeIn();
 

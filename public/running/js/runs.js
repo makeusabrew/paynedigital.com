@@ -104,15 +104,20 @@ var Runs = (function(d3) {
         return groups;
     };
 
-    that.getTotalDistance = function() {
+    that.getTotalDistance = function(unit) {
         var total = 0;
         runs.forEach(function(r) {
             total += r.miles;
         });
 
+        if (unit === "km") {
+          total *= 1.609344;
+        }
+
         total = Math.floor(total * 100) / 100;
 
-        return total;
+        // @see http://stackoverflow.com/a/2901298 - that's quite a regex!
+        return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
     that.minsToSecs = function(d) {
