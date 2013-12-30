@@ -2,21 +2,57 @@
     "images": {
         "pd/base": "./docker/base",
         "pd/web": "./docker/web",
-        "pd/db": "./docker/mysql"
+        "pd/db": "./docker/mysql",
+        "pd/phpunit": "./docker/phpunit"
     },
     "containers": {
-        "pdweb": {
+        "pd_web": {
             "image": "pd/web",
-            "port": ["8181:80"],
-            "env": ["PROJECT_MODE=build"],
-            "dependencies": ["pddb:db"],
-            "mount": ["~/code/web/paynedigital:/var/www"]
+            "port": ["80:80"],
+            "dependencies": ["pd_db:db"]
         },
-        "pddb": {
-            "image": "pd/db"
+        "pd_phpunit": {
+            "image": "pd/phpunit",
+            "dependencies": ["pd_db:db"]
+        },
+        "pd_db": "pd/db"
+    },
+    "groups": {
+        "build": {
+            "options": {
+                "env": ["PROJECT_MODE=build"],
+                "mount": [".:/var/www"]
+            },
+            "containers": {
+                "pd_web": {
+                    "port": ["8181:80"]
+                }
+            }
+        },
+        "test": {
+            "options": {
+                "env": ["PROJECT_MODE=test"],
+                "mount": [".:/var/www"]
+            },
+            "containers": {
+                "pd_web": {
+                    "port": ["9191:80"]
+                }
+            }
         }
     },
     "clusters": {
-        "main": ["pdweb"]
+        "dev": {
+            "group": "build",
+            "containers": ["pd_web"]
+        },
+        "test": {
+            "group": "test",
+            "containers": ["pd_web", "pd_phpunit"]
+        },
+        "test-cli": {
+            "group": "test",
+            "containers": ["pd_phpunit"]
+        }
     }
 }
