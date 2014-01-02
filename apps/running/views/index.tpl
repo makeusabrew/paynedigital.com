@@ -58,9 +58,9 @@
 {/block}
 {block name=script}
     <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="/running/js/runs.js"></script>
-    <script src="/running/js/charts/scatter.js"></script>
-    <script src="/running/js/charts/total.js"></script>
+    <script src="{$static_path}/running/js/runs.js"></script>
+    <script src="{$static_path}/running/js/charts/scatter.js"></script>
+    <script src="{$static_path}/running/js/charts/total.js"></script>
 
     <script>
         Runs.load({$runs}, function() {

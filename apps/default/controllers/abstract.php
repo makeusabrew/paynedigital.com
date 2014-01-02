@@ -11,5 +11,6 @@ class AbstractController extends Controller {
             $section = $segments[1];
         }
         $this->assign('section', $section);
+        $this->assign('static_path', Settings::getValue("site.static_path"));
     }
 }
