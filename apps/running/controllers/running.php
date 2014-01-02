@@ -1,7 +1,10 @@
 <?php
 
 class RunningController extends AbstractController {
-    public function index() {
+    public function archive() {
+        // @NOTE for now there's only one year in the archive but eventually
+        // all this needs sorting out
+
         // @TODO at some stage move this to a proper model
         $data = file_get_contents(PROJECT_ROOT."apps/running/data/runs.csv");
         $rows = str_getcsv($data);
@@ -28,5 +31,10 @@ class RunningController extends AbstractController {
             }
         }
         $this->assign('runs', json_encode($runs));
+
+        $this->render("archive/2013");
+    }
+
+    public function index() {
     }
 }
