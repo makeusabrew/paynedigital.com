@@ -2,6 +2,6 @@
 PathManager::setAppCacheTtl(300);
 
 PathManager::loadPaths(
-    array("/running/(?P<year>20\d{2})", "archive"),
+    array("/running/(?P<year>2013)", "archive"),
     array("/running", "index")
 );
