@@ -7,9 +7,9 @@
     <meta name="format-detection" content="telephone=no" />
     <title>{block name='outer-title'}{block name='title' hide=true}{$smarty.block.child} | {/block}{setting value="site.title"}{/block}</title>
 
-    <link rel="stylesheet" href="/assets/css/style{$assetPath}.min.css" />
+    <link rel="stylesheet" href="{$static_path}/assets/css/style{$assetPath}.min.css" />
 
-    <script src="/assets/js/typekit/fva2awi.js"></script>
+    <script src="{$static_path}/assets/js/typekit/fva2awi.js"></script>
     <script>
         var typekitActive = false;
         try {
@@ -23,7 +23,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="Payne Digital RSS Feed" href="{$base_href}feed.xml"/>
 
-    <link rel="shortcut icon" href=/favicon.png>
+    <link rel="shortcut icon" href="{$static_path}/favicon.png">
 
     {block name="head"}{/block}
 
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <script src="/assets/js/main{$assetPath}.min.js"></script>
+    <script src="{$static_path}/assets/js/main{$assetPath}.min.js"></script>
 
     {setting assign="doPlugins" value="site.social_plugins"}
     {if $doPlugins}
