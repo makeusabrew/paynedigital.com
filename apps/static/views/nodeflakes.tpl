@@ -1,12 +1,19 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name=title}Nodeflakes&mdash;real time tweet powered snowflakes{/block}
 {block name=theme}xmas-inverted{/block}
-{block name='logo-extra'}<img src="/img/xmas.png" alt="" class="logo__xmas" />{/block}
+{*
+{block name='logo-extra'}<img src="{$static_path}/img/xmas.png" alt="" class="logo__xmas" />{/block}
+*}
 {block name=head}
-    <link rel="stylesheet" href="/nodeflakes-client/css/main.css?v=467" type="text/css" />
+    <link rel="stylesheet" href="{$static_path}/nodeflakes-client/css/main.css?v=467" type="text/css" />
 {/block}
 {block name=heading}Nodeflakes&mdash;real time tweet powered snowflakes{/block}
 {block name=body}
+
+    <h2 class="bump-out">2<sup>nd</sup> January 2014: Nodeflakes has been decomissioned for another year; please
+    check back nearer Christmas for more festive flakes!</h2>
+
+    <div class=inactive>
 
     <p>The snowflakes you can see gently floating down your screen are
     real-time representations of tweets, taken <i>live</i> from
@@ -42,6 +49,8 @@
     data-size="large"
     data-url="http://paynedigital.com/nodeflakes">Tweet #nodeflakes</a>
     </p>
+
+    </div>
 
     <h2>How It Works</h2>
 
@@ -101,8 +110,9 @@
 
     <p>Enjoy the snowflakes!</p>
 {/block}
+{*
 {block name=script}
-    <script src="/assets/js/nodeflakes{$assetPath}.min.js"></script>
+    <script src="{$static_path}/assets/js/nodeflakes{$assetPath}.min.js"></script>
     <script>
         $(function() {
             pjaxify.disable();
@@ -110,3 +120,4 @@
         });
     </script>
 {/block}
+*}
