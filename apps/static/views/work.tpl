@@ -13,6 +13,23 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
+    <h2>Finch (2014)</h2>
+
+    <p class="bump-out milli">
+        Node.js, MongoDB, Redis
+        <span class="split-before"></span><a href="https://meetfinch.com">meetfinch.com</a>
+    </p>
+
+    <p>A newly-launched &lsquo;Software as a Service&rsquo; product allowing
+    secure, instant previews of local websites on any internet connected device.
+    Finch was born out of the frustration of not being able to preview
+    development websites on real mobile &amp; tablet devices at a number of
+    companies I&rsquo;ve worked with in recent years. After initially prototyping a
+    solution in 2013 I spent the first quarter of 2014 turning the prototype into a product.</p>
+
+
+    <hr class="rule    rule--ornament rule--dotted" />
+
     <h2>JavaScript Developer (2013)</h2>
 
     <p class="bump-out milli">
@@ -59,10 +76,10 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Jaoss Library &amp; Web Application Framework (2010&ndash;2013)</h2>
+    <h2>Jaoss Library &amp; Web Application Framework (2010&ndash;2014)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: 3 years (ongoing)</span>
+        <span class="split-after">Duration: 4 years (ongoing)</span>
         GitHub Repositories:
         <a href="https://github.com/makeusabrew/jaoss">Library</a>,
         <a href="https://github.com/makeusabrew/jaoss-web-template">Framework</a>
@@ -74,7 +91,7 @@
     <p>The <a href="https://github.com/makeusabrew/jaoss">jaoss library</a>
     is an open source MVC PHP5 framework focused on speed and testability. It
     started life in May 2010 and has since been used in the vast majority of projects
-    I&rsquo;ve built from quick-turnaround microsites to high-performance 
+    I&rsquo;ve built from quick-turnaround microsites to high-performance
     sites supporting tens of thousands of daily visitors. Although the library
     is a <a href="https://github.com/makeusabrew/jaoss">standalone project</a>
     it is more commonly used as part of the <a href="https://github.com/makeusabrew/jaoss-web-template">jaoss web template</a>
@@ -105,10 +122,10 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Bootbox.js (2011&ndash;2013)</h2>
+    <h2>Bootbox.js (2011&ndash;2014)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: 1&frac12; years (ongoing)</span>
+        <span class="split-after">Duration: 2&frac12; years (ongoing)</span>
         <a href="https://github.com/makeusabrew/bootbox">GitHub Repository</a>
         <span class="split-before">JavaScript, CoffeeScript</span>
     </p>
@@ -144,10 +161,10 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Payne Digital Website (2011&ndash;2013)</h2>
+    <h2>Payne Digital Website (2011&ndash;2014)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: 2 years (ongoing)</span>
+        <span class="split-after">Duration: 3 years (ongoing)</span>
         <a href="https://github.com/makeusabrew/paynedigital.com">GitHub Repository</a>
         <span class="split-before">PHP, JavaScript, HTML5, Sass, TDD, CI</span>
     </p>
@@ -187,7 +204,7 @@
     and JavaScript developer and <a href="http://faavorite.com">faavorite</a>
     was the first project in which I deployed any <a href="http://nodejs.org/">node.js</a>
     code in production to handle a huge amount of background task processing.
-    
+
     The project also involved a number of other technologies over and above
     the typical LAMP stack including the use of <a href="http://redis.io/">redis</a>
     as both a news feed and caching mechanism along with ZeroMQ and WebSockets to
