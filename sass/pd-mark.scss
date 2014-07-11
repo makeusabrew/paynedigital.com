@@ -1,0 +1,17 @@
+/**
+ * Make the logo adopt the theme color on the relevant page.
+ *
+ * TODO: Incorporate transition into the `transitions.scss` file.
+ */
+
+// Set a timing value again, but only if the one defined in `transitions.scss`
+// is not globally accessible:
+$timing: 0.5s !default;
+
+                      .pd-mark path { fill: #141414; @include vendor(transition, $timing); }
+.theme--green         .pd-mark path { fill: #83a850; }
+.theme--army          .pd-mark path { fill: #3b4116; }
+.theme--dark-blue     .pd-mark path { fill: #3f4e79; }
+.theme--faded-blue    .pd-mark path { fill: #54949C; }
+.theme--neon-inverted .pd-mark path { fill: #efefef; }
+.theme--mustard       .pd-mark path { fill: #eaba22; }
