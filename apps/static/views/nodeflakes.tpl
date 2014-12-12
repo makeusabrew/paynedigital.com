@@ -11,9 +11,9 @@
     {*
     <h2 class="bump-out">2<sup>nd</sup> January 2014: Nodeflakes has been decomissioned for another year; please
     check back nearer Christmas for more festive flakes!</h2>
-    *}
 
     <div class=inactive>
+    *}
 
     <p>The snowflakes you can see gently floating down your screen are
     real-time representations of tweets, taken <i>live</i> from
@@ -50,7 +50,9 @@
     data-url="http://paynedigital.com/nodeflakes">Tweet #nodeflakes</a>
     </p>
 
+    {*
     </div>
+    *}
 
     <h2>How It Works</h2>
 
