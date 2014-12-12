@@ -1,17 +1,17 @@
 {extends 'default/views/base-two-col.tpl'}
 {block name=title}Nodeflakes&mdash;real time tweet powered snowflakes{/block}
 {block name=theme}xmas-inverted{/block}
-{*
 {block name='logo-extra'}<img src="{$static_path}/img/xmas.png" alt="" class="logo__xmas" />{/block}
-*}
 {block name=head}
     <link rel="stylesheet" href="{$static_path}/nodeflakes-client/css/main.css?v=467" type="text/css" />
 {/block}
 {block name=heading}Nodeflakes&mdash;real time tweet powered snowflakes{/block}
 {block name=body}
 
+    {*
     <h2 class="bump-out">2<sup>nd</sup> January 2014: Nodeflakes has been decomissioned for another year; please
     check back nearer Christmas for more festive flakes!</h2>
+    *}
 
     <div class=inactive>
 
@@ -98,9 +98,9 @@
     <a href="http://en.wikipedia.org/wiki/WebSocket">WebSockets</a>,
     <a href="http://zguide.zeromq.org/page:all">ZeroMQ</a>,
     <a href="/articles/2013/01/nodeflakes-analysis-statsd-graphite">Graphite, StatsD</a>
-    and a new addition for 2013, <a href="/articles/2013/11/introduction-to-docker">Docker</a>.</p>
+    and <a href="/articles/2013/11/introduction-to-docker">Docker</a>.</p>
 
-    <p>The code hasn&rsquo;t changed much over the past two years and in some places is certainly
+    <p>The code hasn&rsquo;t changed much over the past three years and in some places is certainly
     showing its age, but as long as it works and people enjoy it it&rsquo;ll make an appearance
     every year in the run up to Christmas.</p>
 
@@ -110,14 +110,12 @@
 
     <p>Enjoy the snowflakes!</p>
 {/block}
-{*
 {block name=script}
     <script src="{$static_path}/assets/js/nodeflakes{$assetPath}.min.js"></script>
     <script>
         $(function() {
             pjaxify.disable();
-            Client.start("ws.paynedigital.com", 80);
+            Client.start("178.62.99.226", 80);
         });
     </script>
 {/block}
-*}
