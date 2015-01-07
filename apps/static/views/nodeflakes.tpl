@@ -80,7 +80,7 @@
 
     <h2>Like What You See?</h2>
 
-    <p class="hide--palm">This is a small demo I put together two years ago, but hopefully you&rsquo;ve enjoyed it nonetheless.
+    <p class="hide--palm">This is a small demo I put together three years ago, but hopefully you&rsquo;ve enjoyed it nonetheless.
     If it&rsquo;s piqued your interest at all feel free to <a href="/contact">get in touch</a> to discuss it or find out
     how we may be able to work together using any of the technologies on show here, or indeed <a href="/services">anything else</a>
     I may be able to help you with.</p>
