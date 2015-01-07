@@ -76,7 +76,7 @@
     <div class="footer">
         <div class="wrapper cf">
             <div class="footer__copyright">
-                &copy; 2010&ndash;2014 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
+                &copy; 2010&ndash;2015 Payne Digital Ltd<span class="hide--palm hide--desk">.&nbsp;</span>
             </div>
             <div class="footer__company-info hide--palm">
                 Company No. 07277912. VAT No. 991909470.
