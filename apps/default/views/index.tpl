@@ -7,11 +7,6 @@
             High performance web application and real-time game development
         </h1>
         <div class="hero__copy">
-            <p class="bump-out">
-            Latest launch: <a href="https://meetfinch.com">Finch</a>&mdash;preview
-            your local websites on any internet connected device
-            </p>
-
             {include file="default/views/includes/intro.tpl"}
 
             <p>You can find out more <a href="/about" class="pjax">about me</a>,

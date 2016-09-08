@@ -6,14 +6,18 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Finch (2014)</h2>
+    <h2>Crimson Digital&mdash;Director</h2>
+
+    <h2>Valtech&mdash;Software Engineer</h2>
+
+    <h2>meetfinch.com (2014&ndash;present)</h2>
 
     <p class="bump-out milli">
-        Node.js, MongoDB, Redis
+        Node.js, MongoDB, Redis, RabbitMQ, ReactJS, NW.js
         <span class="split-before"></span><a href="https://meetfinch.com">meetfinch.com</a>
     </p>
 
-    <p>A newly-launched &lsquo;Software as a Service&rsquo; product allowing
+    <p>A &lsquo;Software as a Service&rsquo; product allowing
     secure, instant previews of local websites on any internet connected device.
     Finch was born out of the frustration of not being able to preview
     development websites on real mobile &amp; tablet devices at a number of
@@ -23,7 +27,7 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>JavaScript Developer (2013)</h2>
+    <h2>Sky Sports&mdash;JavaScript Developer (2013)</h2>
 
     <p class="bump-out milli">
         Duration: 6 months
@@ -115,10 +119,10 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Bootbox.js (2011&ndash;2014)</h2>
+    <h2>Bootbox.js (2011&ndash;present)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: 2&frac12; years (ongoing)</span>
+        <span class="split-after">Duration: 5 years (ongoing)</span>
         <a href="https://github.com/makeusabrew/bootbox">GitHub Repository</a>
         <span class="split-before">JavaScript, CoffeeScript</span>
     </p>
@@ -154,10 +158,10 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Payne Digital Website (2011&ndash;2014)</h2>
+    <h2>Payne Digital Website (2011&ndash;present)</h2>
 
     <p class="bump-out milli">
-        <span class="split-after">Duration: 3 years (ongoing)</span>
+        <span class="split-after">Duration: 5 years (ongoing)</span>
         <a href="https://github.com/makeusabrew/paynedigital.com">GitHub Repository</a>
         <span class="split-before">PHP, JavaScript, HTML5, Sass, TDD, CI</span>
     </p>
@@ -222,7 +226,7 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Lead Software Engineer (2010&ndash;2011)</h2>
+    <h2>SkyBet&mdash;Lead Software Engineer (2010&ndash;2011)</h2>
 
     <p class="bump-out milli">
         <span class="split-after">Duration: 1 year</span>
