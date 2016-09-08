@@ -25,6 +25,7 @@ module.exports = (grunt) ->
         sass:
             options:
                 style: "compressed"
+                sourcemap: "none"
             build:
                 files:
                     "public/assets/css/style<%= append %>.min.css" : "sass/style.scss"
