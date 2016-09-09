@@ -78,15 +78,15 @@
     }
 }
 
-@include theme(dark-blue, #3b5192, #DFE2D2);
-@include theme(brown, #7F5F39, #e8e1D8);
-@include theme(faded-blue, #54949B, #f0f0f0);
-@include theme(green, #83A850, #ecead6);
-@include theme(redbrick, #C14444, rgb(255, 252, 178));
-@include theme(army, #646f1d, #ebe0c2);
-@include theme(burgundy, #451717, #EEF8ED);
-@include theme(purple, #2E1525, #EDF2E3);
-@include theme(mustard, #EABA22, #fff);
-@include theme(paper, #f0f0f0, #141414);
-@include theme-inverted(xmas, #eeeeee, #333, #386136);
-@include theme-inverted(neon, #efefef, #333, #B40E4D);
+@include theme("dark-blue", #3b5192, #DFE2D2);
+@include theme("brown", #7F5F39, #e8e1D8);
+@include theme("faded-blue", #54949B, #f0f0f0);
+@include theme("green", #83A850, #ecead6);
+@include theme("redbrick", #C14444, rgb(255, 252, 178));
+@include theme("army", #646f1d, #ebe0c2);
+@include theme("burgundy", #451717, #EEF8ED);
+@include theme("purple", #2E1525, #EDF2E3);
+@include theme("mustard", #EABA22, #fff);
+@include theme("paper", #f0f0f0, #141414);
+@include theme-inverted("xmas", #eeeeee, #333, #386136);
+@include theme-inverted("neon", #efefef, #333, #B40E4D);
