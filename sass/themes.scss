@@ -83,10 +83,11 @@
 @include theme("faded-blue", #54949B, #f0f0f0);
 @include theme("green", #83A850, #ecead6);
 @include theme("redbrick", #C14444, rgb(255, 252, 178));
-@include theme("army", #646f1d, #ebe0c2);
+@include theme("army", #818852, #efefef);
 @include theme("burgundy", #451717, #EEF8ED);
 @include theme("purple", #2E1525, #EDF2E3);
 @include theme("mustard", #EABA22, #fff);
+@include theme("salmon", #e07057, #efefef);
 @include theme("paper", #f0f0f0, #141414);
 @include theme-inverted("xmas", #eeeeee, #333, #386136);
 @include theme-inverted("neon", #efefef, #333, #B40E4D);
