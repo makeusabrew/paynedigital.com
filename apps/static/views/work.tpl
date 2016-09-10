@@ -6,24 +6,50 @@
 
     <hr class="rule    rule--ornament rule--dotted" />
 
-    <h2>Crimson Digital&mdash;Director</h2>
-
-    <h2>Valtech&mdash;Software Engineer</h2>
-
-    <h2>meetfinch.com (2014&ndash;present)</h2>
+    <h2>Finch (2014&ndash;present)</h2>
 
     <p class="bump-out milli">
-        Node.js, MongoDB, Redis, RabbitMQ, ReactJS, NW.js
+        Node.js, MongoDB, Redis, RabbitMQ, React, Flux, NW.js
         <span class="split-before"></span><a href="https://meetfinch.com">meetfinch.com</a>
     </p>
 
-    <p>A &lsquo;Software as a Service&rsquo; product allowing
+    <p>My flagship project; &lsquo;Software as a Service&rsquo; product allowing
     secure, instant previews of local websites on any internet connected device.
     Finch was born out of the frustration of not being able to preview
     development websites on real mobile &amp; tablet devices at a number of
     companies I&rsquo;ve worked with in recent years. After initially prototyping a
     solution in 2013 I spent the first quarter of 2014 turning the prototype into a product.</p>
 
+    <p>That product comprises of the website itself, a Node.JS command-line application
+    and a desktop application written using React, Flux and NW.js. Despite the increase in
+    scope of the project and scale of the customer base over the years the application is
+    still managed entirely by myself.</p>
+
+    <h2>Crimson Digital&mdash;Director (2015&mdash;present)</h2>
+
+    <p class="bump-out milli">
+        Node.js, React, Flux, MySQL, Redis
+    </p>
+
+    <p>One half of Crimson Digital Ltd involved in the planning, development and running
+    of a 24/7, heavily trafficked SPA website. This system involved a free-to-play online
+    game which attracted a huge amount of visitors from all around the world and as such
+    required a rock-solid infrastructure and a unique, captivating game style. One of the
+    most fast-paced and intense projects to date which ran for 6 months during 2015.</p>
+
+    <h2>Valtech&mdash;Software Engineer (2014&ndash;2015)</h2>
+
+    <p class="bump-out milli">
+        Duration: 14 months
+        <span class="split-before">
+            PHP, TDD, JavaScript, CI
+        </span>
+    </p>
+
+    <p>A year-long contract working on a high profile Government contract in Leeds. Although
+    predominantly a PHP role, over time I became the principle architect, developer and maintainer
+    of the frontend JavaScript module system, as well as the frontend build pipeline (involving
+    CSS and images alongside JavaScript).</p>
 
     <hr class="rule    rule--ornament rule--dotted" />
 
